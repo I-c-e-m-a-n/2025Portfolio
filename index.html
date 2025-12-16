@@ -1,20 +1,32 @@
+<!-- https://i-c-e-m-a-n.github.io/2025Portfolio/#top -->
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Guruprasad Nayak — AI & Data Science</title>
-  <meta name="description" content="AI & Data Science professional with experience across machine learning, HCI, cybersecurity, and digital transformation. Portfolio, projects, and resume." />
+  <!-- SEO-Optimized Meta Tags -->
+  <title>Guruprasad Nayak | AI Systems Engineer & Agent Architect</title>
+  <meta name="description" content="AI Systems Engineer specializing in agentic architectures, RAG systems, LLM orchestration, and production-grade AI infrastructure. Building intelligent systems that scale." />
+  <meta name="keywords" content="AI Engineer, AI Systems Engineer, Agent Architect, RAG, LLM, Machine Learning, Agentic AI, Memory Systems, Python, FastAPI, Singapore" />
   <meta name="author" content="Guruprasad Nayak" />
   <meta name="theme-color" content="#111827" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://i-c-e-m-a-n.github.io/2025Portfolio/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Guruprasad Nayak — AI & Data Science" />
-  <meta property="og:description" content="Experience, and resume." />
+  <meta property="og:title" content="Guruprasad Nayak | AI Systems Engineer & Agent Architect" />
+  <meta property="og:description" content="Building intelligent AI systems: agentic architectures, RAG pipelines, memory systems, and production-grade LLM infrastructure." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://i-c-e-m-a-n.github.io/Resume/" />
+  <meta property="og:url" content="https://i-c-e-m-a-n.github.io/2025Portfolio/" />
   <meta property="og:image" content="assets/og-card.png" />
+  <meta property="og:site_name" content="Guruprasad Nayak Portfolio" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Guruprasad Nayak | AI Systems Engineer" />
+  <meta name="twitter:description" content="Building intelligent AI systems: agentic architectures, RAG pipelines, and production-grade infrastructure." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,20 +46,15 @@
           },
           colors: {
             brand: {
-              50: '#EEF2FF',
-              100: '#E0E7FF',
-              200: '#C7D2FE',
-              300: '#A5B4FC',
-              400: '#818CF8',
-              500: '#6366F1',
-              600: '#4F46E5',
-              700: '#4338CA',
-              800: '#3730A3',
-              900: '#312E81'
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8'
             }
           },
-          boxShadow: {
-            glow: '0 10px 30px rgba(99, 102, 241, 0.25)'
+          letterSpacing: {
+            tighter: '-0.03em'
           }
         }
       }
@@ -84,12 +91,14 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Guruprasad Nayak",
-    "jobTitle": "AI & Data Science Professional",
-    "url": "https://i-c-e-m-a-n.github.io/Resume/",
+    "jobTitle": "AI Systems Engineer",
+    "description": "AI Systems Engineer specializing in agentic architectures, RAG systems, and production-grade AI infrastructure",
+    "url": "https://i-c-e-m-a-n.github.io/2025Portfolio/",
     "sameAs": [
       "https://www.linkedin.com/in/guru-nayak",
       "https://github.com/I-c-e-m-a-n"
     ],
+    "knowsAbout": ["Artificial Intelligence", "Machine Learning", "RAG Systems", "LLM Orchestration", "Agent Architecture", "Python", "FastAPI"],
     "address": { "@type": "PostalAddress", "addressCountry": "SG" },
     "email": "mailto:guruprasadnayak24@gmail.com"
   }
@@ -98,407 +107,310 @@
 <body x-data="site()" x-init="init()" :class="darkMode ? 'dark bg-gray-950 text-gray-100' : 'bg-white text-gray-800'">
 
   <!-- Navbar -->
-  <header class="no-print sticky top-0 z-50 border-b border-black/5 dark:border-white/10 backdrop-blur bg-white/70 dark:bg-gray-950/70">
-    <div class="mx-auto max-w-6xl px-4">
-      <div class="flex items-center justify-between h-16">
-        <a href="#top" class="flex items-center gap-2 font-semibold">
-          <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-white shadow-glow">GN</span>
-          <span>Guruprasad Nayak</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-          <a class="hover:text-brand-600" href="#summary">Summary</a>
-          <a class="hover:text-brand-600" href="#skills">Skills</a>
-          <a class="hover:text-brand-600" href="#experience">Experience</a>
-          <a class="hover:text-brand-600" href="#education">Education</a>
-          <a class="hover:text-brand-600" href="#certs">Certifications</a>
-          <a class="hover:text-brand-600" href="#awards">Awards</a>
-          <a class="hover:text-brand-600" href="#contact">Contact</a>
+  <header class="no-print sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800 backdrop-blur bg-white/90 dark:bg-gray-950/90">
+    <div class="mx-auto max-w-5xl px-6">
+      <div class="flex items-center justify-between h-14">
+        <a href="#top" class="font-mono text-sm tracking-tight">guruprasad.dev</a>
+        <nav class="hidden md:flex items-center gap-8 text-sm text-gray-600 dark:text-gray-400">
+          <a class="hover:text-gray-900 dark:hover:text-white transition-colors" href="#work">Work</a>
+          <a class="hover:text-gray-900 dark:hover:text-white transition-colors" href="#experience">Experience</a>
+          <a class="hover:text-gray-900 dark:hover:text-white transition-colors" href="#philosophy">Philosophy</a>
+          <a class="hover:text-gray-900 dark:hover:text-white transition-colors" href="#contact">Contact</a>
         </nav>
-        <div class="flex items-center gap-2">
-          <button @click="toggleTheme" class="no-print inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10">
+        <div class="flex items-center gap-3">
+          <button @click="toggleTheme" class="no-print p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
             <i data-lucide="moon" class="h-4 w-4" x-show="!darkMode"></i>
             <i data-lucide="sun" class="h-4 w-4" x-show="darkMode"></i>
-            <span x-text="darkMode ? 'Light' : 'Dark'"></span>
           </button>
-          <a href="Guruprasad_Nayak_Resume_November_2025.pdf" class="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-3 py-1.5 text-sm font-semibold text-white shadow-glow hover:bg-brand-700">
-            <i data-lucide="download" class="h-4 w-4"></i> Resume
+          <a href="Guruprasad_Nayak_Resume.pdf" class="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:text-brand-700">
+            <i data-lucide="file-text" class="h-4 w-4"></i> Resume
           </a>
-          <button class="md:hidden inline-flex items-center justify-center rounded-lg p-2 hover:bg-black/5 dark:hover:bg-white/10" @click="mobileOpen = !mobileOpen" aria-label="Toggle menu">
-            <i data-lucide="menu" class="h-6 w-6"></i>
+          <button class="md:hidden p-2" @click="mobileOpen = !mobileOpen" aria-label="Menu">
+            <i data-lucide="menu" class="h-5 w-5"></i>
           </button>
         </div>
       </div>
-      <!-- Mobile menu -->
       <div class="md:hidden" x-show="mobileOpen" x-transition x-cloak>
-        <nav class="grid gap-2 pb-3 text-sm">
-          <a @click="mobileOpen=false" class="rounded-lg px-3 py-2 hover:bg-black/5 dark:hover:bg-white/10" href="#summary">Summary</a>
-          <a @click="mobileOpen=false" class="rounded-lg px-3 py-2 hover:bg-black/5 dark:hover:bg-white/10" href="#skills">Skills</a>
-          <a @click="mobileOpen=false" class="rounded-lg px-3 py-2 hover:bg-black/5 dark:hover:bg-white/10" href="#experience">Experience</a>
-          <a @click="mobileOpen=false" class="rounded-lg px-3 py-2 hover:bg-black/5 dark:hover:bg-white/10" href="#education">Education</a>
-          <a @click="mobileOpen=false" class="rounded-lg px-3 py-2 hover:bg-black/5 dark:hover:bg-white/10" href="#certs">Certifications</a>
-          <a @click="mobileOpen=false" class="rounded-lg px-3 py-2 hover:bg-black/5 dark:hover:bg-white/10" href="#awards">Awards</a>
-          <a @click="mobileOpen=false" class="rounded-lg px-3 py-2 hover:bg-black/5 dark:hover:bg-white/10" href="#contact">Contact</a>
+        <nav class="py-4 space-y-1 text-sm border-t border-gray-100 dark:border-gray-800">
+          <a @click="mobileOpen=false" class="block py-2 text-gray-600 dark:text-gray-400" href="#work">Work</a>
+          <a @click="mobileOpen=false" class="block py-2 text-gray-600 dark:text-gray-400" href="#experience">Experience</a>
+          <a @click="mobileOpen=false" class="block py-2 text-gray-600 dark:text-gray-400" href="#philosophy">Philosophy</a>
+          <a @click="mobileOpen=false" class="block py-2 text-gray-600 dark:text-gray-400" href="#contact">Contact</a>
         </nav>
       </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="top" class="relative overflow-hidden">
-    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_10%,rgba(99,102,241,0.15),transparent_35%),radial-gradient(circle_at_70%_50%,rgba(99,102,241,0.12),transparent_40%)]"></div>
-    <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
-      <div class="grid items-center gap-10 md:grid-cols-2">
-        <div class="fade-in">
-          <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-            AI & Data Science Professional<span class="text-brand-600">.</span>
-          </h1>
-          <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-            Strong foundation in machine learning, HCI, and cybersecurity; proven record delivering automation
-            and digital platforms in defense, academia, and cyber contexts.
-          </p>
-          <div class="mt-6 flex flex-wrap items-center gap-3">
-            <a href="mailto:guruprasadnayak24@gmail.com" class="inline-flex items-center gap-2 rounded-xl border border-black/10 dark:border-white/10 px-4 py-2.5 hover:bg-black/5 dark:hover:bg-white/10">
-              <i data-lucide="mail" class="h-5 w-5"></i> Contact
-            </a>
-            <button @click="copyEmail" class="inline-flex items-center gap-2 rounded-xl border border-black/10 dark:border-white/10 px-4 py-2.5 hover:bg-black/5 dark:hover:bg-white/10">
-              <i data-lucide="clipboard" class="h-5 w-5"></i>
-              <span x-text="copied ? 'Email copied!' : 'Copy email'"></span>
-            </button>
-          </div>
-          <div class="mt-4 text-sm text-gray-500 dark:text-gray-400">
-            Singapore (PR) · <a href="tel:+6592780697" class="underline decoration-dotted">+65 9278 0697</a> ·
-            <a class="underline decoration-dotted" href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener">LinkedIn</a> ·
-            <a class="underline decoration-dotted" href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener">GitHub</a>
-          </div>
+  <section id="top" class="mx-auto max-w-5xl px-6 pt-20 pb-16 md:pt-28 md:pb-20">
+    <p class="font-mono text-sm text-gray-500 dark:text-gray-400 mb-4">Guruprasad Nayak · Singapore</p>
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-[1.1]">
+      I build AI systems that<br class="hidden sm:block" />
+      <span class="text-gray-400 dark:text-gray-500">reason reliably.</span>
+    </h1>
+    <p class="mt-6 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
+      AI Systems Engineer focused on agent infrastructure, context selection, and production-grade LLM orchestration. 
+      I design systems where determinism and observability are first-class concerns.
+    </p>
+    
+    <!-- Key capabilities inline -->
+    <div class="mt-8 flex flex-wrap gap-3 text-sm">
+      <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg font-mono">RAG Systems</span>
+      <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg font-mono">Agent Memory</span>
+      <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg font-mono">Context Selection</span>
+      <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg font-mono">Evaluation</span>
+    </div>
+    
+    <!-- Metrics row -->
+    <div class="mt-10 pt-8 border-t border-gray-200 dark:border-gray-800 grid grid-cols-3 gap-8 max-w-lg">
+      <div>
+        <div class="text-2xl md:text-3xl font-semibold tracking-tight">80%</div>
+        <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">workflow reduction</div>
+      </div>
+      <div>
+        <div class="text-2xl md:text-3xl font-semibold tracking-tight">60h</div>
+        <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">saved monthly</div>
+      </div>
+      <div>
+        <div class="text-2xl md:text-3xl font-semibold tracking-tight">200+</div>
+        <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">students taught</div>
+      </div>
+    </div>
+    
+    <!-- Links -->
+    <div class="mt-8 flex items-center gap-6 text-sm">
+      <a href="mailto:guruprasadnayak24@gmail.com" class="font-medium text-brand-600 hover:text-brand-700">guruprasadnayak24@gmail.com</a>
+      <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">GitHub</a>
+      <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- Work / Featured Project -->
+  <section id="work" class="mx-auto max-w-5xl px-6 py-16 md:py-20">
+    <h2 class="text-sm font-mono text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-8">Featured Work</h2>
+    
+    <!-- Primary Case Study: Memory System -->
+    <article class="border-l-2 border-brand-600 pl-6 md:pl-8 mb-12">
+      <div class="flex items-baseline gap-4 mb-4">
+        <h3 class="text-2xl md:text-3xl font-semibold tracking-tight">Agentic Memory System</h3>
+        <span class="text-sm font-mono text-gray-400">2024</span>
+      </div>
+      
+      <p class="text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
+        Production memory infrastructure for LLM agents. Addresses the core challenge that agents lack 
+        persistent, contextually-aware memory for multi-turn reasoning and long-horizon tasks.
+      </p>
+      
+      <div class="mt-6 grid md:grid-cols-3 gap-6 text-sm">
+        <div>
+          <h4 class="font-medium mb-2">Architecture</h4>
+          <p class="text-gray-500 dark:text-gray-400">Tiered storage (hot/warm/cold) with hybrid retrieval combining semantic search, lexical matching, and entity extraction.</p>
         </div>
-        <div class="relative slide-up">
-          <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-gradient-to-br from-white to-brand-50/60 dark:from-gray-900 dark:to-gray-800 p-6 shadow-xl">
-            <div class="grid gap-4 sm:grid-cols-2">
-              <div class="rounded-2xl bg-white/70 dark:bg-gray-900/70 p-4 border border-black/10 dark:border-white/10">
-                <div class="flex items-center gap-2 font-semibold"><i data-lucide="brain" class="h-5 w-5 text-brand-600"></i> Machine Learning</div>
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">TensorFlow, PyTorch, Pandas, NumPy</p>
-              </div>
-              <div class="rounded-2xl bg-white/70 dark:bg-gray-900/70 p-4 border border-black/10 dark:border-white/10">
-                <div class="flex items-center gap-2 font-semibold"><i data-lucide="shield" class="h-5 w-5 text-brand-600"></i> Cybersecurity</div>
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">CEH, OSINT, Kali, Metasploit, Wireshark</p>
-              </div>
-              <div class="rounded-2xl bg-white/70 dark:bg-gray-900/70 p-4 border border-black/10 dark:border-white/10">
-                <div class="flex items-center gap-2 font-semibold"><i data-lucide="cloud" class="h-5 w-5 text-brand-600"></i> Cloud & DevOps</div>
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">AWS, GitHub, CI/CD basics</p>
-              </div>
-              <div class="rounded-2xl bg-white/70 dark:bg-gray-900/70 p-4 border border-black/10 dark:border-white/10">
-                <div class="flex items-center gap-2 font-semibold"><i data-lucide="beaker" class="h-5 w-5 text-brand-600"></i> HCI & Research</div>
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">Autism support tools, Quantum econ</p>
-              </div>
-            </div>
-            <div class="mt-4 text-xs text-gray-500 dark:text-gray-400">B.S. Computer Science (AI), University of Delaware</div>
+        <div>
+          <h4 class="font-medium mb-2">Key Innovation</h4>
+          <p class="text-gray-500 dark:text-gray-400">Two-stage scoring: absolute utility (relevance, recency, authority) + marginal utility (redundancy penalties, gap-fill bonuses).</p>
+        </div>
+        <div>
+          <h4 class="font-medium mb-2">Outcomes</h4>
+          <p class="text-gray-500 dark:text-gray-400">Deterministic context assembly, token budgeting, grounding validation, early-stopping to prevent context inflation.</p>
+        </div>
+      </div>
+      
+      <div class="mt-6 flex flex-wrap gap-2 text-xs font-mono text-gray-500 dark:text-gray-400">
+        <span>Python</span><span class="text-gray-300 dark:text-gray-600">/</span>
+        <span>FastAPI</span><span class="text-gray-300 dark:text-gray-600">/</span>
+        <span>PostgreSQL</span><span class="text-gray-300 dark:text-gray-600">/</span>
+        <span>Redis</span><span class="text-gray-300 dark:text-gray-600">/</span>
+        <span>Embeddings</span>
+      </div>
+      
+      <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-6 text-sm font-medium text-brand-600 hover:text-brand-700">
+        View on GitHub <i data-lucide="arrow-right" class="h-4 w-4"></i>
+      </a>
+    </article>
+    
+    <!-- Other Projects Grid -->
+    <div class="grid md:grid-cols-3 gap-6 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <article>
+        <h4 class="font-medium mb-2">Context Scorer</h4>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Unified scoring pipeline replacing fragmented heuristics. Observability metrics for latency, token usage, facet coverage.</p>
+        <span class="text-xs font-mono text-gray-400">Python · Metrics · pytest</span>
+      </article>
+      <article>
+        <h4 class="font-medium mb-2">Operations Platform</h4>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">End-to-end digital transformation for military operations. 80% workflow reduction, 60h/month saved.</p>
+        <span class="text-xs font-mono text-gray-400">Python · ETL · Dashboards</span>
+      </article>
+      <article>
+        <h4 class="font-medium mb-2">Autism Learning Tool</h4>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">HCI research project: adaptive learning with model-backed personalization and usability testing.</p>
+        <span class="text-xs font-mono text-gray-400">TensorFlow · Flask · UX</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- Engineering Philosophy -->
+  <section id="philosophy" class="mx-auto max-w-5xl px-6 py-16 md:py-20 border-t border-gray-200 dark:border-gray-800">
+    <h2 class="text-sm font-mono text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-8">Engineering Philosophy</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-semibold tracking-tight mb-4">How I approach systems</h3>
+        <div class="space-y-4 text-gray-600 dark:text-gray-300">
+          <p class="font-mono text-sm border-l-2 border-gray-300 dark:border-gray-700 pl-4">
+            Determinism over heuristics. Every context selection decision should be traceable and reproducible.
+          </p>
+          <p class="font-mono text-sm border-l-2 border-gray-300 dark:border-gray-700 pl-4">
+            Observability as architecture. If you can't measure it, you can't debug it in production.
+          </p>
+          <p class="font-mono text-sm border-l-2 border-gray-300 dark:border-gray-700 pl-4">
+            Token budgets are constraints, not suggestions. Early-stopping beats post-hoc truncation.
+          </p>
+          <p class="font-mono text-sm border-l-2 border-gray-300 dark:border-gray-700 pl-4">
+            Ground truth matters. Hallucination guardrails should be evaluated, not assumed.
+          </p>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-semibold tracking-tight mb-4">What I build with</h3>
+        <div class="space-y-4 text-sm">
+          <div>
+            <span class="font-medium">Agent Systems</span>
+            <p class="text-gray-500 dark:text-gray-400 mt-1 font-mono">RAG · Memory · Tool Calling · Context Selection · Orchestration</p>
+          </div>
+          <div>
+            <span class="font-medium">ML & NLP</span>
+            <p class="text-gray-500 dark:text-gray-400 mt-1 font-mono">Embeddings · Ranking · Fine-tuning · Evaluation Design</p>
+          </div>
+          <div>
+            <span class="font-medium">Infrastructure</span>
+            <p class="text-gray-500 dark:text-gray-400 mt-1 font-mono">Python · FastAPI · PostgreSQL · Redis · Docker</p>
+          </div>
+          <div>
+            <span class="font-medium">Security</span>
+            <p class="text-gray-500 dark:text-gray-400 mt-1 font-mono">CEH · OSINT · Secure System Design</p>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <!-- Experience -->
+  <section id="experience" class="mx-auto max-w-5xl px-6 py-16 md:py-20 border-t border-gray-200 dark:border-gray-800">
+    <h2 class="text-sm font-mono text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-8">Experience</h2>
+    
+    <div class="space-y-10">
+      <!-- AIRS Foundry -->
+      <article>
+        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
+          <div>
+            <h3 class="text-lg font-semibold">AIRS Foundry</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">AI Engineering Intern · Agent Infrastructure</p>
+          </div>
+          <span class="text-sm font-mono text-gray-400">2024 - Present</span>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          Designed unified ContextScorer replacing fragmented heuristics for agent memory selection. 
+          Built two-stage scoring pipeline (absolute + marginal utility) with early-stopping logic. 
+          Implemented observability metrics tracking latency, token usage, and facet coverage.
+        </p>
+      </article>
 
-  <!-- Summary -->
-  <section id="summary" class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-    <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-gray-900/70 p-6 md:p-8">
-      <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Professional Summary</h2>
-      <p class="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed">
-        University of Delaware graduate with a B.S. in Computer Science (Artificial Intelligence concentration), 
-        strengthened by research in Human-Computer Interaction and Quantum Computing. Developed AI-driven tools 
-        to support children with autism and explored the application of quantum states to economic game theory, 
-        building a unique intersection of applied AI and advanced computation. Academic training spans machine 
-        learning, quantum computing, databases, parallel computing, and rapid prototyping, establishing a strong 
-        technical foundation across AI, data science, and emerging technologies. Certified Ethical Hacker (CEH) 
-        with additional executive coursework from MIT Sloan in Artificial Intelligence, Blockchain, and IoT, 
-        bringing a comprehensive perspective on both technical depth and strategic application of innovation.<br><br>
+      <!-- SAF -->
+      <article>
+        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
+          <div>
+            <h3 class="text-lg font-semibold">Singapore Armed Forces</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Sergeant · Operations & Digital Transformation</p>
+          </div>
+          <span class="text-sm font-mono text-gray-400">2022 - 2024</span>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          Led 30-person team in mission-critical operations. Architected unit's first digital platform, 
+          reducing manpower by 80% and saving 60h/month. Awarded RSM Coin and Safety Steward Award for SG60 NDP.
+        </p>
+      </article>
 
-        Complementing academic achievements is two years of operational leadership through National Service in the 
-        Singapore Armed Forces, where I commanded a team of 30 operators and spearheaded the unit’s first digital 
-        transformation platform, reducing manpower requirements by ~80%. Designed and deployed automation tools 
-        saving ~60 hours per month in reporting processes, earning recognition with the 23SA Regimental Sergeant 
-        Major Coin and Safety Steward Award. Previous cybersecurity roles with the Maharashtra Cyber Police and 
-        Ernst & Young provided hands-on experience in OSINT investigations, anomaly detection, penetration testing, 
-        and risk modeling. Collectively, these experiences highlight a proven ability to merge technical expertise 
-        with leadership and execution, delivering innovative, mission-critical solutions across defense, academia, 
-        and cybersecurity.
+      <!-- UD -->
+      <article>
+        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
+          <div>
+            <h3 class="text-lg font-semibold">University of Delaware</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Teaching Assistant · Computer Science</p>
+          </div>
+          <span class="text-sm font-mono text-gray-400">2019 - 2023</span>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          Mentored 200+ students, improved submission rates by 40%. 
+          Contributed to HCI research on AI-driven learning tools for autism support.
+        </p>
+      </article>
+
+      <!-- Cybersecurity -->
+      <article>
+        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
+          <div>
+            <h3 class="text-lg font-semibold">EY · Maharashtra Cyber Police</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Cybersecurity Intern</p>
+          </div>
+          <span class="text-sm font-mono text-gray-400">2019</span>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          OSINT investigations, vulnerability analysis, and anomaly detection. 
+          Penetration testing with Kali, Metasploit, Wireshark.
+        </p>
+      </article>
+    </div>
+    
+    <!-- Education inline -->
+    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
+        <div>
+          <h3 class="text-lg font-semibold">B.S. Computer Science</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">University of Delaware · AI & Robotics concentration</p>
+        </div>
+        <span class="text-sm font-mono text-gray-400">2019 - 2023</span>
+      </div>
+      <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">
+        CEH Certified · MIT Sloan (AI, Blockchain, IoT) · Dean's List
       </p>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills" class="mx-auto max-w-6xl px-4 py-6 md:py-10">
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Technical Skills</h2>
-    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white/80 dark:bg-gray-900/80">
-        <div class="flex items-center gap-2 font-semibold"><i data-lucide="code-2" class="h-5 w-5 text-brand-600"></i> Programming</div>
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">Python, Java, C, C++, SQL</p>
-      </div>
-      <div class="rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white/80 dark:bg-gray-900/80">
-        <div class="flex items-center gap-2 font-semibold"><i data-lucide="brain-circuit" class="h-5 w-5 text-brand-600"></i> Data & AI</div>
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">TensorFlow, PyTorch, Pandas, NumPy, ML, Data Science</p>
-      </div>
-      <div class="rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white/80 dark:bg-gray-900/80">
-        <div class="flex items-center gap-2 font-semibold"><i data-lucide="shield-check" class="h-5 w-5 text-brand-600"></i> Cybersecurity</div>
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">CEH, OSINT, Kali, Metasploit, Wireshark</p>
-      </div>
-      <div class="rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white/80 dark:bg-gray-900/80">
-        <div class="flex items-center gap-2 font-semibold"><i data-lucide="server" class="h-5 w-5 text-brand-600"></i> Cloud & DevOps</div>
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">AWS, GitHub, CI/CD basics</p>
-      </div>
-      <div class="rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white/80 dark:bg-gray-900/80">
-        <div class="flex items-center gap-2 font-semibold"><i data-lucide="beaker" class="h-5 w-5 text-brand-600"></i> HCI & Research</div>
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">Autism support tooling, Quantum economics</p>
-      </div>
-      <div class="rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white/80 dark:bg-gray-900/80">
-        <div class="flex items-center gap-2 font-semibold"><i data-lucide="cpu" class="h-5 w-5 text-brand-600"></i> Other</div>
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">Blockchain, IoT, Data automation</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <!--
-  <section id="projects" class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-    <div class="flex items-end justify-between gap-4">
-      <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Projects & Research</h2>
-      <div class="text-sm">
-        <a class="inline-flex items-center gap-1 underline decoration-dotted hover:text-brand-600" href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener">
-          <i data-lucide="github" class="h-4 w-4"></i> GitHub
-        </a>
-      </div>
-    </div>
-
-    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Project Card 1 -->
-  <!--
-      <article class="group rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-gray-900/80 p-6 hover:shadow-xl hover:shadow-brand-600/10 transition-shadow">
-        <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-brand-700 dark:text-brand-300 font-semibold">
-          <i data-lucide="activity" class="h-3.5 w-3.5"></i> HCI / ML
-        </div>
-        <h3 class="mt-2 text-lg font-semibold group-hover:text-brand-600">AI-Driven Autism Support Tool</h3>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-          Co-designed and prototyped a usability-tested learning tool aiding children with autism;
-          drove iterative improvements via feedback loops and data instrumentation.
-        </p>
-        <ul class="mt-3 text-sm text-gray-600 dark:text-gray-300 list-disc ml-4">
-          <li>Stack: Python, TensorFlow, Flask, HTML/CSS</li>
-          <li>Focus: Accessibility, UX research, model-backed personalization</li>
-        </ul>
-        <div class="mt-4 flex items-center gap-3">
-          <a class="inline-flex items-center gap-1.5 rounded-lg border border-black/10 dark:border-white/10 px-3 py-1.5 text-sm hover:bg-black/5 dark:hover:bg-white/10" href="#" aria-disabled="true">Demo</a>
-          <a class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20" href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener">
-            <i data-lucide="github" class="h-4 w-4"></i> Code
-          </a>
-        </div>
-      </article>
-
-      <!-- Project Card 2 -->
-  <!--
-      <article class="group rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-gray-900/80 p-6 hover:shadow-xl hover:shadow-brand-600/10 transition-shadow">
-        <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-brand-700 dark:text-brand-300 font-semibold">
-          <i data-lucide="atom" class="h-3.5 w-3.5"></i> Quantum / Econ
-        </div>
-        <h3 class="mt-2 text-lg font-semibold group-hover:text-brand-600">Quantum States in Economic Game Theory</h3>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-          Explored implications of quantum strategies on payoff equilibria; implemented simulations
-          to compare classical and quantum decision dynamics.
-        </p>
-        <ul class="mt-3 text-sm text-gray-600 dark:text-gray-300 list-disc ml-4">
-          <li>Stack: Python, NumPy, Matplotlib</li>
-          <li>Focus: State encoding, equilibrium analysis</li>
-        </ul>
-        <div class="mt-4 flex items-center gap-3">
-          <span class="inline-flex items-center gap-1.5 rounded-lg border border-black/10 dark:border-white/10 px-3 py-1.5 text-sm">Paper (in prep)</span>
-          <a class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20" href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener">
-            <i data-lucide="github" class="h-4 w-4"></i> Code
-          </a>
-        </div>
-      </article>
-
-      <!-- Project Card 3 -->
-  <!--
-      <article class="group rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-gray-900/80 p-6 hover:shadow-xl hover:shadow-brand-600/10 transition-shadow">
-        <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-brand-700 dark:text-brand-300 font-semibold">
-          <i data-lucide="workflow" class="h-3.5 w-3.5"></i> Automation
-        </div>
-        <h3 class="mt-2 text-lg font-semibold group-hover:text-brand-600">Reporting & Data Automation Suite</h3>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-          Automated daily reporting and personnel data flows; reduced manual entry and saved
-          ~60 hours/month across the unit.
-        </p>
-        <ul class="mt-3 text-sm text-gray-600 dark:text-gray-300 list-disc ml-4">
-          <li>Stack: Python, PostgreSQL, Airflow (or cron), Sheets API</li>
-          <li>Focus: ETL, reliability, dashboards</li>
-        </ul>
-        <div class="mt-4 flex items-center gap-3">
-          <a class="inline-flex items-center gap-1.5 rounded-lg border border-black/10 dark:border-white/10 px-3 py-1.5 text-sm hover:bg-black/5 dark:hover:bg-white/10" href="#" aria-disabled="true">Case Study</a>
-          <a class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20" href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener">
-            <i data-lucide="github" class="h-4 w-4"></i> Code
-          </a>
-        </div>
-      </article>
-    </div>
-  </section>
-  <!-- Experience -->
-  <section id="experience" class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Experience</h2>
-    <ol class="mt-6 relative border-s border-black/10 dark:border-white/10">
-      <!-- SAF -->
-      <li class="ms-6 pb-10">
-        <span class="absolute -start-3 mt-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-white">
-          <i data-lucide="military-rank" class="h-4 w-4"></i>
-        </span>
-        <h3 class="font-semibold">Singapore Armed Forces — Sergeant, Digital Transformation Lead</h3>
-        <div class="text-sm text-gray-500 dark:text-gray-400">Jul 2023 – Aug 2025 · Singapore</div>
-        <ul class="mt-2 list-disc ml-5 text-gray-700 dark:text-gray-300">
-          <li>Designed & deployed internal digital platforms replacing paper workflows, cutting manpower needs by ~80%.</li>
-          <li>Automated reporting pipelines saving 60+ hours/month across the unit.</li>
-          <li>Led 30 operators; Safety Steward Award & 23SA RSM Coin (SG60 National Day Parade).</li>
-        </ul>
-        <div class="mt-3 flex flex-wrap gap-2 text-xs">
-          <span class="rounded-full bg-black/5 dark:bg-white/10 px-2.5 py-1">Python</span>
-          <span class="rounded-full bg-black/5 dark:bg-white/10 px-2.5 py-1">ETL</span>
-          <span class="rounded-full bg-black/5 dark:bg-white/10 px-2.5 py-1">Process Design</span>
-        </div>
-      </li>
-
-      <!-- UD -->
-      <li class="ms-6 pb-10">
-        <span class="absolute -start-3 mt-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-white">
-          <i data-lucide="graduation-cap" class="h-4 w-4"></i>
-        </span>
-        <h3 class="font-semibold">University of Delaware — Research & Teaching Assistant</h3>
-        <div class="text-sm text-gray-500 dark:text-gray-400">Aug 2022 – Dec 2022 · Newark, DE</div>
-        <ul class="mt-2 list-disc ml-5 text-gray-700 dark:text-gray-300">
-          <li>Supported HCI research; co-created AI-driven learning tools for children with autism.</li>
-          <li>Taught Python to 200+ students; built course notebooks; raised completion rate by 40%.</li>
-        </ul>
-      </li>
-
-      <!-- Maharashtra Cyber -->
-      <li class="ms-6 pb-10">
-        <span class="absolute -start-3 mt-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-white">
-          <i data-lucide="scan-line" class="h-4 w-4"></i>
-        </span>
-        <h3 class="font-semibold">Maharashtra Cyber Police — Cybersecurity Intern</h3>
-        <div class="text-sm text-gray-500 dark:text-gray-400">Jun 2019 – Jul 2019 · India</div>
-        <ul class="mt-2 list-disc ml-5 text-gray-700 dark:text-gray-300">
-          <li>Built OSINT pipelines & behavioral analysis to support investigations; produced actionable intelligence.</li>
-          <li>Database tracking & custom spiders for persons of interest.</li>
-        </ul>
-      </li>
-
-      <!-- EY -->
-      <li class="ms-6 pb-2">
-        <span class="absolute -start-3 mt-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 text-white">
-          <i data-lucide="lock" class="h-4 w-4"></i>
-        </span>
-        <h3 class="font-semibold">Ernst & Young — Cybersecurity Intern</h3>
-        <div class="text-sm text-gray-500 dark:text-gray-400">Jun 2019 · India</div>
-        <ul class="mt-2 list-disc ml-5 text-gray-700 dark:text-gray-300">
-          <li>Vulnerability assessments (Kali, Metasploit, Wireshark) & remediation documentation.</li>
-          <li>Social-engineering assessments; policy & awareness recommendations.</li>
-        </ul>
-      </li>
-    </ol>
-  </section>
-
-  <!-- Education -->
-  <section id="education" class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Education</h2>
-    <div class="mt-6 grid gap-6 md:grid-cols-2">
-      <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-gray-900/80 p-6">
-        <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-          <i data-lucide="school" class="h-4 w-4"></i> 2019 – 2023
-        </div>
-        <h3 class="mt-1 text-lg font-semibold">B.S. Computer Science (AI Concentration)</h3>
-        <div class="text-gray-600 dark:text-gray-300">University of Delaware</div>
-        <div class="mt-3 text-sm text-gray-600 dark:text-gray-300">
-          Coursework: Machine Learning, Data Structures & Algorithms, Databases, Operating Systems, Parallel Computing,
-          Human-Computer Interaction, Quantum Computing
-        </div>
-      </div>
-
-      <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-gray-900/80 p-6">
-        <h3 class="text-lg font-semibold">Relevant Academic Work</h3>
-        <ul class="mt-2 list-disc ml-5 text-gray-700 dark:text-gray-300 text-sm">
-          <li>AI-assisted learning tools (HCI research & usability testing)</li>
-          <li>Quantum strategies vs classical equilibria (simulation studies)</li>
-          <li>Data automation & dashboarding for operations</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Certifications -->
-  <section id="certs" class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Certifications</h2>
-    <div class="mt-6 flex flex-wrap gap-3">
-      <span class="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-gray-900/70 px-3 py-1.5 text-sm"><i data-lucide="badge-check" class="h-4 w-4 text-brand-600"></i> CEH — EC-Council</span>
-      <span class="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-gray-900/70 px-3 py-1.5 text-sm"><i data-lucide="badge-check" class="h-4 w-4 text-brand-600"></i> MIT Sloan — AI: Implications for Business Strategy</span>
-      <span class="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-gray-900/70 px-3 py-1.5 text-sm"><i data-lucide="badge-check" class="h-4 w-4 text-brand-600"></i> MIT Sloan — Blockchain Technologies</span>
-      <span class="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-gray-900/70 px-3 py-1.5 text-sm"><i data-lucide="badge-check" class="h-4 w-4 text-brand-600"></i> MIT Sloan — IoT: Business Implications</span>
-    </div>
-  </section>
-
-  <!-- Awards -->
-  <section id="awards" class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Awards & Recognition</h2>
-    <div class="mt-6 grid gap-6 sm:grid-cols-2">
-      <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-gray-900/80 p-6">
-        <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-          <i data-lucide="medal" class="h-4 w-4"></i> 2025 — Singapore
-        </div>
-        <h3 class="mt-1 font-semibold">23SA RSM Coin & Safety Steward Award</h3>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Recognized for safety and logistical contributions to SG60 National Day Parade.</p>
-      </div>
-      <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-gray-900/80 p-6">
-        <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-          <i data-lucide="award" class="h-4 w-4"></i> University of Delaware
-        </div>
-        <h3 class="mt-1 font-semibold">Dean’s List</h3>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Academic distinction during undergraduate study.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- Contact -->
-  <section id="contact" class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-    <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-gray-900/80 p-6 md:p-8">
-      <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Get in Touch</h2>
-      <div class="mt-4 grid gap-6 md:grid-cols-3">
-        <div>
-          <div class="flex items-center gap-2 font-semibold"><i data-lucide="mail" class="h-5 w-5 text-brand-600"></i> Email</div>
-          <a class="mt-1 block text-gray-600 dark:text-gray-300 underline decoration-dotted" href="mailto:guruprasadnayak24@gmail.com">guruprasadnayak24@gmail.com</a>
-        </div>
-        <div>
-          <div class="flex items-center gap-2 font-semibold"><i data-lucide="phone" class="h-5 w-5 text-brand-600"></i> Phone</div>
-          <a class="mt-1 block text-gray-600 dark:text-gray-300 underline decoration-dotted" href="tel:+6592780697">+65 9278 0697</a>
-        </div>
-        <div>
-          <div class="flex items-center gap-2 font-semibold"><i data-lucide="link" class="h-5 w-5 text-brand-600"></i> Links</div>
-          <div class="mt-1 flex flex-wrap gap-3 text-gray-600 dark:text-gray-300">
-            <a class="underline decoration-dotted" href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="underline decoration-dotted" href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener">GitHub</a>
-            <a class="underline decoration-dotted" href="Guruprasad_Nayak_Resume_November_2025.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
-          </div>
-        </div>
+  <section id="contact" class="mx-auto max-w-5xl px-6 py-16 md:py-20 border-t border-gray-200 dark:border-gray-800">
+    <h2 class="text-sm font-mono text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-8">Contact</h2>
+    
+    <div class="max-w-xl">
+      <p class="text-2xl md:text-3xl font-semibold tracking-tight leading-snug">
+        Open to AI engineering roles where I can design systems that reason reliably.
+      </p>
+      <p class="mt-4 text-gray-500 dark:text-gray-400">
+        Available for full-time positions, contract work, and collaborations.
+      </p>
+      
+      <div class="mt-8 space-y-3">
+        <a href="mailto:guruprasadnayak24@gmail.com" class="flex items-center gap-3 text-brand-600 hover:text-brand-700 font-medium">
+          <i data-lucide="mail" class="h-5 w-5"></i>
+          guruprasadnayak24@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener" class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+          <i data-lucide="linkedin" class="h-5 w-5"></i>
+          linkedin.com/in/guru-nayak
+        </a>
+        <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+          <i data-lucide="github" class="h-5 w-5"></i>
+          github.com/I-c-e-m-a-n
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-black/5 dark:border-white/10">
-    <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-gray-500 dark:text-gray-400 flex flex-wrap items-center justify-between gap-4">
-      <div>© <span x-text="year"></span> Guruprasad Nayak</div>
-      <div class="no-print flex items-center gap-3">
-        <button onclick="window.print()" class="inline-flex items-center gap-1.5 rounded-lg border border-black/10 dark:border-white/10 px-3 py-1.5 hover:bg-black/5 dark:hover:bg-white/10">
-          <i data-lucide="printer" class="h-4 w-4"></i> Print
-        </button>
-        <a href="#top" class="inline-flex items-center gap-1.5 rounded-lg border border-black/10 dark:border-white/10 px-3 py-1.5 hover:bg-black/5 dark:hover:bg-white/10">
-          <i data-lucide="arrow-up" class="h-4 w-4"></i> Top
-        </a>
-      </div>
+  <footer class="border-t border-gray-200 dark:border-gray-800">
+    <div class="mx-auto max-w-5xl px-6 py-6 text-sm text-gray-400 dark:text-gray-500 flex items-center justify-between">
+      <span>© <span x-text="year"></span> Guruprasad Nayak</span>
+      <span class="font-mono">Singapore</span>
     </div>
   </footer>
 
