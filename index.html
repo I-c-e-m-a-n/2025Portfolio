@@ -11,7 +11,7 @@
   <meta name="description" content="AI Systems Engineer specializing in agentic architectures, RAG systems, LLM orchestration, and production-grade AI infrastructure. Building intelligent systems that scale." />
   <meta name="keywords" content="AI Engineer, AI Systems Engineer, Agent Architect, RAG, LLM, Machine Learning, Agentic AI, Memory Systems, Python, FastAPI, Singapore" />
   <meta name="author" content="Guruprasad Nayak" />
-  <meta name="theme-color" content="#111827" />
+  <meta name="theme-color" content="#0f172a" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://i-c-e-m-a-n.github.io/2025Portfolio/" />
 
@@ -46,15 +46,39 @@
           },
           colors: {
             brand: {
-              50: '#f8fafc',
-              100: '#f1f5f9',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8'
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2'
             }
           },
           letterSpacing: {
             tighter: '-0.03em'
+          },
+          backgroundImage: {
+            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            'grid-pattern': 'linear-gradient(to right, rgb(51 65 85 / 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgb(51 65 85 / 0.1) 1px, transparent 1px)'
+          },
+          backgroundSize: {
+            'grid': '24px 24px'
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'counter': 'counter 2s ease-out'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' }
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' }
+            },
+            counter: {
+              '0%': { transform: 'scale(0.8)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' }
+            }
           }
         }
       }
@@ -104,25 +128,27 @@
   }
   </script>
 </head>
-<body x-data="site()" x-init="init()" :class="darkMode ? 'dark bg-gray-950 text-gray-100' : 'bg-white text-gray-800'">
+<body x-data="site()" x-init="init()" :class="darkMode ? 'dark bg-slate-950 text-slate-100' : 'bg-white text-slate-900'" class="antialiased">
 
   <!-- Navbar -->
-  <header class="no-print sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800 backdrop-blur bg-white/90 dark:bg-gray-950/90">
+  <header class="no-print sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 backdrop-blur-xl bg-white/80 dark:bg-slate-950/80">
     <div class="mx-auto max-w-5xl px-6">
       <div class="flex items-center justify-between h-14">
-        <a href="#top" class="font-mono text-sm tracking-tight">guruprasad.dev</a>
-        <nav class="hidden md:flex items-center gap-8 text-sm text-gray-600 dark:text-gray-400">
-          <a class="hover:text-gray-900 dark:hover:text-white transition-colors" href="#work">Work</a>
-          <a class="hover:text-gray-900 dark:hover:text-white transition-colors" href="#experience">Experience</a>
-          <a class="hover:text-gray-900 dark:hover:text-white transition-colors" href="#philosophy">Philosophy</a>
-          <a class="hover:text-gray-900 dark:hover:text-white transition-colors" href="#contact">Contact</a>
+        <a href="#top" class="font-mono text-sm tracking-tight font-semibold group">
+          <span class="text-slate-900 dark:text-slate-100">guruprasad</span><span class="text-brand-500 group-hover:text-brand-400 transition-colors">.dev</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600 dark:text-slate-400">
+          <a class="hover:text-brand-500 dark:hover:text-brand-400 transition-colors" href="#work">Work</a>
+          <a class="hover:text-brand-500 dark:hover:text-brand-400 transition-colors" href="#experience">Experience</a>
+          <a class="hover:text-brand-500 dark:hover:text-brand-400 transition-colors" href="#philosophy">Philosophy</a>
+          <a class="hover:text-brand-500 dark:hover:text-brand-400 transition-colors" href="#contact">Contact</a>
         </nav>
         <div class="flex items-center gap-3">
-          <button @click="toggleTheme" class="no-print p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+          <button @click="toggleTheme" class="no-print p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
             <i data-lucide="moon" class="h-4 w-4" x-show="!darkMode"></i>
             <i data-lucide="sun" class="h-4 w-4" x-show="darkMode"></i>
           </button>
-          <a href="Guruprasad_Nayak_Resume.pdf" class="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:text-brand-700">
+          <a href="Guruprasad_Nayak_Resume.pdf" class="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-brand-500 hover:text-brand-400 transition-colors">
             <i data-lucide="file-text" class="h-4 w-4"></i> Resume
           </a>
           <button class="md:hidden p-2" @click="mobileOpen = !mobileOpen" aria-label="Menu">
@@ -131,185 +157,214 @@
         </div>
       </div>
       <div class="md:hidden" x-show="mobileOpen" x-transition x-cloak>
-        <nav class="py-4 space-y-1 text-sm border-t border-gray-100 dark:border-gray-800">
-          <a @click="mobileOpen=false" class="block py-2 text-gray-600 dark:text-gray-400" href="#work">Work</a>
-          <a @click="mobileOpen=false" class="block py-2 text-gray-600 dark:text-gray-400" href="#experience">Experience</a>
-          <a @click="mobileOpen=false" class="block py-2 text-gray-600 dark:text-gray-400" href="#philosophy">Philosophy</a>
-          <a @click="mobileOpen=false" class="block py-2 text-gray-600 dark:text-gray-400" href="#contact">Contact</a>
+        <nav class="py-4 space-y-1 text-sm border-t border-slate-100 dark:border-slate-800">
+          <a @click="mobileOpen=false" class="block py-2 text-slate-600 dark:text-slate-400 hover:text-brand-500" href="#work">Work</a>
+          <a @click="mobileOpen=false" class="block py-2 text-slate-600 dark:text-slate-400 hover:text-brand-500" href="#experience">Experience</a>
+          <a @click="mobileOpen=false" class="block py-2 text-slate-600 dark:text-slate-400 hover:text-brand-500" href="#philosophy">Philosophy</a>
+          <a @click="mobileOpen=false" class="block py-2 text-slate-600 dark:text-slate-400 hover:text-brand-500" href="#contact">Contact</a>
         </nav>
       </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="top" class="mx-auto max-w-5xl px-6 pt-20 pb-16 md:pt-28 md:pb-20">
-    <p class="font-mono text-sm text-gray-500 dark:text-gray-400 mb-4">Guruprasad Nayak · Singapore</p>
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-[1.1]">
-      I build AI systems that<br class="hidden sm:block" />
-      <span class="text-gray-400 dark:text-gray-500">reason reliably.</span>
-    </h1>
-    <p class="mt-6 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
-      AI Systems Engineer focused on agent infrastructure, context selection, and production-grade LLM orchestration. 
-      I design systems where determinism and observability are first-class concerns.
-    </p>
+  <section id="top" class="relative overflow-hidden">
+    <!-- Grid pattern background -->
+    <div class="absolute inset-0 bg-grid-pattern bg-grid opacity-40 dark:opacity-20"></div>
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-500/5 via-transparent to-transparent dark:from-brand-500/10"></div>
     
-    <!-- Key capabilities inline -->
-    <div class="mt-8 flex flex-wrap gap-3 text-sm">
-      <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg font-mono">RAG Systems</span>
-      <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg font-mono">Agent Memory</span>
-      <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg font-mono">Context Selection</span>
-      <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg font-mono">Evaluation</span>
-    </div>
-    
-    <!-- Metrics row -->
-    <div class="mt-10 pt-8 border-t border-gray-200 dark:border-gray-800 grid grid-cols-3 gap-8 max-w-lg">
-      <div>
-        <div class="text-2xl md:text-3xl font-semibold tracking-tight">80%</div>
-        <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">workflow reduction</div>
+    <div class="relative mx-auto max-w-5xl px-6 pt-20 pb-16 md:pt-32 md:pb-24">
+      <!-- Visual anchor: Cyan accent bar -->
+      <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-brand-400 mb-8 rounded-full"></div>
+      
+      <p class="font-mono text-sm text-slate-500 dark:text-slate-400 mb-6 animate-fade-in">Guruprasad Nayak · Singapore</p>
+      
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-[1.1] animate-slide-up">
+        I build AI systems that<br class="hidden sm:block" />
+        <span class="bg-gradient-to-r from-brand-500 to-brand-400 bg-clip-text text-transparent">reason reliably.</span>
+      </h1>
+      
+      <p class="mt-6 text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+        AI Systems Engineer focused on agent infrastructure, context selection, and production-grade LLM orchestration. 
+        I design systems where <span class="text-slate-900 dark:text-slate-100 font-medium">determinism and observability</span> are first-class concerns.
+      </p>
+      
+      <!-- Key capabilities with hover effects -->
+      <div class="mt-8 flex flex-wrap gap-3 text-sm">
+        <span class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg font-mono transition-colors cursor-default border border-transparent hover:border-brand-500/20">RAG Systems</span>
+        <span class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg font-mono transition-colors cursor-default border border-transparent hover:border-brand-500/20">Agent Memory</span>
+        <span class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg font-mono transition-colors cursor-default border border-transparent hover:border-brand-500/20">Context Selection</span>
+        <span class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg font-mono transition-colors cursor-default border border-transparent hover:border-brand-500/20">Evaluation</span>
       </div>
-      <div>
-        <div class="text-2xl md:text-3xl font-semibold tracking-tight">60h</div>
-        <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">saved monthly</div>
+      
+      <!-- Metrics with animation -->
+      <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 grid grid-cols-3 gap-8 max-w-lg">
+        <div class="group">
+          <div class="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 group-hover:text-brand-500 transition-colors">80%</div>
+          <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">workflow reduction</div>
+        </div>
+        <div class="group">
+          <div class="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 group-hover:text-brand-500 transition-colors">60h</div>
+          <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">saved monthly</div>
+        </div>
+        <div class="group">
+          <div class="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 group-hover:text-brand-500 transition-colors">200+</div>
+          <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">students taught</div>
+        </div>
       </div>
-      <div>
-        <div class="text-2xl md:text-3xl font-semibold tracking-tight">200+</div>
-        <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">students taught</div>
+      
+      <!-- Links with enhanced styling -->
+      <div class="mt-8 flex flex-wrap items-center gap-6 text-sm">
+        <a href="mailto:guruprasadnayak24@gmail.com" class="font-medium text-brand-500 hover:text-brand-400 transition-colors flex items-center gap-2">
+          <i data-lucide="mail" class="h-4 w-4"></i>
+          guruprasadnayak24@gmail.com
+        </a>
+        <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="text-slate-500 hover:text-brand-500 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5">
+          <i data-lucide="github" class="h-4 w-4"></i>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener" class="text-slate-500 hover:text-brand-500 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5">
+          <i data-lucide="linkedin" class="h-4 w-4"></i>
+          LinkedIn
+        </a>
       </div>
-    </div>
-    
-    <!-- Links -->
-    <div class="mt-8 flex items-center gap-6 text-sm">
-      <a href="mailto:guruprasadnayak24@gmail.com" class="font-medium text-brand-600 hover:text-brand-700">guruprasadnayak24@gmail.com</a>
-      <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">GitHub</a>
-      <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">LinkedIn</a>
     </div>
   </section>
 
   <!-- Work / Featured Project -->
-  <section id="work" class="mx-auto max-w-5xl px-6 py-16 md:py-20">
-    <h2 class="text-sm font-mono text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-8">Featured Work</h2>
-    
-    <!-- Primary Case Study: Memory System -->
-    <article class="border-l-2 border-brand-600 pl-6 md:pl-8 mb-12">
-      <div class="flex items-baseline gap-4 mb-4">
-        <h3 class="text-2xl md:text-3xl font-semibold tracking-tight">Agentic Memory System</h3>
-        <span class="text-sm font-mono text-gray-400">2024</span>
-      </div>
+  <section id="work" class="bg-slate-50 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+    <div class="mx-auto max-w-5xl px-6 py-16 md:py-20">
+      <h2 class="text-sm font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-8">Featured Work</h2>
       
-      <p class="text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
-        Production memory infrastructure for LLM agents. Addresses the core challenge that agents lack 
-        persistent, contextually-aware memory for multi-turn reasoning and long-horizon tasks.
-      </p>
-      
-      <div class="mt-6 grid md:grid-cols-3 gap-6 text-sm">
-        <div>
-          <h4 class="font-medium mb-2">Architecture</h4>
-          <p class="text-gray-500 dark:text-gray-400">Tiered storage (hot/warm/cold) with hybrid retrieval combining semantic search, lexical matching, and entity extraction.</p>
+      <!-- Primary Case Study: Memory System -->
+      <article class="relative group">
+        <!-- Accent gradient bar -->
+        <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-500 to-brand-400 rounded-full"></div>
+        
+        <div class="pl-6 md:pl-8">
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-4">
+            <h3 class="text-2xl md:text-3xl font-semibold tracking-tight group-hover:text-brand-500 transition-colors">Agentic Memory System</h3>
+            <span class="text-sm font-mono text-slate-400">2024</span>
+          </div>
+          
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+            Production memory infrastructure for LLM agents. Addresses the core challenge that agents lack 
+            persistent, contextually-aware memory for multi-turn reasoning and long-horizon tasks.
+          </p>
+          
+          <div class="mt-8 grid md:grid-cols-3 gap-6 text-sm">
+            <div class="p-4 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-500/50 transition-colors">
+              <h4 class="font-semibold mb-2 text-slate-900 dark:text-slate-100">Architecture</h4>
+              <p class="text-slate-500 dark:text-slate-400">Tiered storage (hot/warm/cold) with hybrid retrieval combining semantic search, lexical matching, and entity extraction.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-500/50 transition-colors">
+              <h4 class="font-semibold mb-2 text-slate-900 dark:text-slate-100">Key Innovation</h4>
+              <p class="text-slate-500 dark:text-slate-400">Two-stage scoring: absolute utility (relevance, recency, authority) + marginal utility (redundancy penalties, gap-fill bonuses).</p>
+            </div>
+            <div class="p-4 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-500/50 transition-colors">
+              <h4 class="font-semibold mb-2 text-slate-900 dark:text-slate-100">Outcomes</h4>
+              <p class="text-slate-500 dark:text-slate-400">Deterministic context assembly, token budgeting, grounding validation, early-stopping to prevent context inflation.</p>
+            </div>
+          </div>
+          
+          <div class="mt-6 flex flex-wrap gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+            <span class="hover:text-brand-500 transition-colors">Python</span><span class="text-slate-300 dark:text-slate-600">/</span>
+            <span class="hover:text-brand-500 transition-colors">FastAPI</span><span class="text-slate-300 dark:text-slate-600">/</span>
+            <span class="hover:text-brand-500 transition-colors">PostgreSQL</span><span class="text-slate-300 dark:text-slate-600">/</span>
+            <span class="hover:text-brand-500 transition-colors">Redis</span><span class="text-slate-300 dark:text-slate-600">/</span>
+            <span class="hover:text-brand-500 transition-colors">Embeddings</span>
+          </div>
+          
+          <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-6 text-sm font-medium text-brand-500 hover:text-brand-400 transition-colors group/link">
+            View on GitHub <i data-lucide="arrow-right" class="h-4 w-4 group-hover/link:translate-x-1 transition-transform"></i>
+          </a>
         </div>
-        <div>
-          <h4 class="font-medium mb-2">Key Innovation</h4>
-          <p class="text-gray-500 dark:text-gray-400">Two-stage scoring: absolute utility (relevance, recency, authority) + marginal utility (redundancy penalties, gap-fill bonuses).</p>
-        </div>
-        <div>
-          <h4 class="font-medium mb-2">Outcomes</h4>
-          <p class="text-gray-500 dark:text-gray-400">Deterministic context assembly, token budgeting, grounding validation, early-stopping to prevent context inflation.</p>
-        </div>
-      </div>
+      </article>
       
-      <div class="mt-6 flex flex-wrap gap-2 text-xs font-mono text-gray-500 dark:text-gray-400">
-        <span>Python</span><span class="text-gray-300 dark:text-gray-600">/</span>
-        <span>FastAPI</span><span class="text-gray-300 dark:text-gray-600">/</span>
-        <span>PostgreSQL</span><span class="text-gray-300 dark:text-gray-600">/</span>
-        <span>Redis</span><span class="text-gray-300 dark:text-gray-600">/</span>
-        <span>Embeddings</span>
+      <!-- Other Projects Grid -->
+      <div class="grid md:grid-cols-3 gap-6 pt-12 mt-12 border-t border-slate-200 dark:border-slate-700">
+        <article class="group/card p-5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-500/50 hover:shadow-lg hover:shadow-brand-500/5 transition-all">
+          <h4 class="font-semibold mb-2 group-hover/card:text-brand-500 transition-colors">Context Scorer</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mb-3">Unified scoring pipeline replacing fragmented heuristics. Observability metrics for latency, token usage, facet coverage.</p>
+          <span class="text-xs font-mono text-slate-400">Python · Metrics · pytest</span>
+        </article>
+        <article class="group/card p-5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-500/50 hover:shadow-lg hover:shadow-brand-500/5 transition-all">
+          <h4 class="font-semibold mb-2 group-hover/card:text-brand-500 transition-colors">Operations Platform</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mb-3">End-to-end digital transformation for military operations. 80% workflow reduction, 60h/month saved.</p>
+          <span class="text-xs font-mono text-slate-400">Python · ETL · Dashboards</span>
+        </article>
+        <article class="group/card p-5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-500/50 hover:shadow-lg hover:shadow-brand-500/5 transition-all">
+          <h4 class="font-semibold mb-2 group-hover/card:text-brand-500 transition-colors">Autism Learning Tool</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mb-3">HCI research project: adaptive learning with model-backed personalization and usability testing.</p>
+          <span class="text-xs font-mono text-slate-400">TensorFlow · Flask · UX</span>
+        </article>
       </div>
-      
-      <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-6 text-sm font-medium text-brand-600 hover:text-brand-700">
-        View on GitHub <i data-lucide="arrow-right" class="h-4 w-4"></i>
-      </a>
-    </article>
-    
-    <!-- Other Projects Grid -->
-    <div class="grid md:grid-cols-3 gap-6 pt-8 border-t border-gray-200 dark:border-gray-800">
-      <article>
-        <h4 class="font-medium mb-2">Context Scorer</h4>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Unified scoring pipeline replacing fragmented heuristics. Observability metrics for latency, token usage, facet coverage.</p>
-        <span class="text-xs font-mono text-gray-400">Python · Metrics · pytest</span>
-      </article>
-      <article>
-        <h4 class="font-medium mb-2">Operations Platform</h4>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">End-to-end digital transformation for military operations. 80% workflow reduction, 60h/month saved.</p>
-        <span class="text-xs font-mono text-gray-400">Python · ETL · Dashboards</span>
-      </article>
-      <article>
-        <h4 class="font-medium mb-2">Autism Learning Tool</h4>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">HCI research project: adaptive learning with model-backed personalization and usability testing.</p>
-        <span class="text-xs font-mono text-gray-400">TensorFlow · Flask · UX</span>
-      </article>
     </div>
   </section>
 
   <!-- Engineering Philosophy -->
-  <section id="philosophy" class="mx-auto max-w-5xl px-6 py-16 md:py-20 border-t border-gray-200 dark:border-gray-800">
-    <h2 class="text-sm font-mono text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-8">Engineering Philosophy</h2>
+  <section id="philosophy" class="mx-auto max-w-5xl px-6 py-16 md:py-20">
+    <h2 class="text-sm font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-8">Engineering Philosophy</h2>
     
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid md:grid-cols-2 gap-12">
       <div>
-        <h3 class="text-xl font-semibold tracking-tight mb-4">How I approach systems</h3>
-        <div class="space-y-4 text-gray-600 dark:text-gray-300">
-          <p class="font-mono text-sm border-l-2 border-gray-300 dark:border-gray-700 pl-4">
+        <h3 class="text-xl font-semibold tracking-tight mb-6 text-slate-900 dark:text-slate-100">How I approach systems</h3>
+        <div class="space-y-4 text-slate-600 dark:text-slate-300">
+          <p class="font-mono text-sm border-l-2 border-brand-500 pl-4 hover:border-brand-400 transition-colors">
             Determinism over heuristics. Every context selection decision should be traceable and reproducible.
           </p>
-          <p class="font-mono text-sm border-l-2 border-gray-300 dark:border-gray-700 pl-4">
+          <p class="font-mono text-sm border-l-2 border-brand-500 pl-4 hover:border-brand-400 transition-colors">
             Observability as architecture. If you can't measure it, you can't debug it in production.
           </p>
-          <p class="font-mono text-sm border-l-2 border-gray-300 dark:border-gray-700 pl-4">
+          <p class="font-mono text-sm border-l-2 border-brand-500 pl-4 hover:border-brand-400 transition-colors">
             Token budgets are constraints, not suggestions. Early-stopping beats post-hoc truncation.
           </p>
-          <p class="font-mono text-sm border-l-2 border-gray-300 dark:border-gray-700 pl-4">
+          <p class="font-mono text-sm border-l-2 border-brand-500 pl-4 hover:border-brand-400 transition-colors">
             Ground truth matters. Hallucination guardrails should be evaluated, not assumed.
           </p>
         </div>
       </div>
       
       <div>
-        <h3 class="text-xl font-semibold tracking-tight mb-4">What I build with</h3>
+        <h3 class="text-xl font-semibold tracking-tight mb-6 text-slate-900 dark:text-slate-100">What I build with</h3>
         <div class="space-y-4 text-sm">
-          <div>
-            <span class="font-medium">Agent Systems</span>
-            <p class="text-gray-500 dark:text-gray-400 mt-1 font-mono">RAG · Memory · Tool Calling · Context Selection · Orchestration</p>
+          <div class="group">
+            <span class="font-semibold text-slate-900 dark:text-slate-100 group-hover:text-brand-500 transition-colors">Agent Systems</span>
+            <p class="text-slate-500 dark:text-slate-400 mt-1 font-mono">RAG · Memory · Tool Calling · Context Selection · Orchestration</p>
           </div>
-          <div>
-            <span class="font-medium">ML & NLP</span>
-            <p class="text-gray-500 dark:text-gray-400 mt-1 font-mono">Embeddings · Ranking · Fine-tuning · Evaluation Design</p>
+          <div class="group">
+            <span class="font-semibold text-slate-900 dark:text-slate-100 group-hover:text-brand-500 transition-colors">ML & NLP</span>
+            <p class="text-slate-500 dark:text-slate-400 mt-1 font-mono">Embeddings · Ranking · Fine-tuning · Evaluation Design</p>
           </div>
-          <div>
-            <span class="font-medium">Infrastructure</span>
-            <p class="text-gray-500 dark:text-gray-400 mt-1 font-mono">Python · FastAPI · PostgreSQL · Redis · Docker</p>
+          <div class="group">
+            <span class="font-semibold text-slate-900 dark:text-slate-100 group-hover:text-brand-500 transition-colors">Infrastructure</span>
+            <p class="text-slate-500 dark:text-slate-400 mt-1 font-mono">Python · FastAPI · PostgreSQL · Redis · Docker</p>
           </div>
-          <div>
-            <span class="font-medium">Security</span>
-            <p class="text-gray-500 dark:text-gray-400 mt-1 font-mono">CEH · OSINT · Secure System Design</p>
+          <div class="group">
+            <span class="font-semibold text-slate-900 dark:text-slate-100 group-hover:text-brand-500 transition-colors">Security</span>
+            <p class="text-slate-500 dark:text-slate-400 mt-1 font-mono">CEH · OSINT · Secure System Design</p>
           </div>
         </div>
       </div>
     </div>
   </section>
   <!-- Experience -->
-  <section id="experience" class="mx-auto max-w-5xl px-6 py-16 md:py-20 border-t border-gray-200 dark:border-gray-800">
-    <h2 class="text-sm font-mono text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-8">Experience</h2>
+  <section id="experience" class="bg-slate-50 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+    <div class="mx-auto max-w-5xl px-6 py-16 md:py-20">
+    <h2 class="text-sm font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-8">Experience</h2>
     
     <div class="space-y-10">
       <!-- AIRS Foundry -->
-      <article>
+      <article class="group/exp">
         <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
           <div>
-            <h3 class="text-lg font-semibold">AIRS Foundry</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">AI Engineering Intern · Agent Infrastructure</p>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100 group-hover/exp:text-brand-500 transition-colors">AIRS Foundry</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">AI Engineering Intern · Agent Infrastructure</p>
           </div>
-          <span class="text-sm font-mono text-gray-400">2024 - Present</span>
+          <span class="text-sm font-mono text-slate-400">2024 - Present</span>
         </div>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
           Designed unified ContextScorer replacing fragmented heuristics for agent memory selection. 
           Built two-stage scoring pipeline (absolute + marginal utility) with early-stopping logic. 
           Implemented observability metrics tracking latency, token usage, and facet coverage.
@@ -317,45 +372,45 @@
       </article>
 
       <!-- SAF -->
-      <article>
+      <article class="group/exp">
         <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
           <div>
-            <h3 class="text-lg font-semibold">Singapore Armed Forces</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Sergeant · Operations & Digital Transformation</p>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100 group-hover/exp:text-brand-500 transition-colors">Singapore Armed Forces</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Sergeant · Operations & Digital Transformation</p>
           </div>
-          <span class="text-sm font-mono text-gray-400">2022 - 2024</span>
+          <span class="text-sm font-mono text-slate-400">2022 - 2024</span>
         </div>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
           Led 30-person team in mission-critical operations. Architected unit's first digital platform, 
           reducing manpower by 80% and saving 60h/month. Awarded RSM Coin and Safety Steward Award for SG60 NDP.
         </p>
       </article>
 
       <!-- UD -->
-      <article>
+      <article class="group/exp">
         <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
           <div>
-            <h3 class="text-lg font-semibold">University of Delaware</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Teaching Assistant · Computer Science</p>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100 group-hover/exp:text-brand-500 transition-colors">University of Delaware</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Teaching Assistant · Computer Science</p>
           </div>
-          <span class="text-sm font-mono text-gray-400">2019 - 2023</span>
+          <span class="text-sm font-mono text-slate-400">2019 - 2023</span>
         </div>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
           Mentored 200+ students, improved submission rates by 40%. 
           Contributed to HCI research on AI-driven learning tools for autism support.
         </p>
       </article>
 
       <!-- Cybersecurity -->
-      <article>
+      <article class="group/exp">
         <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
           <div>
-            <h3 class="text-lg font-semibold">EY · Maharashtra Cyber Police</h3>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Cybersecurity Intern</p>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100 group-hover/exp:text-brand-500 transition-colors">EY · Maharashtra Cyber Police</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Cybersecurity Intern</p>
           </div>
-          <span class="text-sm font-mono text-gray-400">2019</span>
+          <span class="text-sm font-mono text-slate-400">2019</span>
         </div>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
           OSINT investigations, vulnerability analysis, and anomaly detection. 
           Penetration testing with Kali, Metasploit, Wireshark.
         </p>
@@ -363,43 +418,44 @@
     </div>
     
     <!-- Education inline -->
-    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+    <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700">
       <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
         <div>
-          <h3 class="text-lg font-semibold">B.S. Computer Science</h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">University of Delaware · AI & Robotics concentration</p>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">B.S. Computer Science</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400">University of Delaware · AI & Robotics concentration</p>
         </div>
-        <span class="text-sm font-mono text-gray-400">2019 - 2023</span>
+        <span class="text-sm font-mono text-slate-400">2019 - 2023</span>
       </div>
-      <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">
+      <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">
         CEH Certified · MIT Sloan (AI, Blockchain, IoT) · Dean's List
       </p>
+    </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="mx-auto max-w-5xl px-6 py-16 md:py-20 border-t border-gray-200 dark:border-gray-800">
-    <h2 class="text-sm font-mono text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-8">Contact</h2>
+  <section id="contact" class="mx-auto max-w-5xl px-6 py-16 md:py-20">
+    <h2 class="text-sm font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-8">Contact</h2>
     
     <div class="max-w-xl">
-      <p class="text-2xl md:text-3xl font-semibold tracking-tight leading-snug">
-        Open to AI engineering roles where I can design systems that reason reliably.
+      <p class="text-2xl md:text-3xl font-semibold tracking-tight leading-snug text-slate-900 dark:text-slate-100">
+        Open to AI engineering roles where I can design systems that <span class="bg-gradient-to-r from-brand-500 to-brand-400 bg-clip-text text-transparent">reason reliably.</span>
       </p>
-      <p class="mt-4 text-gray-500 dark:text-gray-400">
+      <p class="mt-4 text-slate-500 dark:text-slate-400">
         Available for full-time positions, contract work, and collaborations.
       </p>
       
       <div class="mt-8 space-y-3">
-        <a href="mailto:guruprasadnayak24@gmail.com" class="flex items-center gap-3 text-brand-600 hover:text-brand-700 font-medium">
-          <i data-lucide="mail" class="h-5 w-5"></i>
+        <a href="mailto:guruprasadnayak24@gmail.com" class="flex items-center gap-3 text-brand-500 hover:text-brand-400 font-medium transition-colors group">
+          <i data-lucide="mail" class="h-5 w-5 group-hover:scale-110 transition-transform"></i>
           guruprasadnayak24@gmail.com
         </a>
-        <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener" class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
-          <i data-lucide="linkedin" class="h-5 w-5"></i>
+        <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener" class="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-brand-500 dark:hover:text-brand-400 transition-colors group">
+          <i data-lucide="linkedin" class="h-5 w-5 group-hover:scale-110 transition-transform"></i>
           linkedin.com/in/guru-nayak
         </a>
-        <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
-          <i data-lucide="github" class="h-5 w-5"></i>
+        <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-brand-500 dark:hover:text-brand-400 transition-colors group">
+          <i data-lucide="github" class="h-5 w-5 group-hover:scale-110 transition-transform"></i>
           github.com/I-c-e-m-a-n
         </a>
       </div>
@@ -407,8 +463,8 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-gray-200 dark:border-gray-800">
-    <div class="mx-auto max-w-5xl px-6 py-6 text-sm text-gray-400 dark:text-gray-500 flex items-center justify-between">
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+    <div class="mx-auto max-w-5xl px-6 py-6 text-sm text-slate-400 dark:text-slate-500 flex items-center justify-between">
       <span>© <span x-text="year"></span> Guruprasad Nayak</span>
       <span class="font-mono">Singapore</span>
     </div>
