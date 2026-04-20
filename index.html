@@ -1,15 +1,13 @@
-<!-- https://i-c-e-m-a-n.github.io/2025Portfolio/#top -->
-
+<!-- https://i-c-e-m-a-n.github.io/2025Portfolio/ -->
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- SEO Meta Tags -->
+  <!-- SEO -->
   <title>Guruprasad Nayak | Software Engineer · Applied ML &amp; Research Systems</title>
-  <meta name="description" content="Software engineer with production experience in retrieval and ranking systems, applied ML infrastructure, distributed backend services, and research-program work in accessible AI and generative AI systems." />
-  <meta name="keywords" content="Software Engineer, Applied ML, Research Engineering, Retrieval Systems, Ranking, Backend Systems, FastAPI, Python, C++, MCP, Agent Infrastructure, Accessible AI, Singapore" />
+  <meta name="description" content="Software engineer with production experience in retrieval and ranking systems, applied ML infrastructure, distributed backend services, and research work in accessible AI." />
   <meta name="author" content="Guruprasad Nayak" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="robots" content="index, follow" />
@@ -17,481 +15,51 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Guruprasad Nayak | Software Engineer · Applied ML &amp; Research Systems" />
-  <meta property="og:description" content="Production backend systems, retrieval and ranking pipelines, applied ML infrastructure, and research-program work in accessible AI." />
+  <meta property="og:description" content="Production backend systems, retrieval and ranking pipelines, applied ML infrastructure, and research work in accessible AI." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://i-c-e-m-a-n.github.io/2025Portfolio/" />
-  <meta property="og:site_name" content="Guruprasad Nayak Portfolio" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Guruprasad Nayak | Software Engineer · Applied ML &amp; Research Systems" />
   <meta name="twitter:description" content="Production backend systems, retrieval and ranking pipelines, applied ML infrastructure, and research work in accessible AI." />
 
-  <!-- Fonts -->
+  <!-- Preconnect for fonts (loaded via CSS @import) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind (CDN) -->
+  <!-- Tailwind CDN (utilities for layout/spacing not covered by our CSS) -->
+  <script>
+    // Apply theme before first paint to prevent flash
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'ui-sans-serif', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
-            display: ['Google Sans', 'Inter', 'system-ui', 'sans-serif'],
-            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
-          },
           colors: {
-            primary: {
-              DEFAULT: '#1a73e8',
-              hover:   '#1558b0',
-              soft:    '#e8f0fe',
-              light:   '#4d94f0'
-            },
-            accent: {
-              DEFAULT: '#0f766e',
-              soft:    '#e6f7f5',
-              light:   '#2dd4bf'
-            },
-            success: { DEFAULT: '#137333', soft: '#e6f4ea' },
-            warning: { DEFAULT: '#b06000', soft: '#fef3e2' },
-            danger:  { DEFAULT: '#b3261e', soft: '#fce8e6' }
+            primary: { DEFAULT: '#1a73e8', hover: '#1558b0', soft: '#e8f0fe', light: '#4d94f0' },
+            accent:  { DEFAULT: '#0f766e', soft: '#e6f7f5', light: '#2dd4bf' }
           },
-          maxWidth: {
-            content: '1120px',
-            prose:   '760px'
-          },
-          letterSpacing: {
-            tighter: '-0.03em'
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.35s ease-out',
-            'slide-up': 'slideUp 0.35s ease-out'
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' }
-            },
-            slideUp: {
-              '0%': { transform: 'translateY(8px)', opacity: '0' },
-              '100%': { transform: 'translateY(0)', opacity: '1' }
-            }
-          }
+          maxWidth: { content: '1120px' }
         }
       }
     }
   </script>
 
-  <!-- Alpine.js (for theme + small interactions) -->
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Portfolio CSS -->
+  <link rel="stylesheet" href="assets/style.css" />
 
-  <!-- Lucide icons -->
-  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
-  <style>
-    /* ══════════════════════════════════════════════════════════
-       DESIGN TOKEN SYSTEM
-       Spec-aligned: calm, information-first, light-first
-       Primary:  #1a73e8  (blue — actions, links, highlights)
-       Accent:   #0f766e  (teal — secondary / research context)
-       Success:  #137333  (green — positive outcomes)
-       Warning:  #b06000  (amber — status only)
-       Danger:   #b3261e  (red — errors only)
-       bg:       #f8fafc  (page ground — near-white)
-       surface:  #ffffff  (card surfaces)
-       surface-2:#f1f5f9  (alternating section fill)
-       border:   #e2e8f0  (dividers, card edges)
-       text:     #0f172a  (headings, high-contrast)
-       text-2:   #334155  (body copy)
-       text-3:   #64748b  (muted / labels)
-    ══════════════════════════════════════════════════════════ */
-
-    /* ─── Custom properties (spec) ──────────────────────────── */
-    :root {
-      --bg:           #f8fafc;
-      --surface:      #ffffff;
-      --surface-2:    #f1f5f9;
-      --border:       #e2e8f0;
-      --border-sub:   #f1f5f9;
-      --text:         #0f172a;
-      --text-2:       #334155;
-      --text-3:       #64748b;
-      --primary:      #1a73e8;
-      --primary-h:    #1558b0;
-      --primary-soft: #e8f0fe;
-      --primary-ring: #a8c7fa;
-      --primary-l:    #4d94f0;
-      --accent:       #0f766e;
-      --accent-soft:  #e6f7f5;
-      --accent-l:     #2dd4bf;
-      --success:      #137333;
-      --success-soft: #e6f4ea;
-      --warning:      #b06000;
-      --danger:       #b3261e;
-
-      /* Shape */
-      --r-chip:   0.625rem; /* 10px — buttons, chips */
-      --r-panel:  1.25rem;  /* 20px — cards and panels */
-      --r-sm:     0.5rem;   /* 8px  — small elements */
-
-      /* Elevation — thin borders preferred over heavy shadows */
-      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04);
-      --shadow-md: 0 2px 6px -1px rgb(0 0 0 / 0.07), 0 1px 3px -1px rgb(0 0 0 / 0.04);
-
-      /* Transitions */
-      --t-fast:  0.15s ease;
-      --t-base:  0.18s ease;
-      --t-lift:  border-color 0.18s ease, box-shadow 0.18s ease, transform 0.15s ease;
-
-      --nav-h: 3.5rem;
-
-      /* Navbar scroll state */
-      --nav-shadow: 0 1px 0 0 var(--border), 0 2px 8px -2px rgb(0 0 0 / 0.06);
-    }
-
-    /* ─── Scroll offset ─────────────────────────────────────── */
-    html { scroll-padding-top: calc(var(--nav-h) + 1.5rem); }
-
-    /* ─── Navbar scroll shadow ──────────────────────────────── */
-    .nav-scrolled {
-      box-shadow: var(--nav-shadow);
-    }
-
-    /* ─── Body baseline ──────────────────────────────────────── */
-    body {
-      color: var(--text-2);
-      background: var(--bg);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* ─── Heading weight/tracking baseline ──────────────────── */
-    h1, h2, h3, h4 {
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    /* ─── Display font (Google Sans) for hero h1 ────────────── */
-    .font-display {
-      font-family: 'Google Sans', 'Inter', system-ui, sans-serif;
-    }
-
-    /* ─── Reduced motion ─────────────────────────────────────── */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
-    /* ─── Focus ring ─────────────────────────────────────────── */
-    :focus-visible {
-      outline: 2px solid var(--primary-ring);
-      outline-offset: 4px;
-      border-radius: 4px;
-    }
-
-    /* ─── Tabular numbers on metric figures ──────────────────── */
-    .metric-num {
-      font-feature-settings: "tnum" 1, "lnum" 1;
-      font-variant-numeric: tabular-nums;
-    }
-
-    /* ─── Section label — thin horizontal rule right ─────────── */
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      white-space: nowrap;
-      font-family: Inter, system-ui, sans-serif;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      margin-bottom: 2rem;
-    }
-    .section-label::after {
-      content: '';
-      display: block;
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ─── Surface tint — alternating section fill ────────────── */
-    .surface-tint { background-color: var(--surface-2); }
-    .dark .surface-tint { background-color: rgb(15 23 42 / 0.55); }
-
-    /* ─── Skill chip — mono code token, 10px radius ──────────── */
-    .skill-chip {
-      display: inline-block;
-      padding: 0.2rem 0.625rem;
-      border-radius: var(--r-chip);
-      font-size: 0.75rem;
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      line-height: 1.5;
-      background: var(--surface-2);
-      color: var(--text-2);
-      border: 1px solid var(--border);
-      transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
-    }
-    .skill-chip:hover {
-      background: var(--primary-soft);
-      border-color: var(--primary-ring);
-      color: var(--primary);
-    }
-    .dark .skill-chip {
-      background: rgb(30 41 59);
-      color: rgb(148 163 184);
-      border-color: rgb(51 65 85);
-    }
-    .dark .skill-chip:hover {
-      background: rgb(26 115 232 / 0.12);
-      border-color: var(--primary-l);
-      color: var(--primary-l);
-    }
-
-    /* ─── Capability chip — Inter label, 10px radius ─────────── */
-    .cap-chip {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: var(--r-chip);
-      font-size: 0.8125rem;
-      font-family: Inter, system-ui, sans-serif;
-      font-weight: 500;
-      line-height: 1.5;
-      background: var(--surface-2);
-      color: var(--text-2);
-      border: 1px solid var(--border);
-      transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
-    }
-    .cap-chip:hover {
-      background: var(--primary-soft);
-      border-color: var(--primary-ring);
-      color: var(--primary-h);
-    }
-    .dark .cap-chip {
-      background: rgb(30 41 59);
-      color: rgb(203 213 225);
-      border-color: rgb(51 65 85);
-    }
-    .dark .cap-chip:hover {
-      background: rgb(26 115 232 / 0.12);
-      border-color: var(--primary-l);
-      color: var(--primary-l);
-    }
-
-    /* ─── Chip row wrapper ───────────────────────────────────── */
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.375rem;
-    }
-
-    /* ─── Card surface (generic) ─────────────────────────────── */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-panel);
-      box-shadow: var(--shadow-sm);
-      transition: var(--t-lift);
-      will-change: transform;
-    }
-    .card:hover {
-      border-color: var(--primary-ring);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-1px);
-    }
-    .dark .card { background: rgb(30 41 59); border-color: rgb(51 65 85); }
-    .dark .card:hover { border-color: var(--primary-l); }
-
-    /* ─── Active nav link indicator ─────────────────────────── */
-    .nav-link {
-      position: relative;
-      padding-bottom: 2px;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0; right: 0;
-      height: 2px;
-      background: var(--primary);
-      border-radius: 2px;
-      transform: scaleX(0);
-      transition: transform 0.18s ease;
-    }
-    .nav-link.active { color: var(--primary); }
-    .nav-link.active::after { transform: scaleX(1); }
-
-    /* ─── Approach quote ─────────────────────────────────────── */
-    .approach-quote {
-      border-left: 1.5px solid var(--border);
-      padding-left: 1rem;
-      font-family: Inter, system-ui, sans-serif;
-      font-size: 0.875rem;
-      font-weight: 400;
-      line-height: 1.75;
-      color: #475569;
-      transition: border-color var(--t-base);
-    }
-    .approach-quote:hover { border-left-color: var(--accent); }
-    .dark .approach-quote { color: rgb(148 163 184); border-color: rgb(51 65 85); }
-    .dark .approach-quote:hover { border-left-color: var(--accent-l); }
-
-    /* ─── Fade/slide animation classes ──────────────────────── */
-    [x-cloak] { display: none !important; }
-    .fade-in  { animation: fadeIn  0.35s ease-out both; }
-    .slide-up { animation: slideUp 0.35s ease-out both; }
-    @keyframes fadeIn  { from { opacity: 0 }              to { opacity: 1 } }
-    @keyframes slideUp { from { transform: translateY(8px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
-
-    /* ─── Experience card ────────────────────────────────────── */
-    .exp-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-panel);
-      box-shadow: var(--shadow-sm);
-      padding: 1.5rem 1.75rem 1.625rem;
-      transition: var(--t-lift);
-      will-change: transform;
-      position: relative;
-      overflow: hidden;
-    }
-    .exp-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: var(--border);
-      border-radius: 2px 0 0 2px;
-      transition: background var(--t-base);
-    }
-    .exp-card:hover { border-color: var(--border); box-shadow: var(--shadow-md); transform: translateY(-1px); }
-    .exp-card:hover::before { background: var(--primary); }
-    .exp-card.primary::before { background: var(--primary); }
-    .dark .exp-card { background: rgb(30 41 59); border-color: rgb(51 65 85); }
-    .dark .exp-card::before { background: rgb(51 65 85); }
-    .dark .exp-card.primary::before { background: var(--primary-l); }
-    .dark .exp-card:hover::before { background: var(--primary-l); }
-
-    /* ─── Project card ───────────────────────────────────────── */
-    .proj-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-panel);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: var(--t-lift);
-      will-change: transform;
-    }
-    .proj-card:hover { border-color: var(--primary-ring); box-shadow: var(--shadow-md); transform: translateY(-1px); }
-    .proj-card-header {
-      padding: 1.25rem 1.5rem 1rem;
-      border-bottom: 1px solid var(--border-sub);
-    }
-    .proj-card-body { padding: 1.25rem 1.5rem 1.5rem; }
-    .dark .proj-card { background: rgb(30 41 59); border-color: rgb(51 65 85); }
-    .dark .proj-card:hover { border-color: var(--primary-l); }
-    .dark .proj-card-header { border-color: rgb(51 65 85); }
-
-    /* ─── Trust item (contact proof strip) ───────────────────── */
-    .trust-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      padding: 1rem 1.25rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-panel);
-      transition: border-color var(--t-base);
-    }
-    .trust-item:hover { border-color: var(--primary-ring); }
-    .dark .trust-item { background: rgb(30 41 59); border-color: rgb(51 65 85); }
-    .dark .trust-item:hover { border-color: var(--primary-l); }
-
-    /* ─── Skill cluster card ─────────────────────────────────── */
-    .skill-cluster {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-panel);
-      box-shadow: var(--shadow-sm);
-      padding: 1.375rem 1.5rem 1.5rem;
-      transition: border-color var(--t-base), box-shadow var(--t-base);
-    }
-    .skill-cluster:hover { border-color: var(--primary-ring); box-shadow: var(--shadow-md); }
-    .dark .skill-cluster { background: rgb(30 41 59); border-color: rgb(51 65 85); }
-    .dark .skill-cluster:hover { border-color: var(--primary-l); }
-
-    /* ─── Trust panel metric cards ──────────────────────────── */
-    .metric-card {
-      border: 1px solid var(--border);
-      border-radius: var(--r-panel);
-      padding: 0.875rem;
-      transition: border-color var(--t-base);
-    }
-    .metric-card:hover { border-color: var(--primary-ring); }
-    .dark .metric-card { border-color: rgb(51 65 85); }
-    .dark .metric-card:hover { border-color: var(--primary-l); }
-
-    /* ─── Trust panel (hero right column) ────────────────────── */
-    .trust-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-panel);
-      box-shadow: var(--shadow-sm);
-      padding: 1.5rem;
-    }
-    .dark .trust-panel { background: rgb(15 23 42 / 0.6); border-color: rgb(51 65 85); }
-
-    /* ─── Research highlight card ────────────────────────────── */
-    .research-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-panel);
-      box-shadow: var(--shadow-sm);
-      transition: var(--t-lift);
-    }
-    .research-card:hover {
-      border-color: var(--accent);
-      box-shadow: var(--shadow-md);
-    }
-    .dark .research-card { background: rgb(30 41 59); border-color: rgb(51 65 85); }
-    .dark .research-card:hover { border-color: var(--accent-l); }
-
-    /* ─── Inline text link ───────────────────────────────────── */
-    .text-link {
-      color: var(--primary);
-      text-decoration-line: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-      text-decoration-color: rgb(26 115 232 / 0.35);
-      transition: text-decoration-color var(--t-fast), color var(--t-fast);
-    }
-    .text-link:hover {
-      color: var(--primary-h);
-      text-decoration-color: var(--primary-h);
-    }
-    .dark .text-link { color: var(--primary-l); text-decoration-color: rgb(77 148 240 / 0.4); }
-    .dark .text-link:hover { color: #fff; text-decoration-color: #fff; }
-
-    /* ─── Print ──────────────────────────────────────────────── */
-    @media print {
-      @page { margin: 1.5cm 2cm; }
-      .no-print { display: none !important; }
-      .print-block { display: block !important; }
-      body { color: #111 !important; font-size: 11pt; background: #fff !important; }
-      a::after { content: " (" attr(href) ")"; font-size: 9pt; color: #666; }
-      section { break-inside: avoid; }
-      .exp-card { border-left: 1px solid #ccc !important; }
-      .skill-chip, .cap-chip { border: 1px solid #ccc !important; background: none !important; }
-    }
-  </style>
+  <!-- Lucide icons (NOT deferred — load synchronously so icons render on first paint) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -500,224 +68,172 @@
     "@type": "Person",
     "name": "Guruprasad Nayak",
     "jobTitle": "Software Engineer, Applied ML & Research Systems",
-    "description": "Software engineer with production experience in retrieval and ranking systems, applied ML infrastructure, distributed backend services, and research-program work in accessible AI.",
+    "description": "Software engineer with production experience in retrieval and ranking systems, applied ML infrastructure, and research work in accessible AI.",
     "url": "https://i-c-e-m-a-n.github.io/2025Portfolio/",
     "sameAs": [
       "https://www.linkedin.com/in/guru-nayak",
       "https://github.com/I-c-e-m-a-n"
     ],
-    "knowsAbout": ["Retrieval Systems", "Ranking Pipelines", "Applied Machine Learning", "Model Evaluation", "Backend Systems", "Python", "C++", "FastAPI", "MCP Servers", "Accessible AI", "Distributed Systems", "Observability"],
-    "address": { "@type": "PostalAddress", "addressCountry": "SG" },
-    "email": "mailto:guruprasadnayak24@gmail.com"
+    "address": { "@type": "PostalAddress", "addressCountry": "SG" }
   }
   </script>
 </head>
-<body x-data="site()" x-init="init()" :class="darkMode ? 'dark bg-slate-950 text-slate-100' : ''" class="antialiased">
 
-  <!-- Navbar -->
-  <header id="site-nav" class="no-print sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-sm transition-shadow duration-200">
-    <div class="mx-auto max-w-content px-6">
-      <div class="flex items-center justify-between h-14">
-        <a href="#top" class="text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-100 hover:text-primary dark:hover:text-primary-light transition-colors">
-          Guruprasad Nayak
+<body class="antialiased">
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════════════════════ -->
+  <header id="site-nav" class="nav no-print">
+    <div class="container nav-inner">
+
+      <a href="#top" class="nav-wordmark">Guruprasad Nayak</a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a class="nav-link" data-section="work"       href="#work">Projects</a></li>
+          <li><a class="nav-link" data-section="experience" href="#experience">Experience</a></li>
+          <li><a class="nav-link" data-section="research"   href="#research">Research</a></li>
+          <li><a class="nav-link" data-section="skills"     href="#skills">Skills</a></li>
+          <li><a class="nav-link" data-section="contact"    href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-theme-btn" data-action="toggle-theme" aria-label="Toggle theme">
+          <i data-lucide="moon"  data-theme-icon="moon"  style="width:1rem;height:1rem"></i>
+          <i data-lucide="sun"   data-theme-icon="sun"   style="width:1rem;height:1rem;display:none"></i>
+        </button>
+        <a href="Guruprasad_Nayak_Resume.pdf" class="nav-resume-link" aria-label="Download resume PDF">
+          <i data-lucide="file-text" style="width:1rem;height:1rem"></i>
+          Resume
         </a>
-        <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600 dark:text-slate-400">
-          <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="research" href="#research">Research</a>
-          <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="work" href="#work">Projects</a>
-          <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="experience" href="#experience">Experience</a>
-          <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="skills" href="#skills">Skills</a>
-          <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="contact" href="#contact">Contact</a>
-        </nav>
-        <div class="flex items-center gap-3">
-          <button @click="toggleTheme" :aria-label="darkMode ? 'Switch to light mode' : 'Switch to dark mode'" class="no-print p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-            <i data-lucide="moon" class="h-4 w-4" x-show="!darkMode"></i>
-            <i data-lucide="sun" class="h-4 w-4" x-show="darkMode"></i>
-          </button>
-          <a href="Guruprasad_Nayak_Resume.pdf" aria-label="Download resume PDF" class="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-hover dark:text-primary-light dark:hover:text-white transition-colors">
-            <i data-lucide="file-text" class="h-4 w-4"></i> Resume
-          </a>
-          <button class="md:hidden p-2" @click="mobileOpen = !mobileOpen" aria-label="Menu">
-            <i data-lucide="menu" class="h-5 w-5"></i>
-          </button>
-        </div>
+        <button id="mobile-menu-btn" class="nav-mobile-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <i data-lucide="menu" style="width:1.25rem;height:1.25rem"></i>
+        </button>
       </div>
-      <div class="md:hidden" x-show="mobileOpen" x-transition x-cloak>
-        <nav class="py-4 space-y-1 text-sm border-t border-slate-100 dark:border-slate-800">
-          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#research">Research</a>
-          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#work">Projects</a>
-          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#experience">Experience</a>
-          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#skills">Skills</a>
-          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#contact">Contact</a>
-        </nav>
-      </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div id="mobile-drawer" class="mobile-nav-drawer container" role="navigation" aria-label="Mobile navigation">
+      <a class="mobile-nav-link" href="#work">Projects</a>
+      <a class="mobile-nav-link" href="#experience">Experience</a>
+      <a class="mobile-nav-link" href="#research">Research</a>
+      <a class="mobile-nav-link" href="#skills">Skills</a>
+      <a class="mobile-nav-link" href="#contact">Contact</a>
+      <a class="mobile-nav-link" href="Guruprasad_Nayak_Resume.pdf">Resume PDF</a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="top" style="background:linear-gradient(180deg, #eef4fd 0%, var(--bg) 72%)">
-    <div class="mx-auto max-w-content px-6 pt-20 pb-20 md:pt-28 md:pb-24">
 
-      <!-- Two-column: left = identity/CTA, right = trust panel -->
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 lg:gap-16 items-start">
+  <!-- ══════════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════════ -->
+  <section id="top" class="hero-section section">
+    <div class="container hero-inner">
 
-        <!-- Left column -->
-        <div>
-          <p class="text-xs font-medium text-slate-400 dark:text-slate-500 mb-5 tracking-wider uppercase animate-fade-in">Software Engineer · Applied ML &amp; Research Systems</p>
+      <!-- Left: identity + CTA -->
+      <div>
+        <p class="hero-eyebrow">Software Engineer · Applied ML &amp; Research Systems</p>
 
-          <h1 class="font-display text-4xl md:text-5xl font-bold leading-[1.05] text-slate-900 dark:text-slate-100 animate-slide-up" style="letter-spacing:-0.025em">
-            Research engineering &amp;<br class="hidden sm:block" />
-            <span class="text-primary">production ML systems.</span>
-          </h1>
+        <h1 class="hero-headline">
+          Research engineering &amp;<br class="hidden sm:block" />
+          <span class="accent">production ML systems.</span>
+        </h1>
 
-          <p class="mt-5 text-base text-slate-600 dark:text-slate-300 max-w-[580px] leading-relaxed">
-            Production experience in retrieval &amp; ranking pipelines, distributed backend services, and applied ML infrastructure.
-            Research background in accessible AI and interactive systems at the University of Delaware VIP program.
-          </p>
-
-          <!-- Capability tags -->
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="cap-chip">Retrieval &amp; Ranking</span>
-            <span class="cap-chip">Applied ML</span>
-            <span class="cap-chip">Backend Systems</span>
-            <span class="cap-chip">Agent / MCP</span>
-            <span class="cap-chip">Distributed Infra</span>
-            <span class="cap-chip">Accessible AI</span>
-          </div>
-
-          <!-- CTA row -->
-          <div class="mt-8 flex flex-wrap items-center gap-2.5">
-            <a href="mailto:guruprasadnayak24@gmail.com"
-               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] bg-primary hover:bg-primary-hover active:scale-[0.98] text-white font-medium text-sm transition-all">
-              <i data-lucide="mail" class="h-4 w-4"></i>
-              Get in touch
-            </a>
-            <a href="Guruprasad_Nayak_Resume.pdf"
-               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary hover:bg-primary-soft dark:hover:border-primary-light dark:hover:text-primary-light font-medium text-sm transition-all">
-              <i data-lucide="file-text" class="h-4 w-4"></i>
-              Resume
-            </a>
-            <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-[10px] text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light text-sm transition-colors">
-              <i data-lucide="github" class="h-4 w-4"></i>
-              GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-[10px] text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light text-sm transition-colors">
-              <i data-lucide="linkedin" class="h-4 w-4"></i>
-              LinkedIn
-            </a>
-          </div>
-        </div>
-
-        <!-- Right column — trust panel -->
-        <div class="trust-panel lg:mt-2">
-          <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-[0.08em] mb-4">At a glance</p>
-
-          <!-- AIRS Foundry production metrics -->
-          <div class="space-y-3">
-            <div class="metric-card">
-              <div class="flex items-baseline gap-2.5 mb-0.5">
-                <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">12–15 ms</span>
-                <span class="text-xs text-primary dark:text-primary-light font-medium">retrieval latency</span>
-              </div>
-              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Multi-stage retrieval &amp; ranking pipeline over a multi-GB corpus</p>
-            </div>
-
-            <div class="metric-card">
-              <div class="flex items-baseline gap-2.5 mb-0.5">
-                <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~90%</span>
-                <span class="text-xs text-primary dark:text-primary-light font-medium">context hit rate</span>
-              </div>
-              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Candidate filtering, similarity ranking, configuration-driven scoring</p>
-            </div>
-
-            <div class="metric-card">
-              <div class="flex items-baseline gap-2.5 mb-0.5">
-                <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~80%</span>
-                <span class="text-xs text-accent dark:text-accent-light font-medium">ops reduction</span>
-              </div>
-              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Digital operations platform · Singapore Armed Forces</p>
-            </div>
-
-            <div class="metric-card">
-              <div class="flex items-baseline gap-2.5 mb-0.5">
-                <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~60 h/mo</span>
-                <span class="text-xs text-accent dark:text-accent-light font-medium">time saved</span>
-              </div>
-              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Automation tools for personnel &amp; reporting workflows</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Research -->
-  <section id="research" class="surface-tint">
-    <div class="mx-auto max-w-content px-6 py-14 md:py-20">
-      <h2 class="section-label">Research</h2>
-
-      <div class="research-card px-6 py-6 md:px-8 md:py-7">
-
-        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
-          <div>
-            <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100">
-              VIP Research Program &mdash; Accessible Interactive Systems
-            </h3>
-            <p class="text-xs text-slate-400 dark:text-slate-500 mt-1 tracking-wide">
-              University of Delaware &nbsp;&middot;&nbsp; Sensify Lab &nbsp;&middot;&nbsp; 2022
-            </p>
-          </div>
-          <span class="inline-flex shrink-0 items-center gap-1 px-2.5 py-1 rounded-[10px] text-xs font-medium text-accent dark:text-accent-light" style="background:rgb(15 118 110/0.07);border:1px solid rgb(15 118 110/0.18)">
-            <i data-lucide="flask-conical" class="h-3 w-3"></i>
-            Research
-          </span>
-        </div>
-
-        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
-          Contributed to interdisciplinary research at the University of Delaware's Sensify Lab (VIP program)
-          building software to make music participation accessible to children on the autism spectrum.
-          Developed interactive system components allowing listeners to enable, disable, and recombine musical layers
-          according to individual sensory preferences. Implemented session logging, replay, and behavioral analysis tooling;
-          integrated DALL·E, GPT-3.5, and in-house neural network components for generative and safety-oriented workflows.
-          Work combined HCI, accessibility, and applied AI in a live research context.
+        <p class="hero-sub">
+          Production experience in retrieval and ranking pipelines, distributed backend
+          services, and applied ML infrastructure. Research background in accessible AI
+          and interactive systems from the University of Delaware VIP program.
         </p>
 
-        <div class="mt-5 flex flex-wrap items-center gap-4">
-          <a href="https://sensifylab.cis.udel.edu/people.html"
-             target="_blank" rel="noopener"
-             class="inline-flex items-center gap-1.5 text-sm font-medium text-primary dark:text-primary-light hover:underline underline-offset-4 transition-colors">
-            Sensify Lab Profile
-            <i data-lucide="external-link" class="h-3.5 w-3.5 opacity-70"></i>
-          </a>
-          <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/"
-             target="_blank" rel="noopener"
-             class="inline-flex items-center gap-1.5 text-sm font-medium text-primary dark:text-primary-light hover:underline underline-offset-4 transition-colors">
-            UDaily Project Feature
-            <i data-lucide="external-link" class="h-3.5 w-3.5 opacity-70"></i>
-          </a>
+        <div class="hero-caps">
+          <span class="cap-chip">Retrieval &amp; Ranking</span>
+          <span class="cap-chip">Applied ML</span>
+          <span class="cap-chip">Backend Systems</span>
+          <span class="cap-chip">Agent / MCP</span>
+          <span class="cap-chip">Distributed Infra</span>
+          <span class="cap-chip">Accessible AI</span>
         </div>
 
+        <div class="hero-cta-row">
+          <a href="mailto:guruprasadnayak24@gmail.com" class="btn btn-primary">
+            <i data-lucide="mail" style="width:1rem;height:1rem"></i>
+            Get in touch
+          </a>
+          <a href="Guruprasad_Nayak_Resume.pdf" class="btn btn-outline">
+            <i data-lucide="file-text" style="width:1rem;height:1rem"></i>
+            Resume
+          </a>
+          <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="btn btn-text">
+            <i data-lucide="github" style="width:1rem;height:1rem"></i>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener" class="btn btn-text">
+            <i data-lucide="linkedin" style="width:1rem;height:1rem"></i>
+            LinkedIn
+          </a>
+        </div>
       </div>
+
+      <!-- Right: trust panel -->
+      <div class="trust-panel reveal" style="transition-delay:0.1s">
+        <p class="trust-item-label mb-4">At a glance</p>
+
+        <div class="stack-4">
+          <div class="metric-card">
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">12&ndash;15 ms</span>
+              <span class="text-xs font-medium text-primary dark:text-primary-light">retrieval latency</span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Multi-stage retrieval and ranking over a multi-GB corpus</p>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~90%</span>
+              <span class="text-xs font-medium text-primary dark:text-primary-light">context hit rate</span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Candidate filtering, similarity ranking, configuration-driven scoring</p>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~80%</span>
+              <span class="text-xs font-medium text-accent dark:text-accent-light">ops reduction</span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Digital operations platform, Singapore Armed Forces</p>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~60 h/mo</span>
+              <span class="text-xs font-medium text-accent dark:text-accent-light">time saved</span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Automation tooling for personnel and reporting workflows</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="work">
-    <div class="mx-auto max-w-content px-6 py-16 md:py-24">
+
+  <!-- ══════════════════════════════════════════════════════════
+       PROJECTS
+  ══════════════════════════════════════════════════════════ -->
+  <section id="work" class="section">
+    <div class="container section-inner">
       <h2 class="section-label">Projects</h2>
 
-      <div class="space-y-5">
+      <div class="stack-5">
 
         <!-- Project 1: Web Search Microservice -->
-        <article class="proj-card">
+        <article class="proj-card reveal">
           <div class="proj-card-header">
-            <p class="text-xs font-semibold text-primary dark:text-primary-light uppercase tracking-wider mb-2">Personal Project</p>
-            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
-              Web Search Microservice
-            </h3>
-            <div class="mt-2 chip-row">
+            <p class="proj-label blue">Personal Project</p>
+            <h3 class="proj-title">Web Search Microservice</h3>
+            <div class="chip-row mt-2">
               <span class="skill-chip">Python</span>
               <span class="skill-chip">FastAPI</span>
               <span class="skill-chip">Pydantic v2</span>
@@ -729,46 +245,43 @@
 
           <div class="proj-card-body">
             <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Standalone FastAPI microservice for multi-provider web, news, and image search aggregation.
-              Layered <code class="font-mono text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">api → services → providers → ranking</code> architecture with
-              per-provider circuit breaker health, request-ID middleware, structured JSON logging, and full OpenAPI documentation.
-              Multiple search providers (SearXNG, DuckDuckGo, Brave, Serper) unified behind a single interface with capability routing.
+              Standalone FastAPI microservice for web, news, and image search across multiple providers.
+              Structured around a four-layer architecture (API routing, service orchestration, provider adapters, result ranking),
+              with per-provider circuit breaker health checks, request-ID tracing middleware, structured JSON logging,
+              and full OpenAPI/ReDoc documentation. Supports SearXNG, DuckDuckGo, Brave, and Serper behind a unified interface.
             </p>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Service Architecture</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Four-layer separation: API routing, service orchestration, provider adapters, and result ranking. Each provider independently configurable and circuit-breaker-protected.</p>
+            <div class="proj-detail-grid mb-5">
+              <div class="proj-detail-cell">
+                <p class="proj-detail-label">Architecture</p>
+                <p class="proj-detail-text">Four-layer separation: API routing, service orchestration, provider adapters, and result ranking. Each provider independently configurable and circuit-breaker-protected.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Observability</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Request-ID tracing middleware, structured JSON logging, per-provider health checks via <code class="font-mono bg-transparent">/v1/health</code>, and OpenAPI / ReDoc schema exposure.</p>
+              <div class="proj-detail-cell">
+                <p class="proj-detail-label">Observability</p>
+                <p class="proj-detail-text">Request-ID tracing middleware, structured JSON logging, per-provider health checks at <code>/v1/health</code>, and OpenAPI/ReDoc schema exposure.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Deployment</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Full Docker Compose stack with self-hosted SearXNG + DDGS sidecar. Externally-keyed providers (Brave, Serper, SerpAPI) opt-in via environment configuration.</p>
+              <div class="proj-detail-cell">
+                <p class="proj-detail-label">Deployment</p>
+                <p class="proj-detail-text">Full Docker Compose stack with self-hosted SearXNG and DDGS sidecar. External providers opt in via environment configuration.</p>
               </div>
             </div>
 
-            <div class="flex flex-wrap items-center gap-3">
-              <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener"
-                 class="inline-flex items-center gap-1.5 text-sm font-medium text-primary dark:text-primary-light hover:underline underline-offset-4 transition-colors">
-                <i data-lucide="github" class="h-3.5 w-3.5 opacity-70"></i>
+            <div class="proj-cta-row">
+              <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="btn btn-ghost">
+                <i data-lucide="github" style="width:1rem;height:1rem"></i>
                 View on GitHub
-                <i data-lucide="external-link" class="h-3 w-3 opacity-60"></i>
+                <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.6"></i>
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Project 2: Multi-Service Workflow & Integrations Platform -->
-        <article class="proj-card">
+        <!-- Project 2: Distributed Agent & Workflow Platform -->
+        <article class="proj-card reveal">
           <div class="proj-card-header">
-            <p class="text-xs font-semibold text-primary dark:text-primary-light uppercase tracking-wider mb-2">Personal Project</p>
-            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
-              Distributed Agent &amp; Workflow Platform
-            </h3>
-            <div class="mt-2 chip-row">
+            <p class="proj-label blue">Personal Project</p>
+            <h3 class="proj-title">Distributed Agent &amp; Workflow Platform</h3>
+            <div class="chip-row mt-2">
               <span class="skill-chip">Python</span>
               <span class="skill-chip">FastAPI</span>
               <span class="skill-chip">React</span>
@@ -779,46 +292,42 @@
 
           <div class="proj-card-body">
             <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Multi-service platform spanning chat, memory retrieval, task orchestration, and web research.
-              A central router coordinates requests across independently scoped backend services using
-              capability-based routing, request/response validation, and defined service boundaries
-              for integration safety, observability, and maintainability.
+              Multi-service platform for chat, memory retrieval, task orchestration, and web research.
+              A central router coordinates requests across independently scoped backend services using capability-based routing,
+              request/response validation, and well-defined service boundaries for observability and integration safety.
             </p>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Backend</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">FastAPI services with capability-based routing, Pydantic request/response validation, and structured inter-service communication over SQLite.</p>
+            <div class="proj-detail-grid mb-5">
+              <div class="proj-detail-cell">
+                <p class="proj-detail-label">Backend</p>
+                <p class="proj-detail-text">FastAPI services with capability-based routing, Pydantic validation, and structured inter-service communication over SQLite.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Frontend</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">React + TypeScript frontend supporting multi-step workflows, persisted state, and event-driven streaming across CLI and web interfaces.</p>
+              <div class="proj-detail-cell">
+                <p class="proj-detail-label">Frontend</p>
+                <p class="proj-detail-text">React and TypeScript frontend supporting multi-step workflows, persisted state, and event-driven streaming across CLI and web interfaces.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Architecture</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Async workflows and service coordination — each service independently scoped with defined boundaries, capability manifests, and observable integration points.</p>
+              <div class="proj-detail-cell">
+                <p class="proj-detail-label">Architecture</p>
+                <p class="proj-detail-text">Each service independently scoped with defined boundaries, capability manifests, and observable integration points. Async workflows throughout.</p>
               </div>
             </div>
 
-            <div class="flex flex-wrap items-center gap-3">
-              <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener"
-                 class="inline-flex items-center gap-1.5 text-sm font-medium text-primary dark:text-primary-light hover:underline underline-offset-4 transition-colors">
-                <i data-lucide="github" class="h-3.5 w-3.5 opacity-70"></i>
+            <div class="proj-cta-row">
+              <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="btn btn-ghost">
+                <i data-lucide="github" style="width:1rem;height:1rem"></i>
                 View on GitHub
-                <i data-lucide="external-link" class="h-3 w-3 opacity-60"></i>
+                <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.6"></i>
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Project 3: Accessible Interactive Music System (VIP Research) -->
-        <article class="proj-card">
+        <!-- Project 3: Accessible Interactive Music System -->
+        <article class="proj-card reveal">
           <div class="proj-card-header">
-            <p class="text-xs font-semibold text-accent dark:text-accent-light uppercase tracking-wider mb-2">University of Delaware · Sensify Lab · VIP Research</p>
-            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
-              Accessible Interactive Music System
-            </h3>
-            <div class="mt-2 chip-row">
+            <p class="proj-label teal">University of Delaware &middot; Sensify Lab &middot; VIP Research</p>
+            <h3 class="proj-title">Accessible Interactive Music System</h3>
+            <div class="chip-row mt-2">
               <span class="skill-chip">C++</span>
               <span class="skill-chip">C#</span>
               <span class="skill-chip">Unity</span>
@@ -832,50 +341,45 @@
 
           <div class="proj-card-body">
             <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Contributed to accessibility research at the University of Delaware's Sensify Lab (VIP program, 2022),
-              building an interactive system to make music participation accessible to children on the autism spectrum.
-              The system allowed listeners to activate, disable, and recombine musical layers
+              Built as part of the University of Delaware's Sensify Lab VIP program (2022).
+              The system makes music participation accessible to children on the autism spectrum
+              by letting listeners activate, disable, and recombine musical layers
               (melody, rhythm, harmony) according to their sensory preferences.
-              Interactions were logged per-session and replayed to support behavioral analysis and accessibility-informed design.
-              Integrated DALL·E, GPT-3.5, and in-house neural network components for generative and safety-filtering workflows.
+              Interactions were logged per session and replayed to support behavioral analysis
+              and accessibility-informed design. Integrated DALL-E, GPT-3.5, and in-house neural
+              network components for generative and safety-filtering workflows.
             </p>
 
-            <div class="grid sm:grid-cols-2 gap-3 mb-5">
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Interaction &amp; Logging</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Layer toggle events captured with timestamps to CSV. Session replay and visualization tooling in Python for behavioral analysis across pilot sessions.</p>
+            <div class="grid-auto-2 mb-5">
+              <div class="proj-detail-cell">
+                <p class="proj-detail-label">Interaction &amp; Logging</p>
+                <p class="proj-detail-text">Layer toggle events captured with timestamps to CSV. Session replay and visualization tooling in Python for behavioral analysis across pilot sessions.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Stack</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Unity + C# runtime orchestration, Arduino + Bluetooth hardware input, Android plugin for mobile deployment, Python for AI integration and log analysis.</p>
+              <div class="proj-detail-cell">
+                <p class="proj-detail-label">Stack</p>
+                <p class="proj-detail-text">Unity and C# for runtime orchestration, Arduino and Bluetooth for hardware input, Android plugin for mobile deployment, Python for AI integration and log analysis.</p>
               </div>
             </div>
 
-            <div class="flex flex-wrap items-center gap-4">
-              <a href="https://sensifylab.cis.udel.edu/people.html"
-                 target="_blank" rel="noopener"
-                 class="inline-flex items-center gap-1.5 text-sm font-medium text-accent dark:text-accent-light hover:underline underline-offset-4 transition-colors">
+            <div class="proj-cta-row">
+              <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener" class="cta-teal">
                 Sensify Lab
-                <i data-lucide="external-link" class="h-3.5 w-3.5 opacity-70"></i>
+                <i data-lucide="external-link" style="width:0.875rem;height:0.875rem;opacity:0.7"></i>
               </a>
-              <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/"
-                 target="_blank" rel="noopener"
-                 class="inline-flex items-center gap-1.5 text-sm font-medium text-accent dark:text-accent-light hover:underline underline-offset-4 transition-colors">
+              <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener" class="cta-teal">
                 UDaily Feature
-                <i data-lucide="external-link" class="h-3.5 w-3.5 opacity-70"></i>
+                <i data-lucide="external-link" style="width:0.875rem;height:0.875rem;opacity:0.7"></i>
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Project 4: D&D Tactical Map (compact) -->
-        <article class="proj-card">
+        <!-- Project 4: Real-Time 3D Tactical Map -->
+        <article class="proj-card reveal">
           <div class="proj-card-header">
-            <p class="text-xs font-semibold text-primary dark:text-primary-light uppercase tracking-wider mb-2">Personal Project</p>
-            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
-              Real-Time 3D Tactical Map &mdash; MCP / WebSocket Architecture
-            </h3>
-            <div class="mt-2 chip-row">
+            <p class="proj-label blue">Personal Project</p>
+            <h3 class="proj-title">Real-Time 3D Tactical Map &mdash; MCP / WebSocket Architecture</h3>
+            <div class="chip-row mt-2">
               <span class="skill-chip">TypeScript</span>
               <span class="skill-chip">React</span>
               <span class="skill-chip">React Three Fiber</span>
@@ -888,29 +392,29 @@
 
           <div class="proj-card-body">
             <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Real-time 3D multiplayer tactical map with a WebSocket-based authoritative server, a REST-to-intent bridge agent, and a React Three Fiber UI.
-              The server maintains a validated 3D voxel grid (terrain, fog-of-war, tokens, obstacles, effects) and broadcasts diffs to all connected clients.
-              A world-ops HTTP agent bridges REST requests to typed MCP intents with stepwise pathfinding and a job queue.
-              Four packages in a pnpm monorepo share Zod protocol schemas, error codes, and encode/decode helpers.
+              Real-time 3D multiplayer tactical map with a WebSocket-based authoritative server, a REST-to-intent bridge agent,
+              and a React Three Fiber UI. The server maintains a validated 3D voxel grid covering terrain, fog-of-war, tokens,
+              obstacles, and effects, and broadcasts diffs to all connected clients. An HTTP world-ops agent bridges REST requests
+              to typed MCP intents with stepwise pathfinding and a job queue. Four packages in a pnpm monorepo share Zod protocol
+              schemas, error codes, and encode/decode helpers.
             </p>
 
-            <div class="grid sm:grid-cols-2 gap-3">
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Protocol &amp; State</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Intent → validate → ACK + PATCH broadcast model. Authoritative server owns all mutations; clients apply patches optimistically with server reconciliation.</p>
+            <div class="grid-auto-2 mb-5">
+              <div class="proj-detail-cell">
+                <p class="proj-detail-label">Protocol &amp; State</p>
+                <p class="proj-detail-text">Intent, validate, ACK + PATCH broadcast model. Authoritative server owns all mutations; clients apply patches optimistically with server reconciliation.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Agent Bridge</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">HTTP → MCP intent bridge with stepwise pathfinding, token CRUD, terrain/fog/effect mutation, save/load, and a job queue for multi-step operations.</p>
+              <div class="proj-detail-cell">
+                <p class="proj-detail-label">Agent Bridge</p>
+                <p class="proj-detail-text">HTTP to MCP intent bridge with stepwise pathfinding, token CRUD, terrain/fog/effect mutation, save/load, and a job queue for multi-step operations.</p>
               </div>
             </div>
 
-            <div class="mt-5 flex flex-wrap items-center gap-3">
-              <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener"
-                 class="inline-flex items-center gap-1.5 text-sm font-medium text-primary dark:text-primary-light hover:underline underline-offset-4 transition-colors">
-                <i data-lucide="github" class="h-3.5 w-3.5 opacity-70"></i>
+            <div class="proj-cta-row">
+              <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="btn btn-ghost">
+                <i data-lucide="github" style="width:1rem;height:1rem"></i>
                 View on GitHub
-                <i data-lucide="external-link" class="h-3 w-3 opacity-60"></i>
+                <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.6"></i>
               </a>
             </div>
           </div>
@@ -920,126 +424,221 @@
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience">
-    <div class="mx-auto max-w-content px-6 py-16 md:py-24">
+
+  <!-- ══════════════════════════════════════════════════════════
+       EXPERIENCE
+  ══════════════════════════════════════════════════════════ -->
+  <section id="experience" class="section surface-alt">
+    <div class="container section-inner">
       <h2 class="section-label">Experience</h2>
 
-      <div class="space-y-4">
+      <div class="stack-4">
 
-        <!-- AIRS Foundry — primary, blue accent always on -->
-        <article class="exp-card primary">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+        <!-- AIRS Foundry -->
+        <article class="exp-card primary reveal">
+          <div class="exp-header">
             <div>
-              <h3 class="text-[0.9375rem] font-semibold text-slate-900 dark:text-slate-100">AIRS Foundry</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Software Engineer &nbsp;&middot;&nbsp; AI Infrastructure &amp; Systems</p>
+              <h3 class="exp-org">AIRS Foundry</h3>
+              <p class="exp-role">Software Engineer &middot; AI Infrastructure &amp; Systems</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Dec 2025 – Present</span>
+            <span class="exp-date">Dec 2025 &ndash; Present</span>
           </div>
-          <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Built production FastAPI backend for multi-stage retrieval and ranking over a multi-GB corpus — 12–15 ms latency, ~90% relevant-context hit rate, achieved through candidate filtering, similarity ranking, and configuration-driven scoring.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Refactored performance-sensitive Python components into C++ to improve execution speed in latency-critical backend paths.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Built and integrated MCP servers and tool interfaces: schema definition, execution flow, structured logging, debugging instrumentation, and agent-facing API integration.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Built eval harnesses, ranking benchmarks, latency profiling, and regression suites to enforce quality gates across pipeline changes.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Developed backend infrastructure across multi-service architectures with async workers, queues, distributed jobs, and parallel-processing components.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Owned production responsibilities: release validation, incident debugging, alert response, and uptime-sensitive fixes across shared AI workflow infrastructure.</span></li>
+          <ul class="exp-bullets">
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Built a production FastAPI backend for multi-stage retrieval and ranking over a multi-GB corpus, achieving 12&ndash;15 ms latency and roughly 90% relevant-context hit rate through candidate filtering, similarity ranking, and configurable scoring.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Refactored performance-critical Python components into C++ to reduce latency in hot backend paths.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Built and integrated MCP servers and tool interfaces: schema definition, execution flow, structured logging, debugging instrumentation, and agent-facing API integration.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Wrote eval harnesses, ranking benchmarks, latency profiling, and regression suites to enforce quality gates across pipeline changes.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Developed backend infrastructure across multi-service architectures with async workers, queues, distributed jobs, and parallel-processing components.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Owned production responsibilities: release validation, incident debugging, alert response, and uptime-sensitive fixes across shared AI workflow infrastructure.</span>
+            </li>
           </ul>
         </article>
 
         <!-- Singapore Armed Forces -->
-        <article class="exp-card">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+        <article class="exp-card reveal">
+          <div class="exp-header">
             <div>
-              <h3 class="text-[0.9375rem] font-semibold text-slate-900 dark:text-slate-100">Singapore Armed Forces</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Sergeant · Operations &amp; Digital Transformation</p>
+              <h3 class="exp-org">Singapore Armed Forces</h3>
+              <p class="exp-role">Sergeant &middot; Operations &amp; Digital Transformation</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Jul 2023 – Aug 2025</span>
+            <span class="exp-date">Jul 2023 &ndash; Aug 2025</span>
           </div>
-          <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Architected and launched the unit's first digital operations platform, replacing paper-based workflows and reducing manpower requirements by ~80%.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Built internal automation tools for personnel accounting and reporting, eliminating repetitive manual work and saving ~60 hours per month.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Standardized fragmented operational processes into structured digital workflows; led 30-person operations under time-sensitive constraints.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Received the Safety Steward Award; first Sergeant in battalion history to receive the 23SA Regimental Sergeant Major's Coin.</span></li>
+          <ul class="exp-bullets">
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Designed and launched the unit's first digital operations platform, replacing paper-based workflows and cutting manpower requirements by roughly 80%.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Built internal automation tools for personnel accounting and reporting, saving around 60 hours per month of manual work.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Standardized fragmented operational processes into structured digital workflows and led 30-person operations under time-sensitive constraints.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Received the Safety Steward Award and the 23SA Regimental Sergeant Major's Coin, the first Sergeant in battalion history to receive it.</span>
+            </li>
           </ul>
         </article>
 
-        <!-- VIP Research Program -->
-        <article class="exp-card">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+        <!-- VIP Research -->
+        <article class="exp-card reveal">
+          <div class="exp-header">
             <div>
-              <h3 class="text-[0.9375rem] font-semibold text-slate-900 dark:text-slate-100">University of Delaware · VIP Research Program</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Undergraduate Researcher · Accessible AI Systems</p>
+              <h3 class="exp-org">University of Delaware &middot; VIP Research Program</h3>
+              <p class="exp-role">Undergraduate Researcher &middot; Accessible AI Systems</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Aug 2022 – Jan 2023</span>
+            <span class="exp-date">Aug 2022 &ndash; Jan 2023</span>
           </div>
-          <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Contributed to accessibility research at the University of Delaware's Sensify Lab, building interactive software to make music participation accessible to children on the autism spectrum — allowing listeners to activate, disable, and recombine musical layers according to their individual sensory preferences.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Implemented session logging (layer toggle events with timestamps to CSV), session replay, and visualization tooling in Python to support behavioral analysis and inform accessibility-oriented design iterations.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Worked with DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization, and safety-oriented content filtering; supported model evaluation workflows including parallel run comparison and high-variance output filtering.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Developed AI integrations in Python and runtime interface components in C++ and Unity; built Android plugin work for cross-platform deployment. Collaborated with HCI researchers, accessibility stakeholders, and interdisciplinary team members.</span></li>
+          <ul class="exp-bullets">
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Built interactive software at the Sensify Lab to make music participation accessible to children on the autism spectrum, letting listeners activate, disable, and recombine musical layers to match their sensory preferences.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Implemented session logging (layer toggle events with timestamps to CSV), session replay, and visualization tooling in Python to support behavioral analysis and design iteration.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Worked with DALL-E, GPT-3.5, and in-house neural networks for image generation, prompt optimization, and safety-oriented content filtering; supported model evaluation including parallel run comparison and high-variance output filtering.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-marker">&#x2013;</span>
+              <span>Developed AI integrations in Python, runtime components in C++ and Unity, and an Android plugin for cross-platform deployment. Collaborated with HCI researchers and accessibility stakeholders.</span>
+            </li>
           </ul>
         </article>
 
-        <!-- Teaching Assistant + EY — two compact side-by-side cards on md+ -->
-        <div class="grid md:grid-cols-2 gap-4">
-          <article class="exp-card">
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+        <!-- TA + EY side by side -->
+        <div class="grid-auto-2">
+
+          <article class="exp-card reveal">
+            <div class="exp-header">
               <div>
-                <h3 class="text-[0.9375rem] font-semibold text-slate-900 dark:text-slate-100">University of Delaware</h3>
-                <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Teaching Assistant · Computer Science</p>
+                <h3 class="exp-org">University of Delaware</h3>
+                <p class="exp-role">Teaching Assistant &middot; Computer Science</p>
               </div>
-              <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Aug – Dec 2022</span>
+              <span class="exp-date">Aug &ndash; Dec 2022</span>
             </div>
-            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              Supported 200+ students across data structures, algorithms, systems, and programming fundamentals through debugging help, technical walkthroughs, and problem-solving guidance.
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-3">
+              Supported 200+ students across data structures, algorithms, systems, and programming fundamentals through debugging sessions, technical walkthroughs, and problem-solving office hours.
             </p>
           </article>
 
-          <article class="exp-card">
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+          <article class="exp-card reveal">
+            <div class="exp-header">
               <div>
-                <h3 class="text-[0.9375rem] font-semibold text-slate-900 dark:text-slate-100">Ernst &amp; Young · Maharashtra Cyber Police</h3>
-                <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Cybersecurity Intern</p>
+                <h3 class="exp-org">Ernst &amp; Young &middot; Maharashtra Cyber Police</h3>
+                <p class="exp-role">Cybersecurity Intern</p>
               </div>
-              <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Jun – Jul 2019</span>
+              <span class="exp-date">Jun &ndash; Jul 2019</span>
             </div>
-            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-3">
               OSINT investigations, anomaly analysis, and vulnerability assessment. Correlated logs and open-source signals to support threat triage, incident analysis, and evidence-based reporting.
             </p>
           </article>
+
+        </div>
+
+        <!-- Education -->
+        <div class="edu-card reveal">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+            <div>
+              <p class="trust-item-label mb-1">Education</p>
+              <h3 class="exp-org">B.S. Computer Science &middot; University of Delaware</h3>
+              <p class="exp-role mt-1">Dean's List &middot; DSA, OS, Databases, Software Engineering, Machine Learning</p>
+            </div>
+            <span class="exp-date">2019 &ndash; 2023</span>
+          </div>
+          <p class="text-xs text-slate-400 dark:text-slate-500 mt-2">
+            EC-Council CEH &middot; MIT Sloan Executive Education: AI Strategy
+          </p>
         </div>
 
       </div>
+    </div>
+  </section>
 
-      <!-- Education — inline card below experience -->
-      <div class="mt-4">
-        <div class="exp-card">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
-            <div>
-              <p class="text-[0.65rem] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-[0.08em] mb-1">Education</p>
-              <h3 class="text-[0.9375rem] font-semibold text-slate-900 dark:text-slate-100">B.S. Computer Science · University of Delaware</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Dean's List · DSA, OS, Databases, Software Engineering, Machine Learning</p>
-            </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">2019 – 2023</span>
+
+  <!-- ══════════════════════════════════════════════════════════
+       RESEARCH
+  ══════════════════════════════════════════════════════════ -->
+  <section id="research" class="section">
+    <div class="container section-inner">
+      <h2 class="section-label">Research</h2>
+
+      <div class="research-card reveal">
+        <div class="research-header">
+          <div>
+            <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 leading-snug">
+              VIP Research Program &mdash; Accessible Interactive Systems
+            </h3>
+            <p class="text-xs text-slate-400 dark:text-slate-500 mt-1 tracking-wide">
+              University of Delaware &middot; Sensify Lab &middot; 2022
+            </p>
           </div>
-          <p class="mt-2 text-xs text-slate-400 dark:text-slate-500">
-            EC-Council CEH · MIT Sloan Executive Education: AI Strategy
-          </p>
+          <span class="research-badge">
+            <i data-lucide="flask-conical" style="width:0.75rem;height:0.75rem"></i>
+            Research
+          </span>
+        </div>
+
+        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+          Contributed to interdisciplinary research at the University of Delaware's Sensify Lab (VIP program),
+          building software to make music participation accessible to children on the autism spectrum.
+          Developed interactive system components letting listeners enable, disable, and recombine musical layers
+          according to their sensory preferences. Implemented session logging, replay, and behavioral analysis tooling;
+          integrated DALL-E, GPT-3.5, and in-house neural network components for generative and safety-oriented workflows.
+          Work sat at the intersection of HCI, accessibility engineering, and applied AI.
+        </p>
+
+        <div class="research-links">
+          <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener" class="research-link">
+            Sensify Lab Profile
+            <i data-lucide="external-link" style="width:0.875rem;height:0.875rem;opacity:0.7"></i>
+          </a>
+          <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener" class="research-link">
+            UDaily Project Feature
+            <i data-lucide="external-link" style="width:0.875rem;height:0.875rem;opacity:0.7"></i>
+          </a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Technical Skills -->
-  <section id="skills" class="surface-tint">
-    <div class="mx-auto max-w-content px-6 py-16 md:py-24">
+
+  <!-- ══════════════════════════════════════════════════════════
+       TECHNICAL SKILLS
+  ══════════════════════════════════════════════════════════ -->
+  <section id="skills" class="section surface-alt">
+    <div class="container section-inner">
       <h2 class="section-label">Technical Skills</h2>
 
       <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
 
-        <div class="skill-cluster">
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Languages</h3>
+        <div class="skill-cluster reveal">
+          <p class="skill-cluster-label">Languages</p>
           <div class="chip-row">
             <span class="skill-chip">Python</span>
             <span class="skill-chip">C++</span>
@@ -1050,8 +649,8 @@
           </div>
         </div>
 
-        <div class="skill-cluster sm:col-span-2 xl:col-span-2">
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Applied ML / Research Engineering</h3>
+        <div class="skill-cluster sm:col-span-2 reveal">
+          <p class="skill-cluster-label">Applied ML / Research Engineering</p>
           <div class="chip-row">
             <span class="skill-chip">PyTorch</span>
             <span class="skill-chip">TensorFlow</span>
@@ -1062,15 +661,13 @@
             <span class="skill-chip">transformer-based systems</span>
             <span class="skill-chip">prompt optimization</span>
             <span class="skill-chip">model evaluation</span>
-            <span class="skill-chip">tuning workflows</span>
             <span class="skill-chip">retrieval</span>
             <span class="skill-chip">ranking systems</span>
-            <span class="skill-chip">safety-oriented filtering</span>
           </div>
         </div>
 
-        <div class="skill-cluster sm:col-span-2">
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Backend / Systems</h3>
+        <div class="skill-cluster sm:col-span-2 reveal">
+          <p class="skill-cluster-label">Backend / Systems</p>
           <div class="chip-row">
             <span class="skill-chip">FastAPI</span>
             <span class="skill-chip">Flask</span>
@@ -1084,12 +681,11 @@
             <span class="skill-chip">observability</span>
             <span class="skill-chip">structured logging</span>
             <span class="skill-chip">regression testing</span>
-            <span class="skill-chip">release validation</span>
           </div>
         </div>
 
-        <div class="skill-cluster xl:col-span-1">
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Agent / Infrastructure</h3>
+        <div class="skill-cluster reveal">
+          <p class="skill-cluster-label">Agent / Infrastructure</p>
           <div class="chip-row">
             <span class="skill-chip">MCP servers</span>
             <span class="skill-chip">tool schemas</span>
@@ -1099,18 +695,17 @@
             <span class="skill-chip">async workers</span>
             <span class="skill-chip">distributed jobs</span>
             <span class="skill-chip">queues</span>
-            <span class="skill-chip">parallel processing</span>
           </div>
         </div>
 
-        <div class="skill-cluster">
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Product / Accessibility</h3>
+        <div class="skill-cluster reveal">
+          <p class="skill-cluster-label">Product / Accessibility</p>
           <div class="chip-row">
             <span class="skill-chip">Unity</span>
             <span class="skill-chip">Android plugin development</span>
             <span class="skill-chip">multimodal interaction</span>
-            <span class="skill-chip">accessibility-oriented software design</span>
-            <span class="skill-chip">HCI-aligned systems</span>
+            <span class="skill-chip">accessibility-oriented design</span>
+            <span class="skill-chip">HCI systems</span>
           </div>
         </div>
 
@@ -1118,134 +713,105 @@
     </div>
   </section>
 
-  <!-- Approach — compact, supportive, not central -->
-  <section id="philosophy">
-    <div class="mx-auto max-w-content px-6 py-14 md:py-20">
-      <p class="text-[0.6875rem] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-[0.09em] mb-6">How I work</p>
-      <div class="grid sm:grid-cols-3 gap-4">
-        <p class="approach-quote">
-          Retrieval accuracy is measurable. A ~90% hit rate at 12–15 ms requires scoring pipelines that are deterministic and tunable.
+
+  <!-- ══════════════════════════════════════════════════════════
+       HOW I WORK (Approach)
+  ══════════════════════════════════════════════════════════ -->
+  <section id="philosophy" class="section">
+    <div class="container" style="padding-block:3.5rem 4rem">
+      <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-6">How I work</p>
+      <div class="grid sm:grid-cols-3 gap-5">
+        <p class="approach-quote reveal">
+          Retrieval accuracy is measurable. Getting to a 90% hit rate at 12&ndash;15 ms means building scoring pipelines that are deterministic and tunable, not black boxes.
         </p>
-        <p class="approach-quote">
-          Eval harnesses before shipping. If a ranking change can&rsquo;t be verified against a regression suite, it isn&rsquo;t production-ready.
+        <p class="approach-quote reveal">
+          Eval harnesses before shipping. If a ranking change can't be verified against a regression suite, it's not production-ready.
         </p>
-        <p class="approach-quote">
-          Systems that serve people with different needs require more rigorous design, not less. Constraints are a feature.
+        <p class="approach-quote reveal">
+          Systems that serve people with different needs require more rigorous design, not less. Constraints clarify what actually matters.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="surface-tint">
-    <div class="mx-auto max-w-content px-6 py-16 md:py-24">
+
+  <!-- ══════════════════════════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════════════════════════ -->
+  <section id="contact" class="section surface-alt">
+    <div class="container section-inner">
       <h2 class="section-label">Contact</h2>
 
       <div class="grid lg:grid-cols-[1fr_auto] gap-10 items-start">
         <div class="max-w-prose">
-          <p class="text-2xl md:text-3xl font-semibold leading-snug text-slate-900 dark:text-slate-100" style="letter-spacing:-0.02em">
-            Open to roles in <span class="text-primary">applied ML systems, research infra, and production backend work.</span>
-          </p>
-          <p class="mt-4 text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
+          <h2 class="contact-heading reveal">
+            Open to roles in <span class="accent">applied ML systems,<br class="hidden sm:block" /> research infrastructure, and production backend work.</span>
+          </h2>
+          <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 leading-relaxed reveal">
             Interested in retrieval, ranking, evaluation pipelines, agent infrastructure, or accessible AI research. Based in Singapore.
           </p>
 
-          <div class="mt-7 flex flex-wrap items-center gap-3">
-            <a href="mailto:guruprasadnayak24@gmail.com"
-               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] bg-primary hover:bg-primary-hover active:scale-[0.98] text-white font-medium text-sm transition-all">
-              <i data-lucide="mail" class="h-4 w-4"></i>
+          <div class="hero-cta-row mt-7 reveal">
+            <a href="mailto:guruprasadnayak24@gmail.com" class="btn btn-primary">
+              <i data-lucide="mail" style="width:1rem;height:1rem"></i>
               Email me
             </a>
-            <a href="Guruprasad_Nayak_Resume.pdf"
-               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary hover:bg-primary-soft dark:hover:border-primary-light dark:hover:text-primary-light font-medium text-sm transition-all">
-              <i data-lucide="file-text" class="h-4 w-4"></i>
+            <a href="Guruprasad_Nayak_Resume.pdf" class="btn btn-outline">
+              <i data-lucide="file-text" style="width:1rem;height:1rem"></i>
               Resume PDF
             </a>
           </div>
-          <div class="mt-4 flex items-center gap-5 text-sm">
-            <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener"
-               class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors">
-              <i data-lucide="linkedin" class="h-4 w-4"></i>
+
+          <div class="flex items-center gap-5 mt-4 reveal">
+            <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener" class="inline-link">
+              <i data-lucide="linkedin" style="width:1rem;height:1rem"></i>
               LinkedIn
             </a>
-            <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener"
-               class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors">
-              <i data-lucide="github" class="h-4 w-4"></i>
+            <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="inline-link">
+              <i data-lucide="github" style="width:1rem;height:1rem"></i>
               GitHub
             </a>
           </div>
         </div>
 
         <!-- Contact proof strip -->
-        <div class="grid grid-cols-1 gap-3 min-w-[220px]">
+        <div class="stack-4 min-w-[200px] reveal">
           <div class="trust-item">
-            <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Location</span>
-            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Singapore</span>
+            <span class="trust-item-label">Location</span>
+            <span class="trust-item-value">Singapore</span>
           </div>
           <div class="trust-item">
-            <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Open to</span>
-            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Full-time SWE / Research Eng</span>
+            <span class="trust-item-label">Open to</span>
+            <span class="trust-item-value">Full-time SWE / Research Eng</span>
           </div>
           <div class="trust-item">
-            <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Focus areas</span>
-            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Retrieval · ML Infra · Backend</span>
+            <span class="trust-item-label">Focus areas</span>
+            <span class="trust-item-value">Retrieval &middot; ML Infra &middot; Backend</span>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-slate-200 dark:border-slate-800">
-    <div class="mx-auto max-w-content px-6 py-5 text-xs text-slate-400 dark:text-slate-500 flex items-center justify-between">
-      <span>© <span x-text="year"></span> Guruprasad Nayak</span>
-      <a href="#top" class="hover:text-slate-600 dark:hover:text-slate-300 transition-colors">Back to top ↑</a>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
+  <footer class="footer no-print">
+    <div class="container footer-inner">
+      <span>&copy; <span id="footer-year"></span> Guruprasad Nayak</span>
+      <a href="#top" class="footer-back">Back to top &uarr;</a>
     </div>
   </footer>
 
-  <script>
-    function site() {
-      return {
-        darkMode: false,
-        mobileOpen: false,
-        year: new Date().getFullYear(),
-        init() {
-          // Persisted theme
-          const saved = localStorage.getItem('theme');
-          this.darkMode = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-          // Render icons
-          if (window.lucide) window.lucide.createIcons();
+  <!-- ══════════════════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════════════════ -->
+  <!-- Lucide is loaded synchronously in <head> — no defer needed -->
+  <!-- Portfolio behavior -->
+  <script src="assets/main.js"></script>
 
-          // Navbar scroll shadow
-          const nav = document.getElementById('site-nav');
-          const applyNavScroll = () => {
-            if (nav) nav.classList.toggle('nav-scrolled', window.scrollY > 8);
-          };
-          window.addEventListener('scroll', applyNavScroll, { passive: true });
-          applyNavScroll();
-
-          // Active nav highlighting via IntersectionObserver
-          const navLinks = document.querySelectorAll('.nav-link[data-section]');
-          const sections = ['research','work','experience','skills','contact'].map(id => document.getElementById(id)).filter(Boolean);
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                navLinks.forEach(a => {
-                  a.classList.toggle('active', a.dataset.section === entry.target.id);
-                });
-              }
-            });
-          }, { rootMargin: '-25% 0px -70% 0px', threshold: 0 });
-          sections.forEach(s => observer.observe(s));
-        },
-        toggleTheme() {
-          this.darkMode = !this.darkMode;
-          localStorage.setItem('theme', this.darkMode ? 'dark' : 'light');
-          if (window.lucide) window.lucide.createIcons();
-        },
-      }
-    }
-  </script>
 </body>
 </html>
