@@ -108,6 +108,6 @@ Then update `og:image` and `twitter:image` references in `index.html` to point t
 
 All metrics, claims, and project descriptions are sourced from:
 
-- Resume: `Guruprasad_Nayak_Resume_Research-SWE_Google-Research(draft5).pdf`
+- Resume: `Guruprasad_Nayak_Resume-SWE.pdf`
 - Project repositories (private — details available on request)
 - Sensify Lab profile and UDaily article for the accessible AI research project
