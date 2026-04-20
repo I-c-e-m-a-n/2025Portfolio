@@ -44,34 +44,31 @@
             mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
           },
           colors: {
-            brand: {
-              50:  '#eff6ff',
-              100: '#dbeafe',
-              200: '#bfdbfe',
-              300: '#93c5fd',
-              400: '#60a5fa',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8'
+            primary: {
+              DEFAULT: '#1a73e8',
+              hover:   '#1558b0',
+              soft:    '#e8f0fe',
+              light:   '#4d94f0'
             },
-            success: {
-              50:  '#f0fdf4',
-              100: '#dcfce7',
-              500: '#22c55e',
-              600: '#16a34a'
+            accent: {
+              DEFAULT: '#0f766e',
+              soft:    '#e6f7f5',
+              light:   '#2dd4bf'
             },
-            amber: {
-              50:  '#fffbeb',
-              400: '#fbbf24',
-              500: '#f59e0b'
-            }
+            success: { DEFAULT: '#137333', soft: '#e6f4ea' },
+            warning: { DEFAULT: '#b06000', soft: '#fef3e2' },
+            danger:  { DEFAULT: '#b3261e', soft: '#fce8e6' }
+          },
+          maxWidth: {
+            content: '1120px',
+            prose:   '760px'
           },
           letterSpacing: {
             tighter: '-0.03em'
           },
           animation: {
-            'fade-in': 'fadeIn 0.4s ease-out',
-            'slide-up': 'slideUp 0.4s ease-out'
+            'fade-in': 'fadeIn 0.35s ease-out',
+            'slide-up': 'slideUp 0.35s ease-out'
           },
           keyframes: {
             fadeIn: {
@@ -79,7 +76,7 @@
               '100%': { opacity: '1' }
             },
             slideUp: {
-              '0%': { transform: 'translateY(12px)', opacity: '0' },
+              '0%': { transform: 'translateY(8px)', opacity: '0' },
               '100%': { transform: 'translateY(0)', opacity: '1' }
             }
           }
@@ -96,56 +93,87 @@
 
   <style>
     /* ══════════════════════════════════════════════════════════
-       DESIGN TOKEN SYSTEM — Material-Adjacent / Light-First
-       Primary:   blue-600  #2563eb
-       Hover:     blue-700  #1d4ed8
-       Light:     blue-400  #60a5fa
-       Tint bg:   blue-50   #eff6ff
-       Success:   green-600 #16a34a  (secondary accent)
-       Highlight: amber-400 #fbbf24  (micro accent only)
-       Surface 0: #ffffff   (page default)
-       Surface 1: #f8fafc   (slate-50 — alternating tint)
-       Border:    #e2e8f0   (slate-200)
-       Border sub:#f1f5f9   (slate-100)
-       Text high: #0f172a   (slate-900)
-       Text base: #334155   (slate-700)
-       Text muted:#64748b   (slate-500)
-       Text faint:#94a3b8   (slate-400)
+       DESIGN TOKEN SYSTEM
+       Spec-aligned: calm, information-first, light-first
+       Primary:  #1a73e8  (blue — actions, links, highlights)
+       Accent:   #0f766e  (teal — secondary / research context)
+       Success:  #137333  (green — positive outcomes)
+       Warning:  #b06000  (amber — status only)
+       Danger:   #b3261e  (red — errors only)
+       bg:       #f8fafc  (page ground — near-white)
+       surface:  #ffffff  (card surfaces)
+       surface-2:#f1f5f9  (alternating section fill)
+       border:   #e2e8f0  (dividers, card edges)
+       text:     #0f172a  (headings, high-contrast)
+       text-2:   #334155  (body copy)
+       text-3:   #64748b  (muted / labels)
     ══════════════════════════════════════════════════════════ */
 
-    /* ─── Custom properties ─────────────────────────────────── */
+    /* ─── Custom properties (spec) ──────────────────────────── */
     :root {
-      --brand:      #2563eb;   /* blue-600 */
-      --brand-h:    #1d4ed8;   /* blue-700  hover */
-      --brand-l:    #60a5fa;   /* blue-400  light */
-      --brand-bg:   #eff6ff;   /* blue-50   tint  */
-      --brand-ring: #93c5fd;   /* blue-300  ring  */
-      --success:    #16a34a;   /* green-600 */
-      --surface-0:  #ffffff;
-      --surface-1:  #f4f6f8;   /* slate-50/75 — slightly more tinted */
-      --border:     #e2e8f0;   /* slate-200 */
-      --border-sub: #f1f5f9;   /* slate-100 */
-      --text-high:  #0f172a;   /* slate-900 */
-      --text-base:  #334155;   /* slate-700 */
-      --text-muted: #64748b;   /* slate-500 */
-      --text-faint: #94a3b8;   /* slate-400 */
-      --radius-sm:  0.5rem;    /* 8px  */
-      --radius-md:  0.75rem;   /* 12px */
-      --radius-lg:  1rem;      /* 16px */
-      --radius-pill:1.5rem;    /* 24px — chips */
-      --shadow-sm:  0 1px 2px 0 rgb(0 0 0 / 0.05), 0 1px 3px 0 rgb(0 0 0 / 0.04);
-      --shadow-md:  0 4px 8px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
-      --shadow-lg:  0 10px 20px -4px rgb(0 0 0 / 0.09), 0 4px 8px -4px rgb(0 0 0 / 0.04);
-      --transition-base: 0.18s ease;
-      --transition-lift: box-shadow 0.2s ease, transform 0.18s ease, border-color 0.18s ease;
-      --nav-h:      3.5rem;    /* matches h-14 */
+      --bg:           #f8fafc;
+      --surface:      #ffffff;
+      --surface-2:    #f1f5f9;
+      --border:       #e2e8f0;
+      --border-sub:   #f1f5f9;
+      --text:         #0f172a;
+      --text-2:       #334155;
+      --text-3:       #64748b;
+      --primary:      #1a73e8;
+      --primary-h:    #1558b0;
+      --primary-soft: #e8f0fe;
+      --primary-ring: #a8c7fa;
+      --primary-l:    #4d94f0;
+      --accent:       #0f766e;
+      --accent-soft:  #e6f7f5;
+      --accent-l:     #2dd4bf;
+      --success:      #137333;
+      --success-soft: #e6f4ea;
+      --warning:      #b06000;
+      --danger:       #b3261e;
+
+      /* Shape */
+      --r-chip:   0.625rem; /* 10px — buttons, chips */
+      --r-card:   1rem;     /* 16px — cards */
+      --r-panel:  1.25rem;  /* 20px — large panels */
+      --r-sm:     0.5rem;   /* 8px  — small elements */
+
+      /* Elevation — thin borders preferred over heavy shadows */
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+      --shadow-md: 0 2px 6px -1px rgb(0 0 0 / 0.07), 0 1px 3px -1px rgb(0 0 0 / 0.04);
+
+      /* Transitions */
+      --t-fast:  0.15s ease;
+      --t-base:  0.18s ease;
+      --t-lift:  border-color 0.18s ease, box-shadow 0.18s ease, transform 0.15s ease;
+
+      --nav-h: 3.5rem;
     }
 
-    /* ─── Scroll offset: sticky nav doesn't cover anchors ────── */
+    /* ─── Scroll offset ─────────────────────────────────────── */
     html { scroll-padding-top: calc(var(--nav-h) + 1.5rem); }
 
     /* ─── Body baseline ──────────────────────────────────────── */
-    body { color: var(--text-base); background: var(--surface-0); line-height: 1.6; }
+    body {
+      color: var(--text-2);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    /* ─── Reduced motion ─────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ─── Focus ring ─────────────────────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--primary-ring);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
 
     /* ─── Tabular numbers on metric figures ──────────────────── */
     .metric-num {
@@ -153,15 +181,18 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* ─── Section label — Inter medium, thin rule right ─────── */
+    /* ─── Section label — thin horizontal rule right ─────────── */
     .section-label {
       display: flex;
       align-items: center;
       gap: 1rem;
       white-space: nowrap;
       font-family: Inter, system-ui, sans-serif;
-      font-weight: 500;
-      letter-spacing: 0.04em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-3);
     }
     .section-label::after {
       content: '';
@@ -169,113 +200,95 @@
       flex: 1;
       height: 1px;
       background: var(--border);
-      opacity: 1;
     }
 
-    /* ─── Experience entry — resting left border ─────────────── */
-    .exp-entry {
-      border-left: 2px solid var(--border);
-      padding-left: 1.25rem;
-      transition: border-color 0.2s ease;
-    }
-    .exp-entry:hover { border-left-color: var(--brand); }
+    /* ─── Surface tint — alternating section fill ────────────── */
+    .surface-tint { background-color: var(--surface-2); }
+    .dark .surface-tint { background-color: rgb(15 23 42 / 0.55); }
 
-    /* ─── Skill chip — pill, mono (code tokens) ──────────────── */
+    /* ─── Skill chip — mono code token, 10px radius ──────────── */
     .skill-chip {
       display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: var(--radius-pill);
+      padding: 0.2rem 0.625rem;
+      border-radius: var(--r-chip);
       font-size: 0.75rem;
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       line-height: 1.5;
-      background: #f1f5f9;              /* slate-100 */
-      color: #334155;                   /* slate-700 */
+      background: var(--surface-2);
+      color: var(--text-2);
       border: 1px solid var(--border);
-      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
     }
     .skill-chip:hover {
-      background: var(--brand-bg);      /* blue-50  */
-      border-color: var(--brand-ring);  /* blue-300 */
-      color: var(--brand);              /* blue-600 */
+      background: var(--primary-soft);
+      border-color: var(--primary-ring);
+      color: var(--primary);
     }
     .dark .skill-chip {
-      background: rgb(30 41 59);        /* slate-800 */
-      color: rgb(148 163 184);          /* slate-400 */
-      border-color: rgb(51 65 85);      /* slate-700 */
+      background: rgb(30 41 59);
+      color: rgb(148 163 184);
+      border-color: rgb(51 65 85);
     }
     .dark .skill-chip:hover {
-      background: rgb(37 99 235 / 0.12);
-      border-color: var(--brand-l);
-      color: var(--brand-l);
+      background: rgb(26 115 232 / 0.12);
+      border-color: var(--primary-l);
+      color: var(--primary-l);
     }
 
-    /* ─── Capability chip — Inter (non-code labels) ──────────── */
+    /* ─── Capability chip — Inter label, 10px radius ─────────── */
     .cap-chip {
       display: inline-block;
-      padding: 0.25rem 0.875rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.8125rem;             /* 13px */
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--r-chip);
+      font-size: 0.8125rem;
       font-family: Inter, system-ui, sans-serif;
       font-weight: 500;
       line-height: 1.5;
-      background: #f8fafc;              /* slate-50 */
-      color: #334155;                   /* slate-700 */
+      background: var(--surface-2);
+      color: var(--text-2);
       border: 1px solid var(--border);
-      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
     }
     .cap-chip:hover {
-      background: var(--brand-bg);
-      border-color: #bfdbfe;            /* blue-200 */
-      color: var(--brand-h);            /* blue-700 */
+      background: var(--primary-soft);
+      border-color: var(--primary-ring);
+      color: var(--primary-h);
     }
     .dark .cap-chip {
       background: rgb(30 41 59);
-      color: rgb(203 213 225);          /* slate-300 */
+      color: rgb(203 213 225);
       border-color: rgb(51 65 85);
     }
     .dark .cap-chip:hover {
-      background: rgb(37 99 235 / 0.12);
-      border-color: var(--brand-l);
-      color: var(--brand-l);
+      background: rgb(26 115 232 / 0.12);
+      border-color: var(--primary-l);
+      color: var(--primary-l);
     }
 
     /* ─── Chip row wrapper ───────────────────────────────────── */
     .chip-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
+      gap: 0.375rem;
       margin-top: 0.5rem;
     }
 
-    /* ─── Surface tint — alternating section bg ─────────────── */
-    .surface-tint {
-      background-color: var(--surface-1);
-    }
-    .dark .surface-tint {
-      background-color: rgb(15 23 42 / 0.5);   /* slate-900/50 */
-    }
-
-    /* ─── Card surface ───────────────────────────────────────── */
+    /* ─── Card surface (generic) ─────────────────────────────── */
     .card {
-      background: var(--surface-0);
-      border: 1px solid var(--border-sub);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition-lift);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      transition: var(--t-lift);
       will-change: transform;
     }
     .card:hover {
-      box-shadow: var(--shadow-md);
-      border-color: #bfdbfe;            /* blue-200 */
+      border-color: var(--primary-ring);
       transform: translateY(-1px);
     }
-    .dark .card {
-      background: rgb(30 41 59);
-      border-color: rgb(51 65 85);
-    }
-    .dark .card:hover { border-color: #60a5fa; }
+    .dark .card { background: rgb(30 41 59); border-color: rgb(51 65 85); }
+    .dark .card:hover { border-color: var(--primary-l); }
 
-    /* ─── Active nav link indicator (blue) ───────────────────── */
+    /* ─── Active nav link indicator ─────────────────────────── */
     .nav-link {
       position: relative;
       padding-bottom: 2px;
@@ -283,55 +296,45 @@
     .nav-link::after {
       content: '';
       position: absolute;
-      bottom: -2px;
-      left: 0;
-      right: 0;
-      height: 1.5px;
-      background: var(--brand);
+      bottom: -2px; left: 0; right: 0;
+      height: 2px;
+      background: var(--primary);
       border-radius: 2px;
       transform: scaleX(0);
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.18s ease;
     }
-    .nav-link.active { color: var(--brand); }
+    .nav-link.active { color: var(--primary); }
     .nav-link.active::after { transform: scaleX(1); }
 
-    /* ─── Focus ring ─────────────────────────────────────────── */
-    :focus-visible {
-      outline: 2px solid var(--brand-ring);
-      outline-offset: 4px;
-      border-radius: 4px;
-    }
-
-    /* ─── Approach quote rule ────────────────────────────────── */
+    /* ─── Approach quote ─────────────────────────────────────── */
     .approach-quote {
       border-left: 2px solid var(--border);
       padding-left: 0.875rem;
       font-family: Inter, system-ui, sans-serif;
-      font-size: 0.9375rem;             /* 15px */
+      font-size: 0.9375rem;
       font-weight: 400;
       line-height: 1.7;
-      color: var(--text-muted);
-      transition: border-color 0.2s ease;
+      color: var(--text-3);
+      transition: border-color var(--t-base);
     }
-    .approach-quote:hover { border-left-color: var(--success); }
+    .approach-quote:hover { border-left-color: var(--accent); }
     .dark .approach-quote { color: rgb(148 163 184); border-color: rgb(51 65 85); }
-    .dark .approach-quote:hover { border-left-color: #22c55e; }
+    .dark .approach-quote:hover { border-left-color: var(--accent-l); }
 
     /* ─── Fade/slide animation classes ──────────────────────── */
     [x-cloak] { display: none !important; }
-    .fade-in  { animation: fadeIn  0.4s ease-out both; }
-    .slide-up { animation: slideUp 0.4s ease-out both; }
-    @keyframes fadeIn  { from { opacity: 0 } to { opacity: 1 } }
-    @keyframes slideUp { from { transform: translateY(12px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+    .fade-in  { animation: fadeIn  0.35s ease-out both; }
+    .slide-up { animation: slideUp 0.35s ease-out both; }
+    @keyframes fadeIn  { from { opacity: 0 }              to { opacity: 1 } }
+    @keyframes slideUp { from { transform: translateY(8px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
 
-    /* ─── Experience card — elevated, left accent stripe ─────── */
+    /* ─── Experience card ────────────────────────────────────── */
     .exp-card {
-      background: var(--surface-0);
-      border: 1px solid var(--border-sub);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
       padding: 1.5rem 1.75rem;
-      transition: var(--transition-lift);
+      transition: var(--t-lift);
       will-change: transform;
       position: relative;
       overflow: hidden;
@@ -343,85 +346,86 @@
       width: 3px;
       background: var(--border);
       border-radius: 2px 0 0 2px;
-      transition: background var(--transition-base);
+      transition: background var(--t-base);
     }
-    .exp-card:hover { box-shadow: var(--shadow-md); border-color: var(--border); transform: translateY(-2px); }
-    .exp-card:hover::before { background: var(--brand); }
-    .exp-card.primary::before { background: var(--brand); }
-    .dark .exp-card {
-      background: rgb(30 41 59);
-      border-color: rgb(51 65 85);
-    }
+    .exp-card:hover { border-color: var(--border); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+    .exp-card:hover::before { background: var(--primary); }
+    .exp-card.primary::before { background: var(--primary); }
+    .dark .exp-card { background: rgb(30 41 59); border-color: rgb(51 65 85); }
     .dark .exp-card::before { background: rgb(51 65 85); }
-    .dark .exp-card.primary::before { background: var(--brand-l); }
-    .dark .exp-card:hover::before { background: var(--brand-l); }
+    .dark .exp-card.primary::before { background: var(--primary-l); }
+    .dark .exp-card:hover::before { background: var(--primary-l); }
 
     /* ─── Project card ───────────────────────────────────────── */
     .proj-card {
-      background: var(--surface-0);
-      border: 1px solid var(--border-sub);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
       overflow: hidden;
-      transition: var(--transition-lift);
+      transition: var(--t-lift);
       will-change: transform;
     }
-    .proj-card:hover { box-shadow: var(--shadow-lg); border-color: #bfdbfe; transform: translateY(-2px); }
+    .proj-card:hover { border-color: var(--primary-ring); box-shadow: var(--shadow-md); transform: translateY(-1px); }
     .proj-card-header {
       padding: 1.5rem 1.75rem 1.25rem;
-      border-bottom: 1px solid var(--border-sub);
+      border-bottom: 1px solid var(--border);
     }
     .proj-card-body { padding: 1.25rem 1.75rem 1.5rem; }
     .dark .proj-card { background: rgb(30 41 59); border-color: rgb(51 65 85); }
-    .dark .proj-card:hover { border-color: #60a5fa; }
+    .dark .proj-card:hover { border-color: var(--primary-l); }
     .dark .proj-card-header { border-color: rgb(51 65 85); }
 
-    /* ─── Trust strip item ───────────────────────────────────── */
+    /* ─── Trust item (contact proof strip) ───────────────────── */
     .trust-item {
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
       padding: 1rem 1.25rem;
-      background: var(--surface-0);
-      border: 1px solid var(--border-sub);
-      border-radius: var(--radius-md);
-      transition: border-color var(--transition-base);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      transition: border-color var(--t-base);
     }
-    .trust-item:hover { border-color: var(--border); }
+    .trust-item:hover { border-color: var(--primary-ring); }
     .dark .trust-item { background: rgb(30 41 59); border-color: rgb(51 65 85); }
-    .dark .trust-item:hover { border-color: rgb(71 85 105); }
+    .dark .trust-item:hover { border-color: var(--primary-l); }
 
     /* ─── Skill cluster card ─────────────────────────────────── */
     .skill-cluster {
-      background: var(--surface-0);
-      border: 1px solid var(--border-sub);
-      border-radius: var(--radius-md);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
       padding: 1.25rem 1.5rem;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow var(--transition-base), border-color var(--transition-base);
+      transition: border-color var(--t-base);
     }
-    .skill-cluster:hover { box-shadow: var(--shadow-md); border-color: var(--border); }
+    .skill-cluster:hover { border-color: var(--primary-ring); }
     .dark .skill-cluster { background: rgb(30 41 59); border-color: rgb(51 65 85); }
-    .dark .skill-cluster:hover { border-color: rgb(71 85 105); }
+    .dark .skill-cluster:hover { border-color: var(--primary-l); }
 
     /* ─── Trust panel (hero right column) ────────────────────── */
     .trust-panel {
-      background: var(--surface-1);
+      background: var(--surface-2);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border-radius: var(--r-panel);
       padding: 1.5rem;
     }
     .dark .trust-panel { background: rgb(15 23 42 / 0.6); border-color: rgb(51 65 85); }
+
+    /* ─── Legacy exp-entry (kept for print) ──────────────────── */
+    .exp-entry {
+      border-left: 2px solid var(--border);
+      padding-left: 1.25rem;
+    }
 
     /* ─── Print ──────────────────────────────────────────────── */
     @media print {
       @page { margin: 1.5cm 2cm; }
       .no-print { display: none !important; }
       .print-block { display: block !important; }
-      body { color: #111 !important; font-size: 11pt; }
+      body { color: #111 !important; font-size: 11pt; background: #fff !important; }
       a::after { content: " (" attr(href) ")"; font-size: 9pt; color: #666; }
       section { break-inside: avoid; }
-      .exp-entry  { border-left: 1px solid #ccc !important; }
+      .exp-entry, .exp-card { border-left: 1px solid #ccc !important; }
       .skill-chip, .cap-chip { border: 1px solid #ccc !important; background: none !important; }
     }
   </style>
@@ -445,27 +449,27 @@
   }
   </script>
 </head>
-<body x-data="site()" x-init="init()" :class="darkMode ? 'dark bg-slate-950 text-slate-100' : 'bg-white text-slate-900'" class="antialiased">
+<body x-data="site()" x-init="init()" :class="darkMode ? 'dark bg-slate-950 text-slate-100' : ''" class="antialiased">
 
   <!-- Navbar -->
-  <header class="no-print sticky top-0 z-50 border-b border-slate-100 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-sm shadow-sm">
-    <div class="mx-auto max-w-5xl px-6">
+  <header class="no-print sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-sm">
+    <div class="mx-auto max-w-content px-6">
       <div class="flex items-center justify-between h-14">
-        <a href="#top" class="text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-100 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+        <a href="#top" class="text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-100 hover:text-primary dark:hover:text-primary-light transition-colors">
           Guruprasad Nayak
         </a>
         <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600 dark:text-slate-400">
-          <a class="nav-link hover:text-brand-600 dark:hover:text-brand-400 transition-colors" data-section="work" href="#work">Projects</a>
-          <a class="nav-link hover:text-brand-600 dark:hover:text-brand-400 transition-colors" data-section="experience" href="#experience">Experience</a>
-          <a class="nav-link hover:text-brand-600 dark:hover:text-brand-400 transition-colors" data-section="skills" href="#skills">Skills</a>
-          <a class="nav-link hover:text-brand-600 dark:hover:text-brand-400 transition-colors" data-section="contact" href="#contact">Contact</a>
+          <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="work" href="#work">Projects</a>
+          <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="experience" href="#experience">Experience</a>
+          <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="skills" href="#skills">Skills</a>
+          <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="contact" href="#contact">Contact</a>
         </nav>
         <div class="flex items-center gap-3">
           <button @click="toggleTheme" :aria-label="darkMode ? 'Switch to light mode' : 'Switch to dark mode'" class="no-print p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
             <i data-lucide="moon" class="h-4 w-4" x-show="!darkMode"></i>
             <i data-lucide="sun" class="h-4 w-4" x-show="darkMode"></i>
           </button>
-          <a href="Guruprasad_Nayak_Resume.pdf" class="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400 dark:hover:text-brand-300 transition-colors">
+          <a href="Guruprasad_Nayak_Resume.pdf" class="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-hover dark:text-primary-light dark:hover:text-white transition-colors">
             <i data-lucide="file-text" class="h-4 w-4"></i> Resume
           </a>
           <button class="md:hidden p-2" @click="mobileOpen = !mobileOpen" aria-label="Menu">
@@ -475,10 +479,10 @@
       </div>
       <div class="md:hidden" x-show="mobileOpen" x-transition x-cloak>
         <nav class="py-4 space-y-1 text-sm border-t border-slate-100 dark:border-slate-800">
-          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors" href="#work">Projects</a>
-          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors" href="#experience">Experience</a>
-          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors" href="#skills">Skills</a>
-          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors" href="#contact">Contact</a>
+          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#work">Projects</a>
+          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#experience">Experience</a>
+          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#skills">Skills</a>
+          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#contact">Contact</a>
         </nav>
       </div>
     </div>
@@ -486,7 +490,7 @@
 
   <!-- Hero -->
   <section id="top">
-    <div class="mx-auto max-w-5xl px-6 pt-20 pb-16 md:pt-28 md:pb-20">
+    <div class="mx-auto max-w-content px-6 pt-20 pb-16 md:pt-28 md:pb-20">
 
       <!-- Two-column: left = identity/CTA, right = trust panel -->
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 lg:gap-16 items-start">
@@ -497,7 +501,7 @@
 
           <h1 class="text-4xl md:text-5xl font-semibold tracking-tighter leading-[1.1] text-slate-900 dark:text-slate-100 animate-slide-up">
             Backend systems &amp;<br class="hidden sm:block" />
-            <span class="bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">applied ML infrastructure.</span>
+            <span class="text-primary">applied ML infrastructure.</span>
           </h1>
 
           <p class="mt-5 text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed">
@@ -518,22 +522,22 @@
           <!-- CTA row -->
           <div class="mt-8 flex flex-wrap items-center gap-3">
             <a href="mailto:guruprasadnayak24@gmail.com"
-               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 active:scale-[0.98] text-white font-medium text-sm transition-all shadow-sm hover:shadow-md">
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] bg-primary hover:bg-primary-hover active:scale-[0.98] text-white font-medium text-sm transition-all">
               <i data-lucide="mail" class="h-4 w-4"></i>
               Get in touch
             </a>
             <a href="Guruprasad_Nayak_Resume.pdf"
-               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-brand-300 hover:text-brand-700 hover:bg-brand-50 dark:hover:border-brand-500 dark:hover:text-brand-300 font-medium text-sm transition-all">
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary hover:bg-primary-soft dark:hover:border-primary-light dark:hover:text-primary-light font-medium text-sm transition-all">
               <i data-lucide="file-text" class="h-4 w-4"></i>
               Resume
             </a>
             <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 text-sm transition-colors">
+               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-[10px] text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light text-sm transition-colors">
               <i data-lucide="github" class="h-4 w-4"></i>
               GitHub
             </a>
             <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 text-sm transition-colors">
+               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-[10px] text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light text-sm transition-colors">
               <i data-lucide="linkedin" class="h-4 w-4"></i>
               LinkedIn
             </a>
@@ -549,7 +553,7 @@
             <div class="bg-white dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl p-3.5 transition-colors hover:border-slate-200 dark:hover:border-slate-600">
               <div class="flex items-baseline gap-3 mb-1">
                 <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">12–15 ms</span>
-                <span class="text-xs text-brand-600 dark:text-brand-400 font-medium">retrieval latency</span>
+                <span class="text-xs text-primary dark:text-primary-light font-medium">retrieval latency</span>
               </div>
               <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Multi-stage retrieval &amp; ranking pipeline over a multi-GB corpus · AIRS Foundry</p>
             </div>
@@ -557,7 +561,7 @@
             <div class="bg-white dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl p-3.5 transition-colors hover:border-slate-200 dark:hover:border-slate-600">
               <div class="flex items-baseline gap-3 mb-1">
                 <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~90%</span>
-                <span class="text-xs text-brand-600 dark:text-brand-400 font-medium">context hit rate</span>
+                <span class="text-xs text-primary dark:text-primary-light font-medium">context hit rate</span>
               </div>
               <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Candidate filtering, similarity ranking, configuration-driven scoring · AIRS Foundry</p>
             </div>
@@ -565,7 +569,7 @@
             <div class="bg-white dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl p-3.5 transition-colors hover:border-slate-200 dark:hover:border-slate-600">
               <div class="flex items-baseline gap-3 mb-1">
                 <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~80%</span>
-                <span class="text-xs text-success-600 dark:text-green-400 font-medium">manpower reduction</span>
+                <span class="text-xs text-accent dark:text-accent-light font-medium">manpower reduction</span>
               </div>
               <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Digital operations platform replacing paper workflows · Singapore Armed Forces</p>
             </div>
@@ -573,7 +577,7 @@
             <div class="bg-white dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl p-3.5 transition-colors hover:border-slate-200 dark:hover:border-slate-600">
               <div class="flex items-baseline gap-3 mb-1">
                 <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~60 h/mo</span>
-                <span class="text-xs text-success-600 dark:text-green-400 font-medium">time saved</span>
+                <span class="text-xs text-accent dark:text-accent-light font-medium">time saved</span>
               </div>
               <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Automation tools for personnel accounting and reporting · Singapore Armed Forces</p>
             </div>
@@ -586,8 +590,8 @@
 
   <!-- Projects -->
   <section id="work" class="surface-tint">
-    <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
-      <h2 class="section-label text-sm text-slate-400 dark:text-slate-500 mb-10">Projects</h2>
+    <div class="mx-auto max-w-content px-6 py-20 md:py-28">
+      <h2 class="section-label mb-10">Projects</h2>
 
       <div class="space-y-6">
 
@@ -597,7 +601,7 @@
             <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
               <div>
                 <div class="flex items-center gap-2 mb-1.5">
-                  <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-wider">Personal Project</span>
+                  <span class="text-xs font-semibold text-primary dark:text-primary-light uppercase tracking-wider">Personal Project</span>
                 </div>
                 <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
                   Multi-Service Workflow &amp; Integrations Platform
@@ -622,15 +626,15 @@
             </p>
 
             <div class="grid sm:grid-cols-3 gap-4">
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
                 <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Backend</h4>
                 <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">FastAPI services with capability-based routing, request/response validation, and structured inter-service communication over SQLite.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
                 <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Frontend</h4>
                 <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">React and TypeScript frontend supporting multi-step workflows, persisted state, and event-driven streaming across CLI and web interfaces.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
                 <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Architecture</h4>
                 <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Async workflows and service coordination — each service independently scoped with defined boundaries and observable integration points.</p>
               </div>
@@ -642,7 +646,7 @@
         <article class="proj-card">
           <div class="proj-card-header">
             <div class="flex items-center gap-2 mb-1.5">
-              <span class="text-xs font-semibold text-success-600 dark:text-green-400 uppercase tracking-wider">University of Delaware · VIP Research Program</span>
+              <span class="text-xs font-semibold text-accent dark:text-accent-light uppercase tracking-wider">University of Delaware · VIP Research Program</span>
             </div>
             <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
               Accessible Interactive Music System
@@ -669,15 +673,15 @@
             </p>
 
             <div class="grid sm:grid-cols-3 gap-4">
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
                 <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Hardware Layer</h4>
                 <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Android + Unity + Bluetooth-connected Arduino hardware for real-time multimodal UI feedback and environmental sound exposure.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
                 <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">AI Integration</h4>
                 <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization, and safety-oriented content filtering.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
                 <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Research Context</h4>
                 <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">HCI-informed, accessibility-first design. Collaborated with researchers and stakeholders; informed by university AI and interaction design research.</p>
               </div>
@@ -691,8 +695,8 @@
 
   <!-- Experience -->
   <section id="experience">
-    <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
-      <h2 class="section-label text-sm text-slate-400 dark:text-slate-500 mb-10">Experience</h2>
+    <div class="mx-auto max-w-content px-6 py-20 md:py-28">
+      <h2 class="section-label mb-10">Experience</h2>
 
       <div class="space-y-4">
 
@@ -706,12 +710,12 @@
             <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Dec 2025 – Present</span>
           </div>
           <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Built production FastAPI backend for multi-stage retrieval and ranking over a multi-GB corpus, achieving 12–15 ms latency and a ~90% relevant-context hit rate through candidate filtering, similarity ranking, and configuration-driven scoring.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Refactored performance-sensitive Python components into C++ to improve execution speed in latency-critical backend paths.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Built and integrated MCP servers and tool interfaces — tool schema definition, execution flow, structured logging, debugging instrumentation, and agent-facing API integration.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Built eval harnesses, ranking benchmarks, latency profiling, regression suites, and release validation gates to enforce quality gates across pipeline changes.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Developed distributed AI infrastructure across multi-service backends, async workers, queues, distributed jobs, and parallel-processing components.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Owned production-facing responsibilities: release validation, incident debugging, alert response, and uptime-sensitive fixes across shared AI workflow infrastructure.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Built production FastAPI backend for multi-stage retrieval and ranking over a multi-GB corpus, achieving 12–15 ms latency and a ~90% relevant-context hit rate through candidate filtering, similarity ranking, and configuration-driven scoring.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Refactored performance-sensitive Python components into C++ to improve execution speed in latency-critical backend paths.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Built and integrated MCP servers and tool interfaces — tool schema definition, execution flow, structured logging, debugging instrumentation, and agent-facing API integration.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Built eval harnesses, ranking benchmarks, latency profiling, regression suites, and release validation gates to enforce quality gates across pipeline changes.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Developed distributed AI infrastructure across multi-service backends, async workers, queues, distributed jobs, and parallel-processing components.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Owned production-facing responsibilities: release validation, incident debugging, alert response, and uptime-sensitive fixes across shared AI workflow infrastructure.</span></li>
           </ul>
         </article>
 
@@ -725,10 +729,10 @@
             <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Jul 2023 – Aug 2025</span>
           </div>
           <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Architected and launched the unit's first digital operations platform, replacing paper-based workflows and reducing manpower requirements by ~80%.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Built internal automation tools for personnel accounting and reporting, eliminating repetitive manual work and saving ~60 hours per month.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Standardized fragmented operational processes into structured digital workflows; led 30-person operations under time-sensitive constraints.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Received the Safety Steward Award; first Sergeant in battalion history to receive the 23SA Regimental Sergeant Major's Coin.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Architected and launched the unit's first digital operations platform, replacing paper-based workflows and reducing manpower requirements by ~80%.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Built internal automation tools for personnel accounting and reporting, eliminating repetitive manual work and saving ~60 hours per month.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Standardized fragmented operational processes into structured digital workflows; led 30-person operations under time-sensitive constraints.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Received the Safety Steward Award; first Sergeant in battalion history to receive the 23SA Regimental Sergeant Major's Coin.</span></li>
           </ul>
         </article>
 
@@ -742,10 +746,10 @@
             <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Aug 2022 – Jan 2023</span>
           </div>
           <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Contributed to university research building accessible AI systems for children on the autism spectrum — software for controlled exposure to environmental sounds through interactive experiences.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Worked with DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization, image filtering, and safety-oriented content tuning.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Supported model evaluation workflows — parallel model runs, pattern identification, and filtering of high-variance or unsafe content pathways.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Developed AI integrations in Python and interface components in C++ and Unity, including Android plugin work. Collaborated with HCI researchers and accessibility stakeholders.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Contributed to university research building accessible AI systems for children on the autism spectrum — software for controlled exposure to environmental sounds through interactive experiences.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Worked with DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization, image filtering, and safety-oriented content tuning.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Supported model evaluation workflows — parallel model runs, pattern identification, and filtering of high-variance or unsafe content pathways.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Developed AI integrations in Python and interface components in C++ and Unity, including Android plugin work. Collaborated with HCI researchers and accessibility stakeholders.</span></li>
           </ul>
         </article>
 
@@ -802,8 +806,8 @@
 
   <!-- Technical Skills -->
   <section id="skills" class="surface-tint">
-    <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
-      <h2 class="section-label text-sm text-slate-400 dark:text-slate-500 mb-10">Technical Skills</h2>
+    <div class="mx-auto max-w-content px-6 py-20 md:py-28">
+      <h2 class="section-label mb-10">Technical Skills</h2>
 
       <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
 
@@ -889,7 +893,7 @@
 
   <!-- Approach — compact, supportive, not central -->
   <section id="philosophy">
-    <div class="mx-auto max-w-5xl px-6 py-16 md:py-20">
+    <div class="mx-auto max-w-content px-6 py-16 md:py-20">
       <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6">How I work</p>
       <div class="grid sm:grid-cols-3 gap-4">
         <p class="approach-quote">
@@ -907,13 +911,13 @@
 
   <!-- Contact -->
   <section id="contact" class="surface-tint">
-    <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
-      <h2 class="section-label text-sm text-slate-400 dark:text-slate-500 mb-10">Contact</h2>
+    <div class="mx-auto max-w-content px-6 py-20 md:py-28">
+      <h2 class="section-label mb-10">Contact</h2>
 
       <div class="grid lg:grid-cols-[1fr_auto] gap-10 items-start">
         <div class="max-w-xl">
           <p class="text-2xl md:text-3xl font-semibold tracking-tight leading-snug text-slate-900 dark:text-slate-100">
-            Open to roles in <span class="bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">applied ML systems, research infra, and production backend work.</span>
+            Open to roles in <span class="text-primary">applied ML systems, research infra, and production backend work.</span>
           </p>
           <p class="mt-4 text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
             Interested in retrieval, ranking, evaluation pipelines, agent infrastructure, or accessible AI research. Based in Singapore.
@@ -921,24 +925,24 @@
 
           <div class="mt-7 flex flex-wrap items-center gap-3">
             <a href="mailto:guruprasadnayak24@gmail.com"
-               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 active:scale-[0.98] text-white font-medium text-sm transition-all shadow-sm hover:shadow-md">
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] bg-primary hover:bg-primary-hover active:scale-[0.98] text-white font-medium text-sm transition-all">
               <i data-lucide="mail" class="h-4 w-4"></i>
               guruprasadnayak24@gmail.com
             </a>
             <a href="Guruprasad_Nayak_Resume.pdf"
-               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-brand-300 hover:text-brand-700 hover:bg-brand-50 dark:hover:border-brand-500 dark:hover:text-brand-300 font-medium text-sm transition-all">
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary hover:bg-primary-soft dark:hover:border-primary-light dark:hover:text-primary-light font-medium text-sm transition-all">
               <i data-lucide="file-text" class="h-4 w-4"></i>
               Resume PDF
             </a>
           </div>
           <div class="mt-4 flex items-center gap-5 text-sm">
             <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener"
-               class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+               class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors">
               <i data-lucide="linkedin" class="h-4 w-4"></i>
               LinkedIn
             </a>
             <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener"
-               class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+               class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors">
               <i data-lucide="github" class="h-4 w-4"></i>
               GitHub
             </a>
@@ -965,8 +969,8 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-100 dark:border-slate-800 surface-tint">
-    <div class="mx-auto max-w-5xl px-6 py-6 text-sm text-slate-400 dark:text-slate-500 flex items-center justify-between">
+  <footer class="border-t border-slate-200 dark:border-slate-800 surface-tint">
+    <div class="mx-auto max-w-content px-6 py-6 text-sm text-slate-400 dark:text-slate-500 flex items-center justify-between">
       <span>© <span x-text="year"></span> Guruprasad Nayak</span>
       <span>Singapore</span>
     </div>
