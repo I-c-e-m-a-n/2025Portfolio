@@ -419,12 +419,6 @@
     }
     .dark .trust-panel { background: rgb(15 23 42 / 0.6); border-color: rgb(51 65 85); }
 
-    /* ─── Legacy exp-entry (kept for print) ──────────────────── */
-    .exp-entry {
-      border-left: 2px solid var(--border);
-      padding-left: 1.25rem;
-    }
-
     /* ─── Print ──────────────────────────────────────────────── */
     @media print {
       @page { margin: 1.5cm 2cm; }
@@ -433,7 +427,7 @@
       body { color: #111 !important; font-size: 11pt; background: #fff !important; }
       a::after { content: " (" attr(href) ")"; font-size: 9pt; color: #666; }
       section { break-inside: avoid; }
-      .exp-entry, .exp-card { border-left: 1px solid #ccc !important; }
+      .exp-card { border-left: 1px solid #ccc !important; }
       .skill-chip, .cap-chip { border: 1px solid #ccc !important; background: none !important; }
     }
   </style>
@@ -554,7 +548,7 @@
 
         <!-- Right column — trust panel -->
         <div class="trust-panel lg:mt-2">
-          <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">At a glance</p>
+          <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-[0.08em] mb-4">At a glance</p>
 
           <!-- AIRS Foundry production metrics -->
           <div class="space-y-3">
@@ -598,12 +592,54 @@
 
   <!-- Projects -->
   <section id="work" class="surface-tint">
-    <div class="mx-auto max-w-content px-6 py-20 md:py-28">
+    <div class="mx-auto max-w-content px-6 py-16 md:py-24">
       <h2 class="section-label mb-10">Projects</h2>
 
-      <div class="space-y-6">
+      <div class="space-y-5">
 
-        <!-- Project 1: Multi-Service Workflow & Integrations Platform -->
+        <!-- Project 1: Web Search Microservice -->
+        <article class="proj-card">
+          <div class="proj-card-header">
+            <p class="text-xs font-semibold text-primary dark:text-primary-light uppercase tracking-wider mb-2">Personal Project</p>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
+              Web Search Microservice
+            </h3>
+            <div class="mt-2.5 chip-row">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">FastAPI</span>
+              <span class="skill-chip">Pydantic v2</span>
+              <span class="skill-chip">httpx</span>
+              <span class="skill-chip">Docker Compose</span>
+              <span class="skill-chip">OpenAPI</span>
+            </div>
+          </div>
+
+          <div class="proj-card-body">
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              Standalone FastAPI microservice for multi-provider web, news, and image search aggregation.
+              Layered <code class="font-mono text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">api → services → providers → ranking</code> architecture with
+              per-provider circuit breaker health, request-ID middleware, structured JSON logging, and full OpenAPI documentation.
+              Multiple search providers (SearXNG, DuckDuckGo, Brave, Serper) unified behind a single interface with capability routing.
+            </p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Service Architecture</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Four-layer separation: API routing, service orchestration, provider adapters, and result ranking. Each provider independently configurable and circuit-breaker-protected.</p>
+              </div>
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Observability</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Request-ID tracing middleware, structured JSON logging, per-provider health checks via <code class="font-mono bg-transparent">/v1/health</code>, and OpenAPI / ReDoc schema exposure.</p>
+              </div>
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Deployment</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Full Docker Compose stack with self-hosted SearXNG + DDGS sidecar. Externally-keyed providers (Brave, Serper, SerpAPI) opt-in via environment configuration.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Multi-Service Workflow & Integrations Platform -->
         <article class="proj-card">
           <div class="proj-card-header">
             <p class="text-xs font-semibold text-primary dark:text-primary-light uppercase tracking-wider mb-2">Personal Project</p>
@@ -622,32 +658,32 @@
           <div class="proj-card-body">
             <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
               Multi-service platform spanning chat, memory retrieval, task orchestration, and web research.
-              A central router coordinates requests across independently scoped backend services with
-              capability-based routing, request/response validation, and service boundary design for
-              integration safety, observability, and maintainability.
+              A central router coordinates requests across independently scoped backend services using
+              capability-based routing, request/response validation, and defined service boundaries
+              for integration safety, observability, and maintainability.
             </p>
 
-            <div class="grid sm:grid-cols-3 gap-3">
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
                 <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Backend</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">FastAPI services with capability-based routing, request/response validation, and structured inter-service communication over SQLite.</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">FastAPI services with capability-based routing, Pydantic request/response validation, and structured inter-service communication over SQLite.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
                 <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Frontend</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">React and TypeScript frontend supporting multi-step workflows, persisted state, and event-driven streaming across CLI and web interfaces.</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">React + TypeScript frontend supporting multi-step workflows, persisted state, and event-driven streaming across CLI and web interfaces.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
                 <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Architecture</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Async workflows and service coordination — each service independently scoped with defined boundaries and observable integration points.</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Async workflows and service coordination — each service independently scoped with defined boundaries, capability manifests, and observable integration points.</p>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- Project 2: Accessible Interactive Music System -->
+        <!-- Project 3: Accessible Interactive Music System (VIP Research) -->
         <article class="proj-card">
           <div class="proj-card-header">
-            <p class="text-xs font-semibold text-accent dark:text-accent-light uppercase tracking-wider mb-2">University of Delaware · VIP Research Program</p>
+            <p class="text-xs font-semibold text-accent dark:text-accent-light uppercase tracking-wider mb-2">University of Delaware · Sensify Lab · VIP Research Program</p>
             <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
               Accessible Interactive Music System
             </h3>
@@ -666,24 +702,66 @@
 
           <div class="proj-card-body">
             <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Interactive accessibility system for children on the autism spectrum, built during the University of Delaware VIP research program.
-              Combines Android, Unity, and Bluetooth-connected hardware for real-time UI feedback and multimodal interaction.
-              Python AI integrations used DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization,
-              and safety-oriented content filtering.
+              Contributed to an interdisciplinary accessibility research project at the University of Delaware’s Sensify Lab (VIP program, 2022),
+              focused on making music participation accessible to children on the autism spectrum.
+              The system allowed listeners to enable, disable, and recombine individual musical layers
+              (melody, rhythm, harmony) according to their sensory preferences — modular, button-driven interaction
+              designed around sensory sensitivity and neural processing differences.
+              User interactions were logged per-session and replayed to study listening preferences and support
+              future composition and accessibility-informed design.
             </p>
 
-            <div class="grid sm:grid-cols-3 gap-3">
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Hardware Layer</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Android + Unity + Bluetooth-connected Arduino hardware for real-time multimodal UI feedback and environmental sound exposure.</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Interaction &amp; Logging</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Layer toggle events captured with timestamps and persisted to CSV. Session replay and visualization tools built in Python to support behavioral analysis across pilot sessions.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">AI Integration</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization, and safety-oriented content filtering.</p>
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Cross-Platform Stack</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Unity + C# for runtime orchestration, Arduino + Bluetooth for hardware input, Android plugin for mobile deployment, Python for AI integration and log analysis.</p>
               </div>
-              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
-                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Research Context</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">HCI-informed, accessibility-first design. Collaborated with researchers and stakeholders; informed by university AI and interaction design research.</p>
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">AI &amp; Research Context</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization, and safety-oriented content filtering. HCI-informed, user-centered design in collaboration with Sensify Lab researchers.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: D&D Tactical Map (compact) -->
+        <article class="proj-card">
+          <div class="proj-card-header">
+            <p class="text-xs font-semibold text-primary dark:text-primary-light uppercase tracking-wider mb-2">Personal Project</p>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
+              Real-Time 3D Tactical Map — MCP WebSocket Architecture
+            </h3>
+            <div class="mt-2.5 chip-row">
+              <span class="skill-chip">TypeScript</span>
+              <span class="skill-chip">React</span>
+              <span class="skill-chip">React Three Fiber</span>
+              <span class="skill-chip">WebSocket</span>
+              <span class="skill-chip">Zustand</span>
+              <span class="skill-chip">Zod</span>
+              <span class="skill-chip">pnpm workspaces</span>
+            </div>
+          </div>
+
+          <div class="proj-card-body">
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              Real-time 3D multiplayer tactical map with a WebSocket-based authoritative server, a REST-to-intent bridge agent, and a React Three Fiber UI.
+              The server maintains a validated 3D voxel grid (terrain, fog-of-war, tokens, obstacles, effects) and broadcasts diffs to all connected clients.
+              A world-ops HTTP agent bridges REST requests to typed MCP intents with stepwise pathfinding and a job queue.
+              Four packages in a pnpm monorepo share Zod protocol schemas, error codes, and encode/decode helpers.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Protocol &amp; State</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Intent → validate → ACK + PATCH broadcast model. Authoritative server owns all mutations; clients apply patches optimistically with server reconciliation.</p>
+              </div>
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3 border border-slate-100 dark:border-slate-700">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Agent Bridge</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">HTTP → MCP intent bridge with stepwise pathfinding, token CRUD, terrain/fog/effect mutation, save/load, and a job queue for multi-step operations.</p>
               </div>
             </div>
           </div>
@@ -695,7 +773,7 @@
 
   <!-- Experience -->
   <section id="experience">
-    <div class="mx-auto max-w-content px-6 py-20 md:py-28">
+    <div class="mx-auto max-w-content px-6 py-16 md:py-24">
       <h2 class="section-label mb-10">Experience</h2>
 
       <div class="space-y-4">
@@ -746,10 +824,10 @@
             <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Aug 2022 – Jan 2023</span>
           </div>
           <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Contributed to university research building accessible AI systems for children on the autism spectrum — software for controlled exposure to environmental sounds through interactive experiences.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Worked with DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization, image filtering, and safety-oriented content tuning.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Supported model evaluation workflows — parallel model runs, pattern identification, and filtering of high-variance or unsafe content pathways.</span></li>
-            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Developed AI integrations in Python and interface components in C++ and Unity, including Android plugin work. Collaborated with HCI researchers and accessibility stakeholders.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Contributed to accessibility research at the University of Delaware’s Sensify Lab, building interactive software to make music participation accessible to children on the autism spectrum — enabling listeners to enable, disable, and recombine musical layers according to their sensory preferences.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Implemented session logging (layer toggle events with timestamps to CSV), session replay, and visualization tooling in Python to support behavioral analysis and inform accessibility-oriented design iterations.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Worked with DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization, and safety-oriented content filtering; supported model evaluation workflows including parallel run comparison and high-variance output filtering.</span></li>
+            <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Developed AI integrations in Python and runtime interface components in C++ and Unity; built Android plugin work for cross-platform deployment. Collaborated with HCI researchers, accessibility stakeholders, and interdisciplinary team members.</span></li>
           </ul>
         </article>
 
@@ -806,7 +884,7 @@
 
   <!-- Technical Skills -->
   <section id="skills" class="surface-tint">
-    <div class="mx-auto max-w-content px-6 py-20 md:py-28">
+    <div class="mx-auto max-w-content px-6 py-16 md:py-24">
       <h2 class="section-label mb-10">Technical Skills</h2>
 
       <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -911,7 +989,7 @@
 
   <!-- Contact -->
   <section id="contact" class="surface-tint">
-    <div class="mx-auto max-w-content px-6 py-20 md:py-28">
+    <div class="mx-auto max-w-content px-6 py-16 md:py-24">
       <h2 class="section-label mb-10">Contact</h2>
 
       <div class="grid lg:grid-cols-[1fr_auto] gap-10 items-start">
@@ -981,7 +1059,6 @@
       return {
         darkMode: false,
         mobileOpen: false,
-        copied: false,
         year: new Date().getFullYear(),
         init() {
           // Persisted theme
@@ -1010,15 +1087,6 @@
           localStorage.setItem('theme', this.darkMode ? 'dark' : 'light');
           if (window.lucide) window.lucide.createIcons();
         },
-        async copyEmail() {
-          try {
-            await navigator.clipboard.writeText('guruprasadnayak24@gmail.com');
-            this.copied = true;
-            setTimeout(() => { this.copied = false; }, 1600);
-          } catch (e) {
-            alert('Copy failed, please copy manually.');
-          }
-        }
       }
     }
   </script>
