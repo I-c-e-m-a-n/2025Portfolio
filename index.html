@@ -6,31 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- SEO -->
-  <title>Guruprasad Nayak | Software Engineer · Applied ML &amp; Research Systems</title>
-  <meta name="description" content="Software engineer with production experience in retrieval and ranking systems, applied ML infrastructure, distributed backend services, and research work in accessible AI." />
+  <title>Guruprasad Nayak | Research SWE · Retrieval, Ranking &amp; Applied ML Systems</title>
+  <meta name="description" content="Research-to-production engineer. Builds retrieval and ranking pipelines, applied ML infrastructure, and evaluation systems. 12–15 ms multi-stage retrieval at ~90% context hit rate. B.S. CS, University of Delaware. Based in Singapore." />
   <meta name="author" content="Guruprasad Nayak" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://i-c-e-m-a-n.github.io/2025Portfolio/" />
 
+  <!-- SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a73e8'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-size='18' font-weight='700' fill='%23fff'%3EG%3C/text%3E%3C/svg%3E" />
+
   <!-- Open Graph -->
-  <meta property="og:title" content="Guruprasad Nayak | Software Engineer · Applied ML &amp; Research Systems" />
-  <meta property="og:description" content="Production backend systems, retrieval and ranking pipelines, applied ML infrastructure, and research work in accessible AI." />
+  <meta property="og:title" content="Guruprasad Nayak | Research SWE · Retrieval, Ranking &amp; Applied ML" />
+  <meta property="og:description" content="Research-to-production engineer. Retrieval and ranking pipelines, applied ML infrastructure, evaluation systems. 12–15 ms latency, ~90% context hit rate." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://i-c-e-m-a-n.github.io/2025Portfolio/" />
+  <meta property="og:image" content="https://i-c-e-m-a-n.github.io/2025Portfolio/assets/og-image.svg" />
+  <meta property="og:image:alt" content="Guruprasad Nayak — Research SWE. Retrieval, ranking, and applied ML systems." />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Guruprasad Nayak | Software Engineer · Applied ML &amp; Research Systems" />
-  <meta name="twitter:description" content="Production backend systems, retrieval and ranking pipelines, applied ML infrastructure, and research work in accessible AI." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Guruprasad Nayak | Research SWE · Retrieval, Ranking &amp; Applied ML" />
+  <meta name="twitter:description" content="Research-to-production engineer. Retrieval and ranking pipelines, applied ML infrastructure, evaluation systems." />
+  <meta name="twitter:image" content="https://i-c-e-m-a-n.github.io/2025Portfolio/assets/og-image.svg" />
+  <meta name="twitter:image:alt" content="Guruprasad Nayak — Research SWE. Retrieval, ranking, and applied ML systems." />
 
-  <!-- Preconnect for fonts (loaded via CSS @import) -->
+  <!-- Fonts: Inter (primary) + JetBrains Mono (code/mono) — preconnect then link for minimal render-blocking -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" />
 
-  <!-- Tailwind CDN (utilities for layout/spacing not covered by our CSS) -->
+  <!-- Theme: applied before first paint to prevent flash -->
   <script>
-    // Apply theme before first paint to prevent flash
     (function() {
       var saved = localStorage.getItem('theme');
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -39,27 +49,12 @@
       }
     })();
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: { DEFAULT: '#1a73e8', hover: '#1558b0', soft: '#e8f0fe', light: '#4d94f0' },
-            accent:  { DEFAULT: '#0f766e', soft: '#e6f7f5', light: '#2dd4bf' }
-          },
-          maxWidth: { content: '1120px' }
-        }
-      }
-    }
-  </script>
 
   <!-- Portfolio CSS -->
   <link rel="stylesheet" href="assets/style.css" />
 
-  <!-- Lucide icons (NOT deferred — load synchronously so icons render on first paint) -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <!-- Lucide icons v0.475.0 — self-hosted, loaded synchronously so icons render on first paint -->
+  <script src="assets/lucide.min.js"></script>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -67,24 +62,45 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Guruprasad Nayak",
-    "jobTitle": "Software Engineer, Applied ML & Research Systems",
-    "description": "Software engineer with production experience in retrieval and ranking systems, applied ML infrastructure, and research work in accessible AI.",
+    "jobTitle": "Research Software Engineer, Applied ML & Retrieval Systems",
+    "description": "Research-to-production engineer with experience building retrieval and ranking pipelines, applied ML infrastructure, and evaluation systems.",
     "url": "https://i-c-e-m-a-n.github.io/2025Portfolio/",
+    "email": "guruprasadnayak24@gmail.com",
     "sameAs": [
       "https://www.linkedin.com/in/guru-nayak",
       "https://github.com/I-c-e-m-a-n"
     ],
-    "address": { "@type": "PostalAddress", "addressCountry": "SG" }
+    "address": { "@type": "PostalAddress", "addressLocality": "Singapore", "addressCountry": "SG" },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Delaware",
+      "sameAs": "https://www.udel.edu/"
+    },
+    "knowsAbout": [
+      "Retrieval and ranking systems",
+      "Applied ML infrastructure",
+      "Model evaluation",
+      "FastAPI",
+      "Python",
+      "C++",
+      "Accessible AI"
+    ]
   }
   </script>
 </head>
 
-<body class="antialiased">
+<body>
+
+  <!-- Skip link (accessibility — first focusable element) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ══════════════════════════════════════════════════════════
        NAVBAR
   ══════════════════════════════════════════════════════════ -->
   <header id="site-nav" class="nav no-print">
+    <!-- Scroll progress bar -->
+    <div id="nav-progress" class="nav-progress" aria-hidden="true"></div>
+
     <div class="container nav-inner">
 
       <a href="#top" class="nav-wordmark">Guruprasad Nayak</a>
@@ -100,28 +116,47 @@
       </nav>
 
       <div class="nav-actions">
-        <button class="nav-theme-btn" data-action="toggle-theme" aria-label="Toggle theme">
+        <button class="nav-theme-btn" data-action="toggle-theme" aria-label="Toggle colour theme">
           <i data-lucide="moon"  data-theme-icon="moon"  style="width:1rem;height:1rem"></i>
           <i data-lucide="sun"   data-theme-icon="sun"   style="width:1rem;height:1rem;display:none"></i>
         </button>
-        <a href="Guruprasad_Nayak_Resume.pdf" class="nav-resume-link" aria-label="Download resume PDF">
+        <a href="Guruprasad_Nayak_Resume.pdf" class="nav-resume-link" aria-label="Download resume PDF" download>
           <i data-lucide="file-text" style="width:1rem;height:1rem"></i>
           Resume
         </a>
-        <button id="mobile-menu-btn" class="nav-mobile-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
-          <i data-lucide="menu" style="width:1.25rem;height:1.25rem"></i>
+        <button id="mobile-menu-btn" class="nav-mobile-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer" aria-haspopup="dialog">
+          <i data-lucide="menu" id="menu-icon-open"  style="width:1.25rem;height:1.25rem"></i>
+          <i data-lucide="x"    id="menu-icon-close" style="width:1.25rem;height:1.25rem;display:none"></i>
         </button>
       </div>
     </div>
 
-    <!-- Mobile drawer -->
-    <div id="mobile-drawer" class="mobile-nav-drawer container" role="navigation" aria-label="Mobile navigation">
-      <a class="mobile-nav-link" href="#work">Projects</a>
-      <a class="mobile-nav-link" href="#experience">Experience</a>
-      <a class="mobile-nav-link" href="#research">Research</a>
-      <a class="mobile-nav-link" href="#skills">Skills</a>
-      <a class="mobile-nav-link" href="#contact">Contact</a>
-      <a class="mobile-nav-link" href="Guruprasad_Nayak_Resume.pdf">Resume PDF</a>
+    <!-- Mobile nav overlay -->
+    <div id="mobile-drawer"
+         class="mobile-nav-drawer"
+         role="dialog"
+         aria-modal="true"
+         aria-label="Navigation menu"
+         hidden>
+      <div class="mobile-nav-inner container">
+        <div class="mobile-nav-header">
+          <span class="mobile-nav-title">Navigation</span>
+          <button id="mobile-close-btn" class="nav-mobile-btn" aria-label="Close navigation menu">
+            <i data-lucide="x" style="width:1.25rem;height:1.25rem"></i>
+          </button>
+        </div>
+        <nav aria-label="Mobile navigation">
+          <a class="mobile-nav-link" href="#work">Projects</a>
+          <a class="mobile-nav-link" href="#experience">Experience</a>
+          <a class="mobile-nav-link" href="#research">Research</a>
+          <a class="mobile-nav-link" href="#skills">Skills</a>
+          <a class="mobile-nav-link" href="#contact">Contact</a>
+        </nav>
+        <a class="mobile-nav-resume" href="Guruprasad_Nayak_Resume.pdf" download>
+          <i data-lucide="file-text" style="width:1rem;height:1rem"></i>
+          Resume PDF
+        </a>
+      </div>
     </div>
   </header>
 
@@ -129,31 +164,32 @@
   <!-- ══════════════════════════════════════════════════════════
        HERO
   ══════════════════════════════════════════════════════════ -->
+  <main id="main-content">
   <section id="top" class="hero-section section">
     <div class="container hero-inner">
 
-      <!-- Left: identity + CTA -->
+      <!-- Left: identity + thesis -->
       <div>
-        <p class="hero-eyebrow">Software Engineer · Applied ML &amp; Research Systems</p>
+        <p class="hero-eyebrow">Singapore &middot; B.S. CS, University of Delaware &middot; Open to work</p>
 
         <h1 class="hero-headline">
-          Research engineering &amp;<br class="hidden sm:block" />
-          <span class="accent">production ML systems.</span>
+          Building retrieval and ranking systems that can be<br class="hero-break" /><span class="accent">measured and improved.</span>
         </h1>
 
         <p class="hero-sub">
-          Production experience in retrieval and ranking pipelines, distributed backend
-          services, and applied ML infrastructure. Research background in accessible AI
-          and interactive systems from the University of Delaware VIP program.
+          I work on retrieval pipelines, ranking systems, and evaluation infrastructure for
+          production AI applications. Current work involves multi-stage retrieval over a
+          multi-GB corpus at 12&ndash;15 ms with ~90% relevant-context hit rate.
+          Research background at the University of Delaware Sensify Lab on accessible AI systems
+          for children on the autism spectrum.
         </p>
 
         <div class="hero-caps">
+          <span class="cap-chip">Python &middot; C++</span>
           <span class="cap-chip">Retrieval &amp; Ranking</span>
-          <span class="cap-chip">Applied ML</span>
-          <span class="cap-chip">Backend Systems</span>
-          <span class="cap-chip">Agent / MCP</span>
-          <span class="cap-chip">Distributed Infra</span>
-          <span class="cap-chip">Accessible AI</span>
+          <span class="cap-chip">Model Evaluation</span>
+          <span class="cap-chip">FastAPI &middot; Docker</span>
+          <span class="cap-chip">MCP / Agent Tooling</span>
         </div>
 
         <div class="hero-cta-row">
@@ -161,56 +197,56 @@
             <i data-lucide="mail" style="width:1rem;height:1rem"></i>
             Get in touch
           </a>
-          <a href="Guruprasad_Nayak_Resume.pdf" class="btn btn-outline">
+          <a href="Guruprasad_Nayak_Resume.pdf" class="btn btn-outline" download>
             <i data-lucide="file-text" style="width:1rem;height:1rem"></i>
             Resume
           </a>
-          <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="btn btn-text">
+          <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener noreferrer" class="btn btn-text">
             <i data-lucide="github" style="width:1rem;height:1rem"></i>
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener" class="btn btn-text">
+          <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener noreferrer" class="btn btn-text">
             <i data-lucide="linkedin" style="width:1rem;height:1rem"></i>
             LinkedIn
           </a>
         </div>
       </div>
 
-      <!-- Right: trust panel -->
-      <div class="trust-panel reveal" style="transition-delay:0.1s">
-        <p class="trust-item-label mb-4">At a glance</p>
+      <!-- Right: trust panel — verified metrics only -->
+      <div class="trust-panel reveal" data-reveal-delay="2">
+        <p class="trust-panel-label">At a glance</p>
 
         <div class="stack-4">
           <div class="metric-card">
-            <div class="flex items-baseline gap-2 mb-1">
-              <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">12&ndash;15 ms</span>
-              <span class="text-xs font-medium text-primary dark:text-primary-light">retrieval latency</span>
+            <div class="metric-header">
+              <span class="metric-num-value">12&ndash;15 ms</span>
+              <span class="metric-unit">retrieval latency</span>
             </div>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Multi-stage retrieval and ranking over a multi-GB corpus</p>
+            <p class="metric-desc">Multi-stage retrieval and ranking over a multi-GB corpus, production at AIRS Foundry</p>
           </div>
 
           <div class="metric-card">
-            <div class="flex items-baseline gap-2 mb-1">
-              <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~90%</span>
-              <span class="text-xs font-medium text-primary dark:text-primary-light">context hit rate</span>
+            <div class="metric-header">
+              <span class="metric-num-value">~90%</span>
+              <span class="metric-unit">context hit rate</span>
             </div>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Candidate filtering, similarity ranking, configuration-driven scoring</p>
+            <p class="metric-desc">Candidate filtering, similarity ranking, configuration-driven scoring</p>
           </div>
 
           <div class="metric-card">
-            <div class="flex items-baseline gap-2 mb-1">
-              <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~80%</span>
-              <span class="text-xs font-medium text-accent dark:text-accent-light">ops reduction</span>
+            <div class="metric-header">
+              <span class="metric-num-value">~80%</span>
+              <span class="metric-unit-teal">ops reduction</span>
             </div>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Digital operations platform, Singapore Armed Forces</p>
+            <p class="metric-desc">First digital ops platform, Singapore Armed Forces, replacing paper-based workflows</p>
           </div>
 
           <div class="metric-card">
-            <div class="flex items-baseline gap-2 mb-1">
-              <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~60 h/mo</span>
-              <span class="text-xs font-medium text-accent dark:text-accent-light">time saved</span>
+            <div class="metric-header">
+              <span class="metric-num-value">~60 h/mo</span>
+              <span class="metric-unit-teal">manual work eliminated</span>
             </div>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Automation tooling for personnel and reporting workflows</p>
+            <p class="metric-desc">Automation tooling for personnel accounting and reporting, Singapore Armed Forces</p>
           </div>
         </div>
       </div>
@@ -228,12 +264,21 @@
 
       <div class="stack-5">
 
-        <!-- Project 1: Web Search Microservice -->
+        <!-- Project 1: Multi-Provider Web Search Service -->
         <article class="proj-card reveal">
           <div class="proj-card-header">
-            <p class="proj-label blue">Personal Project</p>
-            <h3 class="proj-title">Web Search Microservice</h3>
-            <div class="chip-row mt-2">
+            <div class="proj-header-top">
+              <div>
+                <p class="proj-label blue">Personal Project</p>
+                <h3 class="proj-title">Multi-Provider Web Search Service</h3>
+              </div>
+              <div class="proof-strip">
+                <span class="proof-tag">Python &middot; FastAPI</span>
+                <span class="proof-tag">Docker Compose</span>
+                <span class="proof-tag">Private repo, details on request</span>
+              </div>
+            </div>
+            <div class="chip-row">
               <span class="skill-chip">Python</span>
               <span class="skill-chip">FastAPI</span>
               <span class="skill-chip">Pydantic v2</span>
@@ -244,144 +289,329 @@
           </div>
 
           <div class="proj-card-body">
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Standalone FastAPI microservice for web, news, and image search across multiple providers.
-              Structured around a four-layer architecture (API routing, service orchestration, provider adapters, result ranking),
-              with per-provider circuit breaker health checks, request-ID tracing middleware, structured JSON logging,
-              and full OpenAPI/ReDoc documentation. Supports SearXNG, DuckDuckGo, Brave, and Serper behind a unified interface.
-            </p>
-
-            <div class="proj-detail-grid mb-5">
-              <div class="proj-detail-cell">
-                <p class="proj-detail-label">Architecture</p>
-                <p class="proj-detail-text">Four-layer separation: API routing, service orchestration, provider adapters, and result ranking. Each provider independently configurable and circuit-breaker-protected.</p>
+            <div class="case-study-strip">
+              <div class="case-study-item">
+                <span class="case-label">Problem</span>
+                <span class="case-text">Each search provider has different schemas, rate limits, and failure modes. Callers should not need to know which provider is live.</span>
               </div>
-              <div class="proj-detail-cell">
-                <p class="proj-detail-label">Observability</p>
-                <p class="proj-detail-text">Request-ID tracing middleware, structured JSON logging, per-provider health checks at <code>/v1/health</code>, and OpenAPI/ReDoc schema exposure.</p>
+              <div class="case-study-item">
+                <span class="case-label">Design</span>
+                <span class="case-text">Four-layer stack: API routing, service orchestration, provider adapters, result ranking. Providers are independently swappable; the interface is stable regardless of which backend answers.</span>
               </div>
-              <div class="proj-detail-cell">
-                <p class="proj-detail-label">Deployment</p>
-                <p class="proj-detail-text">Full Docker Compose stack with self-hosted SearXNG and DDGS sidecar. External providers opt in via environment configuration.</p>
+              <div class="case-study-item">
+                <span class="case-label">Hard part</span>
+                <span class="case-text">Per-provider circuit breaker with sequential fallback, size-bounded streaming so oversized payloads cannot stall the pipeline, and SSRF guards on every redirect hop.</span>
+              </div>
+              <div class="case-study-item">
+                <span class="case-label">Outcome</span>
+                <span class="case-text">SearXNG, DuckDuckGo, Brave, and Serper unified behind one OpenAPI interface. Deployed in Docker Compose with a self-hosted SearXNG sidecar.</span>
               </div>
             </div>
 
-            <div class="proj-cta-row">
-              <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="btn btn-ghost">
-                <i data-lucide="github" style="width:1rem;height:1rem"></i>
-                View on GitHub
-                <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.6"></i>
-              </a>
+            <!-- Artifact row -->
+            <div class="artifact-row">
+              <span class="artifact-label">Artifacts</span>
+              <span class="artifact-tag">OpenAPI schema (self-hosted at /docs)</span>
+              <span class="artifact-tag">/v1/health per-provider endpoint</span>
+              <span class="artifact-tag">Docker Compose stack</span>
+              <span class="artifact-private">Repo private, code walkthrough available on request</span>
             </div>
+
+            <!-- Expandable technical details -->
+            <details class="tech-details">
+              <summary class="tech-details-summary">
+                <span>Architecture and implementation notes</span>
+                <i data-lucide="chevron-down" class="details-chevron" style="width:0.875rem;height:0.875rem"></i>
+              </summary>
+              <div class="tech-details-body">
+                <!-- System boundary diagram -->
+                <figure class="arch-diagram" aria-label="System boundary diagram for Multi-Provider Web Search Service">
+                  <svg viewBox="0 0 620 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Request flow: Caller to FastAPI Route to ServiceLayer to ProviderRouter, which fans out to SearXNG, DDGS, Brave, Serper">
+                    <defs>
+                      <marker id="arr1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                        <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" opacity="0.45"/>
+                      </marker>
+                    </defs>
+                    <!-- boxes -->
+                    <rect x="4"  y="60" width="72" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.2"/>
+                    <text x="40"  y="82" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.6">Caller</text>
+
+                    <rect x="106" y="60" width="90" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+                    <text x="151" y="78" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.65">FastAPI</text>
+                    <text x="151" y="90" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.45">Route layer</text>
+
+                    <rect x="226" y="60" width="90" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+                    <text x="271" y="78" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.65">Service</text>
+                    <text x="271" y="90" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.45">Orchestration</text>
+
+                    <rect x="346" y="60" width="90" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5"/>
+                    <text x="391" y="78" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">ProviderRouter</text>
+                    <text x="391" y="90" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">AUTO / explicit</text>
+
+                    <!-- provider targets -->
+                    <rect x="466" y="10"  width="74" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <text x="503" y="25" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">SearXNG</text>
+
+                    <rect x="466" y="42"  width="74" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <text x="503" y="57" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">DDGS</text>
+
+                    <rect x="466" y="74"  width="74" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <text x="503" y="89" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">Brave</text>
+
+                    <rect x="466" y="106" width="74" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <text x="503" y="121" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">Serper</text>
+
+                    <!-- arrows -->
+                    <line x1="76"  y1="78" x2="104" y2="78" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arr1)"/>
+                    <line x1="196" y1="78" x2="224" y2="78" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arr1)"/>
+                    <line x1="316" y1="78" x2="344" y2="78" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arr1)"/>
+
+                    <line x1="436" y1="74" x2="464" y2="21"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr1)"/>
+                    <line x1="436" y1="76" x2="464" y2="53"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr1)"/>
+                    <line x1="436" y1="78" x2="464" y2="85"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr1)"/>
+                    <line x1="436" y1="80" x2="464" y2="117" stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr1)"/>
+                  </svg>
+                  <figcaption>Request flow &middot; Route &rarr; Service &rarr; ProviderRouter &rarr; Providers (AUTO fallback: SearXNG &rarr; DDGS &rarr; Brave &rarr; Serper)</figcaption>
+                </figure>
+
+                <div class="proj-detail-grid">
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">Observability</p>
+                    <p class="proj-detail-text">Request-ID tracing middleware on every request. Structured JSON logging. Per-provider health at <code>/v1/health</code>. OpenAPI + ReDoc at <code>/docs</code>.</p>
+                  </div>
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">Resilience</p>
+                    <p class="proj-detail-text">Per-provider circuit breaker (closed, open, half-open). Exponential backoff with jitter. Semaphore-bounded concurrency. Stale-cache fallback on provider failure.</p>
+                  </div>
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">Security</p>
+                    <p class="proj-detail-text">SSRF guard: scheme whitelist, RFC1918 + loopback + cloud metadata IP block, DNS validation. Manual redirect handling with per-hop security check.</p>
+                  </div>
+                </div>
+              </div>
+            </details>
           </div>
         </article>
 
-        <!-- Project 2: Distributed Agent & Workflow Platform -->
+        <!-- Project 2: Multi-Service AI Backend -->
         <article class="proj-card reveal">
           <div class="proj-card-header">
-            <p class="proj-label blue">Personal Project</p>
-            <h3 class="proj-title">Distributed Agent &amp; Workflow Platform</h3>
-            <div class="chip-row mt-2">
+            <div class="proj-header-top">
+              <div>
+                <p class="proj-label blue">Personal Project</p>
+                <h3 class="proj-title">Multi-Service AI Backend with Capability Routing</h3>
+              </div>
+              <div class="proof-strip">
+                <span class="proof-tag">Python &middot; FastAPI &middot; React</span>
+                <span class="proof-tag">900+ tests</span>
+                <span class="proof-tag">Private repo, details on request</span>
+              </div>
+            </div>
+            <div class="chip-row">
               <span class="skill-chip">Python</span>
               <span class="skill-chip">FastAPI</span>
               <span class="skill-chip">React</span>
               <span class="skill-chip">TypeScript</span>
               <span class="skill-chip">SQLite</span>
+              <span class="skill-chip">Pydantic v2</span>
             </div>
           </div>
 
           <div class="proj-card-body">
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Multi-service platform for chat, memory retrieval, task orchestration, and web research.
-              A central router coordinates requests across independently scoped backend services using capability-based routing,
-              request/response validation, and well-defined service boundaries for observability and integration safety.
-            </p>
-
-            <div class="proj-detail-grid mb-5">
-              <div class="proj-detail-cell">
-                <p class="proj-detail-label">Backend</p>
-                <p class="proj-detail-text">FastAPI services with capability-based routing, Pydantic validation, and structured inter-service communication over SQLite.</p>
+            <div class="case-study-strip">
+              <div class="case-study-item">
+                <span class="case-label">Problem</span>
+                <span class="case-text">Chat, memory, task planning, and web retrieval need to run as separate services with independent failure domains, but still share a coherent request lifecycle.</span>
               </div>
-              <div class="proj-detail-cell">
-                <p class="proj-detail-label">Frontend</p>
-                <p class="proj-detail-text">React and TypeScript frontend supporting multi-step workflows, persisted state, and event-driven streaming across CLI and web interfaces.</p>
+              <div class="case-study-item">
+                <span class="case-label">Design</span>
+                <span class="case-text">Central router classifies each request into a typed intent and dispatches to the correct backend service. Each service declares a capability manifest; the router enforces those boundaries at the API layer.</span>
               </div>
-              <div class="proj-detail-cell">
-                <p class="proj-detail-label">Architecture</p>
-                <p class="proj-detail-text">Each service independently scoped with defined boundaries, capability manifests, and observable integration points. Async workflows throughout.</p>
+              <div class="case-study-item">
+                <span class="case-label">Hard part</span>
+                <span class="case-text">Preventing older keyword-routing logic from overriding structured intent classification. Required a three-layer gate: intent compiler, execution planner, capability registry, in that order of authority.</span>
+              </div>
+              <div class="case-study-item">
+                <span class="case-label">Outcome</span>
+                <span class="case-text">Backend serving chat, memory retrieval, task orchestration, and web search. React and TypeScript frontend with server-sent event streaming. CLI and web share the same backend contract.</span>
               </div>
             </div>
 
-            <div class="proj-cta-row">
-              <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="btn btn-ghost">
-                <i data-lucide="github" style="width:1rem;height:1rem"></i>
-                View on GitHub
-                <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.6"></i>
-              </a>
+            <!-- Artifact row -->
+            <div class="artifact-row">
+              <span class="artifact-label">Artifacts</span>
+              <span class="artifact-tag">900+ unit &amp; integration tests</span>
+              <span class="artifact-tag">per-request trace records</span>
+              <span class="artifact-tag">SSE streaming frontend</span>
+              <span class="artifact-private">Repo private, code walkthrough available on request</span>
             </div>
+
+            <details class="tech-details">
+              <summary class="tech-details-summary">
+                <span>Architecture and implementation notes</span>
+                <i data-lucide="chevron-down" class="details-chevron" style="width:0.875rem;height:0.875rem"></i>
+              </summary>
+              <div class="tech-details-body">
+                <!-- Service boundary diagram -->
+                <figure class="arch-diagram" aria-label="Service boundary diagram for Multi-Service AI Backend">
+                  <svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Request enters Intent Compiler then Execution Planner then Capability Router, which dispatches to Memory Service, Web Search, Task Planner, and LLM Gateway">
+                    <defs>
+                      <marker id="arr2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                        <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" opacity="0.4"/>
+                      </marker>
+                    </defs>
+                    <!-- incoming -->
+                    <rect x="4"   y="82" width="72" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.2"/>
+                    <text x="40"  y="100" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.55">Request</text>
+                    <text x="40"  y="111" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.4">(CLI / Web)</text>
+
+                    <!-- intent compiler -->
+                    <rect x="100" y="82" width="90" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+                    <text x="145" y="100" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.65">Intent</text>
+                    <text x="145" y="111" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.45">Compiler</text>
+
+                    <!-- execution planner -->
+                    <rect x="214" y="82" width="90" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+                    <text x="259" y="100" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.65">Execution</text>
+                    <text x="259" y="111" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.45">Planner</text>
+
+                    <!-- capability router -->
+                    <rect x="328" y="82" width="96" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5"/>
+                    <text x="376" y="100" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">Capability</text>
+                    <text x="376" y="111" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">Router</text>
+
+                    <!-- services -->
+                    <rect x="454" y="14"  width="90" height="28" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <text x="499" y="32" text-anchor="middle" font-size="8.5" fill="currentColor" opacity="0.55">Memory Service</text>
+
+                    <rect x="454" y="58"  width="90" height="28" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <text x="499" y="76" text-anchor="middle" font-size="8.5" fill="currentColor" opacity="0.55">Web Search</text>
+
+                    <rect x="454" y="102" width="90" height="28" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <text x="499" y="120" text-anchor="middle" font-size="8.5" fill="currentColor" opacity="0.55">Task Planner</text>
+
+                    <rect x="454" y="146" width="90" height="28" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <text x="499" y="164" text-anchor="middle" font-size="8.5" fill="currentColor" opacity="0.55">LLM Gateway</text>
+
+                    <!-- arrows -->
+                    <line x1="76"  y1="100" x2="98"  y2="100" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arr2)"/>
+                    <line x1="190" y1="100" x2="212" y2="100" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arr2)"/>
+                    <line x1="304" y1="100" x2="326" y2="100" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arr2)"/>
+
+                    <line x1="424" y1="92"  x2="452" y2="28"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr2)"/>
+                    <line x1="424" y1="96"  x2="452" y2="72"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr2)"/>
+                    <line x1="424" y1="100" x2="452" y2="116" stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr2)"/>
+                    <line x1="424" y1="104" x2="452" y2="160" stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr2)"/>
+                  </svg>
+                  <figcaption>Service boundaries &middot; Intent Compiler &rarr; Execution Planner &rarr; Capability Router &rarr; services</figcaption>
+                </figure>
+
+                <div class="proj-detail-grid">
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">Routing</p>
+                    <p class="proj-detail-text">Intent compiler classifies prompt into an IntentObject (mode, domain, capability, arguments). Execution planner builds step graph. Intent authority gate prevents legacy keyword routing from overriding structured intent.</p>
+                  </div>
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">Memory</p>
+                    <p class="proj-detail-text">Three-layer: episodic (per-session), semantic (entity/fact), procedural (learned patterns). Hybrid BM25 + embedding search. Sanitization on all write and injection paths.</p>
+                  </div>
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">Test coverage</p>
+                    <p class="proj-detail-text">900+ unit and integration tests. Regression suites gate all pipeline changes. Trace records per request for audit and debug.</p>
+                  </div>
+                </div>
+              </div>
+            </details>
           </div>
         </article>
 
-        <!-- Project 3: Accessible Interactive Music System -->
+        <!-- Project 3: Accessible Music Interaction System -->
         <article class="proj-card reveal">
           <div class="proj-card-header">
-            <p class="proj-label teal">University of Delaware &middot; Sensify Lab &middot; VIP Research</p>
-            <h3 class="proj-title">Accessible Interactive Music System</h3>
-            <div class="chip-row mt-2">
+            <div class="proj-header-top">
+              <div>
+                <p class="proj-label teal">University of Delaware &middot; Sensify Lab &middot; VIP Research</p>
+                <h3 class="proj-title">Accessible Music Interaction System</h3>
+              </div>
+              <div class="proof-strip">
+                <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener noreferrer" class="proof-link">Sensify Lab <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.7"></i></a>
+                <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener noreferrer" class="proof-link">UDaily (Mar 2023) <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.7"></i></a>
+              </div>
+            </div>
+            <div class="chip-row">
               <span class="skill-chip">C++</span>
               <span class="skill-chip">C#</span>
               <span class="skill-chip">Unity</span>
               <span class="skill-chip">Python</span>
               <span class="skill-chip">Arduino</span>
               <span class="skill-chip">Android</span>
-              <span class="skill-chip">Bluetooth</span>
-              <span class="skill-chip">Generative AI</span>
+              <span class="skill-chip">DALL·E / GPT-3.5</span>
             </div>
           </div>
 
           <div class="proj-card-body">
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Built as part of the University of Delaware's Sensify Lab VIP program (2022).
-              The system makes music participation accessible to children on the autism spectrum
-              by letting listeners activate, disable, and recombine musical layers
-              (melody, rhythm, harmony) according to their sensory preferences.
-              Interactions were logged per session and replayed to support behavioral analysis
-              and accessibility-informed design. Integrated DALL-E, GPT-3.5, and in-house neural
-              network components for generative and safety-filtering workflows.
-            </p>
-
-            <div class="grid-auto-2 mb-5">
-              <div class="proj-detail-cell">
-                <p class="proj-detail-label">Interaction &amp; Logging</p>
-                <p class="proj-detail-text">Layer toggle events captured with timestamps to CSV. Session replay and visualization tooling in Python for behavioral analysis across pilot sessions.</p>
+            <div class="case-study-strip">
+              <div class="case-study-item">
+                <span class="case-label">Problem</span>
+                <span class="case-text">Children on the autism spectrum often cannot participate in group music activities because the soundscape is fixed and uncontrollable, leading to sensory overload.</span>
               </div>
-              <div class="proj-detail-cell">
-                <p class="proj-detail-label">Stack</p>
-                <p class="proj-detail-text">Unity and C# for runtime orchestration, Arduino and Bluetooth for hardware input, Android plugin for mobile deployment, Python for AI integration and log analysis.</p>
+              <div class="case-study-item">
+                <span class="case-label">Design</span>
+                <span class="case-text">Each listener controls individual musical layers (melody, rhythm, harmony) in real time. All toggle events are timestamped and logged per session so HCI researchers can analyze interaction patterns.</span>
+              </div>
+              <div class="case-study-item">
+                <span class="case-label">Hard part</span>
+                <span class="case-text">Bridging Arduino and Bluetooth hardware input through an Android plugin to a Unity runtime, while keeping the generative AI content pipeline (DALL-E, GPT-3.5) safety-filtered for the target population.</span>
+              </div>
+              <div class="case-study-item">
+                <span class="case-label">Outcome</span>
+                <span class="case-text">Pilot sessions run with children on the autism spectrum. Project featured in UDaily, March 2023. Session replay tooling directly informed design changes with the research team.</span>
               </div>
             </div>
 
-            <div class="proj-cta-row">
-              <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener" class="cta-teal">
-                Sensify Lab
-                <i data-lucide="external-link" style="width:0.875rem;height:0.875rem;opacity:0.7"></i>
-              </a>
-              <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener" class="cta-teal">
-                UDaily Feature
-                <i data-lucide="external-link" style="width:0.875rem;height:0.875rem;opacity:0.7"></i>
-              </a>
+            <!-- Artifact row -->
+            <div class="artifact-row">
+              <span class="artifact-label">External proof</span>
+              <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener noreferrer" class="artifact-tag">Sensify Lab profile</a>
+              <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener noreferrer" class="artifact-tag">UDaily feature article</a>
+              <span class="artifact-tag">Pilot sessions with target population</span>
             </div>
+
+            <details class="tech-details">
+              <summary class="tech-details-summary">
+                <span>Architecture and implementation notes</span>
+                <i data-lucide="chevron-down" class="details-chevron" style="width:0.875rem;height:0.875rem"></i>
+              </summary>
+              <div class="tech-details-body">
+                <div class="grid-auto-2">
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">Interaction &amp; Logging</p>
+                    <p class="proj-detail-text">Layer toggle events logged with timestamps to CSV per session. Python tooling for session replay and visualization to support behavioral analysis and design iteration.</p>
+                  </div>
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">AI Integration</p>
+                    <p class="proj-detail-text">DALL-E image generation, GPT-3.5 prompt optimization, in-house neural network for content safety filtering. Evaluation by parallel run comparison and high-variance output filtering.</p>
+                  </div>
+                </div>
+              </div>
+            </details>
           </div>
         </article>
 
         <!-- Project 4: Real-Time 3D Tactical Map -->
         <article class="proj-card reveal">
           <div class="proj-card-header">
-            <p class="proj-label blue">Personal Project</p>
-            <h3 class="proj-title">Real-Time 3D Tactical Map &mdash; MCP / WebSocket Architecture</h3>
-            <div class="chip-row mt-2">
+            <div class="proj-header-top">
+              <div>
+                <p class="proj-label blue">Personal Project</p>
+                <h3 class="proj-title">Real-Time 3D Tactical Map with WebSocket Authority Server</h3>
+              </div>
+              <div class="proof-strip">
+                <span class="proof-tag">Private repo, details on request</span>
+              </div>
+            </div>
+            <div class="chip-row">
               <span class="skill-chip">TypeScript</span>
-              <span class="skill-chip">React</span>
               <span class="skill-chip">React Three Fiber</span>
               <span class="skill-chip">WebSocket</span>
               <span class="skill-chip">Zustand</span>
@@ -391,32 +621,82 @@
           </div>
 
           <div class="proj-card-body">
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Real-time 3D multiplayer tactical map with a WebSocket-based authoritative server, a REST-to-intent bridge agent,
-              and a React Three Fiber UI. The server maintains a validated 3D voxel grid covering terrain, fog-of-war, tokens,
-              obstacles, and effects, and broadcasts diffs to all connected clients. An HTTP world-ops agent bridges REST requests
-              to typed MCP intents with stepwise pathfinding and a job queue. Four packages in a pnpm monorepo share Zod protocol
-              schemas, error codes, and encode/decode helpers.
-            </p>
-
-            <div class="grid-auto-2 mb-5">
-              <div class="proj-detail-cell">
-                <p class="proj-detail-label">Protocol &amp; State</p>
-                <p class="proj-detail-text">Intent, validate, ACK + PATCH broadcast model. Authoritative server owns all mutations; clients apply patches optimistically with server reconciliation.</p>
+            <div class="case-study-strip">
+              <div class="case-study-item">
+                <span class="case-label">Problem</span>
+                <span class="case-text">Multiple clients need to share a consistent 3D world state. The server must be the single source of truth, but clients still need to feel responsive.</span>
               </div>
-              <div class="proj-detail-cell">
-                <p class="proj-detail-label">Agent Bridge</p>
-                <p class="proj-detail-text">HTTP to MCP intent bridge with stepwise pathfinding, token CRUD, terrain/fog/effect mutation, save/load, and a job queue for multi-step operations.</p>
+              <div class="case-study-item">
+                <span class="case-label">Design</span>
+                <span class="case-text">Intent, validate, ACK and PATCH broadcast model over WebSocket. The server owns all mutations and broadcasts validated diffs. Shared Zod schemas across all four monorepo packages enforce the wire protocol.</span>
+              </div>
+              <div class="case-study-item">
+                <span class="case-label">Hard part</span>
+                <span class="case-text">The REST-to-MCP bridge compiles incoming HTTP operations into typed intents, validates them against world state, then executes them through a job queue that handles multi-step pathfinding across several WebSocket round-trips.</span>
+              </div>
+              <div class="case-study-item">
+                <span class="case-label">Outcome</span>
+                <span class="case-text">Authoritative server maintaining a validated 3D voxel grid with terrain, fog-of-war, tokens, obstacles, and effects. React Three Fiber UI consuming live server diffs.</span>
               </div>
             </div>
 
-            <div class="proj-cta-row">
-              <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="btn btn-ghost">
-                <i data-lucide="github" style="width:1rem;height:1rem"></i>
-                View on GitHub
-                <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.6"></i>
-              </a>
+            <!-- Artifact row -->
+            <div class="artifact-row">
+              <span class="artifact-label">Artifacts</span>
+              <span class="artifact-tag">shared/src/protocol.ts (Zod schemas)</span>
+              <span class="artifact-tag">pnpm workspace: shared, mcp-map-server, mcp-world-ops-agent, ui</span>
+              <span class="artifact-private">Repo private, code walkthrough available on request</span>
             </div>
+
+            <details class="tech-details">
+              <summary class="tech-details-summary">
+                <span>Architecture and implementation notes</span>
+                <i data-lucide="chevron-down" class="details-chevron" style="width:0.875rem;height:0.875rem"></i>
+              </summary>
+              <div class="tech-details-body">
+                <!-- Monorepo boundary diagram -->
+                <figure class="arch-diagram" aria-label="Monorepo package boundary diagram for 3D Tactical Map">
+                  <svg viewBox="0 0 580 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four pnpm packages: shared (Zod schemas and types), mcp-map-server (WebSocket authority server), mcp-world-ops-agent (HTTP to MCP bridge), and ui (React Three Fiber client)">
+                    <!-- shared package (centre) -->
+                    <rect x="228" y="46" width="124" height="40" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.4" stroke-width="1.5"/>
+                    <text x="290" y="62" text-anchor="middle" font-size="9"  fill="currentColor" opacity="0.7">shared</text>
+                    <text x="290" y="75" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.45">Zod schemas &amp; types</text>
+
+                    <!-- mcp-map-server -->
+                    <rect x="14"  y="6"  width="148" height="40" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.2"/>
+                    <text x="88"  y="22" text-anchor="middle" font-size="9"  fill="currentColor" opacity="0.6">mcp-map-server</text>
+                    <text x="88"  y="34" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.4">WS authority server</text>
+
+                    <!-- mcp-world-ops-agent -->
+                    <rect x="14"  y="86" width="148" height="40" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.2"/>
+                    <text x="88"  y="102" text-anchor="middle" font-size="9"  fill="currentColor" opacity="0.6">mcp-world-ops-agent</text>
+                    <text x="88"  y="114" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.4">HTTP &rarr; MCP bridge</text>
+
+                    <!-- ui -->
+                    <rect x="418" y="46" width="148" height="40" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.2"/>
+                    <text x="492" y="62" text-anchor="middle" font-size="9"  fill="currentColor" opacity="0.6">ui</text>
+                    <text x="492" y="74" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.4">React Three Fiber client</text>
+
+                    <!-- lines from shared -->
+                    <line x1="228" y1="60" x2="162" y2="26"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <line x1="228" y1="66" x2="162" y2="106" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <line x1="352" y1="66" x2="418" y2="66"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                  </svg>
+                  <figcaption>pnpm monorepo &middot; shared Zod schemas imported by all three other packages &middot; wire protocol enforced at compile time</figcaption>
+                </figure>
+
+                <div class="grid-auto-2">
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">Protocol &amp; State</p>
+                    <p class="proj-detail-text">WebSocket authoritative server. Intent, validate, ACK and PATCH broadcast model. Clients apply server-reconciled diffs. Zod schemas in <code>shared/src/protocol.ts</code> enforce the wire contract across all packages.</p>
+                  </div>
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">Agent Bridge</p>
+                    <p class="proj-detail-text">HTTP world-ops agent compiles REST operations to typed MCP intents. Stepwise pathfinding, token CRUD, terrain/fog/effect mutation, save/load via job queue spanning multiple WebSocket round-trips.</p>
+                  </div>
+                </div>
+              </div>
+            </details>
           </div>
         </article>
 
@@ -446,27 +726,23 @@
           <ul class="exp-bullets">
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Built a production FastAPI backend for multi-stage retrieval and ranking over a multi-GB corpus, achieving 12&ndash;15 ms latency and roughly 90% relevant-context hit rate through candidate filtering, similarity ranking, and configurable scoring.</span>
+              <span>Built a multi-stage retrieval and ranking pipeline over a multi-GB corpus. Candidate filtering, similarity ranking, and configuration-driven scoring. Measured at 12&ndash;15 ms latency and ~90% relevant-context hit rate in production.</span>
             </li>
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Refactored performance-critical Python components into C++ to reduce latency in hot backend paths.</span>
+              <span>Built evaluation harnesses, ranking benchmarks, latency profiling tools, and regression suites. Every pipeline change is gated against empirical quality checks before release.</span>
             </li>
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Built and integrated MCP servers and tool interfaces: schema definition, execution flow, structured logging, debugging instrumentation, and agent-facing API integration.</span>
+              <span>Refactored latency-critical Python components into C++ to reduce hot-path overhead in inference and backend processing.</span>
             </li>
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Wrote eval harnesses, ranking benchmarks, latency profiling, and regression suites to enforce quality gates across pipeline changes.</span>
+              <span>Built MCP servers and tool interfaces: tool schema definitions, execution flow, structured logging, and observability instrumentation for agent-facing integrations.</span>
             </li>
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Developed backend infrastructure across multi-service architectures with async workers, queues, distributed jobs, and parallel-processing components.</span>
-            </li>
-            <li class="exp-bullet">
-              <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Owned production responsibilities: release validation, incident debugging, alert response, and uptime-sensitive fixes across shared AI workflow infrastructure.</span>
+              <span>Owned production responsibilities across multi-service AI infrastructure: release validation, incident response, alert triage, and uptime-sensitive fixes.</span>
             </li>
           </ul>
         </article>
@@ -483,28 +759,28 @@
           <ul class="exp-bullets">
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Designed and launched the unit's first digital operations platform, replacing paper-based workflows and cutting manpower requirements by roughly 80%.</span>
+              <span>Designed and launched the unit's first digital operations platform, replacing paper-based workflows and cutting manpower requirements by ~80%.</span>
             </li>
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Built internal automation tools for personnel accounting and reporting, saving around 60 hours per month of manual work.</span>
+              <span>Built internal automation tooling for personnel accounting and reporting, eliminating ~60 hours per month of manual work.</span>
             </li>
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Standardized fragmented operational processes into structured digital workflows and led 30-person operations under time-sensitive constraints.</span>
+              <span>Led 30-person operations under time-sensitive constraints; standardized fragmented processes into structured digital workflows.</span>
             </li>
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Received the Safety Steward Award and the 23SA Regimental Sergeant Major's Coin, the first Sergeant in battalion history to receive it.</span>
+              <span>Received the Safety Steward Award; first Sergeant in battalion history to receive the 23SA Regimental Sergeant Major's Coin.</span>
             </li>
           </ul>
         </article>
 
-        <!-- VIP Research -->
+        <!-- VIP Research — kept shorter since Projects section has the depth -->
         <article class="exp-card reveal">
           <div class="exp-header">
             <div>
-              <h3 class="exp-org">University of Delaware &middot; VIP Research Program</h3>
+              <h3 class="exp-org">University of Delaware &middot; Sensify Lab VIP Program</h3>
               <p class="exp-role">Undergraduate Researcher &middot; Accessible AI Systems</p>
             </div>
             <span class="exp-date">Aug 2022 &ndash; Jan 2023</span>
@@ -512,19 +788,11 @@
           <ul class="exp-bullets">
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Built interactive software at the Sensify Lab to make music participation accessible to children on the autism spectrum, letting listeners activate, disable, and recombine musical layers to match their sensory preferences.</span>
+              <span>Built interactive software at the Sensify Lab, University of Delaware VIP program. The system lets children on the autism spectrum control individual musical layers in real time, with session logging and replay tooling supporting behavioral analysis by HCI researchers.</span>
             </li>
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Implemented session logging (layer toggle events with timestamps to CSV), session replay, and visualization tooling in Python to support behavioral analysis and design iteration.</span>
-            </li>
-            <li class="exp-bullet">
-              <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Worked with DALL-E, GPT-3.5, and in-house neural networks for image generation, prompt optimization, and safety-oriented content filtering; supported model evaluation including parallel run comparison and high-variance output filtering.</span>
-            </li>
-            <li class="exp-bullet">
-              <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Developed AI integrations in Python, runtime components in C++ and Unity, and an Android plugin for cross-platform deployment. Collaborated with HCI researchers and accessibility stakeholders.</span>
+              <span>Stack: Python AI integrations, C++ and Unity runtime, Android plugin. Integrated DALL-E, GPT-3.5, and an in-house neural network with safety-oriented content filtering. Project featured in UDaily, March 2023.</span>
             </li>
           </ul>
         </article>
@@ -540,8 +808,8 @@
               </div>
               <span class="exp-date">Aug &ndash; Dec 2022</span>
             </div>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-3">
-              Supported 200+ students across data structures, algorithms, systems, and programming fundamentals through debugging sessions, technical walkthroughs, and problem-solving office hours.
+            <p class="exp-card-text">
+              Supported 200+ students across data structures, algorithms, systems, and programming fundamentals through debugging sessions, technical walkthroughs, and office hours.
             </p>
           </article>
 
@@ -553,8 +821,8 @@
               </div>
               <span class="exp-date">Jun &ndash; Jul 2019</span>
             </div>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-3">
-              OSINT investigations, anomaly analysis, and vulnerability assessment. Correlated logs and open-source signals to support threat triage, incident analysis, and evidence-based reporting.
+            <p class="exp-card-text">
+              OSINT investigations, anomaly analysis, and vulnerability assessment. Correlated logs and open-source signals to support threat triage and evidence-based incident reporting.
             </p>
           </article>
 
@@ -562,16 +830,16 @@
 
         <!-- Education -->
         <div class="edu-card reveal">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+          <div class="edu-card-header">
             <div>
-              <p class="trust-item-label mb-1">Education</p>
+              <p class="trust-item-label">Education</p>
               <h3 class="exp-org">B.S. Computer Science &middot; University of Delaware</h3>
-              <p class="exp-role mt-1">Dean's List &middot; DSA, OS, Databases, Software Engineering, Machine Learning</p>
+              <p class="exp-role">Dean's List &middot; Machine Learning, Data Structures &amp; Algorithms, Operating Systems, HCI, Databases</p>
             </div>
             <span class="exp-date">2019 &ndash; 2023</span>
           </div>
-          <p class="text-xs text-slate-400 dark:text-slate-500 mt-2">
-            EC-Council CEH &middot; MIT Sloan Executive Education: AI Strategy
+          <p class="research-subtitle">
+            EC-Council Certified Ethical Hacker (CEH) &middot; MIT Sloan Executive Education: AI Strategy
           </p>
         </div>
 
@@ -590,12 +858,8 @@
       <div class="research-card reveal">
         <div class="research-header">
           <div>
-            <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 leading-snug">
-              VIP Research Program &mdash; Accessible Interactive Systems
-            </h3>
-            <p class="text-xs text-slate-400 dark:text-slate-500 mt-1 tracking-wide">
-              University of Delaware &middot; Sensify Lab &middot; 2022
-            </p>
+            <h3 class="research-title">Accessible Interactive Systems, Sensify Lab VIP Program</h3>
+            <p class="research-subtitle">University of Delaware &middot; Sensify Lab &middot; 2022</p>
           </div>
           <span class="research-badge">
             <i data-lucide="flask-conical" style="width:0.75rem;height:0.75rem"></i>
@@ -603,22 +867,37 @@
           </span>
         </div>
 
-        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
-          Contributed to interdisciplinary research at the University of Delaware's Sensify Lab (VIP program),
-          building software to make music participation accessible to children on the autism spectrum.
-          Developed interactive system components letting listeners enable, disable, and recombine musical layers
-          according to their sensory preferences. Implemented session logging, replay, and behavioral analysis tooling;
-          integrated DALL-E, GPT-3.5, and in-house neural network components for generative and safety-oriented workflows.
-          Work sat at the intersection of HCI, accessibility engineering, and applied AI.
+        <p class="research-body">
+          University of Delaware VIP program, Sensify Lab, 2022. The research question was whether
+          giving children on the autism spectrum real-time control over individual musical layers
+          (melody, rhythm, harmony) could allow them to participate in music activities that would
+          otherwise be inaccessible due to sensory overload. I built the interaction system,
+          session logging and replay tooling, and the generative AI integration pipeline.
+          Results informed design changes with HCI researchers. The project was covered in UDaily in March 2023.
         </p>
 
+        <div class="research-findings">
+          <div class="finding-item">
+            <span class="finding-label">What was built</span>
+            <span class="finding-text">Real-time layer control (melody, rhythm, harmony toggles), Arduino and Bluetooth hardware input pipeline, Android plugin, Unity runtime, Python session logger and replay tooling.</span>
+          </div>
+          <div class="finding-item">
+            <span class="finding-label">AI component</span>
+            <span class="finding-text">DALL-E image generation, GPT-3.5 prompt optimization, in-house neural network for content safety filtering. Evaluation by comparing parallel model runs and filtering high-variance outputs.</span>
+          </div>
+          <div class="finding-item">
+            <span class="finding-label">Verification</span>
+            <span class="finding-text">Pilot sessions run with children on the autism spectrum. Project covered in UDaily, March 2023. Sensify Lab profile linked below.</span>
+          </div>
+        </div>
+
         <div class="research-links">
-          <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener" class="research-link">
+          <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener noreferrer" class="research-link">
             Sensify Lab Profile
             <i data-lucide="external-link" style="width:0.875rem;height:0.875rem;opacity:0.7"></i>
           </a>
-          <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener" class="research-link">
-            UDaily Project Feature
+          <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener noreferrer" class="research-link">
+            UDaily Feature (Mar 2023)
             <i data-lucide="external-link" style="width:0.875rem;height:0.875rem;opacity:0.7"></i>
           </a>
         </div>
@@ -635,77 +914,49 @@
     <div class="container section-inner">
       <h2 class="section-label">Technical Skills</h2>
 
-      <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
+      <div class="skills-grid">
 
         <div class="skill-cluster reveal">
           <p class="skill-cluster-label">Languages</p>
           <div class="chip-row">
             <span class="skill-chip">Python</span>
             <span class="skill-chip">C++</span>
-            <span class="skill-chip">Java</span>
             <span class="skill-chip">TypeScript</span>
-            <span class="skill-chip">JavaScript</span>
             <span class="skill-chip">SQL</span>
+            <span class="skill-chip">Java</span>
           </div>
         </div>
 
-        <div class="skill-cluster sm:col-span-2 reveal">
-          <p class="skill-cluster-label">Applied ML / Research Engineering</p>
+        <div class="skill-cluster reveal">
+          <p class="skill-cluster-label">ML &amp; Retrieval</p>
           <div class="chip-row">
             <span class="skill-chip">PyTorch</span>
-            <span class="skill-chip">TensorFlow</span>
             <span class="skill-chip">Hugging Face Transformers</span>
             <span class="skill-chip">sentence-transformers</span>
-            <span class="skill-chip">NLP</span>
             <span class="skill-chip">embeddings</span>
-            <span class="skill-chip">transformer-based systems</span>
-            <span class="skill-chip">prompt optimization</span>
             <span class="skill-chip">model evaluation</span>
-            <span class="skill-chip">retrieval</span>
-            <span class="skill-chip">ranking systems</span>
           </div>
         </div>
 
-        <div class="skill-cluster sm:col-span-2 reveal">
-          <p class="skill-cluster-label">Backend / Systems</p>
+        <div class="skill-cluster reveal">
+          <p class="skill-cluster-label">Backend &amp; Systems</p>
           <div class="chip-row">
             <span class="skill-chip">FastAPI</span>
-            <span class="skill-chip">Flask</span>
-            <span class="skill-chip">REST APIs</span>
-            <span class="skill-chip">async systems</span>
-            <span class="skill-chip">distributed services</span>
-            <span class="skill-chip">Redis</span>
             <span class="skill-chip">Docker Compose</span>
-            <span class="skill-chip">GitHub Actions</span>
-            <span class="skill-chip">Linux/Unix</span>
-            <span class="skill-chip">observability</span>
+            <span class="skill-chip">Redis</span>
+            <span class="skill-chip">async workers</span>
             <span class="skill-chip">structured logging</span>
-            <span class="skill-chip">regression testing</span>
+            <span class="skill-chip">Linux / Unix</span>
           </div>
         </div>
 
         <div class="skill-cluster reveal">
-          <p class="skill-cluster-label">Agent / Infrastructure</p>
+          <p class="skill-cluster-label">Agent &amp; Tooling</p>
           <div class="chip-row">
             <span class="skill-chip">MCP servers</span>
-            <span class="skill-chip">tool schemas</span>
-            <span class="skill-chip">agent integration</span>
-            <span class="skill-chip">API orchestration</span>
-            <span class="skill-chip">multi-service architecture</span>
-            <span class="skill-chip">async workers</span>
-            <span class="skill-chip">distributed jobs</span>
-            <span class="skill-chip">queues</span>
-          </div>
-        </div>
-
-        <div class="skill-cluster reveal">
-          <p class="skill-cluster-label">Product / Accessibility</p>
-          <div class="chip-row">
-            <span class="skill-chip">Unity</span>
-            <span class="skill-chip">Android plugin development</span>
-            <span class="skill-chip">multimodal interaction</span>
-            <span class="skill-chip">accessibility-oriented design</span>
-            <span class="skill-chip">HCI systems</span>
+            <span class="skill-chip">GitHub Actions</span>
+            <span class="skill-chip">OpenAPI</span>
+            <span class="skill-chip">Unity / Android</span>
           </div>
         </div>
 
@@ -715,20 +966,20 @@
 
 
   <!-- ══════════════════════════════════════════════════════════
-       HOW I WORK (Approach)
+       HOW I WORK
   ══════════════════════════════════════════════════════════ -->
   <section id="philosophy" class="section">
-    <div class="container" style="padding-block:3.5rem 4rem">
-      <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-6">How I work</p>
-      <div class="grid sm:grid-cols-3 gap-5">
+    <div class="container section-inner">
+      <p class="section-eyebrow">How I work</p>
+      <div class="philosophy-grid">
         <p class="approach-quote reveal">
-          Retrieval accuracy is measurable. Getting to a 90% hit rate at 12&ndash;15 ms means building scoring pipelines that are deterministic and tunable, not black boxes.
+          Retrieval accuracy is measurable. Getting to 12&ndash;15 ms at ~90% hit rate requires scoring pipelines that are deterministic and tunable at every stage, not end-to-end black boxes.
         </p>
         <p class="approach-quote reveal">
-          Eval harnesses before shipping. If a ranking change can't be verified against a regression suite, it's not production-ready.
+          Evaluation comes before shipping. If a ranking or scoring change cannot be verified against a regression suite, it has not been validated.
         </p>
         <p class="approach-quote reveal">
-          Systems that serve people with different needs require more rigorous design, not less. Constraints clarify what actually matters.
+          Building for people with strict sensory constraints removes the option to hand-wave over edge cases. Every hard constraint clarifies what the system actually needs to do.
         </p>
       </div>
     </div>
@@ -742,57 +993,63 @@
     <div class="container section-inner">
       <h2 class="section-label">Contact</h2>
 
-      <div class="grid lg:grid-cols-[1fr_auto] gap-10 items-start">
-        <div class="max-w-prose">
+      <div class="contact-layout">
+        <div class="contact-body">
           <h2 class="contact-heading reveal">
-            Open to roles in <span class="accent">applied ML systems,<br class="hidden sm:block" /> research infrastructure, and production backend work.</span>
+            Open to full-time roles in <span class="accent">retrieval systems, ML infrastructure, or research engineering.</span>
           </h2>
-          <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 leading-relaxed reveal">
-            Interested in retrieval, ranking, evaluation pipelines, agent infrastructure, or accessible AI research. Based in Singapore.
+          <p class="exp-card-text reveal">
+            Based in Singapore. Looking for roles where the work involves building or improving systems
+            that retrieve, rank, evaluate, or serve model outputs at production scale. Email is the best way to reach me.
           </p>
 
-          <div class="hero-cta-row mt-7 reveal">
+          <div class="hero-cta-row">
             <a href="mailto:guruprasadnayak24@gmail.com" class="btn btn-primary">
               <i data-lucide="mail" style="width:1rem;height:1rem"></i>
-              Email me
+              guruprasadnayak24@gmail.com
             </a>
-            <a href="Guruprasad_Nayak_Resume.pdf" class="btn btn-outline">
+            <a href="Guruprasad_Nayak_Resume.pdf" class="btn btn-outline" download>
               <i data-lucide="file-text" style="width:1rem;height:1rem"></i>
               Resume PDF
             </a>
           </div>
 
-          <div class="flex items-center gap-5 mt-4 reveal">
-            <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener" class="inline-link">
+          <div class="social-row reveal">
+            <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener noreferrer" class="inline-link">
               <i data-lucide="linkedin" style="width:1rem;height:1rem"></i>
               LinkedIn
             </a>
-            <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="inline-link">
+            <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener noreferrer" class="inline-link">
               <i data-lucide="github" style="width:1rem;height:1rem"></i>
               GitHub
             </a>
           </div>
         </div>
 
-        <!-- Contact proof strip -->
-        <div class="stack-4 min-w-[200px] reveal">
+        <!-- Contact fact panel -->
+        <div class="contact-panel stack-4 reveal">
           <div class="trust-item">
             <span class="trust-item-label">Location</span>
-            <span class="trust-item-value">Singapore</span>
+            <span class="trust-item-value">Singapore (PR)</span>
           </div>
           <div class="trust-item">
             <span class="trust-item-label">Open to</span>
             <span class="trust-item-value">Full-time SWE / Research Eng</span>
           </div>
           <div class="trust-item">
-            <span class="trust-item-label">Focus areas</span>
-            <span class="trust-item-value">Retrieval &middot; ML Infra &middot; Backend</span>
+            <span class="trust-item-label">Strengths</span>
+            <span class="trust-item-value">Retrieval &middot; Eval &middot; ML Infra</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item-label">Response</span>
+            <span class="trust-item-value">Email preferred, typically within 24 h</span>
           </div>
         </div>
       </div>
 
     </div>
   </section>
+  </main>
 
 
   <!-- ══════════════════════════════════════════════════════════
@@ -801,7 +1058,10 @@
   <footer class="footer no-print">
     <div class="container footer-inner">
       <span>&copy; <span id="footer-year"></span> Guruprasad Nayak</span>
-      <a href="#top" class="footer-back">Back to top &uarr;</a>
+      <a href="#top" class="footer-back">
+        Back to top
+        <i data-lucide="arrow-up" style="width:0.875rem;height:0.875rem;display:inline-block;vertical-align:middle;margin-left:0.25rem"></i>
+      </a>
     </div>
   </footer>
 
@@ -809,8 +1069,6 @@
   <!-- ══════════════════════════════════════════════════════════
        SCRIPTS
   ══════════════════════════════════════════════════════════ -->
-  <!-- Lucide is loaded synchronously in <head> — no defer needed -->
-  <!-- Portfolio behavior -->
   <script src="assets/main.js"></script>
 
 </body>
