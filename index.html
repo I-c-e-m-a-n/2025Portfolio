@@ -158,6 +158,14 @@
       color: var(--text-2);
       background: var(--bg);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ─── Heading weight/tracking baseline ──────────────────── */
+    h1, h2, h3, h4 {
+      letter-spacing: -0.02em;
+      color: var(--text);
     }
 
     /* ─── Reduced motion ─────────────────────────────────────── */
@@ -188,9 +196,9 @@
       gap: 1rem;
       white-space: nowrap;
       font-family: Inter, system-ui, sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.6875rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-3);
     }
@@ -270,7 +278,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.375rem;
-      margin-top: 0.5rem;
+      margin-top: 0.375rem;
     }
 
     /* ─── Card surface (generic) ─────────────────────────────── */
@@ -308,13 +316,13 @@
 
     /* ─── Approach quote ─────────────────────────────────────── */
     .approach-quote {
-      border-left: 2px solid var(--border);
-      padding-left: 0.875rem;
+      border-left: 1.5px solid var(--border);
+      padding-left: 1rem;
       font-family: Inter, system-ui, sans-serif;
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
       font-weight: 400;
-      line-height: 1.7;
-      color: var(--text-3);
+      line-height: 1.75;
+      color: #475569;
       transition: border-color var(--t-base);
     }
     .approach-quote:hover { border-left-color: var(--accent); }
@@ -333,7 +341,7 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--r-card);
-      padding: 1.5rem 1.75rem;
+      padding: 1.375rem 1.75rem 1.5rem;
       transition: var(--t-lift);
       will-change: transform;
       position: relative;
@@ -367,10 +375,10 @@
     }
     .proj-card:hover { border-color: var(--primary-ring); box-shadow: var(--shadow-md); transform: translateY(-1px); }
     .proj-card-header {
-      padding: 1.5rem 1.75rem 1.25rem;
+      padding: 1.25rem 1.5rem 1rem;
       border-bottom: 1px solid var(--border);
     }
-    .proj-card-body { padding: 1.25rem 1.75rem 1.5rem; }
+    .proj-card-body { padding: 1.25rem 1.5rem 1.5rem; }
     .dark .proj-card { background: rgb(30 41 59); border-color: rgb(51 65 85); }
     .dark .proj-card:hover { border-color: var(--primary-l); }
     .dark .proj-card-header { border-color: rgb(51 65 85); }
@@ -395,7 +403,7 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--r-card);
-      padding: 1.25rem 1.5rem;
+      padding: 1.25rem 1.5rem 1.375rem;
       transition: border-color var(--t-base);
     }
     .skill-cluster:hover { border-color: var(--primary-ring); }
@@ -490,27 +498,27 @@
 
   <!-- Hero -->
   <section id="top">
-    <div class="mx-auto max-w-content px-6 pt-20 pb-16 md:pt-28 md:pb-20">
+    <div class="mx-auto max-w-content px-6 pt-20 pb-20 md:pt-28 md:pb-24">
 
       <!-- Two-column: left = identity/CTA, right = trust panel -->
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 lg:gap-16 items-start">
 
         <!-- Left column -->
         <div>
-          <p class="text-sm text-slate-400 dark:text-slate-500 mb-4 animate-fade-in">Singapore · Software Engineer</p>
+          <p class="text-xs font-medium text-slate-400 dark:text-slate-500 mb-5 tracking-wider uppercase animate-fade-in">Software Engineer · Applied ML &amp; Research Systems</p>
 
-          <h1 class="text-4xl md:text-5xl font-semibold tracking-tighter leading-[1.1] text-slate-900 dark:text-slate-100 animate-slide-up">
+          <h1 class="text-4xl md:text-5xl font-semibold leading-[1.05] text-slate-900 dark:text-slate-100 animate-slide-up" style="letter-spacing:-0.025em">
             Backend systems &amp;<br class="hidden sm:block" />
             <span class="text-primary">applied ML infrastructure.</span>
           </h1>
 
-          <p class="mt-5 text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed">
+          <p class="mt-5 text-base text-slate-700 dark:text-slate-300 max-w-[600px] leading-relaxed">
             Production experience in retrieval &amp; ranking pipelines, distributed backend services, and applied ML systems.
             Research background in accessible AI at the University of Delaware VIP program.
           </p>
 
           <!-- Capability tags -->
-          <div class="mt-6 flex flex-wrap gap-1.5">
+          <div class="mt-6 flex flex-wrap gap-2">
             <span class="cap-chip">Retrieval &amp; Ranking</span>
             <span class="cap-chip">Applied ML</span>
             <span class="cap-chip">Backend Systems</span>
@@ -520,7 +528,7 @@
           </div>
 
           <!-- CTA row -->
-          <div class="mt-8 flex flex-wrap items-center gap-3">
+          <div class="mt-7 flex flex-wrap items-center gap-2.5">
             <a href="mailto:guruprasadnayak24@gmail.com"
                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] bg-primary hover:bg-primary-hover active:scale-[0.98] text-white font-medium text-sm transition-all">
               <i data-lucide="mail" class="h-4 w-4"></i>
@@ -550,36 +558,36 @@
 
           <!-- AIRS Foundry production metrics -->
           <div class="space-y-3">
-            <div class="bg-white dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl p-3.5 transition-colors hover:border-slate-200 dark:hover:border-slate-600">
-              <div class="flex items-baseline gap-3 mb-1">
+            <div class="border border-slate-200 dark:border-slate-700 rounded-2xl p-3.5 transition-colors hover:border-primary/30 dark:hover:border-slate-600">
+              <div class="flex items-baseline gap-2.5 mb-0.5">
                 <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">12–15 ms</span>
                 <span class="text-xs text-primary dark:text-primary-light font-medium">retrieval latency</span>
               </div>
-              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Multi-stage retrieval &amp; ranking pipeline over a multi-GB corpus · AIRS Foundry</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Multi-stage retrieval &amp; ranking pipeline over a multi-GB corpus</p>
             </div>
 
-            <div class="bg-white dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl p-3.5 transition-colors hover:border-slate-200 dark:hover:border-slate-600">
-              <div class="flex items-baseline gap-3 mb-1">
+            <div class="border border-slate-200 dark:border-slate-700 rounded-2xl p-3.5 transition-colors hover:border-primary/30 dark:hover:border-slate-600">
+              <div class="flex items-baseline gap-2.5 mb-0.5">
                 <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~90%</span>
                 <span class="text-xs text-primary dark:text-primary-light font-medium">context hit rate</span>
               </div>
-              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Candidate filtering, similarity ranking, configuration-driven scoring · AIRS Foundry</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Candidate filtering, similarity ranking, configuration-driven scoring</p>
             </div>
 
-            <div class="bg-white dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl p-3.5 transition-colors hover:border-slate-200 dark:hover:border-slate-600">
-              <div class="flex items-baseline gap-3 mb-1">
+            <div class="border border-slate-200 dark:border-slate-700 rounded-2xl p-3.5 transition-colors hover:border-primary/30 dark:hover:border-slate-600">
+              <div class="flex items-baseline gap-2.5 mb-0.5">
                 <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~80%</span>
-                <span class="text-xs text-accent dark:text-accent-light font-medium">manpower reduction</span>
+                <span class="text-xs text-accent dark:text-accent-light font-medium">ops reduction</span>
               </div>
-              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Digital operations platform replacing paper workflows · Singapore Armed Forces</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Digital operations platform · Singapore Armed Forces</p>
             </div>
 
-            <div class="bg-white dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl p-3.5 transition-colors hover:border-slate-200 dark:hover:border-slate-600">
-              <div class="flex items-baseline gap-3 mb-1">
+            <div class="border border-slate-200 dark:border-slate-700 rounded-2xl p-3.5 transition-colors hover:border-primary/30 dark:hover:border-slate-600">
+              <div class="flex items-baseline gap-2.5 mb-0.5">
                 <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~60 h/mo</span>
                 <span class="text-xs text-accent dark:text-accent-light font-medium">time saved</span>
               </div>
-              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Automation tools for personnel accounting and reporting · Singapore Armed Forces</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Automation tools for personnel &amp; reporting workflows</p>
             </div>
           </div>
         </div>
@@ -598,17 +606,11 @@
         <!-- Project 1: Multi-Service Workflow & Integrations Platform -->
         <article class="proj-card">
           <div class="proj-card-header">
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
-              <div>
-                <div class="flex items-center gap-2 mb-1.5">
-                  <span class="text-xs font-semibold text-primary dark:text-primary-light uppercase tracking-wider">Personal Project</span>
-                </div>
-                <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
-                  Multi-Service Workflow &amp; Integrations Platform
-                </h3>
-              </div>
-            </div>
-            <div class="mt-3 chip-row">
+            <p class="text-xs font-semibold text-primary dark:text-primary-light uppercase tracking-wider mb-2">Personal Project</p>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
+              Multi-Service Workflow &amp; Integrations Platform
+            </h3>
+            <div class="mt-2.5 chip-row">
               <span class="skill-chip">Python</span>
               <span class="skill-chip">FastAPI</span>
               <span class="skill-chip">React</span>
@@ -618,14 +620,14 @@
           </div>
 
           <div class="proj-card-body">
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
               Multi-service platform spanning chat, memory retrieval, task orchestration, and web research.
               A central router coordinates requests across independently scoped backend services with
               capability-based routing, request/response validation, and service boundary design for
               integration safety, observability, and maintainability.
             </p>
 
-            <div class="grid sm:grid-cols-3 gap-4">
+            <div class="grid sm:grid-cols-3 gap-3">
               <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
                 <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Backend</h4>
                 <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">FastAPI services with capability-based routing, request/response validation, and structured inter-service communication over SQLite.</p>
@@ -645,13 +647,11 @@
         <!-- Project 2: Accessible Interactive Music System -->
         <article class="proj-card">
           <div class="proj-card-header">
-            <div class="flex items-center gap-2 mb-1.5">
-              <span class="text-xs font-semibold text-accent dark:text-accent-light uppercase tracking-wider">University of Delaware · VIP Research Program</span>
-            </div>
-            <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+            <p class="text-xs font-semibold text-accent dark:text-accent-light uppercase tracking-wider mb-2">University of Delaware · VIP Research Program</p>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
               Accessible Interactive Music System
             </h3>
-            <div class="mt-3 chip-row">
+            <div class="mt-2.5 chip-row">
               <span class="skill-chip">C++</span>
               <span class="skill-chip">C#</span>
               <span class="skill-chip">Unity</span>
@@ -665,14 +665,14 @@
           </div>
 
           <div class="proj-card-body">
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
               Interactive accessibility system for children on the autism spectrum, built during the University of Delaware VIP research program.
               Combines Android, Unity, and Bluetooth-connected hardware for real-time UI feedback and multimodal interaction.
               Python AI integrations used DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization,
-              and safety-oriented content filtering. Session logging, replay, and controller-driven workflows span Unity, Arduino, Python, and Java.
+              and safety-oriented content filtering.
             </p>
 
-            <div class="grid sm:grid-cols-3 gap-4">
+            <div class="grid sm:grid-cols-3 gap-3">
               <div class="bg-slate-50 dark:bg-slate-800/50 rounded-[10px] p-3.5 border border-slate-100 dark:border-slate-700">
                 <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Hardware Layer</h4>
                 <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Android + Unity + Bluetooth-connected Arduino hardware for real-time multimodal UI feedback and environmental sound exposure.</p>
@@ -702,12 +702,12 @@
 
         <!-- AIRS Foundry — primary, blue accent always on -->
         <article class="exp-card primary">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
             <div>
-              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 tracking-tight">AIRS Foundry</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400">Software Engineer / AI Engineer, Software Infrastructure</p>
+              <h3 class="text-[0.9375rem] font-semibold text-slate-900 dark:text-slate-100">AIRS Foundry</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Software Engineer · AI Engineer, Software Infrastructure</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Dec 2025 – Present</span>
+            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Dec 2025 – Present</span>
           </div>
           <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
             <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Built production FastAPI backend for multi-stage retrieval and ranking over a multi-GB corpus, achieving 12–15 ms latency and a ~90% relevant-context hit rate through candidate filtering, similarity ranking, and configuration-driven scoring.</span></li>
@@ -721,12 +721,12 @@
 
         <!-- Singapore Armed Forces -->
         <article class="exp-card">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
             <div>
-              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 tracking-tight">Singapore Armed Forces</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400">Sergeant · Operations &amp; Digital Transformation</p>
+              <h3 class="text-[0.9375rem] font-semibold text-slate-900 dark:text-slate-100">Singapore Armed Forces</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Sergeant · Operations &amp; Digital Transformation</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Jul 2023 – Aug 2025</span>
+            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Jul 2023 – Aug 2025</span>
           </div>
           <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
             <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Architected and launched the unit's first digital operations platform, replacing paper-based workflows and reducing manpower requirements by ~80%.</span></li>
@@ -738,12 +738,12 @@
 
         <!-- VIP Research Program -->
         <article class="exp-card">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
             <div>
-              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 tracking-tight">University of Delaware VIP Research Program</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400">Undergraduate Researcher</p>
+              <h3 class="text-[0.9375rem] font-semibold text-slate-900 dark:text-slate-100">University of Delaware · VIP Research Program</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Undergraduate Researcher · Accessible AI Systems</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Aug 2022 – Jan 2023</span>
+            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Aug 2022 – Jan 2023</span>
           </div>
           <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
             <li class="flex gap-2"><span class="text-primary dark:text-primary-light shrink-0 mt-0.5">–</span><span>Contributed to university research building accessible AI systems for children on the autism spectrum — software for controlled exposure to environmental sounds through interactive experiences.</span></li>
@@ -756,12 +756,12 @@
         <!-- Teaching Assistant + EY — two compact side-by-side cards on md+ -->
         <div class="grid md:grid-cols-2 gap-4">
           <article class="exp-card">
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
               <div>
-                <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 tracking-tight">University of Delaware</h3>
-                <p class="text-sm text-slate-500 dark:text-slate-400">Teaching Assistant · Computer Science</p>
+                <h3 class="text-[0.9375rem] font-semibold text-slate-900 dark:text-slate-100">University of Delaware</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Teaching Assistant · Computer Science</p>
               </div>
-              <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Aug – Dec 2022</span>
+              <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Aug – Dec 2022</span>
             </div>
             <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               Supported 200+ students across data structures, algorithms, systems, and programming fundamentals through debugging help, technical walkthroughs, and problem-solving guidance.
@@ -769,12 +769,12 @@
           </article>
 
           <article class="exp-card">
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
               <div>
-                <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 tracking-tight">Ernst &amp; Young · Maharashtra Cyber Police</h3>
-                <p class="text-sm text-slate-500 dark:text-slate-400">Cybersecurity Intern</p>
+                <h3 class="text-[0.9375rem] font-semibold text-slate-900 dark:text-slate-100">Ernst &amp; Young · Maharashtra Cyber Police</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Cybersecurity Intern</p>
               </div>
-              <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Jun – Jul 2019</span>
+              <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Jun – Jul 2019</span>
             </div>
             <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               OSINT investigations, anomaly analysis, and vulnerability assessment. Correlated logs and open-source signals to support threat triage, incident analysis, and evidence-based reporting.
@@ -785,18 +785,18 @@
       </div>
 
       <!-- Education — inline card below experience -->
-      <div class="mt-6">
+      <div class="mt-4">
         <div class="exp-card">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
             <div>
-              <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Education</p>
-              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 tracking-tight">B.S. Computer Science · University of Delaware</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Dean's List · Coursework: DSA, OS, Databases, Software Eng., Machine Learning</p>
+              <p class="text-[0.65rem] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-[0.08em] mb-1">Education</p>
+              <h3 class="text-[0.9375rem] font-semibold text-slate-900 dark:text-slate-100">B.S. Computer Science · University of Delaware</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Dean's List · DSA, OS, Databases, Software Engineering, Machine Learning</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">2019 – 2023</span>
+            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">2019 – 2023</span>
           </div>
           <p class="mt-2 text-xs text-slate-400 dark:text-slate-500">
-            EC-Council CEH · MIT Sloan: AI Strategy, Blockchain Technologies, Internet of Things
+            EC-Council CEH · MIT Sloan Executive Education: AI Strategy, Blockchain Technologies, Internet of Things
           </p>
         </div>
       </div>
@@ -812,7 +812,7 @@
       <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
 
         <div class="skill-cluster">
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Languages</h3>
+          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Languages</h3>
           <div class="chip-row">
             <span class="skill-chip">Python</span>
             <span class="skill-chip">C++</span>
@@ -824,7 +824,7 @@
         </div>
 
         <div class="skill-cluster sm:col-span-2 xl:col-span-2">
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Applied ML / Research Engineering</h3>
+          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Applied ML / Research Engineering</h3>
           <div class="chip-row">
             <span class="skill-chip">PyTorch</span>
             <span class="skill-chip">TensorFlow</span>
@@ -843,7 +843,7 @@
         </div>
 
         <div class="skill-cluster sm:col-span-2">
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Backend / Systems</h3>
+          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Backend / Systems</h3>
           <div class="chip-row">
             <span class="skill-chip">FastAPI</span>
             <span class="skill-chip">Flask</span>
@@ -862,7 +862,7 @@
         </div>
 
         <div class="skill-cluster xl:col-span-1">
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Agent / Infrastructure</h3>
+          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Agent / Infrastructure</h3>
           <div class="chip-row">
             <span class="skill-chip">MCP servers</span>
             <span class="skill-chip">tool schemas</span>
@@ -877,7 +877,7 @@
         </div>
 
         <div class="skill-cluster">
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Product / Accessibility</h3>
+          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Product / Accessibility</h3>
           <div class="chip-row">
             <span class="skill-chip">Unity</span>
             <span class="skill-chip">Android plugin development</span>
@@ -894,7 +894,7 @@
   <!-- Approach — compact, supportive, not central -->
   <section id="philosophy">
     <div class="mx-auto max-w-content px-6 py-16 md:py-20">
-      <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6">How I work</p>
+      <p class="text-[0.6875rem] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-[0.08em] mb-6">How I work</p>
       <div class="grid sm:grid-cols-3 gap-4">
         <p class="approach-quote">
           Retrieval accuracy is measurable. A ~90% hit rate at 12–15 ms doesn't happen without scoring pipelines that are deterministic and tunable.
@@ -915,8 +915,8 @@
       <h2 class="section-label mb-10">Contact</h2>
 
       <div class="grid lg:grid-cols-[1fr_auto] gap-10 items-start">
-        <div class="max-w-xl">
-          <p class="text-2xl md:text-3xl font-semibold tracking-tight leading-snug text-slate-900 dark:text-slate-100">
+        <div class="max-w-prose">
+          <p class="text-2xl md:text-3xl font-semibold leading-snug text-slate-900 dark:text-slate-100" style="letter-spacing:-0.02em">
             Open to roles in <span class="text-primary">applied ML systems, research infra, and production backend work.</span>
           </p>
           <p class="mt-4 text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
@@ -927,7 +927,7 @@
             <a href="mailto:guruprasadnayak24@gmail.com"
                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] bg-primary hover:bg-primary-hover active:scale-[0.98] text-white font-medium text-sm transition-all">
               <i data-lucide="mail" class="h-4 w-4"></i>
-              guruprasadnayak24@gmail.com
+              Email me
             </a>
             <a href="Guruprasad_Nayak_Resume.pdf"
                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary hover:bg-primary-soft dark:hover:border-primary-light dark:hover:text-primary-light font-medium text-sm transition-all">
