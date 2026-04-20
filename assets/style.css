@@ -1667,6 +1667,272 @@ a.artifact-tag:hover {
   margin-bottom: 1rem;
 }
 
+/* ── Proof artifact container ────────────────────────────── */
+.proof-artifact {
+  margin-top: 1.5rem;
+  padding: 1.125rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+}
+
+.dark .proof-artifact {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
+.proof-artifact-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.proof-artifact-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.proof-artifact-source {
+  font-size: 0.7rem;
+  color: var(--text-4);
+  font-family: var(--font-mono, 'JetBrains Mono', 'Fira Code', monospace);
+}
+
+.proof-artifact-note {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--text-4);
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* ── Feature importance bar chart ────────────────────────── */
+.feat-importance-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.feat-bar-row {
+  display: grid;
+  grid-template-columns: 11rem 1fr 2.5rem;
+  align-items: center;
+  gap: 0.625rem;
+  min-height: 1.375rem;
+}
+
+.feat-name {
+  font-size: 0.7rem;
+  font-family: var(--font-mono, 'JetBrains Mono', 'Fira Code', monospace);
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.feat-bar-track {
+  height: 0.5rem;
+  background: var(--surface-2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.dark .feat-bar-track { background: rgba(255,255,255,0.06); }
+
+.feat-bar {
+  height: 100%;
+  background: var(--blue);
+  opacity: 0.55;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.dark .feat-bar { opacity: 0.65; }
+
+.feat-bar--zero {
+  background: var(--text-4);
+  opacity: 0.2;
+}
+
+.feat-score {
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-3);
+  text-align: right;
+}
+
+.feat-score--zero { color: var(--text-4); opacity: 0.5; }
+
+.feat-row-muted .feat-name { color: var(--text-4); opacity: 0.55; }
+
+/* ── Schema excerpt table ─────────────────────────────────── */
+.schema-excerpt {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border-sub);
+  border-radius: var(--r-card);
+  overflow: hidden;
+}
+
+.dark .schema-excerpt { border-color: var(--border); }
+
+.schema-row {
+  display: grid;
+  grid-template-columns: 9rem 7rem 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.4rem 0.75rem;
+  border-bottom: 1px solid var(--border-sub);
+  transition: background var(--t-base);
+}
+
+.dark .schema-row { border-bottom-color: var(--border); }
+
+.schema-row:last-child { border-bottom: none; }
+
+.schema-row:hover { background: var(--surface-2); }
+
+.schema-row--returns {
+  background: var(--surface-2);
+  opacity: 0.75;
+}
+
+.schema-field {
+  font-size: 0.7rem;
+  font-family: var(--font-mono, 'JetBrains Mono', 'Fira Code', monospace);
+  color: var(--teal);
+  font-weight: 500;
+}
+
+.dark .schema-field { color: var(--teal-l); }
+
+.schema-type {
+  font-size: 0.7rem;
+  font-family: var(--font-mono, 'JetBrains Mono', 'Fira Code', monospace);
+  color: var(--blue);
+  opacity: 0.8;
+}
+
+.dark .schema-type { color: var(--blue-l); }
+
+.schema-constraint {
+  font-size: 0.7rem;
+  color: var(--text-4);
+}
+
+/* ── Test summary grid ────────────────────────────────────── */
+.test-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .test-summary-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.test-module-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.test-group-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-4);
+  margin-bottom: 0.25rem;
+}
+
+.test-module {
+  font-size: 0.65rem;
+  font-family: var(--font-mono, 'JetBrains Mono', 'Fira Code', monospace);
+  color: var(--text-3);
+  background: var(--surface-2);
+  border-radius: 3px;
+  padding: 0.15rem 0.35rem;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dark .test-module { background: rgba(255,255,255,0.05); }
+
+/* ── Research ownership split panel ──────────────────────── */
+.research-ownership {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+@media (min-width: 640px) {
+  .research-ownership { grid-template-columns: 1fr 1fr; }
+}
+
+.ownership-col {
+  padding: 1rem;
+  border: 1px solid var(--border-sub);
+  border-radius: var(--r-card);
+  background: var(--surface);
+}
+
+.dark .ownership-col {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
+.ownership-col--mine {
+  border-color: rgba(15, 118, 110, 0.3);
+}
+
+.dark .ownership-col--mine { border-color: rgba(20, 184, 166, 0.25); }
+
+.ownership-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-4);
+  margin-bottom: 0.625rem;
+}
+
+.ownership-label--mine { color: var(--teal); }
+.dark .ownership-label--mine { color: var(--teal-l); }
+
+.ownership-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ownership-list li {
+  font-size: 0.8125rem;
+  color: var(--text-3);
+  line-height: 1.45;
+  padding-left: 0.875rem;
+  position: relative;
+}
+
+.ownership-list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--text-4);
+}
+
 /* ── Hero proof strip ────────────────────────────────────── */
 .hero-proof-strip {
   display: flex;

@@ -457,6 +457,43 @@
                   <figcaption>Service boundaries &middot; Intent Compiler &rarr; Execution Planner &rarr; Capability Router &rarr; services</figcaption>
                 </figure>
 
+                <!-- Test suite summary — 72 test files confirmed from tests/ directory -->
+                <div class="proof-artifact reveal">
+                  <div class="proof-artifact-header">
+                    <span class="proof-artifact-label">Test Suite Breakdown &mdash; 72 Test Modules</span>
+                    <span class="proof-artifact-source">Source: <code>tests/</code> directory &middot; pytest &middot; coverage gates all pipeline merges</span>
+                  </div>
+                  <div class="test-summary-grid">
+                    <div class="test-module-group">
+                      <p class="test-group-label">Core Routing</p>
+                      <code class="test-module">test_intent_compiler.py</code>
+                      <code class="test-module">test_execution_planner.py</code>
+                      <code class="test-module">test_execution_safety.py</code>
+                      <code class="test-module">test_executor_steps.py</code>
+                    </div>
+                    <div class="test-module-group">
+                      <p class="test-group-label">Communication</p>
+                      <code class="test-module">test_communication.py</code>
+                      <code class="test-module">test_communication_bridge.py</code>
+                      <code class="test-module">test_communication_integration.py</code>
+                    </div>
+                    <div class="test-module-group">
+                      <p class="test-group-label">Integration &amp; Hardening</p>
+                      <code class="test-module">test_auth_hardening.py</code>
+                      <code class="test-module">test_integration_hardening.py</code>
+                      <code class="test-module">test_docs_hardening.py</code>
+                      <code class="test-module">test_helper_hardening.py</code>
+                    </div>
+                    <div class="test-module-group">
+                      <p class="test-group-label">Connectors &amp; Schemas</p>
+                      <code class="test-module">test_connectors.py</code>
+                      <code class="test-module">test_internal_schemas.py</code>
+                      <code class="test-module">test_internal_tools.py</code>
+                      <code class="test-module">+ 58 more modules</code>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="proj-detail-grid">
                   <div class="proj-detail-cell">
                     <p class="proj-detail-label">Routing</p>
@@ -570,6 +607,90 @@
                   </svg>
                   <figcaption>Route &rarr; Service &rarr; ProviderRouter &rarr; Providers (AUTO fallback: SearXNG &rarr; DDGS &rarr; Brave &rarr; Serper)</figcaption>
                 </figure>
+                <!-- Circuit breaker state machine — from services/resilience.py CircuitState enum
+                     Config: failure_threshold=5, success_threshold=2, open_duration=30s -->
+                <div class="proof-artifact reveal">
+                  <div class="proof-artifact-header">
+                    <span class="proof-artifact-label">Per-Provider Circuit Breaker &mdash; State Machine</span>
+                    <span class="proof-artifact-source">Source: <code>app/services/resilience.py</code> &middot; failure_threshold=5 &middot; open_duration=30s &middot; half_open_max_calls=3</span>
+                  </div>
+                  <figure class="arch-diagram" aria-label="Circuit breaker state machine diagram">
+                    <svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three states: CLOSED (normal), OPEN (blocked), HALF_OPEN (testing). CLOSED transitions to OPEN on 5 consecutive failures. OPEN transitions to HALF_OPEN after 30s. HALF_OPEN transitions to CLOSED on 2 successes or back to OPEN on failure.">
+                      <defs>
+                        <marker id="cbr-arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                          <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" opacity="0.5"/>
+                        </marker>
+                      </defs>
+                      <!-- CLOSED state -->
+                      <rect x="20" y="55" width="130" height="50" rx="6" fill="none" stroke="var(--teal)" stroke-opacity="0.5" stroke-width="1.5"/>
+                      <text x="85" y="76" text-anchor="middle" font-size="10" font-weight="600" fill="currentColor" opacity="0.8">CLOSED</text>
+                      <text x="85" y="91" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.45">normal operation</text>
+                      <text x="85" y="102" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.35">requests pass through</text>
+                      <!-- OPEN state -->
+                      <rect x="215" y="55" width="130" height="50" rx="6" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.5"/>
+                      <text x="280" y="76" text-anchor="middle" font-size="10" font-weight="600" fill="currentColor" opacity="0.8">OPEN</text>
+                      <text x="280" y="91" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.45">requests blocked</text>
+                      <text x="280" y="102" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.35">for 30 seconds</text>
+                      <!-- HALF_OPEN state -->
+                      <rect x="410" y="55" width="130" height="50" rx="6" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+                      <text x="475" y="76" text-anchor="middle" font-size="10" font-weight="600" fill="currentColor" opacity="0.8">HALF_OPEN</text>
+                      <text x="475" y="91" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.45">test probe (max 3 calls)</text>
+                      <text x="475" y="102" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.35">2 successes → close</text>
+                      <!-- CLOSED → OPEN -->
+                      <path d="M150,72 Q182,40 215,72" fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="1" marker-end="url(#cbr-arr)"/>
+                      <text x="183" y="38" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.5">5 failures</text>
+                      <!-- OPEN → HALF_OPEN -->
+                      <line x1="345" y1="80" x2="410" y2="80" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#cbr-arr)"/>
+                      <text x="377" y="74" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.5">30 s elapsed</text>
+                      <!-- HALF_OPEN → CLOSED (success) -->
+                      <path d="M475,105 Q475,140 280,140 Q85,140 85,105" fill="none" stroke="var(--teal)" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="4 2" marker-end="url(#cbr-arr)"/>
+                      <text x="280" y="152" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.45">2 successes</text>
+                      <!-- HALF_OPEN → OPEN (failure) -->
+                      <path d="M410,68 Q377,28 345,68" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="3 2" marker-end="url(#cbr-arr)"/>
+                      <text x="377" y="22" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.4">failure</text>
+                    </svg>
+                    <figcaption>Circuit breaker per provider &middot; CLOSED (pass) &rarr; OPEN (block, 30 s) &rarr; HALF_OPEN (probe, max 3 calls) &rarr; CLOSED or OPEN &middot; From <code>services/resilience.py</code></figcaption>
+                  </figure>
+
+                  <!-- Real API schema excerpt from models/search.py SearchRequest -->
+                  <div class="proof-artifact-header" style="margin-top:1.25rem">
+                    <span class="proof-artifact-label">API Request Schema &mdash; POST /v1/search/web</span>
+                    <span class="proof-artifact-source">Source: <code>app/models/search.py</code> &middot; Pydantic v2 &middot; OpenAPI auto-generated</span>
+                  </div>
+                  <div class="schema-excerpt">
+                    <div class="schema-row">
+                      <span class="schema-field">query</span>
+                      <span class="schema-type">string</span>
+                      <span class="schema-constraint">required &middot; 1&ndash;512 chars</span>
+                    </div>
+                    <div class="schema-row">
+                      <span class="schema-field">provider</span>
+                      <span class="schema-type">enum</span>
+                      <span class="schema-constraint">AUTO &middot; SEARXNG &middot; DDGS &middot; BRAVE &middot; SERPER</span>
+                    </div>
+                    <div class="schema-row">
+                      <span class="schema-field">max_results</span>
+                      <span class="schema-type">int</span>
+                      <span class="schema-constraint">1&ndash;100 &middot; default 10</span>
+                    </div>
+                    <div class="schema-row">
+                      <span class="schema-field">domain_allowlist</span>
+                      <span class="schema-type">list[str]</span>
+                      <span class="schema-constraint">max 50 domains</span>
+                    </div>
+                    <div class="schema-row">
+                      <span class="schema-field">blocked_domains</span>
+                      <span class="schema-type">list[str]</span>
+                      <span class="schema-constraint">max 50 domains</span>
+                    </div>
+                    <div class="schema-row schema-row--returns">
+                      <span class="schema-field">↳ returns</span>
+                      <span class="schema-type">SearchEnvelope[list[NormalizedResult]]</span>
+                      <span class="schema-constraint">merged &middot; deduped &middot; scored</span>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="proj-detail-grid">
                   <div class="proj-detail-cell">
                     <p class="proj-detail-label">Observability</p>
@@ -581,7 +702,7 @@
                   </div>
                   <div class="proj-detail-cell">
                     <p class="proj-detail-label">Security</p>
-                    <p class="proj-detail-text">SSRF guard: scheme whitelist, RFC1918 and loopback and cloud metadata IP block, DNS validation. Manual redirect handling with per-hop security check.</p>
+                    <p class="proj-detail-text">SSRF guard: scheme whitelist, RFC1918 and loopback and cloud metadata IP block (<code>169.254.169.254</code> AWS/GCP/Azure IMDS). DNS-validated, per-hop redirect check.</p>
                   </div>
                 </div>
               </div>
@@ -629,7 +750,7 @@
               </div>
               <div class="case-study-item">
                 <span class="case-label">Result</span>
-                <span class="case-text">Walk-forward evaluation showing calibrated 80% and 95% prediction intervals. Feature importance analysis with FinBERT 8h sentiment aggregation ranking in the top features for the 24h horizon. Code on GitHub.</span>
+                <span class="case-text">Trained model with feature importance CSVs across all three horizons. Top features by importance: volatility regime features (skew, kurtosis, std over 48h and 168h windows), OBV, and ATR. FinBERT sentiment features scored zero importance in this training run — the signal did not survive the walk-forward evaluation window. Code on GitHub.</span>
               </div>
             </div>
 
@@ -647,18 +768,69 @@
                 <i data-lucide="chevron-down" class="details-chevron" style="width:0.875rem;height:0.875rem"></i>
               </summary>
               <div class="tech-details-body">
+                <!-- Real feature importance data from models/20251213_203648/importance_24h.csv -->
+                <div class="proof-artifact reveal">
+                  <div class="proof-artifact-header">
+                    <span class="proof-artifact-label">Feature Importance &mdash; 24h Horizon</span>
+                    <span class="proof-artifact-source">Source: <code>models/20251213_203648/importance_24h.csv</code> &middot; LightGBM split gain &middot; trained Dec 2025</span>
+                  </div>
+                  <div class="feat-importance-grid">
+                    <div class="feat-bar-row">
+                      <span class="feat-name">day_of_month</span>
+                      <div class="feat-bar-track"><div class="feat-bar" style="width:100%"></div></div>
+                      <span class="feat-score">318</span>
+                    </div>
+                    <div class="feat-bar-row">
+                      <span class="feat-name">skew_168h</span>
+                      <div class="feat-bar-track"><div class="feat-bar" style="width:98%"></div></div>
+                      <span class="feat-score">312</span>
+                    </div>
+                    <div class="feat-bar-row">
+                      <span class="feat-name">close_std_168h</span>
+                      <div class="feat-bar-track"><div class="feat-bar" style="width:91%"></div></div>
+                      <span class="feat-score">289</span>
+                    </div>
+                    <div class="feat-bar-row">
+                      <span class="feat-name">atr_168h</span>
+                      <div class="feat-bar-track"><div class="feat-bar" style="width:82%"></div></div>
+                      <span class="feat-score">262</span>
+                    </div>
+                    <div class="feat-bar-row">
+                      <span class="feat-name">kurt_168h</span>
+                      <div class="feat-bar-track"><div class="feat-bar" style="width:80%"></div></div>
+                      <span class="feat-score">256</span>
+                    </div>
+                    <div class="feat-bar-row">
+                      <span class="feat-name">obv</span>
+                      <div class="feat-bar-track"><div class="feat-bar" style="width:80%"></div></div>
+                      <span class="feat-score">254</span>
+                    </div>
+                    <div class="feat-bar-row feat-row-muted">
+                      <span class="feat-name">sentiment_mean_8h</span>
+                      <div class="feat-bar-track"><div class="feat-bar feat-bar--zero" style="width:0%"></div></div>
+                      <span class="feat-score feat-score--zero">0</span>
+                    </div>
+                    <div class="feat-bar-row feat-row-muted">
+                      <span class="feat-name">news_positive_8h</span>
+                      <div class="feat-bar-track"><div class="feat-bar feat-bar--zero" style="width:0%"></div></div>
+                      <span class="feat-score feat-score--zero">0</span>
+                    </div>
+                  </div>
+                  <p class="proof-artifact-note">All FinBERT sentiment features (4h / 8h / 24h windows) scored 0 across all three horizon models. Volatility regime and calendar features dominate. Conceptual diagram — actual bar widths scaled to model output values.</p>
+                </div>
+
                 <div class="proj-detail-grid">
                   <div class="proj-detail-cell">
                     <p class="proj-detail-label">Model</p>
                     <p class="proj-detail-text">LightGBM gradient boosting. Separate model per horizon (8h, 16h, 24h). Quantile regression at 2.5%, 10%, 50%, 90%, 97.5% targets produces calibrated prediction intervals without assuming a parametric error distribution.</p>
                   </div>
                   <div class="proj-detail-cell">
-                    <p class="proj-detail-label">NLP: FinBERT</p>
-                    <p class="proj-detail-text">FinBERT (transformer fine-tuned for financial sentiment) applied to CryptoPanic headlines. Rolling aggregations at 4h, 8h, and 24h windows. Sentiment momentum computed as the derivative of the rolling score.</p>
+                    <p class="proj-detail-label">NLP: FinBERT (negative finding)</p>
+                    <p class="proj-detail-text">FinBERT applied to CryptoPanic headlines. Rolling aggregations at 4h, 8h, and 24h windows with momentum features. In the trained model, all sentiment features scored 0 importance across all three horizons — the signal did not survive the walk-forward evaluation window. Feature importance CSVs included in the repo.</p>
                   </div>
                   <div class="proj-detail-cell">
                     <p class="proj-detail-label">Evaluation</p>
-                    <p class="proj-detail-text">Walk-forward validation: 90-day rolling train windows, 7-day test windows. Metrics: RMSE, MAE, MAPE, directional accuracy, 80% and 95% interval coverage rate. Directional accuracy is the primary quality signal.</p>
+                    <p class="proj-detail-text">Walk-forward validation: 90-day rolling train windows, 7-day test windows. Metrics: RMSE, MAE, MAPE, directional accuracy, 80% and 95% interval coverage. Top signal: volatility regime (skew, kurtosis, std over 48h/168h windows), OBV, and ATR.</p>
                   </div>
                 </div>
               </div>
@@ -931,56 +1103,162 @@
 
 
   <!-- ══════════════════════════════════════════════════════════
-       RESEARCH
+       RESEARCH — FLAGSHIP CASE STUDY
   ══════════════════════════════════════════════════════════ -->
   <section id="research" class="section">
     <div class="container section-inner">
-      <h2 class="section-label">Research</h2>
+      <h2 class="section-label">Research &mdash; Flagship Case Study</h2>
 
       <div class="research-card reveal">
         <div class="research-header">
           <div>
-            <h3 class="research-title">Accessible Interactive Systems, Sensify Lab VIP Program</h3>
-            <p class="research-subtitle">University of Delaware &middot; Sensify Lab &middot; 2022</p>
+            <h3 class="research-title">Accessible Interactive Music System</h3>
+            <p class="research-subtitle">University of Delaware &middot; Sensify Lab VIP Program &middot; 2022 &ndash; 2023</p>
           </div>
           <span class="research-badge">
             <i data-lucide="flask-conical" style="width:0.75rem;height:0.75rem"></i>
-            Research
+            Flagship
           </span>
         </div>
 
+        <!-- Research question and context -->
         <p class="research-body">
-          University of Delaware VIP program, Sensify Lab, 2022. The research question was whether
-          giving children on the autism spectrum real-time control over individual musical layers
-          (melody, rhythm, harmony) could allow them to participate in music activities that would
-          otherwise be inaccessible due to sensory overload. I built the interaction system,
-          session logging and replay tooling, and the generative AI integration pipeline.
-          Results informed design changes with HCI researchers. The project was covered in UDaily in March 2023.
+          The research question: can real-time individual control over musical layers (melody,
+          rhythm, harmony) allow children on the autism spectrum to participate in group music
+          activities that are otherwise inaccessible due to sensory overload? I built the full
+          interaction system, session logging and replay tooling, and the generative AI content
+          pipeline. Results from pilot sessions were used by HCI researchers to inform design
+          changes. The project was covered in UDaily in March 2023 and is listed on the Sensify
+          Lab researcher page.
         </p>
 
+        <!-- What I built vs system context -->
+        <div class="research-ownership reveal">
+          <div class="ownership-col">
+            <p class="ownership-label">System context</p>
+            <ul class="ownership-list">
+              <li>University of Delaware Sensify Lab VIP research program</li>
+              <li>Faculty: Dr. Roghayeh (Leila) Barmaki, Sensify Lab</li>
+              <li>Pilot sessions with children on the autism spectrum</li>
+              <li>HCI researchers analyzed session replay data</li>
+            </ul>
+          </div>
+          <div class="ownership-col ownership-col--mine">
+            <p class="ownership-label ownership-label--mine">What I built</p>
+            <ul class="ownership-list">
+              <li>Arduino &rarr; Bluetooth &rarr; Android plugin &rarr; Unity C++ runtime bridge</li>
+              <li>Real-time layer toggle controls (melody / rhythm / harmony)</li>
+              <li>Timestamped CSV session logger (millisecond-resolution events)</li>
+              <li>Python session replay and per-layer frequency visualization tooling</li>
+              <li>AI content pipeline: DALL-E, GPT-3.5 prompt optimization</li>
+              <li>In-house neural network content safety gate</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- System architecture diagram — conceptual technical diagram -->
+        <div class="proof-artifact reveal">
+          <div class="proof-artifact-header">
+            <span class="proof-artifact-label">System Architecture &mdash; Conceptual Technical Diagram</span>
+            <span class="proof-artifact-source">Hardware input &rarr; Android plugin &rarr; Unity runtime &rarr; Session logger &middot; AI pipeline runs in parallel</span>
+          </div>
+          <figure class="arch-diagram" aria-label="Accessible music interaction system architecture">
+            <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="System: Arduino hardware to Bluetooth to Android Plugin to Unity C++ Runtime, which outputs to Session CSV Logger. In parallel, DALL-E and GPT-3.5 feed through Neural Net Safety Gate to Unity UI. The Unity C++ runtime drives UI layer controls for melody, rhythm, and harmony.">
+              <defs>
+                <marker id="sys-arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                  <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" opacity="0.45"/>
+                </marker>
+              </defs>
+
+              <!-- Hardware layer -->
+              <rect x="4" y="76" width="80" height="48" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.2"/>
+              <text x="44" y="96" text-anchor="middle" font-size="8.5" fill="currentColor" opacity="0.6">Arduino</text>
+              <text x="44" y="108" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.4">hardware</text>
+              <text x="44" y="119" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.4">input device</text>
+
+              <!-- Bluetooth -->
+              <line x1="84" y1="100" x2="104" y2="100" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#sys-arr)"/>
+              <text x="94" y="94" text-anchor="middle" font-size="7" fill="currentColor" opacity="0.35">BT</text>
+
+              <!-- Android plugin -->
+              <rect x="104" y="76" width="80" height="48" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.2"/>
+              <text x="144" y="96" text-anchor="middle" font-size="8.5" fill="currentColor" opacity="0.6">Android</text>
+              <text x="144" y="108" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.4">Plugin</text>
+              <text x="144" y="119" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.4">event relay</text>
+
+              <line x1="184" y1="100" x2="204" y2="100" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#sys-arr)"/>
+
+              <!-- Unity runtime -->
+              <rect x="204" y="66" width="100" height="68" rx="5" fill="none" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1.5"/>
+              <text x="254" y="88" text-anchor="middle" font-size="9" font-weight="600" fill="currentColor" opacity="0.75">Unity C++</text>
+              <text x="254" y="100" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.45">Runtime</text>
+              <text x="254" y="113" text-anchor="middle" font-size="7" fill="currentColor" opacity="0.35">melody / rhythm</text>
+              <text x="254" y="124" text-anchor="middle" font-size="7" fill="currentColor" opacity="0.35">harmony toggles</text>
+
+              <!-- Unity → Session Logger -->
+              <line x1="254" y1="134" x2="254" y2="160" stroke="currentColor" stroke-opacity="0.25" stroke-width="1" marker-end="url(#sys-arr)"/>
+              <rect x="184" y="160" width="140" height="32" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+              <text x="254" y="173" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.55">Session CSV Logger</text>
+              <text x="254" y="185" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.35">ms-resolution timestamps</text>
+
+              <!-- Unity → UI controls -->
+              <line x1="304" y1="100" x2="340" y2="100" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#sys-arr)"/>
+              <rect x="340" y="76" width="96" height="48" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.2"/>
+              <text x="388" y="96" text-anchor="middle" font-size="8.5" fill="currentColor" opacity="0.6">UI Layer</text>
+              <text x="388" y="108" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.4">listener controls</text>
+              <text x="388" y="119" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.4">per child</text>
+
+              <!-- AI pipeline (top) -->
+              <rect x="460" y="6" width="80" height="28" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+              <text x="500" y="24" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">DALL-E</text>
+
+              <rect x="460" y="44" width="80" height="28" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+              <text x="500" y="62" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">GPT-3.5</text>
+
+              <line x1="540" y1="20" x2="570" y2="55" stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#sys-arr)"/>
+              <line x1="540" y1="58" x2="570" y2="58" stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#sys-arr)"/>
+
+              <!-- Safety gate -->
+              <rect x="570" y="36" width="64" height="44" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+              <text x="602" y="55" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.6">Safety</text>
+              <text x="602" y="66" text-anchor="middle" font-size="7.5" fill="currentColor" opacity="0.6">Gate</text>
+              <text x="602" y="75" text-anchor="middle" font-size="7" fill="currentColor" opacity="0.35">neural net</text>
+
+              <line x1="570" y1="58" x2="436" y2="90" stroke="currentColor" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 2" marker-end="url(#sys-arr)"/>
+              <text x="506" y="82" text-anchor="middle" font-size="7" fill="currentColor" opacity="0.35">filtered content</text>
+            </svg>
+            <figcaption>Conceptual architecture diagram &middot; Hardware input path (left) and AI content pipeline (right) &middot; Session logger captures all toggle events to CSV &middot; Neural net safety gate filters content before it reaches the UI</figcaption>
+          </figure>
+        </div>
+
+        <!-- AI pipeline detail -->
         <div class="research-findings">
           <div class="finding-item">
-            <span class="finding-label">What was built</span>
-            <span class="finding-text">Real-time layer control (melody, rhythm, harmony toggles), Arduino and Bluetooth hardware input pipeline, Android plugin, Unity runtime, Python session logger and replay tooling.</span>
+            <span class="finding-label">Hardware input bridge</span>
+            <span class="finding-text">Arduino physical controls &rarr; Bluetooth &rarr; Android plugin &rarr; Unity C++ runtime. Each layer toggle is an event object with a millisecond-resolution timestamp. Event objects rather than polling state checks.</span>
           </div>
           <div class="finding-item">
-            <span class="finding-label">AI component</span>
-            <span class="finding-text">DALL-E image generation, GPT-3.5 prompt optimization, in-house neural network for content safety filtering. Evaluation by comparing parallel model runs and filtering high-variance outputs.</span>
+            <span class="finding-label">Session logging &amp; replay</span>
+            <span class="finding-text">All toggle events logged to per-session CSV files. Python tooling generates per-layer frequency charts and session replay for HCI researchers. This output directly informed design changes between pilot sessions.</span>
           </div>
           <div class="finding-item">
-            <span class="finding-label">Verification</span>
-            <span class="finding-text">Pilot sessions run with children on the autism spectrum. Project covered in UDaily, March 2023. Sensify Lab profile linked below.</span>
+            <span class="finding-label">AI safety pipeline</span>
+            <span class="finding-text">DALL-E image generation and GPT-3.5 prompt optimization run in parallel with an in-house neural network safety gate that filters outputs before they reach the UI. Evaluated by comparing parallel model runs and filtering high-variance outputs.</span>
+          </div>
+          <div class="finding-item">
+            <span class="finding-label">External verification</span>
+            <span class="finding-text">Pilot sessions with children on the autism spectrum. Sensify Lab researcher page lists the project. UDaily (University of Delaware news) ran a feature article in March 2023. Links below are direct to the original sources.</span>
           </div>
         </div>
 
         <div class="research-links">
           <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener noreferrer" class="research-link">
-            Sensify Lab Profile
             <i data-lucide="external-link" style="width:0.875rem;height:0.875rem;opacity:0.7"></i>
+            Sensify Lab &mdash; Researcher Profile
           </a>
           <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener noreferrer" class="research-link">
-            UDaily Feature (Mar 2023)
             <i data-lucide="external-link" style="width:0.875rem;height:0.875rem;opacity:0.7"></i>
+            UDaily Feature Article (Mar 2023)
           </a>
         </div>
       </div>
