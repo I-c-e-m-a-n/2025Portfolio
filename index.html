@@ -461,6 +461,7 @@
           Guruprasad Nayak
         </a>
         <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600 dark:text-slate-400">
+          <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="research" href="#research">Research</a>
           <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="work" href="#work">Projects</a>
           <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="experience" href="#experience">Experience</a>
           <a class="nav-link hover:text-primary dark:hover:text-primary-light transition-colors" data-section="skills" href="#skills">Skills</a>
@@ -481,6 +482,7 @@
       </div>
       <div class="md:hidden" x-show="mobileOpen" x-transition x-cloak>
         <nav class="py-4 space-y-1 text-sm border-t border-slate-100 dark:border-slate-800">
+          <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#research">Research</a>
           <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#work">Projects</a>
           <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#experience">Experience</a>
           <a @click="mobileOpen=false" class="block py-2 px-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light transition-colors" href="#skills">Skills</a>
@@ -590,8 +592,58 @@
     </div>
   </section>
 
+  <!-- Research -->
+  <section id="research" class="surface-tint">
+    <div class="mx-auto max-w-content px-6 py-14 md:py-20">
+      <h2 class="section-label mb-8">Research</h2>
+
+      <div class="card px-6 py-6 md:px-8 md:py-7">
+
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+          <div>
+            <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 leading-snug">
+              VIP Research Program &mdash; Accessible Interactive Systems
+            </h3>
+            <p class="text-xs text-slate-400 dark:text-slate-500 mt-1 tracking-wide">
+              University of Delaware &nbsp;&middot;&nbsp; Sensify Lab &nbsp;&middot;&nbsp; 2022
+            </p>
+          </div>
+          <span class="inline-flex shrink-0 items-center gap-1 px-2.5 py-1 rounded-[10px] text-xs font-medium text-accent dark:text-accent-light" style="background:rgb(15 118 110/0.07);border:1px solid rgb(15 118 110/0.18)">
+            <i data-lucide="flask-conical" class="h-3 w-3"></i>
+            Research
+          </span>
+        </div>
+
+        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+          Contributed to an interdisciplinary University of Delaware research effort building interactive software
+          to make music participation accessible to children on the autism spectrum.
+          Worked on software and AI-adjacent components supporting adaptive, modular music interaction &mdash;
+          the system let users enable, disable, and recombine musical layers to match their sensory preferences,
+          with user interactions logged per-session and replayed to study listening patterns and inform future design.
+          The work combined computing, HCI, and accessibility research in a real-world applied context.
+        </p>
+
+        <div class="mt-5 flex flex-wrap items-center gap-4">
+          <a href="https://sensifylab.cis.udel.edu/people.html"
+             target="_blank" rel="noopener"
+             class="inline-flex items-center gap-1.5 text-sm font-medium text-primary dark:text-primary-light hover:underline underline-offset-4 transition-colors">
+            Sensify Lab Profile
+            <i data-lucide="external-link" class="h-3.5 w-3.5 opacity-70"></i>
+          </a>
+          <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/"
+             target="_blank" rel="noopener"
+             class="inline-flex items-center gap-1.5 text-sm font-medium text-primary dark:text-primary-light hover:underline underline-offset-4 transition-colors">
+            UDaily Project Feature
+            <i data-lucide="external-link" class="h-3.5 w-3.5 opacity-70"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Projects -->
-  <section id="work" class="surface-tint">
+  <section id="work">
     <div class="mx-auto max-w-content px-6 py-16 md:py-24">
       <h2 class="section-label mb-10">Projects</h2>
 
@@ -1070,7 +1122,7 @@
 
           // Active nav highlighting via IntersectionObserver
           const navLinks = document.querySelectorAll('.nav-link[data-section]');
-          const sections = ['work','experience','skills','contact'].map(id => document.getElementById(id)).filter(Boolean);
+          const sections = ['research','work','experience','skills','contact'].map(id => document.getElementById(id)).filter(Boolean);
           const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
               if (entry.isIntersecting) {
