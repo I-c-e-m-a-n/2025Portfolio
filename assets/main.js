@@ -15,10 +15,10 @@
 'use strict';
 
 /* ── Constants ─────────────────────────────────────────────── */
-const SECTIONS = ['work', 'experience', 'research', 'skills', 'contact'];
+const SECTIONS = ['projects', 'experience', 'research', 'skills', 'contact'];
 
 const SECTION_THEMES = {
-  work:       { bg: 'transparent',                        accent: '#1a73e8' },
+  projects:   { bg: 'transparent',                        accent: '#1a73e8' },
   experience: { bg: 'rgba(248, 250, 252, 0)',              accent: '#1a73e8' },
   research:   { bg: 'rgba(15, 118, 110, 0.03)',            accent: '#0f766e' },
   skills:     { bg: 'transparent',                        accent: '#1a73e8' },

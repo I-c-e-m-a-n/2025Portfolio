@@ -107,7 +107,7 @@
 
       <nav aria-label="Main navigation">
         <ul class="nav-links">
-          <li><a class="nav-link" data-section="work"       href="#work">Projects</a></li>
+          <li><a class="nav-link" data-section="projects"   href="#projects">Projects</a></li>
           <li><a class="nav-link" data-section="experience" href="#experience">Experience</a></li>
           <li><a class="nav-link" data-section="research"   href="#research">Research</a></li>
           <li><a class="nav-link" data-section="skills"     href="#skills">Skills</a></li>
@@ -146,7 +146,7 @@
           </button>
         </div>
         <nav aria-label="Mobile navigation">
-          <a class="mobile-nav-link" href="#work">Projects</a>
+          <a class="mobile-nav-link" href="#projects">Projects</a>
           <a class="mobile-nav-link" href="#experience">Experience</a>
           <a class="mobile-nav-link" href="#research">Research</a>
           <a class="mobile-nav-link" href="#skills">Skills</a>
@@ -170,32 +170,41 @@
 
       <!-- Left: identity + thesis -->
       <div>
-        <p class="hero-eyebrow">Singapore &middot; B.S. CS, University of Delaware &middot; Open to work</p>
+        <p class="hero-eyebrow">Singapore &middot; B.S. CS, University of Delaware &middot; Open to Research SWE roles</p>
 
         <h1 class="hero-headline">
-          Building retrieval and ranking systems that can be<br class="hero-break" /><span class="accent">measured and improved.</span>
+          Retrieval systems, ML evaluation,<br class="hero-break" /><span class="accent">and accessible AI research.</span>
         </h1>
 
         <p class="hero-sub">
-          I work on retrieval pipelines, ranking systems, and evaluation infrastructure for
-          production AI applications. Current work involves multi-stage retrieval over a
-          multi-GB corpus at 12&ndash;15 ms with ~90% relevant-context hit rate.
-          Research background at the University of Delaware Sensify Lab on accessible AI systems
-          for children on the autism spectrum.
+          I build production retrieval and ranking pipelines and the evaluation infrastructure
+          that keeps them honest. I also have a research background in accessible AI systems
+          for children on the autism spectrum, where the engineering constraints are unusually hard.
         </p>
 
-        <div class="hero-caps">
-          <span class="cap-chip">Python &middot; C++</span>
-          <span class="cap-chip">Retrieval &amp; Ranking</span>
-          <span class="cap-chip">Model Evaluation</span>
-          <span class="cap-chip">FastAPI &middot; Docker</span>
-          <span class="cap-chip">MCP / Agent Tooling</span>
+        <div class="hero-proof-strip">
+          <div class="hero-proof-item">
+            <span class="hero-proof-value">12&ndash;15 ms</span>
+            <span class="hero-proof-label">retrieval latency, production</span>
+          </div>
+          <div class="hero-proof-item">
+            <span class="hero-proof-value">~90%</span>
+            <span class="hero-proof-label">context hit rate</span>
+          </div>
+          <div class="hero-proof-item">
+            <span class="hero-proof-value">900+</span>
+            <span class="hero-proof-label">unit and integration tests</span>
+          </div>
+          <div class="hero-proof-item">
+            <span class="hero-proof-value">UDaily</span>
+            <span class="hero-proof-label">research coverage, Mar 2023</span>
+          </div>
         </div>
 
         <div class="hero-cta-row">
-          <a href="mailto:guruprasadnayak24@gmail.com" class="btn btn-primary">
-            <i data-lucide="mail" style="width:1rem;height:1rem"></i>
-            Get in touch
+          <a href="#research" class="btn btn-primary">
+            <i data-lucide="flask-conical" style="width:1rem;height:1rem"></i>
+            Flagship project
           </a>
           <a href="Guruprasad_Nayak_Resume.pdf" class="btn btn-outline" download>
             <i data-lucide="file-text" style="width:1rem;height:1rem"></i>
@@ -205,48 +214,43 @@
             <i data-lucide="github" style="width:1rem;height:1rem"></i>
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener noreferrer" class="btn btn-text">
-            <i data-lucide="linkedin" style="width:1rem;height:1rem"></i>
-            LinkedIn
-          </a>
         </div>
       </div>
 
-      <!-- Right: trust panel — verified metrics only -->
+      <!-- Right: credential panel -->
       <div class="trust-panel reveal" data-reveal-delay="2">
-        <p class="trust-panel-label">At a glance</p>
+        <p class="trust-panel-label">Credentials</p>
 
         <div class="stack-4">
           <div class="metric-card">
             <div class="metric-header">
-              <span class="metric-num-value">12&ndash;15 ms</span>
-              <span class="metric-unit">retrieval latency</span>
+              <span class="metric-num-value">B.S. CS</span>
             </div>
-            <p class="metric-desc">Multi-stage retrieval and ranking over a multi-GB corpus, production at AIRS Foundry</p>
+            <p class="metric-desc">University of Delaware, Dean's List. Coursework: Machine Learning, DS&amp;A, Operating Systems, HCI, Databases.</p>
           </div>
 
           <div class="metric-card">
             <div class="metric-header">
-              <span class="metric-num-value">~90%</span>
-              <span class="metric-unit">context hit rate</span>
+              <span class="metric-num-value" style="font-size:0.9rem">CEH</span>
+              <span class="metric-unit">EC-Council</span>
             </div>
-            <p class="metric-desc">Candidate filtering, similarity ranking, configuration-driven scoring</p>
+            <p class="metric-desc">Certified Ethical Hacker. OSINT, vulnerability assessment, threat triage.</p>
           </div>
 
           <div class="metric-card">
             <div class="metric-header">
-              <span class="metric-num-value">~80%</span>
-              <span class="metric-unit-teal">ops reduction</span>
+              <span class="metric-num-value" style="font-size:0.85rem">AI Strategy</span>
+              <span class="metric-unit">MIT Sloan</span>
             </div>
-            <p class="metric-desc">First digital ops platform, Singapore Armed Forces, replacing paper-based workflows</p>
+            <p class="metric-desc">MIT Sloan Executive Education: Artificial Intelligence — Implications for Business Strategy.</p>
           </div>
 
           <div class="metric-card">
             <div class="metric-header">
-              <span class="metric-num-value">~60 h/mo</span>
-              <span class="metric-unit-teal">manual work eliminated</span>
+              <span class="metric-num-value" style="font-size:0.85rem">Sensify Lab</span>
+              <span class="metric-unit-teal">VIP Research</span>
             </div>
-            <p class="metric-desc">Automation tooling for personnel accounting and reporting, Singapore Armed Forces</p>
+            <p class="metric-desc">University of Delaware, 2022. Accessible AI systems for children on the autism spectrum. Featured in UDaily, March 2023.</p>
           </div>
         </div>
       </div>
@@ -258,134 +262,82 @@
   <!-- ══════════════════════════════════════════════════════════
        PROJECTS
   ══════════════════════════════════════════════════════════ -->
-  <section id="work" class="section">
+  <section id="projects" class="section">
     <div class="container section-inner">
       <h2 class="section-label">Projects</h2>
 
       <div class="stack-5">
 
-        <!-- Project 1: Multi-Provider Web Search Service -->
-        <article class="proj-card reveal">
+        <!-- Project 1 (FLAGSHIP): Accessible Music Interaction System -->
+        <article class="proj-card proj-card--flagship reveal">
           <div class="proj-card-header">
             <div class="proj-header-top">
               <div>
-                <p class="proj-label blue">Personal Project</p>
-                <h3 class="proj-title">Multi-Provider Web Search Service</h3>
+                <p class="proj-label teal">Flagship &middot; University of Delaware &middot; Sensify Lab VIP Research</p>
+                <h3 class="proj-title">Accessible Music Interaction System</h3>
               </div>
               <div class="proof-strip">
-                <span class="proof-tag">Python &middot; FastAPI</span>
-                <span class="proof-tag">Docker Compose</span>
-                <span class="proof-tag">Private repo, details on request</span>
+                <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener noreferrer" class="proof-link">Sensify Lab <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.7"></i></a>
+                <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener noreferrer" class="proof-link">UDaily Mar 2023 <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.7"></i></a>
               </div>
             </div>
             <div class="chip-row">
+              <span class="skill-chip">C++</span>
+              <span class="skill-chip">C#</span>
+              <span class="skill-chip">Unity</span>
               <span class="skill-chip">Python</span>
-              <span class="skill-chip">FastAPI</span>
-              <span class="skill-chip">Pydantic v2</span>
-              <span class="skill-chip">httpx</span>
-              <span class="skill-chip">Docker Compose</span>
-              <span class="skill-chip">OpenAPI</span>
+              <span class="skill-chip">Arduino</span>
+              <span class="skill-chip">Android</span>
+              <span class="skill-chip">DALL-E</span>
+              <span class="skill-chip">GPT-3.5</span>
             </div>
           </div>
 
           <div class="proj-card-body">
             <div class="case-study-strip">
               <div class="case-study-item">
-                <span class="case-label">Problem</span>
-                <span class="case-text">Each search provider has different schemas, rate limits, and failure modes. Callers should not need to know which provider is live.</span>
+                <span class="case-label">What the system does</span>
+                <span class="case-text">Lets children on the autism spectrum control individual musical layers (melody, rhythm, harmony) in real time during group sessions. Designed for environments where a fixed soundscape causes sensory overload and exclusion.</span>
               </div>
               <div class="case-study-item">
-                <span class="case-label">Design</span>
-                <span class="case-text">Four-layer stack: API routing, service orchestration, provider adapters, result ranking. Providers are independently swappable; the interface is stable regardless of which backend answers.</span>
+                <span class="case-label">Why it was hard</span>
+                <span class="case-text">The hardware input path goes Arduino to Bluetooth to an Android plugin to a Unity runtime. Each link has a different latency budget and failure mode. The generative AI pipeline also required safety filtering before content reached the target population.</span>
               </div>
               <div class="case-study-item">
-                <span class="case-label">Hard part</span>
-                <span class="case-text">Per-provider circuit breaker with sequential fallback, size-bounded streaming so oversized payloads cannot stall the pipeline, and SSRF guards on every redirect hop.</span>
+                <span class="case-label">What I built</span>
+                <span class="case-text">The full interaction system: hardware input bridge, Unity C++ runtime, layer toggle controls, timestamped CSV session logger, Python replay tooling for HCI analysis, and an AI pipeline including an in-house neural network for content safety evaluation.</span>
               </div>
               <div class="case-study-item">
-                <span class="case-label">Outcome</span>
-                <span class="case-text">SearXNG, DuckDuckGo, Brave, and Serper unified behind one OpenAPI interface. Deployed in Docker Compose with a self-hosted SearXNG sidecar.</span>
+                <span class="case-label">Result</span>
+                <span class="case-text">Pilot sessions with children on the autism spectrum. Session replay data informed design changes with the HCI research team. Covered in UDaily, March 2023. Listed on the Sensify Lab researcher page.</span>
               </div>
             </div>
 
-            <!-- Artifact row -->
             <div class="artifact-row">
-              <span class="artifact-label">Artifacts</span>
-              <span class="artifact-tag">OpenAPI schema (self-hosted at /docs)</span>
-              <span class="artifact-tag">/v1/health per-provider endpoint</span>
-              <span class="artifact-tag">Docker Compose stack</span>
-              <span class="artifact-private">Repo private, code walkthrough available on request</span>
+              <span class="artifact-label">External proof</span>
+              <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener noreferrer" class="artifact-tag">Sensify Lab profile</a>
+              <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener noreferrer" class="artifact-tag">UDaily feature article</a>
+              <span class="artifact-tag">Pilot sessions with target population</span>
             </div>
 
-            <!-- Expandable technical details -->
             <details class="tech-details">
               <summary class="tech-details-summary">
-                <span>Architecture and implementation notes</span>
+                <span>Technical implementation notes</span>
                 <i data-lucide="chevron-down" class="details-chevron" style="width:0.875rem;height:0.875rem"></i>
               </summary>
               <div class="tech-details-body">
-                <!-- System boundary diagram -->
-                <figure class="arch-diagram" aria-label="System boundary diagram for Multi-Provider Web Search Service">
-                  <svg viewBox="0 0 620 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Request flow: Caller to FastAPI Route to ServiceLayer to ProviderRouter, which fans out to SearXNG, DDGS, Brave, Serper">
-                    <defs>
-                      <marker id="arr1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                        <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" opacity="0.45"/>
-                      </marker>
-                    </defs>
-                    <!-- boxes -->
-                    <rect x="4"  y="60" width="72" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.2"/>
-                    <text x="40"  y="82" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.6">Caller</text>
-
-                    <rect x="106" y="60" width="90" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
-                    <text x="151" y="78" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.65">FastAPI</text>
-                    <text x="151" y="90" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.45">Route layer</text>
-
-                    <rect x="226" y="60" width="90" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
-                    <text x="271" y="78" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.65">Service</text>
-                    <text x="271" y="90" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.45">Orchestration</text>
-
-                    <rect x="346" y="60" width="90" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5"/>
-                    <text x="391" y="78" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">ProviderRouter</text>
-                    <text x="391" y="90" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">AUTO / explicit</text>
-
-                    <!-- provider targets -->
-                    <rect x="466" y="10"  width="74" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
-                    <text x="503" y="25" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">SearXNG</text>
-
-                    <rect x="466" y="42"  width="74" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
-                    <text x="503" y="57" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">DDGS</text>
-
-                    <rect x="466" y="74"  width="74" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
-                    <text x="503" y="89" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">Brave</text>
-
-                    <rect x="466" y="106" width="74" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
-                    <text x="503" y="121" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">Serper</text>
-
-                    <!-- arrows -->
-                    <line x1="76"  y1="78" x2="104" y2="78" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arr1)"/>
-                    <line x1="196" y1="78" x2="224" y2="78" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arr1)"/>
-                    <line x1="316" y1="78" x2="344" y2="78" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arr1)"/>
-
-                    <line x1="436" y1="74" x2="464" y2="21"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr1)"/>
-                    <line x1="436" y1="76" x2="464" y2="53"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr1)"/>
-                    <line x1="436" y1="78" x2="464" y2="85"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr1)"/>
-                    <line x1="436" y1="80" x2="464" y2="117" stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr1)"/>
-                  </svg>
-                  <figcaption>Request flow &middot; Route &rarr; Service &rarr; ProviderRouter &rarr; Providers (AUTO fallback: SearXNG &rarr; DDGS &rarr; Brave &rarr; Serper)</figcaption>
-                </figure>
-
                 <div class="proj-detail-grid">
                   <div class="proj-detail-cell">
-                    <p class="proj-detail-label">Observability</p>
-                    <p class="proj-detail-text">Request-ID tracing middleware on every request. Structured JSON logging. Per-provider health at <code>/v1/health</code>. OpenAPI + ReDoc at <code>/docs</code>.</p>
+                    <p class="proj-detail-label">Hardware bridge</p>
+                    <p class="proj-detail-text">Physical input devices (Arduino) communicate via Bluetooth to an Android plugin, which relays events into the Unity runtime. Each layer toggle is an event object with a timestamp, not a polling state check.</p>
                   </div>
                   <div class="proj-detail-cell">
-                    <p class="proj-detail-label">Resilience</p>
-                    <p class="proj-detail-text">Per-provider circuit breaker (closed, open, half-open). Exponential backoff with jitter. Semaphore-bounded concurrency. Stale-cache fallback on provider failure.</p>
+                    <p class="proj-detail-label">Session logging</p>
+                    <p class="proj-detail-text">All toggle events logged with millisecond timestamps to per-session CSV files. Python tooling provides session replay and per-layer frequency visualization so HCI researchers can run behavioral analysis without re-running sessions.</p>
                   </div>
                   <div class="proj-detail-cell">
-                    <p class="proj-detail-label">Security</p>
-                    <p class="proj-detail-text">SSRF guard: scheme whitelist, RFC1918 + loopback + cloud metadata IP block, DNS validation. Manual redirect handling with per-hop security check.</p>
+                    <p class="proj-detail-label">AI safety pipeline</p>
+                    <p class="proj-detail-text">DALL-E generates visual content; GPT-3.5 optimizes prompts for the target age group. An in-house neural network acts as the safety gate: runs in parallel with generation, filters high-variance or potentially distressing outputs before they reach the UI.</p>
                   </div>
                 </div>
               </div>
@@ -404,12 +356,13 @@
               <div class="proof-strip">
                 <span class="proof-tag">Python &middot; FastAPI &middot; React</span>
                 <span class="proof-tag">900+ tests</span>
-                <span class="proof-tag">Private repo, details on request</span>
               </div>
             </div>
             <div class="chip-row">
               <span class="skill-chip">Python</span>
               <span class="skill-chip">FastAPI</span>
+              <span class="skill-chip">BM25</span>
+              <span class="skill-chip">sentence-transformers</span>
               <span class="skill-chip">React</span>
               <span class="skill-chip">TypeScript</span>
               <span class="skill-chip">SQLite</span>
@@ -420,30 +373,28 @@
           <div class="proj-card-body">
             <div class="case-study-strip">
               <div class="case-study-item">
-                <span class="case-label">Problem</span>
-                <span class="case-text">Chat, memory, task planning, and web retrieval need to run as separate services with independent failure domains, but still share a coherent request lifecycle.</span>
+                <span class="case-label">What the system does</span>
+                <span class="case-text">Routes chat, memory retrieval, task planning, and web search across separate backend services with independent failure domains. A React and TypeScript frontend streams responses via server-sent events; a CLI shares the same backend contract.</span>
               </div>
               <div class="case-study-item">
-                <span class="case-label">Design</span>
-                <span class="case-text">Central router classifies each request into a typed intent and dispatches to the correct backend service. Each service declares a capability manifest; the router enforces those boundaries at the API layer.</span>
+                <span class="case-label">Why it was hard</span>
+                <span class="case-text">Legacy keyword-routing logic overrode structured intent classification in edge cases. The fix required a strict three-layer authority chain — intent compiler, then execution planner, then capability registry — with no way to bypass earlier layers.</span>
               </div>
               <div class="case-study-item">
-                <span class="case-label">Hard part</span>
-                <span class="case-text">Preventing older keyword-routing logic from overriding structured intent classification. Required a three-layer gate: intent compiler, execution planner, capability registry, in that order of authority.</span>
+                <span class="case-label">What I built</span>
+                <span class="case-text">The full routing layer, a three-tier memory system (episodic, semantic, procedural) with hybrid BM25 and embedding retrieval, and 900+ unit and integration tests gating every pipeline change.</span>
               </div>
               <div class="case-study-item">
-                <span class="case-label">Outcome</span>
-                <span class="case-text">Backend serving chat, memory retrieval, task orchestration, and web search. React and TypeScript frontend with server-sent event streaming. CLI and web share the same backend contract.</span>
+                <span class="case-label">Result</span>
+                <span class="case-text">Production backend serving four service types with per-request trace records, SSE streaming, and a stable shared API contract between CLI and web clients. Code walkthrough available on request.</span>
               </div>
             </div>
 
-            <!-- Artifact row -->
             <div class="artifact-row">
               <span class="artifact-label">Artifacts</span>
               <span class="artifact-tag">900+ unit &amp; integration tests</span>
               <span class="artifact-tag">per-request trace records</span>
               <span class="artifact-tag">SSE streaming frontend</span>
-              <span class="artifact-private">Repo private, code walkthrough available on request</span>
             </div>
 
             <details class="tech-details">
@@ -525,56 +476,56 @@
           </div>
         </article>
 
-        <!-- Project 3: Accessible Music Interaction System -->
+        <!-- Project 3: Multi-Provider Web Search Service -->
         <article class="proj-card reveal">
           <div class="proj-card-header">
             <div class="proj-header-top">
               <div>
-                <p class="proj-label teal">University of Delaware &middot; Sensify Lab &middot; VIP Research</p>
-                <h3 class="proj-title">Accessible Music Interaction System</h3>
+                <p class="proj-label blue">Personal Project</p>
+                <h3 class="proj-title">Multi-Provider Web Search Service</h3>
               </div>
               <div class="proof-strip">
-                <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener noreferrer" class="proof-link">Sensify Lab <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.7"></i></a>
-                <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener noreferrer" class="proof-link">UDaily (Mar 2023) <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.7"></i></a>
+                <span class="proof-tag">Python &middot; FastAPI</span>
+                <span class="proof-tag">Docker Compose</span>
+                <a href="https://github.com/I-c-e-m-a-n/web-search-service" target="_blank" rel="noopener noreferrer" class="proof-link">GitHub <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.7"></i></a>
               </div>
             </div>
             <div class="chip-row">
-              <span class="skill-chip">C++</span>
-              <span class="skill-chip">C#</span>
-              <span class="skill-chip">Unity</span>
               <span class="skill-chip">Python</span>
-              <span class="skill-chip">Arduino</span>
-              <span class="skill-chip">Android</span>
-              <span class="skill-chip">DALL·E / GPT-3.5</span>
+              <span class="skill-chip">FastAPI</span>
+              <span class="skill-chip">Pydantic v2</span>
+              <span class="skill-chip">httpx</span>
+              <span class="skill-chip">Docker Compose</span>
+              <span class="skill-chip">OpenAPI</span>
             </div>
           </div>
 
           <div class="proj-card-body">
             <div class="case-study-strip">
               <div class="case-study-item">
-                <span class="case-label">Problem</span>
-                <span class="case-text">Children on the autism spectrum often cannot participate in group music activities because the soundscape is fixed and uncontrollable, leading to sensory overload.</span>
+                <span class="case-label">What the system does</span>
+                <span class="case-text">A standalone HTTP microservice that unifies SearXNG, DuckDuckGo, Brave, and Serper behind a single OpenAPI interface. Callers do not need to know which provider is live or handle provider-specific schemas.</span>
               </div>
               <div class="case-study-item">
-                <span class="case-label">Design</span>
-                <span class="case-text">Each listener controls individual musical layers (melody, rhythm, harmony) in real time. All toggle events are timestamped and logged per session so HCI researchers can analyze interaction patterns.</span>
+                <span class="case-label">Why it was hard</span>
+                <span class="case-text">Making failover invisible to callers while still reporting provider health required a stateful circuit breaker per provider (closed, open, half-open) with sequential fallback and per-hop SSRF validation on every redirect.</span>
               </div>
               <div class="case-study-item">
-                <span class="case-label">Hard part</span>
-                <span class="case-text">Bridging Arduino and Bluetooth hardware input through an Android plugin to a Unity runtime, while keeping the generative AI content pipeline (DALL-E, GPT-3.5) safety-filtered for the target population.</span>
+                <span class="case-label">What I built</span>
+                <span class="case-text">Four-layer stack: API routing, service orchestration, provider adapters, result ranking. Size-bounded streaming prevents oversized payloads from stalling the pipeline. SSRF guards check every redirect against an RFC1918 and cloud metadata block list.</span>
               </div>
               <div class="case-study-item">
-                <span class="case-label">Outcome</span>
-                <span class="case-text">Pilot sessions run with children on the autism spectrum. Project featured in UDaily, March 2023. Session replay tooling directly informed design changes with the research team.</span>
+                <span class="case-label">Result</span>
+                <span class="case-text">Deployed in Docker Compose with a self-hosted SearXNG sidecar. OpenAPI schema and per-provider health at <code>/v1/health</code> served locally. Code on GitHub.</span>
               </div>
             </div>
 
-            <!-- Artifact row -->
             <div class="artifact-row">
-              <span class="artifact-label">External proof</span>
-              <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener noreferrer" class="artifact-tag">Sensify Lab profile</a>
-              <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener noreferrer" class="artifact-tag">UDaily feature article</a>
-              <span class="artifact-tag">Pilot sessions with target population</span>
+              <span class="artifact-label">Artifacts</span>
+              <a href="https://github.com/I-c-e-m-a-n/web-search-service" target="_blank" rel="noopener noreferrer" class="artifact-tag">GitHub repo</a>
+              <span class="artifact-tag">OpenAPI schema at /docs</span>
+              <span class="artifact-tag">/v1/health per-provider endpoint</span>
+              <span class="artifact-tag">Docker Compose stack</span>
             </div>
 
             <details class="tech-details">
@@ -583,14 +534,54 @@
                 <i data-lucide="chevron-down" class="details-chevron" style="width:0.875rem;height:0.875rem"></i>
               </summary>
               <div class="tech-details-body">
-                <div class="grid-auto-2">
+                <figure class="arch-diagram" aria-label="System boundary diagram for Multi-Provider Web Search Service">
+                  <svg viewBox="0 0 620 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Request flow: Caller to FastAPI Route to ServiceLayer to ProviderRouter, which fans out to SearXNG, DDGS, Brave, Serper">
+                    <defs>
+                      <marker id="arr1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                        <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" opacity="0.45"/>
+                      </marker>
+                    </defs>
+                    <rect x="4"  y="60" width="72" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.2"/>
+                    <text x="40"  y="82" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.6">Caller</text>
+                    <rect x="106" y="60" width="90" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+                    <text x="151" y="78" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.65">FastAPI</text>
+                    <text x="151" y="90" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.45">Route layer</text>
+                    <rect x="226" y="60" width="90" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+                    <text x="271" y="78" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.65">Service</text>
+                    <text x="271" y="90" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.45">Orchestration</text>
+                    <rect x="346" y="60" width="90" height="36" rx="5" fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5"/>
+                    <text x="391" y="78" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">ProviderRouter</text>
+                    <text x="391" y="90" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">AUTO / explicit</text>
+                    <rect x="466" y="10"  width="74" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <text x="503" y="25" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">SearXNG</text>
+                    <rect x="466" y="42"  width="74" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <text x="503" y="57" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">DDGS</text>
+                    <rect x="466" y="74"  width="74" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <text x="503" y="89" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">Brave</text>
+                    <rect x="466" y="106" width="74" height="22" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+                    <text x="503" y="121" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.5">Serper</text>
+                    <line x1="76"  y1="78" x2="104" y2="78" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arr1)"/>
+                    <line x1="196" y1="78" x2="224" y2="78" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arr1)"/>
+                    <line x1="316" y1="78" x2="344" y2="78" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" marker-end="url(#arr1)"/>
+                    <line x1="436" y1="74" x2="464" y2="21"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr1)"/>
+                    <line x1="436" y1="76" x2="464" y2="53"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr1)"/>
+                    <line x1="436" y1="78" x2="464" y2="85"  stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr1)"/>
+                    <line x1="436" y1="80" x2="464" y2="117" stroke="currentColor" stroke-opacity="0.2" stroke-width="1" marker-end="url(#arr1)"/>
+                  </svg>
+                  <figcaption>Route &rarr; Service &rarr; ProviderRouter &rarr; Providers (AUTO fallback: SearXNG &rarr; DDGS &rarr; Brave &rarr; Serper)</figcaption>
+                </figure>
+                <div class="proj-detail-grid">
                   <div class="proj-detail-cell">
-                    <p class="proj-detail-label">Interaction &amp; Logging</p>
-                    <p class="proj-detail-text">Layer toggle events logged with timestamps to CSV per session. Python tooling for session replay and visualization to support behavioral analysis and design iteration.</p>
+                    <p class="proj-detail-label">Observability</p>
+                    <p class="proj-detail-text">Request-ID tracing middleware on every request. Structured JSON logging. Per-provider health at <code>/v1/health</code>. OpenAPI and ReDoc at <code>/docs</code>.</p>
                   </div>
                   <div class="proj-detail-cell">
-                    <p class="proj-detail-label">AI Integration</p>
-                    <p class="proj-detail-text">DALL-E image generation, GPT-3.5 prompt optimization, in-house neural network for content safety filtering. Evaluation by parallel run comparison and high-variance output filtering.</p>
+                    <p class="proj-detail-label">Resilience</p>
+                    <p class="proj-detail-text">Per-provider circuit breaker (closed, open, half-open). Exponential backoff with jitter. Semaphore-bounded concurrency. Stale-cache fallback on provider failure.</p>
+                  </div>
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">Security</p>
+                    <p class="proj-detail-text">SSRF guard: scheme whitelist, RFC1918 and loopback and cloud metadata IP block, DNS validation. Manual redirect handling with per-hop security check.</p>
                   </div>
                 </div>
               </div>
@@ -598,7 +589,84 @@
           </div>
         </article>
 
-        <!-- Project 4: Real-Time 3D Tactical Map -->
+        <!-- Project 4: BTC 24h Forecaster -->
+        <article class="proj-card reveal">
+          <div class="proj-card-header">
+            <div class="proj-header-top">
+              <div>
+                <p class="proj-label blue">Personal Project &middot; ML Research</p>
+                <h3 class="proj-title">BTC 24-Hour Price Forecaster</h3>
+              </div>
+              <div class="proof-strip">
+                <span class="proof-tag">Python &middot; LightGBM &middot; FinBERT</span>
+                <a href="https://github.com/I-c-e-m-a-n/btc-24h-forecaster" target="_blank" rel="noopener noreferrer" class="proof-link">GitHub <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.7"></i></a>
+              </div>
+            </div>
+            <div class="chip-row">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">LightGBM</span>
+              <span class="skill-chip">FinBERT</span>
+              <span class="skill-chip">quantile regression</span>
+              <span class="skill-chip">FastAPI</span>
+              <span class="skill-chip">React</span>
+              <span class="skill-chip">Docker Compose</span>
+            </div>
+          </div>
+
+          <div class="proj-card-body">
+            <div class="case-study-strip">
+              <div class="case-study-item">
+                <span class="case-label">What the system does</span>
+                <span class="case-text">Generates 8h, 16h, and 24h Bitcoin price forecasts with calibrated 80% and 95% prediction intervals. Runs daily at 07:00 SGT via a scheduled job, exposes predictions through a FastAPI endpoint, and renders them in a React dashboard.</span>
+              </div>
+              <div class="case-study-item">
+                <span class="case-label">Why it was hard</span>
+                <span class="case-text">Standard cross-validation leaks future information in time-series tasks and produces falsely optimistic accuracy estimates. Walk-forward validation requires each fold to train only on data prior to the forecast date, which means the evaluation pipeline cannot be a simple train/test split.</span>
+              </div>
+              <div class="case-study-item">
+                <span class="case-label">What I built</span>
+                <span class="case-text">Multi-horizon LightGBM with separate models per horizon. Feature set: technical indicators (RSI, MACD, ATR, Bollinger, OBV, VWAP), FinBERT sentiment scores on CryptoPanic headlines with 4h/8h/24h rolling aggregations, and event impact features with exponential decay. Quantile regression at five percentile targets for calibrated intervals.</span>
+              </div>
+              <div class="case-study-item">
+                <span class="case-label">Result</span>
+                <span class="case-text">Walk-forward evaluation showing calibrated 80% and 95% prediction intervals. Feature importance analysis with FinBERT 8h sentiment aggregation ranking in the top features for the 24h horizon. Code on GitHub.</span>
+              </div>
+            </div>
+
+            <div class="artifact-row">
+              <span class="artifact-label">Artifacts</span>
+              <a href="https://github.com/I-c-e-m-a-n/btc-24h-forecaster" target="_blank" rel="noopener noreferrer" class="artifact-tag">GitHub repo</a>
+              <span class="artifact-tag">Walk-forward evaluation pipeline</span>
+              <span class="artifact-tag">Prediction interval charts (80% / 95%)</span>
+              <span class="artifact-tag">Feature importance per horizon</span>
+            </div>
+
+            <details class="tech-details">
+              <summary class="tech-details-summary">
+                <span>Model and evaluation notes</span>
+                <i data-lucide="chevron-down" class="details-chevron" style="width:0.875rem;height:0.875rem"></i>
+              </summary>
+              <div class="tech-details-body">
+                <div class="proj-detail-grid">
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">Model</p>
+                    <p class="proj-detail-text">LightGBM gradient boosting. Separate model per horizon (8h, 16h, 24h). Quantile regression at 2.5%, 10%, 50%, 90%, 97.5% targets produces calibrated prediction intervals without assuming a parametric error distribution.</p>
+                  </div>
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">NLP: FinBERT</p>
+                    <p class="proj-detail-text">FinBERT (transformer fine-tuned for financial sentiment) applied to CryptoPanic headlines. Rolling aggregations at 4h, 8h, and 24h windows. Sentiment momentum computed as the derivative of the rolling score.</p>
+                  </div>
+                  <div class="proj-detail-cell">
+                    <p class="proj-detail-label">Evaluation</p>
+                    <p class="proj-detail-text">Walk-forward validation: 90-day rolling train windows, 7-day test windows. Metrics: RMSE, MAE, MAPE, directional accuracy, 80% and 95% interval coverage rate. Directional accuracy is the primary quality signal.</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- Project 5: Real-Time 3D Tactical Map -->
         <article class="proj-card reveal">
           <div class="proj-card-header">
             <div class="proj-header-top">
@@ -607,7 +675,8 @@
                 <h3 class="proj-title">Real-Time 3D Tactical Map with WebSocket Authority Server</h3>
               </div>
               <div class="proof-strip">
-                <span class="proof-tag">Private repo, details on request</span>
+                <span class="proof-tag">TypeScript &middot; pnpm monorepo</span>
+                <a href="https://github.com/I-c-e-m-a-n/dnd-map-ui" target="_blank" rel="noopener noreferrer" class="proof-link">GitHub <i data-lucide="external-link" style="width:0.75rem;height:0.75rem;opacity:0.7"></i></a>
               </div>
             </div>
             <div class="chip-row">
@@ -623,29 +692,28 @@
           <div class="proj-card-body">
             <div class="case-study-strip">
               <div class="case-study-item">
-                <span class="case-label">Problem</span>
-                <span class="case-text">Multiple clients need to share a consistent 3D world state. The server must be the single source of truth, but clients still need to feel responsive.</span>
+                <span class="case-label">What the system does</span>
+                <span class="case-text">A real-time multiplayer 3D map where the server is the single authority over world state. Multiple clients share terrain, fog-of-war, tokens, obstacles, and effects rendered in React Three Fiber.</span>
               </div>
               <div class="case-study-item">
-                <span class="case-label">Design</span>
-                <span class="case-text">Intent, validate, ACK and PATCH broadcast model over WebSocket. The server owns all mutations and broadcasts validated diffs. Shared Zod schemas across all four monorepo packages enforce the wire protocol.</span>
+                <span class="case-label">Why it was hard</span>
+                <span class="case-text">The REST-to-MCP bridge compiles incoming HTTP operations into typed intents, validates them against current world state, then executes them through a job queue spanning several WebSocket round-trips for multi-step A* pathfinding.</span>
               </div>
               <div class="case-study-item">
-                <span class="case-label">Hard part</span>
-                <span class="case-text">The REST-to-MCP bridge compiles incoming HTTP operations into typed intents, validates them against world state, then executes them through a job queue that handles multi-step pathfinding across several WebSocket round-trips.</span>
+                <span class="case-label">What I built</span>
+                <span class="case-text">Intent-validate-ACK-PATCH broadcast model over WebSocket. Shared Zod schemas across all four pnpm workspace packages enforce the wire protocol at compile time. The world-ops agent bridges HTTP REST operations to typed WebSocket intents.</span>
               </div>
               <div class="case-study-item">
-                <span class="case-label">Outcome</span>
-                <span class="case-text">Authoritative server maintaining a validated 3D voxel grid with terrain, fog-of-war, tokens, obstacles, and effects. React Three Fiber UI consuming live server diffs.</span>
+                <span class="case-label">Result</span>
+                <span class="case-text">Authoritative server maintaining a validated 3D voxel grid with terrain, fog-of-war, tokens, obstacles, and effects. React Three Fiber client consuming live server diffs. Code on GitHub.</span>
               </div>
             </div>
 
-            <!-- Artifact row -->
             <div class="artifact-row">
               <span class="artifact-label">Artifacts</span>
+              <a href="https://github.com/I-c-e-m-a-n/dnd-map-ui" target="_blank" rel="noopener noreferrer" class="artifact-tag">GitHub repo</a>
               <span class="artifact-tag">shared/src/protocol.ts (Zod schemas)</span>
               <span class="artifact-tag">pnpm workspace: shared, mcp-map-server, mcp-world-ops-agent, ui</span>
-              <span class="artifact-private">Repo private, code walkthrough available on request</span>
             </div>
 
             <details class="tech-details">
@@ -838,9 +906,23 @@
             </div>
             <span class="exp-date">2019 &ndash; 2023</span>
           </div>
-          <p class="research-subtitle">
-            EC-Council Certified Ethical Hacker (CEH) &middot; MIT Sloan Executive Education: AI Strategy
-          </p>
+        </div>
+
+        <!-- Certifications — standalone visible block -->
+        <div class="edu-card reveal">
+          <p class="trust-item-label" style="margin-bottom:1rem">Certifications</p>
+          <div class="grid-auto-2">
+            <div class="cert-item">
+              <p class="cert-name">Certified Ethical Hacker (CEH)</p>
+              <p class="cert-issuer">EC-Council</p>
+              <p class="cert-detail">OSINT, vulnerability assessment, penetration testing methodology, threat triage. Certificate available on request.</p>
+            </div>
+            <div class="cert-item">
+              <p class="cert-name">Artificial Intelligence: Implications for Business Strategy</p>
+              <p class="cert-issuer">MIT Sloan Executive Education</p>
+              <p class="cert-detail">AI strategy, applied ML decision-making, organizational deployment of ML systems. Certificate available on request.</p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -928,59 +1010,55 @@
         </div>
 
         <div class="skill-cluster reveal">
-          <p class="skill-cluster-label">ML &amp; Retrieval</p>
+          <p class="skill-cluster-label">ML / Retrieval / NLP</p>
           <div class="chip-row">
             <span class="skill-chip">PyTorch</span>
             <span class="skill-chip">Hugging Face Transformers</span>
             <span class="skill-chip">sentence-transformers</span>
-            <span class="skill-chip">embeddings</span>
+            <span class="skill-chip">LightGBM</span>
+            <span class="skill-chip">BM25</span>
+            <span class="skill-chip">FinBERT</span>
+            <span class="skill-chip">quantile regression</span>
+            <span class="skill-chip">walk-forward evaluation</span>
             <span class="skill-chip">model evaluation</span>
           </div>
         </div>
 
         <div class="skill-cluster reveal">
-          <p class="skill-cluster-label">Backend &amp; Systems</p>
+          <p class="skill-cluster-label">Backend / Systems / Infra</p>
           <div class="chip-row">
             <span class="skill-chip">FastAPI</span>
             <span class="skill-chip">Docker Compose</span>
             <span class="skill-chip">Redis</span>
             <span class="skill-chip">async workers</span>
             <span class="skill-chip">structured logging</span>
+            <span class="skill-chip">circuit breakers</span>
             <span class="skill-chip">Linux / Unix</span>
           </div>
         </div>
 
         <div class="skill-cluster reveal">
-          <p class="skill-cluster-label">Agent &amp; Tooling</p>
+          <p class="skill-cluster-label">Research / Accessibility / HCI</p>
+          <div class="chip-row">
+            <span class="skill-chip">accessible AI systems</span>
+            <span class="skill-chip">session logging &amp; replay</span>
+            <span class="skill-chip">HCI collaboration</span>
+            <span class="skill-chip">behavioral analysis tooling</span>
+            <span class="skill-chip">safety-oriented content filtering</span>
+          </div>
+        </div>
+
+        <div class="skill-cluster reveal">
+          <p class="skill-cluster-label">Tooling / DevOps</p>
           <div class="chip-row">
             <span class="skill-chip">MCP servers</span>
             <span class="skill-chip">GitHub Actions</span>
             <span class="skill-chip">OpenAPI</span>
-            <span class="skill-chip">Unity / Android</span>
+            <span class="skill-chip">Zod</span>
+            <span class="skill-chip">pnpm workspaces</span>
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════════════════════════
-       HOW I WORK
-  ══════════════════════════════════════════════════════════ -->
-  <section id="philosophy" class="section">
-    <div class="container section-inner">
-      <p class="section-eyebrow">How I work</p>
-      <div class="philosophy-grid">
-        <p class="approach-quote reveal">
-          Retrieval accuracy is measurable. Getting to 12&ndash;15 ms at ~90% hit rate requires scoring pipelines that are deterministic and tunable at every stage, not end-to-end black boxes.
-        </p>
-        <p class="approach-quote reveal">
-          Evaluation comes before shipping. If a ranking or scoring change cannot be verified against a regression suite, it has not been validated.
-        </p>
-        <p class="approach-quote reveal">
-          Building for people with strict sensory constraints removes the option to hand-wave over edge cases. Every hard constraint clarifies what the system actually needs to do.
-        </p>
       </div>
     </div>
   </section>
@@ -996,11 +1074,10 @@
       <div class="contact-layout">
         <div class="contact-body">
           <h2 class="contact-heading reveal">
-            Open to full-time roles in <span class="accent">retrieval systems, ML infrastructure, or research engineering.</span>
+            Open to roles in <span class="accent">research engineering, retrieval systems, and applied ML.</span>
           </h2>
           <p class="exp-card-text reveal">
-            Based in Singapore. Looking for roles where the work involves building or improving systems
-            that retrieve, rank, evaluate, or serve model outputs at production scale. Email is the best way to reach me.
+            Based in Singapore. Interested in roles where the work involves building retrieval and ranking systems, ML evaluation infrastructure, or generative AI research engineering. Email is the best way to reach me.
           </p>
 
           <div class="hero-cta-row">
