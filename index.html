@@ -319,6 +319,87 @@
     @keyframes fadeIn  { from { opacity: 0 } to { opacity: 1 } }
     @keyframes slideUp { from { transform: translateY(12px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
 
+    /* ─── Experience card — elevated, left accent stripe ─────── */
+    .exp-card {
+      background: var(--surface-0);
+      border: 1px solid var(--border-sub);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 1.5rem 1.75rem;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--border);
+      border-radius: 2px 0 0 2px;
+      transition: background 0.2s ease;
+    }
+    .exp-card:hover { box-shadow: var(--shadow-md); border-color: var(--border); }
+    .exp-card:hover::before { background: var(--brand); }
+    .exp-card.primary::before { background: var(--brand); }
+    .dark .exp-card {
+      background: rgb(30 41 59);
+      border-color: rgb(51 65 85);
+    }
+    .dark .exp-card::before { background: rgb(51 65 85); }
+    .dark .exp-card.primary::before { background: var(--brand-l); }
+    .dark .exp-card:hover::before { background: var(--brand-l); }
+
+    /* ─── Project card ───────────────────────────────────────── */
+    .proj-card {
+      background: var(--surface-0);
+      border: 1px solid var(--border-sub);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .proj-card:hover { box-shadow: var(--shadow-md); border-color: #bfdbfe; }
+    .proj-card-header {
+      padding: 1.5rem 1.75rem 1.25rem;
+      border-bottom: 1px solid var(--border-sub);
+    }
+    .proj-card-body { padding: 1.25rem 1.75rem 1.5rem; }
+    .dark .proj-card { background: rgb(30 41 59); border-color: rgb(51 65 85); }
+    .dark .proj-card:hover { border-color: #60a5fa; }
+    .dark .proj-card-header { border-color: rgb(51 65 85); }
+
+    /* ─── Trust strip item ───────────────────────────────────── */
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1rem 1.25rem;
+      background: var(--surface-0);
+      border: 1px solid var(--border-sub);
+      border-radius: var(--radius-md);
+    }
+    .dark .trust-item { background: rgb(30 41 59); border-color: rgb(51 65 85); }
+
+    /* ─── Skill cluster card ─────────────────────────────────── */
+    .skill-cluster {
+      background: var(--surface-0);
+      border: 1px solid var(--border-sub);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .dark .skill-cluster { background: rgb(30 41 59); border-color: rgb(51 65 85); }
+
+    /* ─── Trust panel (hero right column) ────────────────────── */
+    .trust-panel {
+      background: var(--surface-1);
+      border: 1px solid var(--border-sub);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    .dark .trust-panel { background: rgb(15 23 42 / 0.6); border-color: rgb(51 65 85); }
+
     /* ─── Print ──────────────────────────────────────────────── */
     @media print {
       @page { margin: 1.5cm 2cm; }
@@ -392,267 +473,329 @@
 
   <!-- Hero -->
   <section id="top">
-    <div class="mx-auto max-w-5xl px-6 pt-24 pb-20 md:pt-36 md:pb-28">
-      <p class="text-sm text-slate-400 dark:text-slate-500 mb-5 animate-fade-in">Singapore · Software Engineer</p>
-      
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-[1.1] text-slate-900 dark:text-slate-100 animate-slide-up">
-        I build backend systems that<br class="hidden sm:block" />
-        <span class="bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">ship reliably at scale.</span>
-      </h1>
-      
-      <p class="mt-6 text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
-        Software engineer with production experience in retrieval and ranking systems, applied ML infrastructure, and distributed backend services.
-        Research background in accessible AI and generative AI systems at the <span class="text-slate-900 dark:text-slate-100 font-medium">University of Delaware VIP program</span>.
-      </p>
-      
-      <!-- Capability tags — resume skill category anchors -->
-      <div class="mt-8 flex flex-wrap gap-2">
-        <span class="cap-chip">Retrieval &amp; Ranking</span>
-        <span class="cap-chip">Applied ML Systems</span>
-        <span class="cap-chip">Backend Infrastructure</span>
-        <span class="cap-chip">Model Evaluation</span>
-        <span class="cap-chip">Agent / MCP Tooling</span>
-        <span class="cap-chip">Distributed Systems</span>
-        <span class="cap-chip">Accessible AI</span>
-        <span class="cap-chip">Observability</span>
-      </div>
-      
-      <!-- Production engineering metrics — AIRS Foundry, Dec 2025–Present -->
-      <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 grid grid-cols-3 gap-6 md:gap-12 max-w-xl">
-        <div class="group">
-          <div class="metric-num text-2xl md:text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 group-hover:text-brand-600 transition-colors">12–15ms</div>
-          <div class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-snug">retrieval latency</div>
+    <div class="mx-auto max-w-5xl px-6 pt-20 pb-16 md:pt-28 md:pb-20">
+
+      <!-- Two-column: left = identity/CTA, right = trust panel -->
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 lg:gap-16 items-start">
+
+        <!-- Left column -->
+        <div>
+          <p class="text-sm text-slate-400 dark:text-slate-500 mb-4 animate-fade-in">Singapore · Software Engineer</p>
+
+          <h1 class="text-4xl md:text-5xl font-semibold tracking-tighter leading-[1.1] text-slate-900 dark:text-slate-100 animate-slide-up">
+            Backend systems &amp;<br class="hidden sm:block" />
+            <span class="bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">applied ML infrastructure.</span>
+          </h1>
+
+          <p class="mt-5 text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed">
+            Production experience in retrieval &amp; ranking pipelines, distributed backend services, and applied ML systems.
+            Research background in accessible AI at the University of Delaware VIP program.
+          </p>
+
+          <!-- Capability tags -->
+          <div class="mt-6 flex flex-wrap gap-1.5">
+            <span class="cap-chip">Retrieval &amp; Ranking</span>
+            <span class="cap-chip">Applied ML</span>
+            <span class="cap-chip">Backend Systems</span>
+            <span class="cap-chip">Agent / MCP</span>
+            <span class="cap-chip">Distributed Infra</span>
+            <span class="cap-chip">Accessible AI</span>
+          </div>
+
+          <!-- CTA row -->
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="mailto:guruprasadnayak24@gmail.com"
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-all shadow-sm hover:shadow-md">
+              <i data-lucide="mail" class="h-4 w-4"></i>
+              Get in touch
+            </a>
+            <a href="Guruprasad_Nayak_Resume.pdf"
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-brand-300 hover:text-brand-700 hover:bg-brand-50 dark:hover:border-brand-500 dark:hover:text-brand-300 font-medium text-sm transition-all">
+              <i data-lucide="file-text" class="h-4 w-4"></i>
+              Resume
+            </a>
+            <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 text-sm transition-colors">
+              <i data-lucide="github" class="h-4 w-4"></i>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 text-sm transition-colors">
+              <i data-lucide="linkedin" class="h-4 w-4"></i>
+              LinkedIn
+            </a>
+          </div>
         </div>
-        <div class="group">
-          <div class="metric-num text-2xl md:text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 group-hover:text-brand-600 transition-colors">~90%</div>
-          <div class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-snug">context hit rate</div>
+
+        <!-- Right column — trust panel -->
+        <div class="trust-panel lg:mt-2">
+          <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">Proof points</p>
+
+          <!-- AIRS Foundry production metrics -->
+          <div class="space-y-3">
+            <div class="bg-white dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl p-3.5">
+              <div class="flex items-baseline gap-3 mb-1">
+                <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">12–15 ms</span>
+                <span class="text-xs text-brand-600 dark:text-brand-400 font-medium">retrieval latency</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Multi-stage retrieval &amp; ranking pipeline over a multi-GB corpus · AIRS Foundry</p>
+            </div>
+
+            <div class="bg-white dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl p-3.5">
+              <div class="flex items-baseline gap-3 mb-1">
+                <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~90%</span>
+                <span class="text-xs text-brand-600 dark:text-brand-400 font-medium">context hit rate</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Candidate filtering, similarity ranking, configuration-driven scoring · AIRS Foundry</p>
+            </div>
+
+            <div class="bg-white dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl p-3.5">
+              <div class="flex items-baseline gap-3 mb-1">
+                <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~80%</span>
+                <span class="text-xs text-success-600 dark:text-green-400 font-medium">manpower reduction</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Digital operations platform replacing paper workflows · Singapore Armed Forces</p>
+            </div>
+
+            <div class="bg-white dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 rounded-xl p-3.5">
+              <div class="flex items-baseline gap-3 mb-1">
+                <span class="metric-num text-xl font-semibold text-slate-900 dark:text-slate-100">~60 h/mo</span>
+                <span class="text-xs text-success-600 dark:text-green-400 font-medium">time saved</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">Automation tools for personnel accounting and reporting · Singapore Armed Forces</p>
+            </div>
+          </div>
         </div>
-        <div class="group">
-          <div class="metric-num text-2xl md:text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 group-hover:text-brand-600 transition-colors">multi-GB</div>
-          <div class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-snug">corpus at scale</div>
-        </div>
-      </div>
-      <p class="mt-2 text-xs text-slate-400 dark:text-slate-500">from retrieval pipeline work at AIRS Foundry · Dec 2025–Present</p>
-      
-      <!-- Links -->
-      <div class="mt-8 flex flex-wrap items-center gap-6 text-sm">
-        <a href="mailto:guruprasadnayak24@gmail.com" class="font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400 dark:hover:text-brand-300 transition-colors flex items-center gap-2">
-          <i data-lucide="mail" class="h-4 w-4"></i>
-          guruprasadnayak24@gmail.com
-        </a>
-        <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5">
-          <i data-lucide="github" class="h-4 w-4"></i>
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener" class="text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5">
-          <i data-lucide="linkedin" class="h-4 w-4"></i>
-          LinkedIn
-        </a>
+
       </div>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="work">
+  <section id="work" class="surface-tint">
     <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
-      <h2 class="section-label text-sm text-slate-400 dark:text-slate-500 mb-8">Projects</h2>
-      
-      <!-- Project 1: Multi-Service Workflow & Integrations Platform -->
-      <article class="relative group">
-        <!-- Accent bar -->
-        <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-600 to-brand-400 rounded-full"></div>
-        
-        <div class="pl-6 md:pl-8">
-          <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-4">
-            <h3 class="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 group-hover:text-brand-600 transition-colors">Multi-Service Workflow &amp; Integrations Platform</h3>
-            <span class="text-sm font-mono text-slate-400">Personal Project</span>
-          </div>
-          
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
-            Multi-service platform spanning chat, memory retrieval, task orchestration, and web research. 
-            A central router coordinates requests across independently scoped backend services, with 
-            capability-based routing, request/response validation, and service boundary design for 
-            integration safety, observability, and maintainability.
-          </p>
-          
-          <div class="mt-8 grid md:grid-cols-3 gap-6 text-sm">
-            <div class="card p-4">
-              <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Backend</h4>
-              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">FastAPI services with capability-based routing, request/response validation, and structured inter-service communication over SQLite.</p>
+      <h2 class="section-label text-sm text-slate-400 dark:text-slate-500 mb-10">Projects</h2>
+
+      <div class="space-y-6">
+
+        <!-- Project 1: Multi-Service Workflow & Integrations Platform -->
+        <article class="proj-card">
+          <div class="proj-card-header">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+              <div>
+                <div class="flex items-center gap-2 mb-1.5">
+                  <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-wider">Personal Project</span>
+                </div>
+                <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+                  Multi-Service Workflow &amp; Integrations Platform
+                </h3>
+              </div>
             </div>
-            <div class="card p-4">
-              <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Frontend</h4>
-              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">React and TypeScript frontend supporting multi-step workflows, persisted state, and event-driven streaming interactions across CLI and web interfaces.</p>
-            </div>
-            <div class="card p-4">
-              <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">Design</h4>
-              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Asynchronous workflows and service coordination built for maintainability — each service independently scoped with defined boundaries.</p>
+            <div class="mt-3 chip-row">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">FastAPI</span>
+              <span class="skill-chip">React</span>
+              <span class="skill-chip">TypeScript</span>
+              <span class="skill-chip">SQLite</span>
             </div>
           </div>
-          
-          <div class="mt-6 chip-row">
-            <span class="skill-chip">Python</span>
-            <span class="skill-chip">FastAPI</span>
-            <span class="skill-chip">React</span>
-            <span class="skill-chip">TypeScript</span>
-            <span class="skill-chip">SQLite</span>
+
+          <div class="proj-card-body">
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+              Multi-service platform spanning chat, memory retrieval, task orchestration, and web research.
+              A central router coordinates requests across independently scoped backend services with
+              capability-based routing, request/response validation, and service boundary design for
+              integration safety, observability, and maintainability.
+            </p>
+
+            <div class="grid sm:grid-cols-3 gap-4">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Backend</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">FastAPI services with capability-based routing, request/response validation, and structured inter-service communication over SQLite.</p>
+              </div>
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Frontend</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">React and TypeScript frontend supporting multi-step workflows, persisted state, and event-driven streaming across CLI and web interfaces.</p>
+              </div>
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Architecture</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Async workflows and service coordination — each service independently scoped with defined boundaries and observable integration points.</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- Project 2: Accessible Interactive Music System -->
-      <article class="relative group mt-12 pt-12 border-t border-slate-100 dark:border-slate-800">
-        <!-- Accent bar -->
-        <div class="absolute left-0 top-12 bottom-0 w-1 bg-gradient-to-b from-brand-400/70 to-brand-300/30 rounded-full"></div>
-
-        <div class="pl-6 md:pl-8">
-          <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-4">
-            <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100 group-hover:text-brand-600 transition-colors">Accessible Interactive Music System</h3>
-            <span class="text-sm font-mono text-slate-400">Modular Music · VIP Research Program</span>
+        <!-- Project 2: Accessible Interactive Music System -->
+        <article class="proj-card">
+          <div class="proj-card-header">
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="text-xs font-semibold text-success-600 dark:text-green-400 uppercase tracking-wider">University of Delaware · VIP Research Program</span>
+            </div>
+            <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+              Accessible Interactive Music System
+            </h3>
+            <div class="mt-3 chip-row">
+              <span class="skill-chip">C++</span>
+              <span class="skill-chip">C#</span>
+              <span class="skill-chip">Unity</span>
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">Java</span>
+              <span class="skill-chip">Arduino</span>
+              <span class="skill-chip">Android</span>
+              <span class="skill-chip">Bluetooth</span>
+              <span class="skill-chip">Generative AI</span>
+            </div>
           </div>
 
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
-            Interactive accessibility system for children on the autism spectrum, built during the University of Delaware VIP research program.
-            Combines Android, Unity, and Bluetooth-connected hardware for real-time UI feedback and multimodal interaction.
-            Python AI integrations used DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization,
-            and safety-oriented content filtering. Session logging, replay/visualization, and controller-driven workflows
-            span Unity, Arduino, Python, and Java for cross-platform debugging and auditability.
-          </p>
+          <div class="proj-card-body">
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+              Interactive accessibility system for children on the autism spectrum, built during the University of Delaware VIP research program.
+              Combines Android, Unity, and Bluetooth-connected hardware for real-time UI feedback and multimodal interaction.
+              Python AI integrations used DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization,
+              and safety-oriented content filtering. Session logging, replay, and controller-driven workflows span Unity, Arduino, Python, and Java.
+            </p>
 
-          <div class="mt-6 chip-row">
-            <span class="skill-chip">C++</span>
-            <span class="skill-chip">C#</span>
-            <span class="skill-chip">Unity</span>
-            <span class="skill-chip">Python</span>
-            <span class="skill-chip">Java</span>
-            <span class="skill-chip">Arduino</span>
-            <span class="skill-chip">Android</span>
-            <span class="skill-chip">Bluetooth</span>
-            <span class="skill-chip">Generative AI</span>
+            <div class="grid sm:grid-cols-3 gap-4">
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Hardware Layer</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Android + Unity + Bluetooth-connected Arduino hardware for real-time multimodal UI feedback and environmental sound exposure.</p>
+              </div>
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">AI Integration</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization, and safety-oriented content filtering.</p>
+              </div>
+              <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Research Context</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">HCI-informed, accessibility-first design. Collaborated with researchers and stakeholders; informed by university AI and interaction design research.</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+
+      </div>
     </div>
   </section>
 
   <!-- Experience -->
-  <section id="experience" class="surface-tint">
+  <section id="experience">
     <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
-      <h2 class="section-label text-sm text-slate-400 dark:text-slate-500 mb-8">Experience</h2>
+      <h2 class="section-label text-sm text-slate-400 dark:text-slate-500 mb-10">Experience</h2>
 
-      <div class="space-y-12">
+      <div class="space-y-4">
 
-        <!-- AIRS Foundry — primary entry, expanded -->
-        <article class="exp-entry group/exp">
-          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
+        <!-- AIRS Foundry — primary, blue accent always on -->
+        <article class="exp-card primary">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
             <div>
-              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 group-hover/exp:text-brand-600 transition-colors tracking-tight">AIRS Foundry</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Software Engineer / AI Engineer, Software Infrastructure</p>
+              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 tracking-tight">AIRS Foundry</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Software Engineer / AI Engineer, Software Infrastructure</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Dec 2025 – Present</span>
+            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Dec 2025 – Present</span>
           </div>
-          <ul class="mt-2 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
+          <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
             <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Built production FastAPI backend for multi-stage retrieval and ranking over a multi-GB corpus, achieving 12–15 ms latency and a ~90% relevant-context hit rate through candidate filtering, similarity ranking, and configuration-driven scoring.</span></li>
             <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Refactored performance-sensitive Python components into C++ to improve execution speed in latency-critical backend paths.</span></li>
             <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Built and integrated MCP servers and tool interfaces — tool schema definition, execution flow, structured logging, debugging instrumentation, and agent-facing API integration.</span></li>
             <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Built eval harnesses, ranking benchmarks, latency profiling, regression suites, and release validation gates to enforce quality gates across pipeline changes.</span></li>
             <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Developed distributed AI infrastructure across multi-service backends, async workers, queues, distributed jobs, and parallel-processing components.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Owned production-facing responsibilities including release validation, incident debugging, alert response, and uptime-sensitive fixes across shared AI workflow infrastructure.</span></li>
+            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Owned production-facing responsibilities: release validation, incident debugging, alert response, and uptime-sensitive fixes across shared AI workflow infrastructure.</span></li>
           </ul>
         </article>
 
         <!-- Singapore Armed Forces -->
-        <article class="exp-entry group/exp">
-          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
+        <article class="exp-card">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
             <div>
-              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 group-hover/exp:text-brand-600 transition-colors tracking-tight">Singapore Armed Forces</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Sergeant · Operations &amp; Digital Transformation</p>
+              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 tracking-tight">Singapore Armed Forces</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Sergeant · Operations &amp; Digital Transformation</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Jul 2023 – Aug 2025</span>
+            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Jul 2023 – Aug 2025</span>
           </div>
-          <ul class="mt-2 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
+          <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
             <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Architected and launched the unit's first digital operations platform, replacing paper-based workflows and reducing manpower requirements by ~80%.</span></li>
             <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Built internal automation tools for personnel accounting and reporting, eliminating repetitive manual work and saving ~60 hours per month.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Standardized fragmented operational processes into structured digital workflows, improving consistency, traceability, and turnaround for recurring unit tasks. Led 30-person operations under time-sensitive constraints.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Received the Safety Steward Award and became the first Sergeant in battalion history to receive the 23SA Regimental Sergeant Major's Coin.</span></li>
+            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Standardized fragmented operational processes into structured digital workflows; led 30-person operations under time-sensitive constraints.</span></li>
+            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Received the Safety Steward Award; first Sergeant in battalion history to receive the 23SA Regimental Sergeant Major's Coin.</span></li>
           </ul>
         </article>
 
-        <!-- VIP Research Program — restored -->
-        <article class="exp-entry group/exp">
-          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
+        <!-- VIP Research Program -->
+        <article class="exp-card">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
             <div>
-              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 group-hover/exp:text-brand-600 transition-colors tracking-tight">University of Delaware VIP Research Program</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Undergraduate Researcher</p>
+              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 tracking-tight">University of Delaware VIP Research Program</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Undergraduate Researcher</p>
             </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Aug 2022 – Jan 2023</span>
+            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Aug 2022 – Jan 2023</span>
           </div>
-          <ul class="mt-2 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Contributed to a university research program building accessible AI systems for children on the autism spectrum — software for controlled exposure to environmental sounds and stimuli through interactive experiences.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Worked with generative AI systems including DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization, image filtering, and safety-oriented content tuning.</span></li>
-            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Supported model evaluation workflows — comparing outputs across parallel model runs, identifying data patterns associated with desirable outcomes, and filtering high-variance or unsafe content pathways.</span></li>
+          <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
+            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Contributed to university research building accessible AI systems for children on the autism spectrum — software for controlled exposure to environmental sounds through interactive experiences.</span></li>
+            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Worked with DALL·E, GPT-3.5, and in-house neural network components for image generation, prompt optimization, image filtering, and safety-oriented content tuning.</span></li>
+            <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Supported model evaluation workflows — parallel model runs, pattern identification, and filtering of high-variance or unsafe content pathways.</span></li>
             <li class="flex gap-2"><span class="text-brand-400 dark:text-brand-500 shrink-0 mt-0.5">–</span><span>Developed AI integrations in Python and interface components in C++ and Unity, including Android plugin work. Collaborated with HCI researchers and accessibility stakeholders.</span></li>
           </ul>
         </article>
 
-        <!-- Teaching Assistant -->
-        <article class="exp-entry group/exp">
-          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
-            <div>
-              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 group-hover/exp:text-brand-600 transition-colors tracking-tight">University of Delaware</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Teaching Assistant · Computer Science</p>
+        <!-- Teaching Assistant + EY — two compact side-by-side cards on md+ -->
+        <div class="grid md:grid-cols-2 gap-4">
+          <article class="exp-card">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
+              <div>
+                <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 tracking-tight">University of Delaware</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Teaching Assistant · Computer Science</p>
+              </div>
+              <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Aug – Dec 2022</span>
             </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Aug 2022 – Dec 2022</span>
-          </div>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            Supported 200+ students across data structures, algorithms, systems, and programming fundamentals through debugging help, technical walkthroughs, and problem-solving guidance. Reinforced core CS concepts including algorithmic complexity, recursion, data structures, and systems behavior.
-          </p>
-        </article>
+            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Supported 200+ students across data structures, algorithms, systems, and programming fundamentals through debugging help, technical walkthroughs, and problem-solving guidance.
+            </p>
+          </article>
 
-        <!-- EY / Cybersecurity Intern -->
-        <article class="exp-entry group/exp">
-          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
-            <div>
-              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 group-hover/exp:text-brand-600 transition-colors tracking-tight">Ernst &amp; Young · Maharashtra Cyber Police</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Cybersecurity Intern</p>
+          <article class="exp-card">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
+              <div>
+                <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 tracking-tight">Ernst &amp; Young · Maharashtra Cyber Police</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Cybersecurity Intern</p>
+              </div>
+              <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">Jun – Jul 2019</span>
             </div>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">Jun 2019 – Jul 2019</span>
-          </div>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            Conducted OSINT investigations, anomaly analysis, and vulnerability assessment across security-sensitive environments using multiple technical data sources. Correlated logs, open-source signals, and investigative artifacts to support threat triage, incident analysis, and evidence-based reporting.
-          </p>
-        </article>
-
-      </div>
-
-      <!-- Education -->
-      <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700/60">
-        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
-          <div>
-            <h3 class="text-base font-semibold tracking-tight text-slate-900 dark:text-slate-100">B.S. Computer Science</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400">University of Delaware · Dean's List</p>
-          </div>
-          <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">2019 – 2023</span>
+            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              OSINT investigations, anomaly analysis, and vulnerability assessment. Correlated logs and open-source signals to support threat triage, incident analysis, and evidence-based reporting.
+            </p>
+          </article>
         </div>
-        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
-          Coursework: Data Structures &amp; Algorithms · Operating Systems · Database Systems · Software Engineering · Machine Learning
-        </p>
-        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
-          EC-Council Certified Ethical Hacker (CEH) · MIT Sloan: AI: Implications for Business Strategy · Blockchain Technologies · Internet of Things
-        </p>
+
       </div>
+
+      <!-- Education — inline card below experience -->
+      <div class="mt-6">
+        <div class="exp-card">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+            <div>
+              <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Education</p>
+              <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 tracking-tight">B.S. Computer Science · University of Delaware</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Dean's List · Coursework: DSA, OS, Databases, Software Eng., Machine Learning</p>
+            </div>
+            <span class="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0 pt-0.5">2019 – 2023</span>
+          </div>
+          <p class="mt-2 text-xs text-slate-400 dark:text-slate-500">
+            EC-Council CEH · MIT Sloan: AI Strategy, Blockchain Technologies, Internet of Things
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Technical Skills — new section -->
-  <section id="skills">
+  <!-- Technical Skills -->
+  <section id="skills" class="surface-tint">
     <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
-      <h2 class="section-label text-sm text-slate-400 dark:text-slate-500 mb-8">Technical Skills</h2>
+      <h2 class="section-label text-sm text-slate-400 dark:text-slate-500 mb-10">Technical Skills</h2>
 
-      <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+      <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
 
-        <div>
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">Languages</h3>
+        <div class="skill-cluster">
+          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Languages</h3>
           <div class="chip-row">
             <span class="skill-chip">Python</span>
             <span class="skill-chip">C++</span>
@@ -663,8 +806,8 @@
           </div>
         </div>
 
-        <div>
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">Applied ML / Research Engineering</h3>
+        <div class="skill-cluster sm:col-span-2 xl:col-span-2">
+          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Applied ML / Research Engineering</h3>
           <div class="chip-row">
             <span class="skill-chip">PyTorch</span>
             <span class="skill-chip">TensorFlow</span>
@@ -682,8 +825,8 @@
           </div>
         </div>
 
-        <div>
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">Backend / Systems</h3>
+        <div class="skill-cluster sm:col-span-2">
+          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Backend / Systems</h3>
           <div class="chip-row">
             <span class="skill-chip">FastAPI</span>
             <span class="skill-chip">Flask</span>
@@ -701,8 +844,8 @@
           </div>
         </div>
 
-        <div>
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">Agent / Infrastructure</h3>
+        <div class="skill-cluster xl:col-span-1">
+          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Agent / Infrastructure</h3>
           <div class="chip-row">
             <span class="skill-chip">MCP servers</span>
             <span class="skill-chip">tool schemas</span>
@@ -716,8 +859,8 @@
           </div>
         </div>
 
-        <div>
-          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">Product / Accessibility</h3>
+        <div class="skill-cluster">
+          <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Product / Accessibility</h3>
           <div class="chip-row">
             <span class="skill-chip">Unity</span>
             <span class="skill-chip">Android plugin development</span>
@@ -731,56 +874,78 @@
     </div>
   </section>
 
-  <!-- Approach — demoted, grounded, trimmed -->
-  <section id="philosophy" class="surface-tint">
-    <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
-      <h2 class="section-label text-sm text-slate-400 dark:text-slate-500 mb-8">Approach</h2>
-      <div class="max-w-2xl space-y-6">
+  <!-- Approach — compact, supportive, not central -->
+  <section id="philosophy">
+    <div class="mx-auto max-w-5xl px-6 py-16 md:py-20">
+      <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6">How I work</p>
+      <div class="grid sm:grid-cols-3 gap-4">
         <p class="approach-quote">
-          Retrieval accuracy is measurable. A ~90% relevant-context hit rate at 12–15 ms doesn't happen without scoring pipelines that are deterministic and tunable.
+          Retrieval accuracy is measurable. A ~90% hit rate at 12–15 ms doesn't happen without scoring pipelines that are deterministic and tunable.
         </p>
         <p class="approach-quote">
           Eval harnesses before shipping. If a ranking change can't be measured against a regression suite, it isn't production-ready.
         </p>
         <p class="approach-quote">
-          Systems that serve people with different needs require more rigorous design, not less. Accessibility work taught me to treat deliberate constraints as a feature, not an afterthought.
+          Systems that serve people with different needs require more rigorous design, not less. Constraints are a feature, not an afterthought.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact">
-    <div class="mx-auto max-w-5xl px-6 py-24 md:py-32">
+  <section id="contact" class="surface-tint">
+    <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
       <h2 class="section-label text-sm text-slate-400 dark:text-slate-500 mb-8">Contact</h2>
 
-      <div class="max-w-xl">
-        <p class="text-2xl md:text-3xl font-semibold tracking-tight leading-snug text-slate-900 dark:text-slate-100">
-          Open to software engineering roles in <span class="bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">applied ML systems, research infrastructure, and production backend work.</span>
-        </p>
-        <p class="mt-4 text-slate-500 dark:text-slate-400 leading-relaxed">
-          Particularly interested in roles at the intersection of systems engineering and applied ML — retrieval, ranking, evaluation pipelines, agent infrastructure, or accessible AI research. Based in Singapore.
-        </p>
+      <div class="grid lg:grid-cols-[1fr_auto] gap-10 items-start">
+        <div class="max-w-xl">
+          <p class="text-2xl md:text-3xl font-semibold tracking-tight leading-snug text-slate-900 dark:text-slate-100">
+            Open to roles in <span class="bg-gradient-to-r from-brand-700 to-brand-500 bg-clip-text text-transparent">applied ML systems, research infra, and production backend work.</span>
+          </p>
+          <p class="mt-4 text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
+            Interested in retrieval, ranking, evaluation pipelines, agent infrastructure, or accessible AI research. Based in Singapore.
+          </p>
 
-        <div class="mt-8 flex flex-wrap items-center gap-3">
-          <a href="mailto:guruprasadnayak24@gmail.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-all shadow-sm hover:shadow-md">
-            <i data-lucide="mail" class="h-4 w-4"></i>
-            guruprasadnayak24@gmail.com
-          </a>
-          <a href="Guruprasad_Nayak_Resume.pdf" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-brand-300 hover:text-brand-700 hover:bg-brand-50 dark:hover:border-brand-500 dark:hover:text-brand-300 font-medium text-sm transition-all">
-            <i data-lucide="file-text" class="h-4 w-4"></i>
-            Resume PDF
-          </a>
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a href="mailto:guruprasadnayak24@gmail.com"
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-all shadow-sm hover:shadow-md">
+              <i data-lucide="mail" class="h-4 w-4"></i>
+              guruprasadnayak24@gmail.com
+            </a>
+            <a href="Guruprasad_Nayak_Resume.pdf"
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-brand-300 hover:text-brand-700 hover:bg-brand-50 dark:hover:border-brand-500 dark:hover:text-brand-300 font-medium text-sm transition-all">
+              <i data-lucide="file-text" class="h-4 w-4"></i>
+              Resume PDF
+            </a>
+          </div>
+          <div class="mt-4 flex items-center gap-5 text-sm">
+            <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener"
+               class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+              <i data-lucide="linkedin" class="h-4 w-4"></i>
+              LinkedIn
+            </a>
+            <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener"
+               class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+              <i data-lucide="github" class="h-4 w-4"></i>
+              GitHub
+            </a>
+          </div>
         </div>
-        <div class="mt-5 flex items-center gap-5 text-sm">
-          <a href="https://www.linkedin.com/in/guru-nayak" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
-            <i data-lucide="linkedin" class="h-4 w-4"></i>
-            LinkedIn
-          </a>
-          <a href="https://github.com/I-c-e-m-a-n" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
-            <i data-lucide="github" class="h-4 w-4"></i>
-            GitHub
-          </a>
+
+        <!-- Contact proof strip -->
+        <div class="grid grid-cols-1 gap-3 min-w-[220px]">
+          <div class="trust-item">
+            <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Location</span>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Singapore</span>
+          </div>
+          <div class="trust-item">
+            <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Open to</span>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Full-time SWE / Research Eng</span>
+          </div>
+          <div class="trust-item">
+            <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Focus areas</span>
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Retrieval · ML Infra · Backend</span>
+          </div>
         </div>
       </div>
     </div>
