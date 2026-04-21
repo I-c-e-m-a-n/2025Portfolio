@@ -9,6 +9,7 @@
      - Active section tracking via IntersectionObserver
      - Section-aware accent colour transitions (--section-accent CSS var)
      - Scroll reveal with data-reveal-delay auto-stagger
+     - Tech-details <details> open animation
      - Current year in footer
    ============================================================ */
 
@@ -25,10 +26,11 @@ const SECTION_THEMES = {
   contact:    { bg: 'transparent',                        accent: '#1a73e8' },
 };
 
-/* ── Lucide icon init ─────────────────────────────── */
+/* ── Lucide icon init ───────────────────────────────────────── */
 /*
- * Lucide is loaded synchronously (no defer) so window.lucide is guaranteed
- * to exist before this script executes. Direct call is safe.
+ * lucide.min.js (UMD) is loaded synchronously before this deferred script.
+ * window.lucide is guaranteed present. We call createIcons() once after
+ * DOM is ready (boot runs on DOMContentLoaded via defer).
  */
 function initIcons() {
   if (window.lucide && typeof window.lucide.createIcons === 'function') {
@@ -59,10 +61,12 @@ function toggleTheme() {
 
 function updateThemeButton() {
   const isDark = document.documentElement.classList.contains('dark');
-  const moonIcons = document.querySelectorAll('[data-theme-icon="moon"]');
-  const sunIcons  = document.querySelectorAll('[data-theme-icon="sun"]');
-  moonIcons.forEach(el => el.style.display = isDark ? 'none' : 'block');
-  sunIcons.forEach(el  => el.style.display = isDark ? 'block' : 'none');
+  document.querySelectorAll('[data-theme-icon="moon"]').forEach(el => {
+    el.style.display = isDark ? 'none' : 'inline-block';
+  });
+  document.querySelectorAll('[data-theme-icon="sun"]').forEach(el => {
+    el.style.display = isDark ? 'inline-block' : 'none';
+  });
 }
 
 /* ── Navbar scroll shadow ──────────────────────────────────── */
@@ -184,38 +188,49 @@ function initSectionTracking() {
   if (!sections.length) return;
 
   /*
-   * rootMargin: top offset keeps the nav height in account so a section
-   * becomes "active" when its top edge clears the navbar.
-   * Bottom margin of -55% means we need at least 45% of the viewport
-   * covered before triggering — works on both desktop and mobile where
-   * sections can be taller than the viewport.
+   * Track which section is most prominent in the viewport.
+   * We keep a map of currently intersecting sections and pick the one
+   * with the largest intersection ratio each time an entry changes.
    */
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const id = entry.target.id;
+  const intersecting = new Map();
 
-      // Update nav active state
-      navLinks.forEach(a => {
-        const isActive = a.dataset.section === id;
-        a.classList.toggle('active', isActive);
-        // aria-current is more semantically correct than just a CSS class
-        if (isActive) {
-          a.setAttribute('aria-current', 'location');
-        } else {
-          a.removeAttribute('aria-current');
-        }
-      });
-
-      // Update section-aware CSS variable on root
-      const theme = SECTION_THEMES[id];
-      if (theme) {
-        document.documentElement.style.setProperty('--section-accent', theme.accent);
+  function activateSection(id) {
+    navLinks.forEach(a => {
+      const isActive = a.dataset.section === id;
+      a.classList.toggle('active', isActive);
+      if (isActive) {
+        a.setAttribute('aria-current', 'location');
+      } else {
+        a.removeAttribute('aria-current');
       }
     });
+    const theme = SECTION_THEMES[id];
+    if (theme) {
+      document.documentElement.style.setProperty('--section-accent', theme.accent);
+    }
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        intersecting.set(entry.target.id, entry.intersectionRatio);
+      } else {
+        intersecting.delete(entry.target.id);
+      }
+    });
+
+    if (intersecting.size === 0) return;
+
+    // Pick the section with the highest intersection ratio
+    let bestId = null;
+    let bestRatio = -1;
+    intersecting.forEach((ratio, id) => {
+      if (ratio > bestRatio) { bestRatio = ratio; bestId = id; }
+    });
+    if (bestId) activateSection(bestId);
   }, {
-    rootMargin: '-10% 0px -55% 0px',
-    threshold: 0,
+    rootMargin: '-8% 0px -52% 0px',
+    threshold: [0, 0.1, 0.25, 0.5],
   });
 
   sections.forEach(s => observer.observe(s));
@@ -244,7 +259,6 @@ function initScrollReveal() {
     if (siblings.length < 2) return;
     siblings.forEach((sib, i) => {
       if (!sib.hasAttribute('data-reveal-delay')) {
-        // cap at 4 to avoid delays growing too long
         sib.setAttribute('data-reveal-delay', String(Math.min(i + 1, 4)));
       }
     });
@@ -258,11 +272,42 @@ function initScrollReveal() {
       }
     });
   }, {
-    rootMargin: '0px 0px -5% 0px',
-    threshold: 0.04,
+    rootMargin: '0px 0px -4% 0px',
+    threshold: 0.03,
   });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+/* ── Tech-details panel smooth open animation ──────────────── */
+function initTechDetails() {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('.tech-details').forEach(details => {
+    const body = details.querySelector('.tech-details-body');
+    const summary = details.querySelector('.tech-details-summary');
+    if (!body || !summary) return;
+
+    details.addEventListener('toggle', () => {
+      if (details.open) {
+        /*
+         * createIcons() on the full document is safe to call multiple times
+         * (Lucide skips already-replaced elements). This ensures any icons
+         * inside a lazily-opened panel are rendered.
+         */
+        if (window.lucide) window.lucide.createIcons();
+
+        // Reveal items inside the opened panel
+        if (!reducedMotion) {
+          body.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+            requestAnimationFrame(() => el.classList.add('visible'));
+          });
+        } else {
+          body.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        }
+      }
+    }, { passive: true });
+  });
 }
 
 /* ── Footer year ───────────────────────────────────────────── */
@@ -278,14 +323,18 @@ function initThemeButton() {
 }
 
 /* ── Bootstrap ─────────────────────────────────────────────── */
+/*
+ * Script is loaded with defer, so this runs after HTML parsing is complete.
+ * document.readyState will be 'interactive' or 'complete' — never 'loading'.
+ * We listen for DOMContentLoaded as a safety net for edge-case browsers.
+ */
 function boot() {
-  // 1. Theme is already applied by the inline script in <head>.
-  //    Only persist if there is no saved value yet (first visit).
+  // Theme already applied by the inline <head> script before first paint.
+  // Persist the preference on first visit.
   if (!localStorage.getItem('theme')) {
     applyTheme(getPreferredTheme());
   }
 
-  // 2. Wire up all behaviors
   initThemeButton();
   updateThemeButton();
   initNavScroll();
@@ -293,21 +342,16 @@ function boot() {
   initMobileNav();
   initSectionTracking();
   initScrollReveal();
+  initTechDetails();
   initYear();
 
-  // 3. Initialize icons — with retry to handle Lucide defer timing
+  // Icons: lucide.min.js is synchronous and loaded before this deferred
+  // script runs, so createIcons() has full DOM access here.
   initIcons();
 }
 
-// Run immediately if DOM is ready, otherwise wait
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', boot);
 } else {
   boot();
 }
-
-// Also hook into Lucide's own load event as a secondary safety net
-window.addEventListener('load', () => {
-  if (window.lucide) window.lucide.createIcons();
-  updateThemeButton();
-});

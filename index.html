@@ -1,6 +1,5 @@
-<!-- https://i-c-e-m-a-n.github.io/2025Portfolio/ -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,8 +8,9 @@
   <title>Guruprasad Nayak | Research SWE · Retrieval, Ranking &amp; Applied ML Systems</title>
   <meta name="description" content="Research-to-production engineer. Builds retrieval and ranking pipelines, applied ML infrastructure, and evaluation systems. 12–15 ms multi-stage retrieval at ~90% context hit rate. B.S. CS, University of Delaware. Based in Singapore." />
   <meta name="author" content="Guruprasad Nayak" />
-  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f7f9fc" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#090e1a" media="(prefers-color-scheme: dark)" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://i-c-e-m-a-n.github.io/2025Portfolio/" />
 
@@ -22,26 +22,36 @@
   <meta property="og:description" content="Research-to-production engineer. Retrieval and ranking pipelines, applied ML infrastructure, evaluation systems. 12–15 ms latency, ~90% context hit rate." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://i-c-e-m-a-n.github.io/2025Portfolio/" />
-  <meta property="og:image" content="https://i-c-e-m-a-n.github.io/2025Portfolio/assets/og-image.svg" />
+  <meta property="og:image" content="https://i-c-e-m-a-n.github.io/2025Portfolio/assets/og-image.png" />
   <meta property="og:image:alt" content="Guruprasad Nayak — Research SWE. Retrieval, ranking, and applied ML systems." />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Guruprasad Nayak | Research SWE · Retrieval, Ranking &amp; Applied ML" />
   <meta name="twitter:description" content="Research-to-production engineer. Retrieval and ranking pipelines, applied ML infrastructure, evaluation systems." />
-  <meta name="twitter:image" content="https://i-c-e-m-a-n.github.io/2025Portfolio/assets/og-image.svg" />
+  <meta name="twitter:image" content="https://i-c-e-m-a-n.github.io/2025Portfolio/assets/og-image.png" />
   <meta name="twitter:image:alt" content="Guruprasad Nayak — Research SWE. Retrieval, ranking, and applied ML systems." />
 
-  <!-- Fonts: Inter (primary) + JetBrains Mono (code/mono) — preconnect then link for minimal render-blocking -->
+  <!-- Fonts: Inter + JetBrains Mono.
+       Non-render-blocking: load as print then swap to all on load.
+       display=swap prevents FOIT. System-font stack covers first paint. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        media="print"
+        onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" />
+  </noscript>
 
   <!-- Theme: applied before first paint to prevent flash -->
   <script>
     (function() {
+      document.documentElement.classList.remove('no-js');
       var saved = localStorage.getItem('theme');
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (saved === 'dark' || (!saved && prefersDark)) {
@@ -53,7 +63,7 @@
   <!-- Portfolio CSS -->
   <link rel="stylesheet" href="assets/style.css" />
 
-  <!-- Lucide icons v0.475.0 — self-hosted, loaded synchronously so icons render on first paint -->
+  <!-- Lucide icons v0.475.0 — self-hosted UMD, synchronous so icons are available before main.js runs -->
   <script src="assets/lucide.min.js"></script>
 
   <!-- Structured data -->
@@ -138,7 +148,7 @@
          aria-modal="true"
          aria-label="Navigation menu"
          hidden>
-      <div class="mobile-nav-inner container">
+      <div class="mobile-nav-inner">
         <div class="mobile-nav-header">
           <span class="mobile-nav-title">Navigation</span>
           <button id="mobile-close-btn" class="nav-mobile-btn" aria-label="Close navigation menu">
@@ -165,21 +175,22 @@
        HERO
   ══════════════════════════════════════════════════════════ -->
   <main id="main-content">
-  <section id="top" class="hero-section section">
+  <section id="top" class="hero-section section" aria-label="Introduction">
     <div class="container hero-inner">
 
       <!-- Left: identity + thesis -->
       <div>
-        <p class="hero-eyebrow">Singapore &middot; B.S. CS, University of Delaware &middot; Open to Research SWE roles</p>
+        <p class="hero-eyebrow">Singapore &middot; B.S. CS, University of Delaware &middot; Research SWE</p>
 
         <h1 class="hero-headline">
-          Retrieval systems, ML evaluation,<br class="hero-break" /><span class="accent">and accessible AI research.</span>
+          Retrieval systems,<br class="hero-break" /> ML evaluation, <span class="accent">and accessible AI research.</span>
         </h1>
 
         <p class="hero-sub">
           I build production retrieval and ranking pipelines and the evaluation infrastructure
-          that keeps them honest. I also have a research background in accessible AI systems
-          for children on the autism spectrum, where the engineering constraints are unusually hard.
+          that verifies they work. Research background in accessible AI systems
+          for children on the autism spectrum &mdash; a domain where correctness constraints
+          are unusually hard and user impact is direct.
         </p>
 
         <div class="hero-proof-strip">
@@ -196,8 +207,8 @@
             <span class="hero-proof-label">unit and integration tests</span>
           </div>
           <div class="hero-proof-item">
-            <span class="hero-proof-value">UDaily</span>
-            <span class="hero-proof-label">research coverage, Mar 2023</span>
+            <span class="hero-proof-value">Press</span>
+            <span class="hero-proof-label">UDaily feature, Mar 2023</span>
           </div>
         </div>
 
@@ -215,10 +226,26 @@
             GitHub
           </a>
         </div>
+
+        <!-- Role-alignment signal band -->
+        <div class="strength-band" aria-label="Core strengths">
+          <div class="strength-item">
+            <i data-lucide="search" style="width:0.875rem;height:0.875rem"></i>
+            <span>Retrieval &amp; ranking systems</span>
+          </div>
+          <div class="strength-item">
+            <i data-lucide="gauge" style="width:0.875rem;height:0.875rem"></i>
+            <span>ML evaluation infrastructure</span>
+          </div>
+          <div class="strength-item">
+            <i data-lucide="accessibility" style="width:0.875rem;height:0.875rem"></i>
+            <span>Accessible AI research</span>
+          </div>
+        </div>
       </div>
 
       <!-- Right: credential panel -->
-      <div class="trust-panel reveal" data-reveal-delay="2">
+      <aside class="trust-panel reveal" data-reveal-delay="2" aria-label="Credentials">
         <p class="trust-panel-label">Credentials</p>
 
         <div class="stack-4">
@@ -253,7 +280,7 @@
             <p class="metric-desc">University of Delaware, 2022. Accessible AI systems for children on the autism spectrum. Featured in UDaily, March 2023.</p>
           </div>
         </div>
-      </div>
+      </aside>
 
     </div>
   </section>
@@ -264,7 +291,7 @@
   ══════════════════════════════════════════════════════════ -->
   <section id="projects" class="section">
     <div class="container section-inner">
-      <h2 class="section-label">Projects</h2>
+      <h2 class="section-label"><span>Projects</span></h2>
 
       <div class="stack-5">
 
@@ -350,7 +377,7 @@
           <div class="proj-card-header">
             <div class="proj-header-top">
               <div>
-                <p class="proj-label blue">Personal Project</p>
+                <p class="proj-label blue">Personal &middot; Production</p>
                 <h3 class="proj-title">Multi-Service AI Backend with Capability Routing</h3>
               </div>
               <div class="proof-strip">
@@ -715,7 +742,7 @@
           <div class="proj-card-header">
             <div class="proj-header-top">
               <div>
-                <p class="proj-label blue">Personal Project &middot; ML Research</p>
+                <p class="proj-label blue">Personal &middot; ML / Evaluation</p>
                 <h3 class="proj-title">BTC 24-Hour Price Forecaster</h3>
               </div>
               <div class="proof-strip">
@@ -950,7 +977,7 @@
   ══════════════════════════════════════════════════════════ -->
   <section id="experience" class="section surface-alt">
     <div class="container section-inner">
-      <h2 class="section-label">Experience</h2>
+      <h2 class="section-label"><span>Experience</span></h2>
 
       <div class="stack-4">
 
@@ -974,15 +1001,11 @@
             </li>
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Refactored latency-critical Python components into C++ to reduce hot-path overhead in inference and backend processing.</span>
+              <span>Profiled and benchmarked inference and retrieval hot paths; refactored latency-critical Python components into C++ following measurement. Performance decisions driven by profiler output, not assumption.</span>
             </li>
             <li class="exp-bullet">
               <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Built MCP servers and tool interfaces: tool schema definitions, execution flow, structured logging, and observability instrumentation for agent-facing integrations.</span>
-            </li>
-            <li class="exp-bullet">
-              <span class="exp-bullet-marker">&#x2013;</span>
-              <span>Owned production responsibilities across multi-service AI infrastructure: release validation, incident response, alert triage, and uptime-sensitive fixes.</span>
+              <span>Owned production responsibilities across multi-service AI infrastructure: release validation, incident response, alert triage, and uptime-sensitive fixes under on-call conditions.</span>
             </li>
           </ul>
         </article>
@@ -1087,12 +1110,12 @@
             <div class="cert-item">
               <p class="cert-name">Certified Ethical Hacker (CEH)</p>
               <p class="cert-issuer">EC-Council</p>
-              <p class="cert-detail">OSINT, vulnerability assessment, penetration testing methodology, threat triage. Certificate available on request.</p>
+              <p class="cert-detail">OSINT, vulnerability assessment, penetration testing methodology, threat triage.</p>
             </div>
             <div class="cert-item">
               <p class="cert-name">Artificial Intelligence: Implications for Business Strategy</p>
               <p class="cert-issuer">MIT Sloan Executive Education</p>
-              <p class="cert-detail">AI strategy, applied ML decision-making, organizational deployment of ML systems. Certificate available on request.</p>
+              <p class="cert-detail">AI strategy, applied ML systems, organizational deployment of generative AI.</p>
             </div>
           </div>
         </div>
@@ -1107,7 +1130,7 @@
   ══════════════════════════════════════════════════════════ -->
   <section id="research" class="section">
     <div class="container section-inner">
-      <h2 class="section-label">Research &mdash; Flagship Case Study</h2>
+      <h2 class="section-label"><span>Research &mdash; Flagship</span></h2>
 
       <div class="research-card reveal">
         <div class="research-header">
@@ -1123,13 +1146,13 @@
 
         <!-- Research question and context -->
         <p class="research-body">
-          The research question: can real-time individual control over musical layers (melody,
-          rhythm, harmony) allow children on the autism spectrum to participate in group music
-          activities that are otherwise inaccessible due to sensory overload? I built the full
-          interaction system, session logging and replay tooling, and the generative AI content
-          pipeline. Results from pilot sessions were used by HCI researchers to inform design
-          changes. The project was covered in UDaily in March 2023 and is listed on the Sensify
-          Lab researcher page.
+          Research goal: enable children on the autism spectrum to participate in group music
+          activities by giving each child real-time individual control over musical layers
+          (melody, rhythm, harmony) &mdash; addressing a setting where a fixed soundscape causes
+          sensory overload and excludes participants. I designed and built the full interaction
+          system, the session logging and replay pipeline, and the generative AI content
+          pipeline with a neural network safety gate. Pilot session data was used by HCI
+          researchers to drive design changes. Covered in UDaily, March 2023.
         </p>
 
         <!-- What I built vs system context -->
@@ -1272,7 +1295,7 @@
   ══════════════════════════════════════════════════════════ -->
   <section id="skills" class="section surface-alt">
     <div class="container section-inner">
-      <h2 class="section-label">Technical Skills</h2>
+      <h2 class="section-label"><span>Technical Skills</span></h2>
 
       <div class="skills-grid">
 
@@ -1292,12 +1315,12 @@
           <div class="chip-row">
             <span class="skill-chip">PyTorch</span>
             <span class="skill-chip">Hugging Face Transformers</span>
+            <span class="skill-chip">transformer internals</span>
             <span class="skill-chip">sentence-transformers</span>
             <span class="skill-chip">LightGBM</span>
             <span class="skill-chip">BM25</span>
             <span class="skill-chip">FinBERT</span>
             <span class="skill-chip">quantile regression</span>
-            <span class="skill-chip">walk-forward evaluation</span>
             <span class="skill-chip">model evaluation</span>
           </div>
         </div>
@@ -1318,11 +1341,11 @@
         <div class="skill-cluster reveal">
           <p class="skill-cluster-label">Research / Accessibility / HCI</p>
           <div class="chip-row">
-            <span class="skill-chip">accessible AI systems</span>
-            <span class="skill-chip">session logging &amp; replay</span>
+            <span class="skill-chip">accessible AI</span>
+            <span class="skill-chip">session instrumentation</span>
             <span class="skill-chip">HCI collaboration</span>
-            <span class="skill-chip">behavioral analysis tooling</span>
-            <span class="skill-chip">safety-oriented content filtering</span>
+            <span class="skill-chip">safety filtering</span>
+            <span class="skill-chip">benchmarking</span>
           </div>
         </div>
 
@@ -1347,15 +1370,15 @@
   ══════════════════════════════════════════════════════════ -->
   <section id="contact" class="section surface-alt">
     <div class="container section-inner">
-      <h2 class="section-label">Contact</h2>
+      <h2 class="section-label"><span>Contact</span></h2>
 
       <div class="contact-layout">
         <div class="contact-body">
-          <h2 class="contact-heading reveal">
+          <p class="contact-heading reveal">
             Open to roles in <span class="accent">research engineering, retrieval systems, and applied ML.</span>
-          </h2>
+          </p>
           <p class="exp-card-text reveal">
-            Based in Singapore. Interested in roles where the work involves building retrieval and ranking systems, ML evaluation infrastructure, or generative AI research engineering. Email is the best way to reach me.
+            Based in Singapore. Looking for roles that involve advancing retrieval, ranking, or generative AI infrastructure &mdash; particularly where correctness is measured, not assumed. Email is the best way to reach me.
           </p>
 
           <div class="hero-cta-row">
@@ -1410,7 +1433,7 @@
   <!-- ══════════════════════════════════════════════════════════
        FOOTER
   ══════════════════════════════════════════════════════════ -->
-  <footer class="footer no-print">
+  <footer class="footer no-print" aria-label="Site footer">
     <div class="container footer-inner">
       <span>&copy; <span id="footer-year"></span> Guruprasad Nayak</span>
       <a href="#top" class="footer-back">
@@ -1424,7 +1447,7 @@
   <!-- ══════════════════════════════════════════════════════════
        SCRIPTS
   ══════════════════════════════════════════════════════════ -->
-  <script src="assets/main.js"></script>
+  <script src="assets/main.js" defer></script>
 
 </body>
 </html>
