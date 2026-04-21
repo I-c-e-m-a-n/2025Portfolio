@@ -23,7 +23,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://i-c-e-m-a-n.github.io/2025Portfolio/" />
   <meta property="og:image" content="https://i-c-e-m-a-n.github.io/2025Portfolio/assets/og-image.png" />
-  <meta property="og:image:alt" content="Guruprasad Nayak — Research SWE. Retrieval, ranking, and applied ML systems." />
+  <meta property="og:image:alt" content="Guruprasad Nayak - Research SWE. Retrieval, ranking, and applied ML systems." />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/png" />
@@ -33,7 +33,7 @@
   <meta name="twitter:title" content="Guruprasad Nayak | Research SWE · Retrieval, Ranking &amp; Applied ML" />
   <meta name="twitter:description" content="Research-to-production engineer. Retrieval and ranking pipelines, applied ML infrastructure, evaluation systems." />
   <meta name="twitter:image" content="https://i-c-e-m-a-n.github.io/2025Portfolio/assets/og-image.png" />
-  <meta name="twitter:image:alt" content="Guruprasad Nayak — Research SWE. Retrieval, ranking, and applied ML systems." />
+  <meta name="twitter:image:alt" content="Guruprasad Nayak - Research SWE. Retrieval, ranking, and applied ML systems." />
 
   <!-- Fonts: Inter + JetBrains Mono.
        Non-render-blocking: load as print then swap to all on load.
@@ -63,7 +63,7 @@
   <!-- Portfolio CSS -->
   <link rel="stylesheet" href="assets/style.css" />
 
-  <!-- Lucide icons v0.475.0 — self-hosted UMD, synchronous so icons are available before main.js runs -->
+  <!-- Lucide icons v0.475.0 - self-hosted UMD, synchronous so icons are available before main.js runs -->
   <script src="assets/lucide.min.js"></script>
 
   <!-- Structured data -->
@@ -101,7 +101,7 @@
 
 <body>
 
-  <!-- Skip link (accessibility — first focusable element) -->
+  <!-- Skip link (accessibility - first focusable element) -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ══════════════════════════════════════════════════════════
@@ -189,7 +189,7 @@
         <p class="hero-sub">
           I build production retrieval and ranking pipelines and the evaluation infrastructure
           that verifies they work. Research background in accessible AI systems
-          for children on the autism spectrum &mdash; a domain where correctness constraints
+          for children on the autism spectrum - a domain where correctness constraints
           are unusually hard and user impact is direct.
         </p>
 
@@ -269,7 +269,7 @@
               <span class="metric-num-value" style="font-size:0.85rem">AI Strategy</span>
               <span class="metric-unit">MIT Sloan</span>
             </div>
-            <p class="metric-desc">MIT Sloan Executive Education: Artificial Intelligence — Implications for Business Strategy.</p>
+            <p class="metric-desc">MIT Sloan Executive Education: Artificial Intelligence - Implications for Business Strategy.</p>
           </div>
 
           <div class="metric-card">
@@ -405,7 +405,7 @@
               </div>
               <div class="case-study-item">
                 <span class="case-label">Why it was hard</span>
-                <span class="case-text">Legacy keyword-routing logic overrode structured intent classification in edge cases. The fix required a strict three-layer authority chain — intent compiler, then execution planner, then capability registry — with no way to bypass earlier layers.</span>
+                <span class="case-text">Legacy keyword-routing logic overrode structured intent classification in edge cases. The fix required a strict three-layer authority chain - intent compiler, then execution planner, then capability registry - with no way to bypass earlier layers.</span>
               </div>
               <div class="case-study-item">
                 <span class="case-label">What I built</span>
@@ -484,10 +484,10 @@
                   <figcaption>Service boundaries &middot; Intent Compiler &rarr; Execution Planner &rarr; Capability Router &rarr; services</figcaption>
                 </figure>
 
-                <!-- Test suite summary — 72 test files confirmed from tests/ directory -->
+                <!-- Test suite summary - 72 test files confirmed from tests/ directory -->
                 <div class="proof-artifact reveal">
                   <div class="proof-artifact-header">
-                    <span class="proof-artifact-label">Test Suite Breakdown &mdash; 72 Test Modules</span>
+                    <span class="proof-artifact-label">Test Suite Breakdown - 72 Test Modules</span>
                     <span class="proof-artifact-source">Source: <code>tests/</code> directory &middot; pytest &middot; coverage gates all pipeline merges</span>
                   </div>
                   <div class="test-summary-grid">
@@ -634,11 +634,11 @@
                   </svg>
                   <figcaption>Route &rarr; Service &rarr; ProviderRouter &rarr; Providers (AUTO fallback: SearXNG &rarr; DDGS &rarr; Brave &rarr; Serper)</figcaption>
                 </figure>
-                <!-- Circuit breaker state machine — from services/resilience.py CircuitState enum
+                <!-- Circuit breaker state machine - from services/resilience.py CircuitState enum
                      Config: failure_threshold=5, success_threshold=2, open_duration=30s -->
                 <div class="proof-artifact reveal">
                   <div class="proof-artifact-header">
-                    <span class="proof-artifact-label">Per-Provider Circuit Breaker &mdash; State Machine</span>
+                    <span class="proof-artifact-label">Per-Provider Circuit Breaker - State Machine</span>
                     <span class="proof-artifact-source">Source: <code>app/services/resilience.py</code> &middot; failure_threshold=5 &middot; open_duration=30s &middot; half_open_max_calls=3</span>
                   </div>
                   <figure class="arch-diagram" aria-label="Circuit breaker state machine diagram">
@@ -681,7 +681,7 @@
 
                   <!-- Real API schema excerpt from models/search.py SearchRequest -->
                   <div class="proof-artifact-header" style="margin-top:1.25rem">
-                    <span class="proof-artifact-label">API Request Schema &mdash; POST /v1/search/web</span>
+                    <span class="proof-artifact-label">API Request Schema - POST /v1/search/web</span>
                     <span class="proof-artifact-source">Source: <code>app/models/search.py</code> &middot; Pydantic v2 &middot; OpenAPI auto-generated</span>
                   </div>
                   <div class="schema-excerpt">
@@ -777,7 +777,7 @@
               </div>
               <div class="case-study-item">
                 <span class="case-label">Result</span>
-                <span class="case-text">Trained model with feature importance CSVs across all three horizons. Top features by importance: volatility regime features (skew, kurtosis, std over 48h and 168h windows), OBV, and ATR. FinBERT sentiment features scored zero importance in this training run — the signal did not survive the walk-forward evaluation window. Code on GitHub.</span>
+                <span class="case-text">Trained model with feature importance CSVs across all three horizons. Top features by importance: volatility regime features (skew, kurtosis, std over 48h and 168h windows), OBV, and ATR. FinBERT sentiment features scored zero importance in this training run - the signal did not survive the walk-forward evaluation window. Code on GitHub.</span>
               </div>
             </div>
 
@@ -798,7 +798,7 @@
                 <!-- Real feature importance data from models/20251213_203648/importance_24h.csv -->
                 <div class="proof-artifact reveal">
                   <div class="proof-artifact-header">
-                    <span class="proof-artifact-label">Feature Importance &mdash; 24h Horizon</span>
+                    <span class="proof-artifact-label">Feature Importance - 24h Horizon</span>
                     <span class="proof-artifact-source">Source: <code>models/20251213_203648/importance_24h.csv</code> &middot; LightGBM split gain &middot; trained Dec 2025</span>
                   </div>
                   <div class="feat-importance-grid">
@@ -843,7 +843,7 @@
                       <span class="feat-score feat-score--zero">0</span>
                     </div>
                   </div>
-                  <p class="proof-artifact-note">All FinBERT sentiment features (4h / 8h / 24h windows) scored 0 across all three horizon models. Volatility regime and calendar features dominate. Conceptual diagram — actual bar widths scaled to model output values.</p>
+                  <p class="proof-artifact-note">All FinBERT sentiment features (4h / 8h / 24h windows) scored 0 across all three horizon models. Volatility regime and calendar features dominate. Conceptual diagram - actual bar widths scaled to model output values.</p>
                 </div>
 
                 <div class="proj-detail-grid">
@@ -853,7 +853,7 @@
                   </div>
                   <div class="proj-detail-cell">
                     <p class="proj-detail-label">NLP: FinBERT (negative finding)</p>
-                    <p class="proj-detail-text">FinBERT applied to CryptoPanic headlines. Rolling aggregations at 4h, 8h, and 24h windows with momentum features. In the trained model, all sentiment features scored 0 importance across all three horizons — the signal did not survive the walk-forward evaluation window. Feature importance CSVs included in the repo.</p>
+                    <p class="proj-detail-text">FinBERT applied to CryptoPanic headlines. Rolling aggregations at 4h, 8h, and 24h windows with momentum features. In the trained model, all sentiment features scored 0 importance across all three horizons - the signal did not survive the walk-forward evaluation window. Feature importance CSVs included in the repo.</p>
                   </div>
                   <div class="proj-detail-cell">
                     <p class="proj-detail-label">Evaluation</p>
@@ -1039,7 +1039,7 @@
           </ul>
         </article>
 
-        <!-- VIP Research — kept shorter since Projects section has the depth -->
+        <!-- VIP Research - kept shorter since Projects section has the depth -->
         <article class="exp-card reveal">
           <div class="exp-header">
             <div>
@@ -1103,7 +1103,7 @@
           </div>
         </div>
 
-        <!-- Certifications — standalone visible block -->
+        <!-- Certifications - standalone visible block -->
         <div class="edu-card reveal">
           <p class="trust-item-label" style="margin-bottom:1rem">Certifications</p>
           <div class="grid-auto-2">
@@ -1117,6 +1117,16 @@
               <p class="cert-issuer">MIT Sloan Executive Education</p>
               <p class="cert-detail">AI strategy, applied ML systems, organizational deployment of generative AI.</p>
             </div>
+            <div class="cert-item">
+              <p class="cert-name">Blockchain Technologies: Business Innovation and Application</p>
+              <p class="cert-issuer">MIT Sloan Executive Education</p>
+              <p class="cert-detail">Distributed ledger architecture, consensus mechanisms, smart contracts, enterprise application design.</p>
+            </div>
+            <div class="cert-item">
+              <p class="cert-name">Internet of Things: Business Implications and Opportunities</p>
+              <p class="cert-issuer">MIT Sloan Executive Education</p>
+              <p class="cert-detail">IoT systems architecture, sensor networks, edge computing, data pipelines for connected devices.</p>
+            </div>
           </div>
         </div>
 
@@ -1126,11 +1136,11 @@
 
 
   <!-- ══════════════════════════════════════════════════════════
-       RESEARCH — FLAGSHIP CASE STUDY
+       RESEARCH - FLAGSHIP CASE STUDY
   ══════════════════════════════════════════════════════════ -->
   <section id="research" class="section">
     <div class="container section-inner">
-      <h2 class="section-label"><span>Research &mdash; Flagship</span></h2>
+      <h2 class="section-label"><span>Research - Flagship</span></h2>
 
       <div class="research-card reveal">
         <div class="research-header">
@@ -1148,7 +1158,7 @@
         <p class="research-body">
           Research goal: enable children on the autism spectrum to participate in group music
           activities by giving each child real-time individual control over musical layers
-          (melody, rhythm, harmony) &mdash; addressing a setting where a fixed soundscape causes
+          (melody, rhythm, harmony) - addressing a setting where a fixed soundscape causes
           sensory overload and excludes participants. I designed and built the full interaction
           system, the session logging and replay pipeline, and the generative AI content
           pipeline with a neural network safety gate. Pilot session data was used by HCI
@@ -1179,10 +1189,10 @@
           </div>
         </div>
 
-        <!-- System architecture diagram — conceptual technical diagram -->
+        <!-- System architecture diagram - conceptual technical diagram -->
         <div class="proof-artifact reveal">
           <div class="proof-artifact-header">
-            <span class="proof-artifact-label">System Architecture &mdash; Conceptual Technical Diagram</span>
+            <span class="proof-artifact-label">System Architecture - Conceptual Technical Diagram</span>
             <span class="proof-artifact-source">Hardware input &rarr; Android plugin &rarr; Unity runtime &rarr; Session logger &middot; AI pipeline runs in parallel</span>
           </div>
           <figure class="arch-diagram" aria-label="Accessible music interaction system architecture">
@@ -1277,7 +1287,7 @@
         <div class="research-links">
           <a href="https://sensifylab.cis.udel.edu/people.html" target="_blank" rel="noopener noreferrer" class="research-link">
             <i data-lucide="external-link" style="width:0.875rem;height:0.875rem;opacity:0.7"></i>
-            Sensify Lab &mdash; Researcher Profile
+            Sensify Lab - Researcher Profile
           </a>
           <a href="https://www.udel.edu/udaily/2023/march/listening-device-music-young-children-autism/" target="_blank" rel="noopener noreferrer" class="research-link">
             <i data-lucide="external-link" style="width:0.875rem;height:0.875rem;opacity:0.7"></i>
@@ -1378,7 +1388,7 @@
             Open to roles in <span class="accent">research engineering, retrieval systems, and applied ML.</span>
           </p>
           <p class="exp-card-text reveal">
-            Based in Singapore. Looking for roles that involve advancing retrieval, ranking, or generative AI infrastructure &mdash; particularly where correctness is measured, not assumed. Email is the best way to reach me.
+            Based in Singapore. Looking for roles that involve advancing retrieval, ranking, or generative AI infrastructure - particularly where correctness is measured, not assumed. Email is the best way to reach me.
           </p>
 
           <div class="hero-cta-row">
